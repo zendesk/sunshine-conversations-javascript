@@ -1,12 +1,20 @@
-import Smooch from './smooch';
-import WebhooksAPI from './api/webhooks';
+import AppUsersAPI from './api/appUsers';
+import ConversationsAPI from './api/conversations';
 
-export default class SmoochNode extends Smooch {
-  constructor(serverURL) {
-    super(serverURL);
+const SERVER_URL = 'https://api.smooch.io/v1';
 
-    this.webhooks = new WebhooksAPI({
+export default class Smooch {
+  constructor(serverURL = SERVER_URL) {
+    this.serverURL = serverURL;
+
+    this.appUsers = new AppUsersAPI({
       root: this
     });
+
+    this.conversations = new ConversationsAPI({
+      root: this
+    });
+
+    this.utils = {};
   }
 }

@@ -9,18 +9,18 @@ export default class WebhooksAPI extends BaseAPI {
     });
   }
 
-  create(target, events, auth) {
+  create(target, eventName, auth) {
     const url = this.getFullURL('webhooks');
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {
-      let data = {
+      let attributes = {
         target: target
       };
 
-      if (events) {
-        data.events = events;
+      if (eventName) {
+        attributes.event = eventName;
       }
 
-      return http('POST', url, data, authHeaders);
+      return http('POST', url, attributes, authHeaders);
     });
   }
 
@@ -31,20 +31,20 @@ export default class WebhooksAPI extends BaseAPI {
     });
   }
 
-  update(webhookId, target, events, auth) {
-    if (!target && !events) {
+  update(webhookId, target, eventName, auth) {
+    if (!target && !eventName) {
       return Promise.reject(new Error('Must provide at least one thing to update.'));
     }
 
     const url = this.getFullURL('webhooks', webhookId);
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {
-      let data = {};
+      let attributes = {};
 
-      if (events) {
-        data.events = events;
+      if (eventName) {
+        attributes.event = eventName;
       }
       if (target) {
-        data.target = target;
+        attributes.target = target;
       }
 
       return http('PUT', url, attributes, authHeaders);
@@ -54,7 +54,7 @@ export default class WebhooksAPI extends BaseAPI {
   delete(webhookId, auth) {
     const url = this.getFullURL('webhooks', webhookId);
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {
-      return http('DELETE', url, {}, authHeaders);
+      return http('DELETE', url, undefined, authHeaders);
     });
   }
 }

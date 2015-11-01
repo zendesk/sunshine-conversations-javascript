@@ -5,18 +5,18 @@ export default class BaseAPI {
     this.root = props.root;
   }
 
-  getAuthenticationHeaders(props) {
+  getAuthenticationHeaders(props = {}) {
     if (props.appToken) {
-      return {
+      return Promise.resolve({
         'app-token': props.appToken
-      };
+      });
     } else if (props.jwt) {
-      return {
+      return Promise.resolve({
         'Authorization': 'Bearer ' + props.jwt
-      };
+      });
     }
 
-    return {};
+    return Promise.reject(new Error('Must provide authentication information.'));
   }
 
   getFullURL() {

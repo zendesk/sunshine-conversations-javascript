@@ -3,8 +3,8 @@ import 'isomorphic-fetch';
 function stringifyGETParams(url, data) {
   let query = '';
 
-  for (var key in data) {
-    if (data.hasOwnProperty(key) && data[key] !== null) {
+  for (var key in Object.keys(data)) {
+    if (data[key] !== null) {
       query += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
     }
   }
@@ -33,11 +33,11 @@ function json(response) {
   return response.json();
 }
 
-export default function http(method, url, data , headers = {}) {
+export default function http(method, url, data, headers = {}) {
   method = method.toUpperCase();
 
-  data = Object.assign({}, data);
 
+  console.log('HTTP', method, url, data, headers);
   var fetchOptions = {
     method: method,
     headers: Object.assign({
@@ -46,14 +46,17 @@ export default function http(method, url, data , headers = {}) {
     }, headers)
   };
 
-  if (method === 'GET') {
-    url = stringifyGETParams(url, data);
-  } else if (method === 'POST' || method === 'PUT') {
-    fetchOptions.body = JSON.stringify(data);
+  if (data) {
+    data = Object.assign({}, data);
+
+    if (method === 'GET') {
+      url = stringifyGETParams(url, data);
+    } else if (method === 'POST' || method === 'PUT') {
+      fetchOptions.body = JSON.stringify(data);
+    }
   }
 
   return fetch(url, fetchOptions)
     .then(status)
     .then(json);
 }
-;
