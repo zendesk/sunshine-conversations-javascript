@@ -2,6 +2,9 @@ import BaseAPI from './base';
 import http from '../utils/http';
 
 export default class AppUsersAPI extends BaseAPI {
+  constructor(props) {
+    super(props);
+  }
   init(props, auth) {
     const url = this.getFullURL('init');
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {

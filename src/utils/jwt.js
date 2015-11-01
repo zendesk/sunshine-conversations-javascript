@@ -1,5 +1,4 @@
-'use strict';
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 export function generate(body, secret, keyId) {
   return jwt.sign(body, secret, {

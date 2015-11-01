@@ -24,7 +24,10 @@
     "urljoin": "^0.1.5"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testPathDirs": [
+      "src/"
+    ],
+    "scriptPreprocessor": "<rootDir>/babel-jest.js",
     "testFileExtensions": [
       "es6",
       "js"
