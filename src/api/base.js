@@ -1,6 +1,6 @@
 import urljoin from 'urljoin';
 
-export default class BaseAPI {
+export class BaseAPI {
   constructor(props) {
     this.root = props.root;
   }

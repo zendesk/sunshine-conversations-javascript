@@ -1,7 +1,7 @@
-import BaseAPI from './base';
-import http from '../utils/http';
+import { BaseAPI } from './base';
+import { http } from '../utils/http';
 
-export default class WebhooksAPI extends BaseAPI {
+export class WebhooksAPI extends BaseAPI {
   list(auth) {
     const url = this.getFullURL('webhooks');
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {

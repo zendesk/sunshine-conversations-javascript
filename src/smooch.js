@@ -1,9 +1,9 @@
-import AppUsersAPI from './api/appUsers';
-import ConversationsAPI from './api/conversations';
+import { AppUsersAPI } from './api/appUsers';
+import { ConversationsAPI } from './api/conversations';
 
 const SERVER_URL = 'https://api.smooch.io/v1';
 
-export default class Smooch {
+export class Smooch {
   constructor(serverURL = SERVER_URL) {
     this.serverURL = serverURL;
 

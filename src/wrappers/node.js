@@ -1,1 +1,1 @@
-module.exports = require('../smooch-node').default;
+module.exports = require('../smooch-node').Smooch;

@@ -1,7 +1,7 @@
-import BaseAPI from './base';
-import http from '../utils/http';
+import { BaseAPI } from './base';
+import { http } from '../utils/http';
 
-export default class ConversationsAPI extends BaseAPI {
+export class ConversationsAPI extends BaseAPI {
   get(userId, auth) {
     const url = this.getFullURL('appUsers', userId, 'conversation');
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {

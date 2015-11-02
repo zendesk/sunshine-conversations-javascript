@@ -1,8 +1,8 @@
-import SmoochBase from './smooch';
-import WebhooksAPI from './api/webhooks';
+import { Smooch as SmoochBase } from './smooch';
+import { WebhooksAPI } from './api/webhooks';
 import * as jwt from './utils/jwt';
 
-export default class Smooch extends SmoochBase {
+export class Smooch extends SmoochBase {
   constructor(serverURL) {
     super(serverURL);
 

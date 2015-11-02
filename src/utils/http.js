@@ -33,11 +33,9 @@ function json(response) {
   return response.json();
 }
 
-export default function http(method, url, data, headers = {}) {
+export function http(method, url, data, headers = {}) {
   method = method.toUpperCase();
 
-
-  console.log('HTTP', method, url, data, headers);
   var fetchOptions = {
     method: method,
     headers: Object.assign({
