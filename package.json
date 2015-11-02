@@ -5,7 +5,7 @@
   "main": "lib/wrappers/node.js",
   "browser": "lib/wrappers/browser.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register -R xunit --require ./test-setup.js ./src/**/__tests__/*-test.js",
+    "test": "MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml mocha --compilers js:babel-core/register -R mocha-junit-reporter --require ./test-setup.js ./src/**/__tests__/*-test.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
   },
@@ -22,6 +22,7 @@
     "mocha": "^2.3.3",
     "mocha-as-promised": "^2.0.0",
     "mocha-babel": "^3.0.0",
+    "mocha-junit-reporter": "^1.9.0",
     "should": "^7.1.1",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0"
