@@ -1,5 +1,12 @@
 import 'isomorphic-fetch';
 
+/**
+ * API Response promise - resolves with the requested resource
+ * @typedef APIResponse
+ * @type { Promise }
+ */
+
+
 function stringifyGETParams(url, data) {
   let query = '';
 
