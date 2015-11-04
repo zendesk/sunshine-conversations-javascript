@@ -1,5 +1,5 @@
 describe('Smooch', () => {
-  var Smooch = require('../browser');
+  var Smooch = require('../../../src/wrappers/browser');
 
   it('should not have the webhooks API', () => {
     var smooch = new Smooch();

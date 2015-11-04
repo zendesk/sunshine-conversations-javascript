@@ -5,7 +5,8 @@
   "main": "lib/wrappers/node.js",
   "browser": "lib/wrappers/browser.js",
   "scripts": {
-    "test": "MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml mocha --compilers js:babel-core/register -R mocha-junit-reporter --require ./test-setup.js ./src/**/__tests__/*-test.js",
+    "test": "mocha --compilers js:babel-core/register --require ./test-setup.js ./tests/**/*.spec.js",
+    "test-ci": "MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml mocha --compilers js:babel-core/register -R mocha-junit-reporter --require ./test-setup.js ./tests/**/*.spec.js",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
   },
@@ -31,20 +32,5 @@
     "isomorphic-fetch": "^2.2.0",
     "jsonwebtoken": "^5.4.1",
     "urljoin": "^0.1.5"
-  },
-  "jest": {
-    "testPathDirs": [
-      "src/"
-    ],
-    "scriptPreprocessor": "<rootDir>/babel-jest.js",
-    "testFileExtensions": [
-      "es6",
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "es6"
-    ]
   }
 }

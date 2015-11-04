@@ -1,7 +1,6 @@
 src/
-__tests__
+tests/
 .babelrc
 .esformatter
 .eslintrc
-.flowconfig
 .gitignore

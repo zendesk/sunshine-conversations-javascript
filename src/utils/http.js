@@ -7,7 +7,13 @@ import 'isomorphic-fetch';
  */
 
 
-function stringifyGETParams(url, data) {
+/**
+ * Stringifies query parameters and append them to the url
+ * @param  {string} url  - an url
+ * @param  {object} data - an object containing the query parameters
+ * @return {string}      - the final url
+ */
+export function stringifyGETParams(url, data) {
   let query = '';
 
   for (var key in Object.keys(data)) {
@@ -21,7 +27,7 @@ function stringifyGETParams(url, data) {
   return url;
 }
 
-function status(response) {
+export function handleStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -32,7 +38,7 @@ function status(response) {
   throw error;
 }
 
-function json(response) {
+export function handleBody(response) {
   if (response.status === 202 || response.status === 204) {
     return;
   }
@@ -43,7 +49,7 @@ function json(response) {
 export function http(method, url, data, headers = {}) {
   method = method.toUpperCase();
 
-  var fetchOptions = {
+  let fetchOptions = {
     method: method,
     headers: Object.assign({
       'Accept': 'application/json',
@@ -62,6 +68,6 @@ export function http(method, url, data, headers = {}) {
   }
 
   return fetch(url, fetchOptions)
-    .then(status)
-    .then(json);
+    .then(handleStatus)
+    .then(handleBody);
 }
