@@ -8,11 +8,11 @@ export class WebhooksAPI extends BaseAPI {
 
   validateProps(props, isTargetRequired = false) {
     if (!props || Object.keys(props).length === 0) {
-      return Promise.reject(new Error('Must provide props'));
+      return Promise.reject(new Error('Must provide props.'));
     }
 
     if (isTargetRequired && !props.target) {
-      return Promise.reject(new Error('Must provide a target'));
+      return Promise.reject(new Error('Must provide a target.'));
     }
 
     return Promise.resolve(props);

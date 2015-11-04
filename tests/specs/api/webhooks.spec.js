@@ -6,8 +6,8 @@ describe('Webhooks API', () => {
   const webhookId = 'some-id';
   const noAuthErrorMessage = 'Must provide authentication information.';
   const invalidAuthErrorMessage = 'Must provide a JWT.';
-  const noPropsMessage = 'Must provide props';
-  const noTargetMessage = 'Must provide a target';
+  const noPropsMessage = 'Must provide props.';
+  const noTargetMessage = 'Must provide a target.';
   const auth = {
     jwt: 'jwt'
   };
@@ -158,21 +158,21 @@ describe('Webhooks API', () => {
     it('should return an error if no target', (done) => {
       api.create({
         event: 'event'
-      }).catch((e) => {
+      }, auth).catch((e) => {
         e.message.should.equal(noTargetMessage);
         done();
       })
     });
 
     it('should return an error if no props', (done) => {
-      api.create().catch((e) => {
+      api.create(undefined, auth).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
     });
 
     it('should return an error if props are empty', (done) => {
-      api.create({}).catch((e) => {
+      api.create({}, auth).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
@@ -219,14 +219,14 @@ describe('Webhooks API', () => {
     });
 
     it('should return an error if no props', (done) => {
-      api.update(webhookId).catch((e) => {
+      api.update(webhookId, undefined, auth).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
     });
 
     it('should return an error if props are empty', (done) => {
-      api.update(webhookId, {}).catch((e) => {
+      api.update(webhookId, {}, auth).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
