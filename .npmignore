@@ -1,5 +1,6 @@
 src/
 tests/
+dist/
 .babelrc
 .esformatter
 .eslintrc
