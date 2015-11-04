@@ -33,7 +33,7 @@ export class AppUsersAPI extends BaseAPI {
    * @return {APIResponse}
    */
   get(userId, auth) {
-    const url = this.getFullURL('appUsers', userId);
+    const url = this.getFullURL('appusers', userId);
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {
       return http('GET', url, {}, authHeaders);
     });
@@ -47,7 +47,7 @@ export class AppUsersAPI extends BaseAPI {
    * @return {APIResponse}
    */
   update(userId, attributes, auth) {
-    const url = this.getFullURL('appUsers', userId);
+    const url = this.getFullURL('appusers', userId);
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {
       return http('PUT', url, attributes, authHeaders);
     });
@@ -63,7 +63,7 @@ export class AppUsersAPI extends BaseAPI {
    * @return {APIResponse}
    */
   trackEvent(userId, eventName, auth, attributes = {}) {
-    const url = this.getFullURL('appUsers', userId, 'events');
+    const url = this.getFullURL('appusers', userId, 'events');
     return this.getAuthenticationHeaders(auth).then((authHeaders) => {
       return http('POST', url, {
         name: eventName,

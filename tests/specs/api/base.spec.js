@@ -6,7 +6,7 @@ describe('Base API', () => {
     it('should set this.root', () => {
       const root = {};
 
-      let baseAPI = new BaseAPI({
+      const baseAPI = new BaseAPI({
         root: root
       });
 
@@ -14,14 +14,14 @@ describe('Base API', () => {
     });
 
     it('should not crash if no props', () => {
-      let baseAPI = new BaseAPI();
+      const baseAPI = new BaseAPI();
 
       expect(baseAPI.root).to.be.undefined;
     })
   });
 
   describe('#getAuthenticationHeaders', () => {
-    let baseAPI = new BaseAPI();
+    const baseAPI = new BaseAPI();
 
     it('should return an error if no props provided', (done) => {
       baseAPI.getAuthenticationHeaders().catch(() => {
@@ -79,7 +79,7 @@ describe('Base API', () => {
 
   describe('#getFullURL', () => {
     const serverURL = 'http://some-url.com';
-    let baseAPI = new BaseAPI({
+    const baseAPI = new BaseAPI({
       root: {
         serverURL: serverURL
       }
