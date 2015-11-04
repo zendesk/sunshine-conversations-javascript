@@ -12,7 +12,7 @@ import urljoin from 'urljoin';
  * @class BaseAPI
  */
 export class BaseAPI {
-  constructor(props) {
+  constructor(props = {}) {
     this.root = props.root;
   }
 
