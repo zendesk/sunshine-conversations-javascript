@@ -4,4 +4,4 @@ amd/
 .esformatter
 .eslintrc
 .gitignore
-test-setup.s
+test-setup.js
