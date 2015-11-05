@@ -1,6 +1,6 @@
 {
   "name": "smooch-core",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Javascript wrapper for Smooch API",
   "homepage": "https://smooch.io",
   "main": "lib/wrappers/node.js",
@@ -41,5 +41,8 @@
     "isomorphic-fetch": "^2.2.0",
     "jsonwebtoken": "^5.4.1",
     "urljoin": "^0.1.5"
+  },
+  "release-script": {
+    "bowerRepo": "git@github.com:lemieux/smooch-core-js-bower.git"
   }
 }
