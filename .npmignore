@@ -5,3 +5,5 @@ amd/
 .eslintrc
 .gitignore
 test-setup.js
+tmp-bower-repo
+circle.yml
