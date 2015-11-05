@@ -1,6 +1,6 @@
 {
   "name": "smooch-core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Javascript wrapper for Smooch API",
   "homepage": "https://smooch.io",
   "main": "lib/wrappers/node.js",
@@ -11,7 +11,7 @@
     "build": "babel -d lib/ src/ && npm run browserify:dist",
     "browserify:dev": "mkdir -p amd && browserify -g uglifyify -e lib/smooch.js -s SmoochCore -o amd/smooch-core.js",
     "browserify:dist": "npm run browserify:dev && uglifyjs amd/smooch-core.js -c -o amd/smooch-core.min.js --screw-ie8",
-     "release": "release"
+    "release": "release"
   },
   "author": "Marc-Antoine Lemieux",
   "license": "MIT",
