@@ -1,6 +1,7 @@
 tests/
-dist/
+amd/
 .babelrc
 .esformatter
 .eslintrc
 .gitignore
+test-setup.s
