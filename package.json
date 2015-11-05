@@ -8,8 +8,8 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test-setup.js ./tests/**/*.spec.js",
     "test-ci": "MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml mocha --compilers js:babel-core/register -R mocha-junit-reporter --require ./test-setup.js ./tests/**/*.spec.js",
-    "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile",
+    "build": "babel -d lib/ src/",
+    "prepublish": "npm run build",
     "browserify:dev": "mkdir -p dist && npm run compile && browserify -g uglifyify -e lib/smooch.js -s SmoochCore -o dist/smooch-core.js",
     "browserify:dist": "npm run browserify:dev && uglifyjs dist/smooch-core.js -c -o dist/smooch-core.min.js --screw-ie8"
   },
@@ -32,6 +32,7 @@
     "mocha": "^2.3.3",
     "mocha-babel": "^3.0.0",
     "mocha-junit-reporter": "^1.9.0",
+    "release-script": "^0.5.4",
     "should": "^7.1.1",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0"
