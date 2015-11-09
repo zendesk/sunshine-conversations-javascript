@@ -1,18 +1,17 @@
-import AppUsersAPI from './api/appUsers';
-import ConversationsAPI from './api/conversations';
+import { Smooch as SmoochBase } from './smooch';
+import { WebhooksAPI } from './api/webhooks';
+import * as jwt from './utils/jwt';
 
-const SERVER_URL = 'https://api.smooch.io/v1';
+export class Smooch extends SmoochBase {
+  constructor(serverURL) {
+    super(serverURL);
 
-export default class Smooch {
-  constructor(serverURL = SERVER_URL) {
-    this.serverURL = serverURL;
-
-    this.appUsers = new AppUsersAPI({
+    this.webhooks = new WebhooksAPI({
       root: this
     });
 
-    this.conversations = new ConversationsAPI({
-      root: this
+    Object.assign(this.utils, {
+      jwt
     });
   }
 }

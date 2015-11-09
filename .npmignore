@@ -1,6 +1,9 @@
-src/
+tests/
+amd/
 .babelrc
 .esformatter
 .eslintrc
-.flowconfig
 .gitignore
+test-setup.js
+tmp-bower-repo
+circle.yml

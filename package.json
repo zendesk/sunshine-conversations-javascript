@@ -1,22 +1,50 @@
 {
   "name": "smooch-core",
-  "version": "1.0.0",
-  "description": "",
-  "main": "lib/smooch-node.js",
-  "browser": "lib/smooch.js",
+  "version": "0.0.5",
+  "description": "Javascript wrapper for Smooch API",
+  "homepage": "https://smooch.io",
+  "main": "lib/wrappers/node.js",
+  "browser": "lib/wrappers/browser.js",
   "scripts": {
-    "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile"
+    "test": "mocha --compilers js:babel-core/register --require ./test-setup.js ./tests/**/*.spec.js",
+    "test-ci": "MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml mocha --compilers js:babel-core/register -R mocha-junit-reporter --require ./test-setup.js ./tests/**/*.spec.js",
+    "build": "mkdir -p lib && rm -rf lib/* && babel -d lib/ src/ && npm run browserify:dist",
+    "browserify:dev": "mkdir -p amd && browserify -g uglifyify -e lib/smooch.js -s SmoochCore -o amd/smooch-core.js",
+    "browserify:dist": "npm run browserify:dev && uglifyjs amd/smooch-core.js -c -o amd/smooch-core.min.js --screw-ie8",
+    "release": "release"
   },
   "author": "Marc-Antoine Lemieux",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lemieux/smooch-core-js.git"
+  },
   "devDependencies": {
-    "babel": "^6.0.14",
+    "babel": "^6.0.15",
+    "babel-cli": "^6.0.15",
+    "babel-core": "^6.0.20",
+    "babel-plugin-transform-runtime": "^6.0.14",
     "babel-preset-es2015": "^6.0.14",
-    "babel-runtime": "^6.0.14"
+    "babel-preset-stage-2": "^6.0.15",
+    "babel-runtime": "^6.0.14",
+    "browserify": "^12.0.1",
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3",
+    "mocha-babel": "^3.0.0",
+    "mocha-junit-reporter": "^1.9.0",
+    "release-script": "^0.5.4",
+    "should": "^7.1.1",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0",
+    "uglifyify": "^3.0.1"
   },
   "dependencies": {
+    "babel-runtime": "^6.0.14",
     "isomorphic-fetch": "^2.2.0",
+    "jsonwebtoken": "^5.4.1",
     "urljoin": "^0.1.5"
+  },
+  "release-script": {
+    "bowerRepo": "git@github.com:lemieux/smooch-core-js-bower.git"
   }
 }

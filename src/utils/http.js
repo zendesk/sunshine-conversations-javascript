@@ -1,10 +1,23 @@
 import 'isomorphic-fetch';
 
-function stringifyGETParams(url, data) {
+/**
+ * API Response promise - resolves with the requested resource
+ * @typedef APIResponse
+ * @type { Promise }
+ */
+
+
+/**
+ * Stringifies query parameters and append them to the url
+ * @param  {string} url  - an url
+ * @param  {object} data - an object containing the query parameters
+ * @return {string}      - the final url
+ */
+export function stringifyGETParams(url, data) {
   let query = '';
 
-  for (var key in data) {
-    if (data.hasOwnProperty(key) && data[key] !== null) {
+  for (var key in Object.keys(data)) {
+    if (data[key] !== null) {
       query += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
     }
   }
@@ -14,7 +27,7 @@ function stringifyGETParams(url, data) {
   return url;
 }
 
-function status(response) {
+export function handleStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -25,7 +38,7 @@ function status(response) {
   throw error;
 }
 
-function json(response) {
+export function handleBody(response) {
   if (response.status === 202 || response.status === 204) {
     return;
   }
@@ -33,12 +46,10 @@ function json(response) {
   return response.json();
 }
 
-export default function http(method, url, data , headers = {}) {
+export function http(method, url, data, headers = {}) {
   method = method.toUpperCase();
 
-  data = Object.assign({}, data);
-
-  var fetchOptions = {
+  let fetchOptions = {
     method: method,
     headers: Object.assign({
       'Accept': 'application/json',
@@ -46,14 +57,17 @@ export default function http(method, url, data , headers = {}) {
     }, headers)
   };
 
-  if (method === 'GET') {
-    url = stringifyGETParams(url, data);
-  } else if (method === 'POST' || method === 'PUT') {
-    fetchOptions.body = JSON.stringify(data);
+  if (data) {
+    data = Object.assign({}, data);
+
+    if (method === 'GET') {
+      url = stringifyGETParams(url, data);
+    } else if (method === 'POST' || method === 'PUT') {
+      fetchOptions.body = JSON.stringify(data);
+    }
   }
 
   return fetch(url, fetchOptions)
-    .then(status)
-    .then(json);
+    .then(handleStatus)
+    .then(handleBody);
 }
-;
