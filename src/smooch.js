@@ -1,5 +1,5 @@
-import { AppUsersAPI } from './api/appUsers';
-import { ConversationsAPI } from './api/conversations';
+import { AppUsersApi } from './api/appUsers';
+import { ConversationsApi } from './api/conversations';
 import packageInfo from '../package.json';
 
 const SERVER_URL = 'https://api.smooch.io/v1';
@@ -9,11 +9,11 @@ export class Smooch {
     this.VERSION = packageInfo.version;
     this.serverURL = serverURL;
 
-    this.appUsers = new AppUsersAPI({
+    this.appUsers = new AppUsersApi({
       root: this
     });
 
-    this.conversations = new ConversationsAPI({
+    this.conversations = new ConversationsApi({
       root: this
     });
 

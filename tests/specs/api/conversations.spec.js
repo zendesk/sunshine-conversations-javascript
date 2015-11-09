@@ -12,8 +12,8 @@ describe('Conversations API', () => {
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let ConversationsAPI = require('../../../src/api/conversations').ConversationsAPI;
-    api = new ConversationsAPI({
+    let ConversationsApi = require('../../../src/api/conversations').ConversationsApi;
+    api = new ConversationsApi({
       root: {
         serverURL: serverURL
       }

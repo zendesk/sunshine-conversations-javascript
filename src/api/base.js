@@ -9,9 +9,9 @@ import urljoin from 'urljoin';
  */
 
 /**
- * @class BaseAPI
+ * @class BaseApi
  */
-export class BaseAPI {
+export class BaseApi {
   constructor(props = {}) {
     this.root = props.root;
   }

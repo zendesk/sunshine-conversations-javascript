@@ -1,4 +1,4 @@
-import { BaseAPI } from './base';
+import { BaseApi } from './base';
 import { http } from '../utils/http';
 
 /**
@@ -7,10 +7,10 @@ import { http } from '../utils/http';
  */
 
 /**
- * @class WebhooksAPI
- * @extends BaseAPI
+ * @class WebhooksApi
+ * @extends BaseApi
  */
-export class WebhooksAPI extends BaseAPI {
+export class WebhooksApi extends BaseApi {
 
   /**
    * Validates the headers sent to the server
