@@ -6,25 +6,25 @@ describe('Base API', () => {
     it('should set this.root', () => {
       const root = {};
 
-      const BaseApi = new BaseApi({
+      const api = new BaseApi({
         root: root
       });
 
-      BaseApi.root.should.equal(root);
+      api.root.should.equal(root);
     });
 
     it('should not crash if no props', () => {
-      const BaseApi = new BaseApi();
+      const api = new BaseApi();
 
-      expect(BaseApi.root).to.be.undefined;
+      expect(api.root).to.be.undefined;
     })
   });
 
   describe('#getAuthenticationHeaders', () => {
-    const BaseApi = new BaseApi();
+    const api = new BaseApi();
 
     it('should return an error if no props provided', (done) => {
-      BaseApi.getAuthenticationHeaders().catch(() => {
+      api.getAuthenticationHeaders().catch(() => {
         done();
       })
     });
@@ -34,7 +34,7 @@ describe('Base API', () => {
         jwt: 'jwt'
       };
 
-      return BaseApi.getAuthenticationHeaders(baseHeaders).then((headers) => {
+      return api.getAuthenticationHeaders(baseHeaders).then((headers) => {
         headers.should.eql({
           'Authorization': 'Bearer ' + baseHeaders.jwt
         });
@@ -46,7 +46,7 @@ describe('Base API', () => {
         appToken: 'app-token'
       };
 
-      return BaseApi.getAuthenticationHeaders(baseHeaders).then((headers) => {
+      return api.getAuthenticationHeaders(baseHeaders).then((headers) => {
         headers.should.eql({
           'app-token': baseHeaders.appToken
         })
@@ -59,7 +59,7 @@ describe('Base API', () => {
         appToken: 'app-token'
       };
 
-      return BaseApi.getAuthenticationHeaders(baseHeaders).then((headers) => {
+      return api.getAuthenticationHeaders(baseHeaders).then((headers) => {
         headers.should.eql({
           'Authorization': 'Bearer ' + baseHeaders.jwt
         });
@@ -71,7 +71,7 @@ describe('Base API', () => {
         what: 'is this?'
       };
 
-      BaseApi.getAuthenticationHeaders(baseHeaders).catch(() => {
+      api.getAuthenticationHeaders(baseHeaders).catch(() => {
         done();
       });
     });
@@ -79,14 +79,14 @@ describe('Base API', () => {
 
   describe('#getFullURL', () => {
     const serverURL = 'http://some-url.com';
-    const BaseApi = new BaseApi({
+    const api = new BaseApi({
       root: {
         serverURL: serverURL
       }
     });
 
     it('should use the serverURL and encode fragments', () => {
-      const finalUrl = BaseApi.getFullURL('some', 'u/rl', 'this is an id');
+      const finalUrl = api.getFullURL('some', 'u/rl', 'this is an id');
       finalUrl.should.eql(serverURL + '/some/u%2Frl/this%20is%20an%20id');
     });
   });
