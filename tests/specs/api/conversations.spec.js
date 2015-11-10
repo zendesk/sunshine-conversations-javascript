@@ -2,7 +2,7 @@ import * as httpMock from '../../mocks/http';
 
 
 describe('Conversations API', () => {
-  const serverURL = 'http://some-url.com';
+  const serviceUrl = 'http://some-url.com';
   const userId = 'user-id';
   const auth = {
     appToken: 'token'
@@ -15,7 +15,7 @@ describe('Conversations API', () => {
     let ConversationsApi = require('../../../src/api/conversations').ConversationsApi;
     api = new ConversationsApi({
       root: {
-        serverURL: serverURL
+        serviceUrl: serviceUrl
       }
     });
   });

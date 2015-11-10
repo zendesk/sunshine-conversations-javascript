@@ -2,6 +2,8 @@ tests/
 amd/
 .babelrc
 .esformatter
+.jsfmtrc
+.jshintrc
 .eslintrc
 .gitignore
 test-setup.js

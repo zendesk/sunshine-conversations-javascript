@@ -2,7 +2,7 @@ import * as httpMock from '../../mocks/http';
 
 
 describe('Webhooks API', () => {
-  const serverURL = 'http://some-url.com';
+  const serviceUrl = 'http://some-url.com';
   const webhookId = 'some-id';
   const noAuthErrorMessage = 'Must provide authentication information.';
   const invalidAuthErrorMessage = 'Must provide a JWT.';
@@ -19,7 +19,7 @@ describe('Webhooks API', () => {
     let WebhooksApi = require('../../../src/api/webhooks').WebhooksApi;
     api = new WebhooksApi({
       root: {
-        serverURL: serverURL
+        serviceUrl: serviceUrl
       }
     });
   });

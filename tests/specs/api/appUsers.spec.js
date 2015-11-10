@@ -2,7 +2,7 @@ import * as httpMock from '../../mocks/http';
 
 
 describe('AppUsers API', () => {
-  const serverURL = 'http://some-url.com';
+  const serviceUrl = 'http://some-url.com';
   const userId = 'user-id';
   const auth = {
     appToken: 'token'
@@ -15,7 +15,7 @@ describe('AppUsers API', () => {
     let AppUsersApi = require('../../../src/api/appUsers').AppUsersApi;
     api = new AppUsersApi({
       root: {
-        serverURL: serverURL
+        serviceUrl: serviceUrl
       }
     });
   });

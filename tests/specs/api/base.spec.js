@@ -78,16 +78,16 @@ describe('Base API', () => {
   });
 
   describe('#getFullURL', () => {
-    const serverURL = 'http://some-url.com';
+    const serviceUrl = 'http://some-url.com';
     const api = new BaseApi({
       root: {
-        serverURL: serverURL
+        serviceUrl: serviceUrl
       }
     });
 
     it('should use the serverURL and encode fragments', () => {
       const finalUrl = api.getFullURL('some', 'u/rl', 'this is an id');
-      finalUrl.should.eql(serverURL + '/some/u%2Frl/this%20is%20an%20id');
+      finalUrl.should.eql(serviceUrl + '/some/u%2Frl/this%20is%20an%20id');
     });
   });
 });

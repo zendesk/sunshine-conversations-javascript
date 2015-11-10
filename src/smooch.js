@@ -2,12 +2,12 @@ import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
 import packageInfo from '../package.json';
 
-const SERVER_URL = 'https://api.smooch.io/v1';
+const SERVICE_URL = 'https://api.smooch.io/v1';
 
 export class Smooch {
-  constructor(serverURL = SERVER_URL) {
+  constructor(serviceUrl = SERVICE_URL) {
     this.VERSION = packageInfo.version;
-    this.serverURL = serverURL;
+    this.serviceUrl = serviceUrl;
 
     this.appUsers = new AppUsersApi({
       root: this

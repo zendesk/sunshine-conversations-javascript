@@ -46,6 +46,6 @@ export class BaseApi {
    */
   getFullURL() {
     const fragments = Array.from(arguments).map((fragment) => encodeURIComponent(fragment));
-    return urljoin(this.root.serverURL, ...fragments);
+    return urljoin(this.root.serviceUrl, ...fragments);
   }
 }
