@@ -1,4 +1,4 @@
-import { BaseAPI } from './base';
+import { BaseApi } from './base';
 import { http } from '../utils/http';
 
 
@@ -8,10 +8,10 @@ import { http } from '../utils/http';
  */
 
 /**
- * @class ConversationsAPI
- * @extends BaseAPI
+ * @class ConversationsApi
+ * @extends BaseApi
  */
-export class ConversationsAPI extends BaseAPI {
+export class ConversationsApi extends BaseApi {
 
   /**
    * Fetch an app user's conversation

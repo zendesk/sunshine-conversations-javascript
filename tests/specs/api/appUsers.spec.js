@@ -12,8 +12,8 @@ describe('AppUsers API', () => {
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let AppUsersAPI = require('../../../src/api/appUsers').AppUsersAPI;
-    api = new AppUsersAPI({
+    let AppUsersApi = require('../../../src/api/appUsers').AppUsersApi;
+    api = new AppUsersApi({
       root: {
         serviceUrl: serviceUrl
       }

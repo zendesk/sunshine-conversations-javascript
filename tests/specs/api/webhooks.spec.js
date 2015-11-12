@@ -16,8 +16,8 @@ describe('Webhooks API', () => {
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let WebhooksAPI = require('../../../src/api/webhooks').WebhooksAPI;
-    api = new WebhooksAPI({
+    let WebhooksApi = require('../../../src/api/webhooks').WebhooksApi;
+    api = new WebhooksApi({
       root: {
         serviceUrl: serviceUrl
       }

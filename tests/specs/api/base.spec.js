@@ -1,4 +1,4 @@
-import { BaseAPI } from '../../../src/api/base';
+import { BaseApi } from '../../../src/api/base';
 
 
 describe('Base API', () => {
@@ -6,25 +6,25 @@ describe('Base API', () => {
     it('should set this.root', () => {
       const root = {};
 
-      const baseAPI = new BaseAPI({
+      const api = new BaseApi({
         root: root
       });
 
-      baseAPI.root.should.equal(root);
+      api.root.should.equal(root);
     });
 
     it('should not crash if no props', () => {
-      const baseAPI = new BaseAPI();
+      const api = new BaseApi();
 
-      expect(baseAPI.root).to.be.undefined;
+      expect(api.root).to.be.undefined;
     })
   });
 
   describe('#getAuthenticationHeaders', () => {
-    const baseAPI = new BaseAPI();
+    const api = new BaseApi();
 
     it('should return an error if no props provided', (done) => {
-      baseAPI.getAuthenticationHeaders().catch(() => {
+      api.getAuthenticationHeaders().catch(() => {
         done();
       })
     });
@@ -34,7 +34,7 @@ describe('Base API', () => {
         jwt: 'jwt'
       };
 
-      return baseAPI.getAuthenticationHeaders(baseHeaders).then((headers) => {
+      return api.getAuthenticationHeaders(baseHeaders).then((headers) => {
         headers.should.eql({
           'Authorization': 'Bearer ' + baseHeaders.jwt
         });
@@ -46,7 +46,7 @@ describe('Base API', () => {
         appToken: 'app-token'
       };
 
-      return baseAPI.getAuthenticationHeaders(baseHeaders).then((headers) => {
+      return api.getAuthenticationHeaders(baseHeaders).then((headers) => {
         headers.should.eql({
           'app-token': baseHeaders.appToken
         })
@@ -59,7 +59,7 @@ describe('Base API', () => {
         appToken: 'app-token'
       };
 
-      return baseAPI.getAuthenticationHeaders(baseHeaders).then((headers) => {
+      return api.getAuthenticationHeaders(baseHeaders).then((headers) => {
         headers.should.eql({
           'Authorization': 'Bearer ' + baseHeaders.jwt
         });
@@ -71,7 +71,7 @@ describe('Base API', () => {
         what: 'is this?'
       };
 
-      baseAPI.getAuthenticationHeaders(baseHeaders).catch(() => {
+      api.getAuthenticationHeaders(baseHeaders).catch(() => {
         done();
       });
     });
@@ -79,14 +79,14 @@ describe('Base API', () => {
 
   describe('#getFullURL', () => {
     const serviceUrl = 'http://some-url.com';
-    const baseAPI = new BaseAPI({
+    const api = new BaseApi({
       root: {
         serviceUrl: serviceUrl
       }
     });
 
-    it('should use the serviceUrl and encode fragments', () => {
-      const finalUrl = baseAPI.getFullURL('some', 'u/rl', 'this is an id');
+    it('should use the serverURL and encode fragments', () => {
+      const finalUrl = api.getFullURL('some', 'u/rl', 'this is an id');
       finalUrl.should.eql(serviceUrl + '/some/u%2Frl/this%20is%20an%20id');
     });
   });
