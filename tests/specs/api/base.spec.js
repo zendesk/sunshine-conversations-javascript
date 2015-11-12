@@ -1,7 +1,9 @@
 import { BaseApi, SERVICE_URL } from '../../../src/api/base';
 
 const serviceUrl = 'http://some-url.com';
-const headers = {jwt:'jwt'};
+const headers = {
+  jwt: 'jwt'
+};
 
 describe('Base API', () => {
   describe('#constructor', () => {

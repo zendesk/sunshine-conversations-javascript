@@ -2,8 +2,7 @@ import jwt from 'jsonwebtoken';
 
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 
-// using the require form to simulate an ES5 use case
-const Smooch = require('../../../src/wrappers/node');
+import Smooch from '../../../src/wrappers/node';
 
 describe('Smooch', () => {
 

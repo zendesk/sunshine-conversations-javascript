@@ -1,5 +1,6 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { ConversationsApi } from '../../../src/api/conversations';
 
 
 describe('Conversations API', () => {
@@ -13,7 +14,6 @@ describe('Conversations API', () => {
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let ConversationsApi = require('../../../src/api/conversations').ConversationsApi;
     api = new ConversationsApi(serviceUrl, httpHeaders);
   });
 

@@ -1,5 +1,7 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { AppUsersApi } from '../../../src/api/appUsers';
+
 
 
 describe('AppUsers API', () => {
@@ -14,7 +16,6 @@ describe('AppUsers API', () => {
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let AppUsersApi = require('../../../src/api/appUsers').AppUsersApi;
     api = new AppUsersApi(serviceUrl, httpHeaders);
   });
 

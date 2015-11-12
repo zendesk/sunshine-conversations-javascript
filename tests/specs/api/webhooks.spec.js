@@ -1,5 +1,6 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { WebhooksApi } from '../../../src/api/webhooks';
 
 
 describe('Webhooks API', () => {
@@ -12,13 +13,11 @@ describe('Webhooks API', () => {
   const httpHeaders = getAuthenticationHeaders({
     jwt: 'jwt'
   });
-  let WebhooksApi;
   let httpSpy;
   let api;
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    WebhooksApi = require('../../../src/api/webhooks').WebhooksApi;
     api = new WebhooksApi(serviceUrl, httpHeaders);
   });
 

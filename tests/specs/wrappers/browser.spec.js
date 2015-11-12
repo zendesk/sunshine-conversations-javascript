@@ -1,6 +1,5 @@
+import Smooch from '../../../src/wrappers/browser';
 describe('Smooch', () => {
-  var Smooch = require('../../../src/wrappers/browser');
-
   it('should not have the webhooks API', () => {
     const smooch = new Smooch({
       jwt: 'jwt'
