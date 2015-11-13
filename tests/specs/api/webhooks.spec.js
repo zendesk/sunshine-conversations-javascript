@@ -1,48 +1,28 @@
 import * as httpMock from '../../mocks/http';
+import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { WebhooksApi } from '../../../src/api/webhooks';
 
 
 describe('Webhooks API', () => {
   const serviceUrl = 'http://some-url.com';
   const webhookId = 'some-id';
   const noAuthErrorMessage = 'Must provide authentication information.';
-  const invalidAuthErrorMessage = 'Must provide a JWT.';
+  const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
   const noPropsMessage = 'Must provide props.';
   const noTargetMessage = 'Must provide a target.';
-  const auth = {
+  const httpHeaders = getAuthenticationHeaders({
     jwt: 'jwt'
-  };
+  });
   let httpSpy;
   let api;
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let WebhooksApi = require('../../../src/api/webhooks').WebhooksApi;
-    api = new WebhooksApi({
-      root: {
-        serviceUrl: serviceUrl
-      }
-    });
+    api = new WebhooksApi(serviceUrl, httpHeaders);
   });
 
   afterEach(() => {
     httpMock.restore();
-  });
-
-  describe('#validateAuth', () => {
-    it('should not return an error if Authorization header is present', () => {
-      return api.validateAuth({
-        Authorization: 'Bearer stuff'
-      });
-    });
-
-    it('should return an error if Authorization header is not present', (done) => {
-      api.validateAuth({
-        'app-token': 'some-token'
-      }).catch((e) => {
-        e.message.should.equal(invalidAuthErrorMessage);
-        done();
-      });
-    });
   });
 
   describe('#validateProps', () => {
@@ -87,57 +67,42 @@ describe('Webhooks API', () => {
 
   describe('#list', () => {
     it('should call http', () => {
-      return api.list(auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('webhooks');
-          httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
-        });
+      return api.list().then(() => {
+        const fullUrl = api.getFullURL('webhooks');
+        httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
       })
     });
 
-    it('should return an error if no auth', (done) => {
-      api.list().catch((e) => {
-        e.message.should.equal(noAuthErrorMessage);
-        done();
-      })
-    });
-
-
-    it('should return an error if no JWT in auth', (done) => {
-      api.list({
+    it('should return an error if app token in auth', (done) => {
+      const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
-      }).catch((e) => {
+      }));
+
+      badApi.list().catch((e) => {
         e.message.should.equal(invalidAuthErrorMessage);
         done();
-      })
+      });
     });
   });
 
   describe('#get', () => {
     it('should call http', () => {
-      return api.get(webhookId, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('webhooks', webhookId);
-          httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.get(webhookId).catch((e) => {
-        e.message.should.equal(noAuthErrorMessage);
-        done();
+      return api.get(webhookId).then(() => {
+        const fullUrl = api.getFullURL('webhooks', webhookId);
+        httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
       })
     });
 
 
-    it('should return an error if no JWT in auth', (done) => {
-      api.get(webhookId, {
+    it('should return an error if app token in auth', (done) => {
+      const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
-      }).catch((e) => {
+      }));
+
+      badApi.get(webhookId).catch((e) => {
         e.message.should.equal(invalidAuthErrorMessage);
         done();
-      })
+      });
     });
   });
 
@@ -147,52 +112,44 @@ describe('Webhooks API', () => {
     };
 
     it('should call http', () => {
-      return api.create(props, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('webhooks');
-          httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
-        });
+      return api.create(props).then(() => {
+        const fullUrl = api.getFullURL('webhooks');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
       })
     });
 
     it('should return an error if no target', (done) => {
       api.create({
         event: 'event'
-      }, auth).catch((e) => {
+      }).catch((e) => {
         e.message.should.equal(noTargetMessage);
         done();
       })
     });
 
     it('should return an error if no props', (done) => {
-      api.create(undefined, auth).catch((e) => {
+      api.create(undefined).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
     });
 
     it('should return an error if props are empty', (done) => {
-      api.create({}, auth).catch((e) => {
+      api.create({}).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
     });
 
-    it('should return an error if no auth', (done) => {
-      api.create(props).catch((e) => {
-        e.message.should.equal(noAuthErrorMessage);
-        done();
-      })
-    });
-
-
-    it('should return an error if no JWT in auth', (done) => {
-      api.create(props, {
+    it('should return an error if app token in auth', (done) => {
+      const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
-      }).catch((e) => {
+      }));
+
+      badApi.create(props).catch((e) => {
         e.message.should.equal(invalidAuthErrorMessage);
         done();
-      })
+      });
     });
   });
 
@@ -203,72 +160,55 @@ describe('Webhooks API', () => {
     };
 
     it('should call http', () => {
-      return api.update(webhookId, props, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('webhooks', webhookId);
-          httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.update(webhookId, props).catch((e) => {
-        e.message.should.equal(noAuthErrorMessage);
-        done();
+      return api.update(webhookId, props).then(() => {
+        const fullUrl = api.getFullURL('webhooks', webhookId);
+        httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
       })
     });
 
     it('should return an error if no props', (done) => {
-      api.update(webhookId, undefined, auth).catch((e) => {
+      api.update(webhookId, undefined).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
     });
 
     it('should return an error if props are empty', (done) => {
-      api.update(webhookId, {}, auth).catch((e) => {
+      api.update(webhookId, {}).catch((e) => {
         e.message.should.equal(noPropsMessage);
         done();
       })
     });
 
-    it('should return an error if no JWT in auth', (done) => {
-      api.update(webhookId, props, {
+    it('should return an error if app token in auth', (done) => {
+      const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
-      }).catch((e) => {
+      }));
+
+      badApi.update(webhookId, props).catch((e) => {
         e.message.should.equal(invalidAuthErrorMessage);
         done();
-      })
+      });
     });
   });
 
   describe('#delete', () => {
     it('should call http', () => {
-      return api.delete(webhookId, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('webhooks', webhookId);
-          httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
-        });
+      return api.delete(webhookId).then(() => {
+        const fullUrl = api.getFullURL('webhooks', webhookId);
+        httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
       })
     });
 
-    it('should return an error if no auth', (done) => {
-      api.delete(webhookId).catch((e) => {
-        e.message.should.equal(noAuthErrorMessage);
-        done();
-      })
-    });
-
-
-    it('should return an error if no JWT in auth', (done) => {
-      api.delete(webhookId, {
+    it('should return an error if app token in auth', (done) => {
+      const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
-      }).catch((e) => {
+      }));
+
+      badApi.delete(webhookId).catch((e) => {
         e.message.should.equal(invalidAuthErrorMessage);
         done();
-      })
+      });
     });
   });
-
-
 });

@@ -16,13 +16,12 @@ export class ConversationsApi extends BaseApi {
   /**
    * Fetch an app user's conversation
    * @param  {string} userId - an user id
-   * @param  {AuthCredentials} auth
    * @return {APIResponse}
    */
-  get(userId, auth) {
+  get(userId) {
     const url = this.getFullURL('appUsers', userId, 'conversation');
-    return this.getAuthenticationHeaders(auth).then((authHeaders) => {
-      return http('GET', url, {}, authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('GET', url, {}, headers);
     });
   }
 
@@ -30,13 +29,12 @@ export class ConversationsApi extends BaseApi {
    * Send a message to an app user's conversation
    * @param  {string} userId - an user id
    * @param  {Message} message - the message to be sent
-   * @param  {AuthCredentials} auth
    * @return {APIResponse}
    */
-  sendMessage(userId, message, auth) {
+  sendMessage(userId, message) {
     const url = this.getFullURL('appUsers', userId, 'conversation', 'messages');
-    return this.getAuthenticationHeaders(auth).then((authHeaders) => {
-      return http('POST', url, message, authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('POST', url, message, headers);
     });
   }
 }
