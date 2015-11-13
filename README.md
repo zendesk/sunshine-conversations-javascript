@@ -11,18 +11,59 @@ $ npm install smooch-core --save
 
 ## Usage
 
-Using SmoochCore is pretty basic, instance it and keep the instance around. It's stateless. The whole library is promise based and each endpoint should yield the response returned by the server or an error in case of failed validation or server error.
+### In the browser (using browserify or webpack)
 
 ```js
 var SmoochCore = require('smooch-core');
 
-var smoochCore = new Smooch();
+// using app token
+var smoochCore = new SmoochCore({
+    appToken: 'some-token'
+});
+
+
+// using generated JWT
+var smoochCore = new SmoochCore({
+    jwt: 'some-jwt'
+});
 
 // ...
 
-smoochCore.appUsers.init(options, {
-  jwt: 'some-jwt'
-}).then(function(response) {
+smoochCore.appUsers.init(options).then(function(response) {
+  // do something with the response.
+});
+```
+
+
+### Server-side
+
+```js
+var SmoochCore = require('smooch-core');
+
+// using app token
+var smoochCore = new SmoochCore({
+    appToken: 'some-token'
+});
+
+
+// using generated JWT
+var smoochCore = new SmoochCore({
+    jwt: 'some-jwt'
+});
+
+// using JWT components
+// Only available server-side. NEVER put your keyId and secret
+// in you client-side code.
+var smoochCore = new SmoochCore({
+    keyId: 'some-key',
+    secret: 'some-secret',
+    scope: 'appUser', // app or appUser
+    userId: 'some-id' // not necessary if scope === 'app'
+});
+
+// ...
+
+smoochCore.webhooks.get(id).then(function(response) {
   // do something with the response.
 });
 
