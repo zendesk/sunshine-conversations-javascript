@@ -17,8 +17,8 @@ export class Smooch {
     this.authHeaders = getAuthenticationHeaders(auth);
 
 
-    this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders);
-    this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders);
+    this.appUsers = new AppUsersApi(this.serviceUrl, ['jwt', 'appToken'], this.authHeaders);
+    this.conversations = new ConversationsApi(this.serviceUrl, ['jwt', 'appToken'], this.authHeaders);
 
     this.utils = {};
   }

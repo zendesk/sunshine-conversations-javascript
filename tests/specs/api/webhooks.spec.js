@@ -7,7 +7,7 @@ describe('Webhooks API', () => {
   const serviceUrl = 'http://some-url.com';
   const webhookId = 'some-id';
   const noAuthErrorMessage = 'Must provide authentication information.';
-  const invalidAuthErrorMessage = 'Must provide a JWT.';
+  const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
   const noPropsMessage = 'Must provide props.';
   const noTargetMessage = 'Must provide a target.';
   const httpHeaders = getAuthenticationHeaders({
@@ -23,23 +23,6 @@ describe('Webhooks API', () => {
 
   afterEach(() => {
     httpMock.restore();
-  });
-
-  describe('#validateAuth', () => {
-    it('should not return an error if Authorization header is present', () => {
-      return api.validateAuth({
-        Authorization: 'Bearer stuff'
-      });
-    });
-
-    it('should return an error if Authorization header is not present', (done) => {
-      api.validateAuth({
-        'app-token': 'some-token'
-      }).catch((e) => {
-        e.message.should.equal(invalidAuthErrorMessage);
-        done();
-      });
-    });
   });
 
   describe('#validateProps', () => {
@@ -90,7 +73,7 @@ describe('Webhooks API', () => {
       })
     });
 
-    it('should return an error if no JWT in auth', (done) => {
+    it('should return an error if app token in auth', (done) => {
       const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
       }));
@@ -111,7 +94,7 @@ describe('Webhooks API', () => {
     });
 
 
-    it('should return an error if no JWT in auth', (done) => {
+    it('should return an error if app token in auth', (done) => {
       const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
       }));
@@ -158,7 +141,7 @@ describe('Webhooks API', () => {
       })
     });
 
-    it('should return an error if no JWT in auth', (done) => {
+    it('should return an error if app token in auth', (done) => {
       const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
       }));
@@ -197,7 +180,7 @@ describe('Webhooks API', () => {
       })
     });
 
-    it('should return an error if no JWT in auth', (done) => {
+    it('should return an error if app token in auth', (done) => {
       const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
       }));
@@ -217,7 +200,7 @@ describe('Webhooks API', () => {
       })
     });
 
-    it('should return an error if no JWT in auth', (done) => {
+    it('should return an error if app token in auth', (done) => {
       const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
         appToken: 'some-token'
       }));
