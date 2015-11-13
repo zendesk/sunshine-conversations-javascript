@@ -19,7 +19,9 @@ export class AppUsersApi extends BaseApi {
    */
   init(props) {
     const url = this.getFullURL('init');
-    return http('POST', url, props, this.authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('POST', url, props, headers)
+    });
   }
 
   /**
@@ -29,7 +31,9 @@ export class AppUsersApi extends BaseApi {
    */
   get(userId) {
     const url = this.getFullURL('appusers', userId);
-    return http('GET', url, {}, this.authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('GET', url, {}, headers);
+    });
   }
 
   /**
@@ -40,8 +44,11 @@ export class AppUsersApi extends BaseApi {
    */
   update(userId, attributes) {
     const url = this.getFullURL('appusers', userId);
-    return http('PUT', url, attributes, this.authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('PUT', url, attributes, headers);
+    });
   }
+
 
 
   /**
@@ -53,9 +60,11 @@ export class AppUsersApi extends BaseApi {
    */
   trackEvent(userId, eventName, attributes = {}) {
     const url = this.getFullURL('appusers', userId, 'events');
-    return http('POST', url, {
-      name: eventName,
-      appUser: attributes
-    }, this.authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('POST', url, {
+        name: eventName,
+        appUser: attributes
+      }, headers);
+    });
   }
 }

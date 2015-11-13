@@ -20,7 +20,9 @@ export class ConversationsApi extends BaseApi {
    */
   get(userId) {
     const url = this.getFullURL('appUsers', userId, 'conversation');
-    return http('GET', url, {}, this.authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('GET', url, {}, headers);
+    });
   }
 
   /**
@@ -31,6 +33,8 @@ export class ConversationsApi extends BaseApi {
    */
   sendMessage(userId, message) {
     const url = this.getFullURL('appUsers', userId, 'conversation', 'messages');
-    return http('POST', url, message, this.authHeaders);
+    return this.validateAuthHeaders().then((headers) => {
+      return http('POST', url, message, headers);
+    });
   }
 }
