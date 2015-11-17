@@ -20,7 +20,7 @@ export class Smooch extends SmoochBase {
 
     super(auth, serviceUrl);
 
-    this.webhooks = new WebhooksApi(this.serviceUrl, ['jwt'], this.authHeaders);
+    this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders);
 
     Object.assign(this.utils, {
       jwt
