@@ -1,23 +1,20 @@
 import * as httpMock from '../../mocks/http';
+import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { ConversationsApi } from '../../../src/api/conversations';
 
 
 describe('Conversations API', () => {
   const serviceUrl = 'http://some-url.com';
   const userId = 'user-id';
-  const auth = {
+  const httpHeaders = getAuthenticationHeaders({
     appToken: 'token'
-  };
+  });
   let httpSpy;
   let api;
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let ConversationsAPI = require('../../../src/api/conversations').ConversationsAPI;
-    api = new ConversationsAPI({
-      root: {
-        serviceUrl: serviceUrl
-      }
-    });
+    api = new ConversationsApi(serviceUrl, httpHeaders);
   });
 
   afterEach(() => {
@@ -26,17 +23,9 @@ describe('Conversations API', () => {
 
   describe('#get', () => {
     it('should call http', () => {
-      return api.get(userId, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('appUsers', userId, 'conversation');
-          httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.get(userId).catch(() => {
-        done();
+      return api.get(userId).then(() => {
+        const fullUrl = api.getFullURL('appUsers', userId, 'conversation');
+        httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
       })
     });
   });
@@ -47,17 +36,9 @@ describe('Conversations API', () => {
         text: 'this is a message'
       };
 
-      return api.sendMessage(userId, message, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'messages');
-          httpSpy.should.have.been.calledWith('POST', fullUrl, message, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.sendMessage(userId, {}).catch(() => {
-        done();
+      return api.sendMessage(userId, message).then(() => {
+        const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'messages');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, message, httpHeaders);
       })
     });
   });

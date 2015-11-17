@@ -1,21 +1,24 @@
-import { AppUsersAPI } from './api/appUsers';
-import { ConversationsAPI } from './api/conversations';
+import { getAuthenticationHeaders } from './utils/auth';
+import { AppUsersApi } from './api/appUsers';
+import { ConversationsApi } from './api/conversations';
 import packageInfo from '../package.json';
 
-const SERVICE_URL = 'https://api.smooch.io/v1';
+export const SERVICE_URL = 'https://api.smooch.io/v1';
 
 export class Smooch {
-  constructor(serviceUrl = SERVICE_URL) {
+  constructor(auth = {}, serviceUrl = SERVICE_URL) {
     this.VERSION = packageInfo.version;
     this.serviceUrl = serviceUrl;
 
-    this.appUsers = new AppUsersAPI({
-      root: this
-    });
+    if(auth.keyId || auth.secret) {
+      throw new Error('Key Id or Secret should not be used on the browser side. You must generate a JWT beforehand.')
+    }
 
-    this.conversations = new ConversationsAPI({
-      root: this
-    });
+    this.authHeaders = getAuthenticationHeaders(auth);
+
+
+    this.appUsers = new AppUsersApi(this.serviceUrl, ['jwt', 'appToken'], this.authHeaders);
+    this.conversations = new ConversationsApi(this.serviceUrl, ['jwt', 'appToken'], this.authHeaders);
 
     this.utils = {};
   }

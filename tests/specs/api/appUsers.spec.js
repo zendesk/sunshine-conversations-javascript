@@ -1,23 +1,22 @@
 import * as httpMock from '../../mocks/http';
+import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { AppUsersApi } from '../../../src/api/appUsers';
+
 
 
 describe('AppUsers API', () => {
   const serviceUrl = 'http://some-url.com';
   const userId = 'user-id';
-  const auth = {
+  const httpHeaders = getAuthenticationHeaders({
     appToken: 'token'
-  };
+  });
+
   let httpSpy;
   let api;
 
   beforeEach(() => {
     httpSpy = httpMock.mock();
-    let AppUsersAPI = require('../../../src/api/appUsers').AppUsersAPI;
-    api = new AppUsersAPI({
-      root: {
-        serviceUrl: serviceUrl
-      }
-    });
+    api = new AppUsersApi(serviceUrl, httpHeaders);
   });
 
   afterEach(() => {
@@ -26,17 +25,10 @@ describe('AppUsers API', () => {
 
   describe('#get', () => {
     it('should call http', () => {
-      return api.get(userId, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('appusers', userId);
-          httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
-        });
-      })
-    });
+      return api.get(userId).then(() => {
+        const fullUrl = api.getFullURL('appusers', userId);
 
-    it('should return an error if no auth', (done) => {
-      api.get(userId).catch(() => {
-        done();
+        httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
       })
     });
   });
@@ -47,18 +39,10 @@ describe('AppUsers API', () => {
         email: 'new-email'
       };
 
-      return api.update(userId, attributes, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('appusers', userId);
-          httpSpy.should.have.been.calledWith('PUT', fullUrl, attributes, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.update(userId, {}).catch(() => {
-        done();
-      })
+      return api.update(userId, attributes).then(() => {
+        const fullUrl = api.getFullURL('appusers', userId);
+        httpSpy.should.have.been.calledWith('PUT', fullUrl, attributes, httpHeaders);
+      });
     });
   });
 
@@ -68,18 +52,10 @@ describe('AppUsers API', () => {
         email: 'this is an email'
       };
 
-      return api.init(props, auth).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('init');
-          httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.init({}, {}).catch(() => {
-        done();
-      })
+      return api.init(props).then(() => {
+        const fullUrl = api.getFullURL('init');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
+      });
     });
   });
 
@@ -90,21 +66,13 @@ describe('AppUsers API', () => {
         email: 'this is an email'
       };
 
-      return api.trackEvent(userId, eventName, auth, props).then(() => {
-        return api.getAuthenticationHeaders(auth).then((httpHeaders) => {
-          const fullUrl = api.getFullURL('appusers', userId, 'events');
-          httpSpy.should.have.been.calledWith('POST', fullUrl, {
-            name: eventName,
-            appUser: props
-          }, httpHeaders);
-        });
-      })
-    });
-
-    it('should return an error if no auth', (done) => {
-      api.trackEvent(userId, {}, {}).catch(() => {
-        done();
-      })
+      return api.trackEvent(userId, eventName, props).then(() => {
+        const fullUrl = api.getFullURL('appusers', userId, 'events');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, {
+          name: eventName,
+          appUser: props
+        }, httpHeaders);
+      });
     });
   });
 });

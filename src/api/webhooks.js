@@ -1,4 +1,4 @@
-import { BaseAPI } from './base';
+import { BaseApi } from './base';
 import { http } from '../utils/http';
 
 /**
@@ -7,18 +7,14 @@ import { http } from '../utils/http';
  */
 
 /**
- * @class WebhooksAPI
- * @extends BaseAPI
+ * @class WebhooksApi
+ * @extends BaseApi
  */
-export class WebhooksAPI extends BaseAPI {
+export class WebhooksApi extends BaseApi {
 
-  /**
-   * Validates the headers sent to the server
-   * @param  {object} headers - an headers object
-   * @return {object}         - the headers object passed in parameter
-   */
-  validateAuth(headers) {
-    return headers && headers.Authorization ? Promise.resolve(headers) : Promise.reject(new Error('Must provide a JWT.'));
+  constructor() {
+    super(...arguments);
+    this.allowedAuth = ['jwt'];
   }
 
   /**
@@ -44,9 +40,9 @@ export class WebhooksAPI extends BaseAPI {
    * @param  {AuthCredentials} auth
    * @return {APIResponse}
    */
-  list(auth) {
+  list() {
     const url = this.getFullURL('webhooks');
-    return this.getAuthenticationHeaders(auth).then(this.validateAuth).then((authHeaders) => {
+    return this.validateAuthHeaders().then((authHeaders) => {
       return http('GET', url, {}, authHeaders);
     });
   }
@@ -54,12 +50,11 @@ export class WebhooksAPI extends BaseAPI {
   /**
    * Creates a webhook
    * @param  {WebhookProps} props - a properties object
-   * @param  {AuthCredentials} auth
    * @return {APIResponse}
    */
-  create(props, auth) {
+  create(props) {
     const url = this.getFullURL('webhooks');
-    return this.getAuthenticationHeaders(auth).then(this.validateAuth).then((authHeaders) => {
+    return this.validateAuthHeaders().then((authHeaders) => {
       return this.validateProps(props, true).then((validatedProps) => {
         return http('POST', url, validatedProps, authHeaders);
       });
@@ -69,12 +64,11 @@ export class WebhooksAPI extends BaseAPI {
   /**
    * Retrieves a webhook
    * @param  {string} webhookId - an id
-   * @param  {AuthCredentials} auth
    * @return {APIResponse}
    */
-  get(webhookId, auth) {
+  get(webhookId) {
     const url = this.getFullURL('webhooks', webhookId);
-    return this.getAuthenticationHeaders(auth).then(this.validateAuth).then((authHeaders) => {
+    return this.validateAuthHeaders().then((authHeaders) => {
       return http('GET', url, {}, authHeaders);
     });
   }
@@ -83,12 +77,11 @@ export class WebhooksAPI extends BaseAPI {
    * Updates a webhook
    * @param  {string} webhookId    - an id
    * @param  {WebhookProps} props  - a properties object
-   * @param  {AuthCredentials} auth
    * @return {APIResponse}
    */
-  update(webhookId, props, auth) {
+  update(webhookId, props) {
     const url = this.getFullURL('webhooks', webhookId);
-    return this.getAuthenticationHeaders(auth).then(this.validateAuth).then((authHeaders) => {
+    return this.validateAuthHeaders().then((authHeaders) => {
       return this.validateProps(props).then((validatedProps) => {
         return http('PUT', url, props, authHeaders);
       });
@@ -98,12 +91,12 @@ export class WebhooksAPI extends BaseAPI {
   /**
    * Deletes a webhook
    * @param  {string} webhookId - an id
-   * @param  {AuthCredentials} auth
    * @return {APIResponse}
+   import { getAuthenticationHeaders } from '../../../src/utils/auth';
    */
-  delete(webhookId, auth) {
+  delete(webhookId) {
     const url = this.getFullURL('webhooks', webhookId);
-    return this.getAuthenticationHeaders(auth).then(this.validateAuth).then((authHeaders) => {
+    return this.validateAuthHeaders().then((authHeaders) => {
       return http('DELETE', url, undefined, authHeaders);
     });
   }
