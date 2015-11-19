@@ -24,6 +24,30 @@ export class AppUsersApi extends BaseApi {
     });
   }
 
+  create(userId, props = {}) {
+    if (!userId || !userId.trim()) {
+      throw new Error('Must provide an user id.');
+    }
+
+    let payload = Object.assign({
+      userId: userId
+    }, props);
+
+    if (props.signedUpAt instanceof Date) {
+      Object.assign(payload, props, {
+        signedUpAt: props.signedUpAt.toISOString()
+      });
+    }
+
+    const url = this.getFullURL('appusers');
+
+    // this endpoint only accepts JWT auth with app scope
+    return this.validateAuthHeaders(['jwt']).then((authHeaders) => {
+      return http('POST', url, payload, authHeaders);
+    });
+
+  }
+
   /**
    * Fetch an app user
    * @param  {string} userId - an user id

@@ -59,6 +59,52 @@ describe('AppUsers API', () => {
     });
   });
 
+  describe('#create', () => {
+    const userId = 'some-id';
+
+    const props = {
+      email: 'this is an email'
+    };
+
+    const jwtHttpHeaders = getAuthenticationHeaders({
+      jwt: 'jwt'
+    });
+
+    it('should throw an error if used with app token', (done) => {
+      api.create(userId).catch((err) => {
+        err.message.should.equal('Must not use an app token for authentication.');
+        done();
+      });
+    });
+
+    it('should call http', () => {
+      const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
+      return jwtApi.create(userId, props).then(() => {
+        const fullUrl = jwtApi.getFullURL('appusers');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, Object.assign({
+          userId: userId
+        }, props), jwtHttpHeaders);
+      });
+    });
+
+    it('should convert a signedUpAt date object to ISO string', () => {
+      const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
+
+      const isoString = '2015-01-01T00:00:00.000Z';
+      const isoDate = new Date(isoString);
+
+      return jwtApi.create(userId, {
+        signedUpAt: isoDate
+      }).then(() => {
+        const fullUrl = jwtApi.getFullURL('appusers');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, {
+          userId,
+          signedUpAt: isoString
+        }, jwtHttpHeaders);
+      });
+    });
+  });
+
   describe('#trackEvent', () => {
     it('should call http', () => {
       const eventName = 'some-event';
