@@ -87,20 +87,12 @@ describe('AppUsers API', () => {
       });
     });
 
-    it('should convert a signedUpAt date object to ISO string', () => {
+    it('should throw if signedUpAt is not a date object', (done) => {
       const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
-
-      const isoString = '2015-01-01T00:00:00.000Z';
-      const isoDate = new Date(isoString);
-
-      return jwtApi.create(userId, {
-        signedUpAt: isoDate
-      }).then(() => {
-        const fullUrl = jwtApi.getFullURL('appusers');
-        httpSpy.should.have.been.calledWith('POST', fullUrl, {
-          userId,
-          signedUpAt: isoString
-        }, jwtHttpHeaders);
+      jwtApi.create(userId, {
+        signedUpAt: 'not a date'
+      }).catch(() => {
+        done();
       });
     });
   });

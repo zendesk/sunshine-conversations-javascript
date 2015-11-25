@@ -26,17 +26,15 @@ export class AppUsersApi extends BaseApi {
 
   create(userId, props = {}) {
     if (!userId || !userId.trim()) {
-      throw new Error('Must provide an userId.');
+      return Promise.reject(new Error('Must provide an userId.'));
     }
 
     let payload = Object.assign({
       userId: userId
     }, props);
 
-    if (props.signedUpAt instanceof Date) {
-      Object.assign(payload, props, {
-        signedUpAt: props.signedUpAt.toISOString()
-      });
+    if (props.signedUpAt && !(props.signedUpAt instanceof Date)) {
+      return Promise.reject(new Error('signedUpAt must be a date.'));
     }
 
     const url = this.getFullURL('appusers');
