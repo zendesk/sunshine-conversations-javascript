@@ -20,13 +20,13 @@ export class AppUsersApi extends BaseApi {
   init(props) {
     const url = this.getFullURL('init');
     return this.validateAuthHeaders().then((headers) => {
-      return http('POST', url, props, headers)
+      return http('POST', url, props, headers);
     });
   }
 
   create(userId, props = {}) {
     if (!userId || !userId.trim()) {
-      throw new Error('Must provide an user id.');
+      throw new Error('Must provide an userId.');
     }
 
     let payload = Object.assign({
