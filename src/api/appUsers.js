@@ -20,8 +20,30 @@ export class AppUsersApi extends BaseApi {
   init(props) {
     const url = this.getFullURL('init');
     return this.validateAuthHeaders().then((headers) => {
-      return http('POST', url, props, headers)
+      return http('POST', url, props, headers);
     });
+  }
+
+  create(userId, props = {}) {
+    if (!userId || !userId.trim()) {
+      return Promise.reject(new Error('Must provide an userId.'));
+    }
+
+    let payload = Object.assign({
+      userId: userId
+    }, props);
+
+    if (props.signedUpAt && !(props.signedUpAt instanceof Date)) {
+      return Promise.reject(new Error('signedUpAt must be a date.'));
+    }
+
+    const url = this.getFullURL('appusers');
+
+    // this endpoint only accepts JWT auth with app scope
+    return this.validateAuthHeaders(['jwt']).then((authHeaders) => {
+      return http('POST', url, payload, authHeaders);
+    });
+
   }
 
   /**

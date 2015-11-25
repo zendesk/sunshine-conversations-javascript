@@ -31,10 +31,11 @@ export class BaseApi {
 
   /**
    * Validates the headers sent to the server
+   * @param  {array} allowedAuth  - an array of allowedAuth to override the ones on the instance
    * @return {object}             - the headers object passed in parameter
    */
-  validateAuthHeaders() {
-    if (!this.allowedAuth || this.allowedAuth.length === 0) {
+  validateAuthHeaders(allowedAuth = this.allowedAuth) {
+    if (!allowedAuth || allowedAuth.length === 0) {
       return Promise.reject(new Error('Must at least provide one authentication method.'));
     }
 
@@ -42,8 +43,8 @@ export class BaseApi {
       return Promise.reject(new Error('Must provide headers.'));
     }
 
-    const canContainJwt = this.allowedAuth.indexOf('jwt') >= 0;
-    const canContainToken = this.allowedAuth.indexOf('appToken') >= 0;
+    const canContainJwt = allowedAuth.indexOf('jwt') >= 0;
+    const canContainToken = allowedAuth.indexOf('appToken') >= 0;
 
     const hasJwt = !!this.authHeaders.Authorization;
     const hasToken = !!this.authHeaders['app-token'];
