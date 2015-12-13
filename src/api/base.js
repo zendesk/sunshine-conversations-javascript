@@ -1,4 +1,4 @@
-import urljoin from 'urljoin';
+import { urljoin } from '../utils/http';
 
 /**
  * Authentication credentials - an app token or a JWT must be provided
