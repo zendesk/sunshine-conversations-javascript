@@ -40,8 +40,7 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.0",
-    "jsonwebtoken": "^5.4.1",
-    "urljoin": "^0.1.5"
+    "jsonwebtoken": "^5.4.1"
   },
   "release-script": {
     "bowerRepo": "git@github.com:lemieux/smooch-core-js-bower.git"

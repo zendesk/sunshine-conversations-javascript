@@ -71,3 +71,9 @@ export function http(method, url, data, headers = {}) {
     .then(handleStatus)
     .then(handleBody);
 }
+
+export function urljoin(...args) {
+  return args.map((part) => {
+    return part.replace(/\/$/, '');
+  }).join('/');
+}
