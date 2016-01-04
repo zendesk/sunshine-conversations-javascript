@@ -1,6 +1,15 @@
 import * as fetchMock from '../../mocks/fetch';
 import { http, stringifyGETParams, handleStatus, handleBody } from '../../../src/utils/http';
 import util from 'util';
+
+function getMockedHeaders(headers = {}) {
+  return {
+    get: (header) => {
+      return headers[header];
+    }
+  };
+}
+
 function generateExpectation(method, url, data, headers) {
   method = method.toUpperCase();
 
@@ -139,14 +148,23 @@ describe('HTTP', () => {
       for (let status = 200; status < 300; status++) {
         if (noBodyStatuses.indexOf(status) >= 0) {
           it('should not return a body if HTTP ' + status, () => {
-            const body = handleBody({status: status});
-            expect(body).to.be.undefined;
+            return handleBody({
+              status: status,
+              headers: getMockedHeaders({
+                'Content-Type': 'application/json'
+              })
+            }).then((body) => {
+              expect(body).to.be.undefined;
+            });
           });
         } else {
-          it('should return the value of json() if HTTP '+status, () => {
+          it('should return the value of json() if HTTP ' + status, () => {
             const response = {
               status: status,
-              json: sinon.spy(() => 'body for http '+ status)
+              headers: getMockedHeaders({
+                'Content-Type': 'application/json'
+              }),
+              json: sinon.spy(() => 'body for http ' + status)
             };
 
             const body = handleBody(response);
@@ -156,6 +174,15 @@ describe('HTTP', () => {
           });
         }
       }
+
+      it('should not return a body if content type is not application/json', () => {
+        return handleBody({
+          status: 200,
+          headers: getMockedHeaders()
+        }).then((body) => {
+          expect(body).to.be.undefined;
+        });
+      });
     });
   });
 
