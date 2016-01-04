@@ -24,8 +24,8 @@ export class BaseApi {
    * Build an URL from fragments to call the API
    * @return {string} - an URL
    */
-  getFullURL() {
-    const fragments = Array.from(arguments).map((fragment) => encodeURIComponent(fragment));
+  getFullURL(...args) {
+    const fragments = args.map((fragment) => encodeURIComponent(fragment));
     return urljoin(this.serviceUrl, ...fragments);
   }
 

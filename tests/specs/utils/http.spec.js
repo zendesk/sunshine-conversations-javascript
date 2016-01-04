@@ -32,7 +32,7 @@ function generateTestName(method, data, headers) {
   let dataPart = data && Object.keys(data).length > 0 ? 'with data' : 'without data';
   let headersPart = headers && Object.keys(headers).length > 0 ? 'with headers' : 'without headers';
 
-  return util.format('%s %s %s', method, dataPart, headersPart);
+  return `${method} ${dataPart}, ${headersPart}`;
 }
 
 describe('HTTP', () => {

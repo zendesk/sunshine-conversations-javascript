@@ -1,4 +1,7 @@
-import 'isomorphic-fetch';
+if (typeof process !== 'undefined') {
+  // on node, fetch already exists
+  require('isomorphic-fetch');
+}
 
 /**
  * API Response promise - resolves with the requested resource
@@ -38,12 +41,16 @@ export function handleStatus(response) {
   throw error;
 }
 
+
 export function handleBody(response) {
   if (response.status === 202 || response.status === 204) {
-    return;
+    return Promise.resolve();
   }
 
-  return response.json();
+  var contentType = response.headers.get('Content-Type') || '';
+  var isJson = contentType.indexOf('application/json') > -1;
+
+  return isJson ? response.json() : Promise.resolve();
 }
 
 export function http(method, url, data, headers = {}) {
