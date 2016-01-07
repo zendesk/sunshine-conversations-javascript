@@ -14,7 +14,7 @@ export class StripeApi extends BaseApi {
     }
 
     const url = this.getFullURL('appUsers', userId, 'stripe', 'customer');
-    return this.validateAuthHeaders().then((headers) => {
+    return this.validateAuthHeaders(['jwt']).then((headers) => {
       return http('POST', url, {
         token
       }, headers);

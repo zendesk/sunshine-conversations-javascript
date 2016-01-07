@@ -7,7 +7,7 @@ describe('Stripe API', () => {
   const serviceUrl = 'http://some-url.com';
   const userId = 'user-id';
   const httpHeaders = getAuthenticationHeaders({
-    appToken: 'token'
+    jwt: 'jwt'
   });
   let httpSpy;
   let api;
@@ -35,6 +35,18 @@ describe('Stripe API', () => {
       return api.updateCustomer(userId).catch(() => {
         httpSpy.should.not.have.been.called;
       });
+    });
+    
+    describe('with app-token', () => {
+      it('should throw', () => {
+        let badApi = new StripeApi(serviceUrl, getAuthenticationHeaders({
+          appToken: 'token'
+        }));
+
+        return badApi.updateCustomer(userId, 'token').catch(() => {
+          httpSpy.should.not.have.been.called;
+        });
+      })
     });
   });
 
