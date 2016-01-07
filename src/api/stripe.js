@@ -10,7 +10,7 @@ export class StripeApi extends BaseApi {
 
   updateCustomer(userId, token) {
     if (!token) {
-      return Promise.reject(new Error('Must a Stripe token.'))
+      return Promise.reject(new Error('Must provide a Stripe token.'))
     }
 
     const url = this.getFullURL('appUsers', userId, 'stripe', 'customer');
@@ -23,7 +23,7 @@ export class StripeApi extends BaseApi {
 
   createTransaction(userId, actionId, token) {
     if (!actionId) {
-      return Promise.reject(new Error('Must an action id.'));
+      return Promise.reject(new Error('Must provide an action id.'));
     }
 
     const url = this.getFullURL('appUsers', userId, 'stripe', 'transaction');
