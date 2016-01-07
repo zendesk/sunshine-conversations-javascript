@@ -21,20 +21,6 @@ export class StripeApi extends BaseApi {
     });
   }
 
-  checkout(userId, actionId, token) {
-    if (!actionId || !token) {
-      return Promise.reject(new Error('Must a Stripe token and an action id.'));
-    }
-
-    const url = this.getFullURL('appUsers', userId, 'stripe', 'checkout');
-    return this.validateAuthHeaders().then((headers) => {
-      return http('POST', url, {
-        token,
-        actionId
-      }, headers);
-    });
-  }
-
   createTransaction(userId, actionId, token) {
     if (!actionId) {
       return Promise.reject(new Error('Must an action id.'));

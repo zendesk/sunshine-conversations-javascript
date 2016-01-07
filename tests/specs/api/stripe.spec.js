@@ -38,30 +38,6 @@ describe('Stripe API', () => {
     });
   });
 
-  describe('#checkout', () => {
-    it('should call http', () => {
-      return api.checkout(userId, 'actionId', 'token').then(() => {
-        const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'checkout');
-        httpSpy.should.have.been.calledWith('POST', fullUrl, {
-          actionId: 'actionId',
-          token: 'token'
-        }, httpHeaders);
-      });
-    });
-
-    it('should throw if no token provided', () => {
-      return api.checkout(userId, 'actionId').catch(() => {
-        httpSpy.should.not.have.been.called;
-      });
-    });
-
-    it('should throw if no actionId provided', () => {
-      return api.checkout(userId, undefined, 'token').catch(() => {
-        httpSpy.should.not.have.been.called;
-      });
-    });
-  });
-
   describe('#createTransaction', () => {
     describe('with token', () => {
       it('should call http', () => {
