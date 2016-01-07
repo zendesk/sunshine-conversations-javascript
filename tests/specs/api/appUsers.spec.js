@@ -23,6 +23,10 @@ describe('AppUsers API', () => {
     httpMock.restore();
   });
 
+  it('should have the Stripe API', () => {
+    api.stripe.should.exist;
+  });
+
   describe('#get', () => {
     it('should call http', () => {
       return api.get(userId).then(() => {

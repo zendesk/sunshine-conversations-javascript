@@ -1,4 +1,5 @@
 import { BaseApi } from './base';
+import { StripeApi } from './stripe';
 import { http } from '../utils/http';
 
 /**
@@ -11,6 +12,11 @@ import { http } from '../utils/http';
  * @extends BaseApi
  */
 export class AppUsersApi extends BaseApi {
+
+  constructor(...args) {
+    super(...args);
+    this.stripe = new StripeApi(...args);
+  }
 
   /**
    * Initializes the conversation for a user
