@@ -1,5 +1,5 @@
 import { BaseApi } from './base';
-import { StripeApi } from './stripe';
+import { AppUsersStripeApi } from './appUsersStripe';
 import { http } from '../utils/http';
 
 /**
@@ -15,7 +15,7 @@ export class AppUsersApi extends BaseApi {
 
   constructor(...args) {
     super(...args);
-    this.stripe = new StripeApi(...args);
+    this.stripe = new AppUsersStripeApi(...args);
   }
 
   /**

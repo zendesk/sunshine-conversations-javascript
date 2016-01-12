@@ -1,6 +1,7 @@
 import { getAuthenticationHeaders } from './utils/auth';
 import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
+import { StripeApi } from './api/stripe';
 import packageInfo from '../package.json';
 
 export const SERVICE_URL = 'https://api.smooch.io/v1';
@@ -19,6 +20,7 @@ export class Smooch {
 
     this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders);
     this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders);
+    this.stripe = new StripeApi(this.serviceUrl, this.authHeaders);
 
     this.utils = {};
   }
