@@ -22,7 +22,6 @@ describe('Stripe API', () => {
   describe('#getAccount', () => {
 
     it('should call http', () => {
-      console.log(api.getAccount);
       return api.getAccount().then(() => {
         const fullUrl = api.getFullURL('stripe', 'account');
         httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
