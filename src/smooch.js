@@ -12,7 +12,7 @@ export class Smooch {
     this.serviceUrl = serviceUrl;
 
     if(auth.keyId || auth.secret) {
-      throw new Error('Key Id or Secret should not be used on the browser side. You must generate a JWT beforehand.')
+      throw new Error('Key Id or Secret should not be used on the browser side. You must generate a JWT beforehand.');
     }
 
     this.authHeaders = getAuthenticationHeaders(auth);

@@ -1,2 +1,3 @@
-// TODO : UMD wrapper
+require('../utils/poylfills');
+
 module.exports = require('../smooch').Smooch;
