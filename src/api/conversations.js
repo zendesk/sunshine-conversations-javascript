@@ -37,4 +37,15 @@ export class ConversationsApi extends BaseApi {
       return http('POST', url, message, headers);
     });
   }
+
+  /**
+   * Reset the unread count of the conversation
+   * @return {APIResponse}
+   */
+  resetUnreadCount(userId) {
+    const url = this.getFullURL('appUsers', userId, 'conversation', 'read');
+    return this.validateAuthHeaders().then((headers) => {
+      return http('POST', url, {}, headers);
+    });
+  }
 }
