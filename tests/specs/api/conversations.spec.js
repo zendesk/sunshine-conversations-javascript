@@ -42,4 +42,13 @@ describe('Conversations API', () => {
       })
     });
   });
+
+  describe('#resetUnreadCount', () => {
+    it('should call http', () => {
+      return api.resetUnreadCount(userId).then(() => {
+        const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'read');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, {}, httpHeaders);
+      })
+    });
+  });
 });
