@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:lemieux/smooch-core-js.git"
+    "url": "git@github.com:smooch/smooch-core-js.git"
   },
   "devDependencies": {
     "babel": "^6.1.18",
@@ -44,6 +44,6 @@
     "jsonwebtoken": "^5.4.1"
   },
   "release-script": {
-    "bowerRepo": "git@github.com:lemieux/smooch-core-js-bower.git"
+    "bowerRepo": "git@github.com:smooch/smooch-core-js-bower.git"
   }
 }
