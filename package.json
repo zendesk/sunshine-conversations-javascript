@@ -1,6 +1,6 @@
 {
   "name": "smooch-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript wrapper for Smooch API",
   "homepage": "https://smooch.io",
   "main": "lib/wrappers/node.js",
