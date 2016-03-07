@@ -77,8 +77,6 @@ export class AppUsersApi extends BaseApi {
     });
   }
 
-
-
   /**
    * Track an event for an app user
    * @param  {string} userId     - an user id
@@ -92,6 +90,23 @@ export class AppUsersApi extends BaseApi {
       return http('POST', url, {
         name: eventName,
         appUser: attributes
+      }, headers);
+    });
+  }
+
+  /**
+   * Update the push notification token for a given app user's device
+   * @param  {string} userId     - an user id
+   * @param  {string} deviceId  - a device id
+   * @param  {string} token  - a push notification token
+   * @return {APIResponse}
+   */
+  updatePushToken(userId, deviceId, token) {
+    const url = this.getFullURL('appusers', userId, 'pushToken');
+    return this.validateAuthHeaders().then((headers) => {
+      return http('POST', url, {
+        deviceId,
+        token
       }, headers);
     });
   }
