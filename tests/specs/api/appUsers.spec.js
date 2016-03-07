@@ -117,4 +117,19 @@ describe('AppUsers API', () => {
       });
     });
   });
+
+  describe('#updatePushToken', () => {
+    it('should call http', () => {
+      const deviceId = 'device-id';
+      const token = 'some-token';
+
+      return api.updatePushToken(userId, deviceId, token).then(() => {
+        const fullUrl = api.getFullURL('appusers', userId, 'pushToken');
+        httpSpy.should.have.been.calledWith('POST', fullUrl, {
+          deviceId,
+          token
+        }, httpHeaders);
+      });
+    });
+  });
 });
