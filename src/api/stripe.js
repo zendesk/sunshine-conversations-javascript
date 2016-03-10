@@ -7,11 +7,11 @@ import { http } from '../utils/http';
  */
 export class StripeApi extends BaseApi {
 
-  getAccount() {
-    const url = this.getFullURL('stripe', 'account');
-    return this.validateAuthHeaders().then((headers) => {
-      return http('GET', url, {}, headers);
-    });
-  }
+    getAccount() {
+        const url = this.getFullURL('stripe', 'account');
+        return this.validateAuthHeaders().then((headers) => {
+            return http('GET', url, {}, headers);
+        });
+    }
 
 }

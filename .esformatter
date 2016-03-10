@@ -1,11 +1,11 @@
 {
   "indent": {
-    "value": "  ",
+    "value": "    ",
     "ArrayExpression": 1,
     "AssignmentExpression": 1,
     "BinaryExpression": 1,
     "ConditionalExpression": 1,
-    "CallExpression": 0,
+    "CallExpression": 1,
     "CatchClause": 1,
     "ConditionalExpression": 1,
     "DoWhileStatement": 1,
@@ -17,14 +17,13 @@
     "MemberExpression": 1,
     "MultipleVariableDeclaration": 1,
     "ObjectExpression": 1,
-    "ReturnStatement": 0,
+    "ReturnStatement": 1,
     "SwitchCase": 1,
     "SwitchStatement": 1,
     "TopLevelFunctionBlock": 1,
     "TryStatement": 1,
     "WhileStatement": 1
   },
-
 
   "lineBreak": {
     "value": "\n",
@@ -155,7 +154,7 @@
     "removeTrailing": 1,
 
     "before": {
-      "ArrayExpressionOpening": 0,
+      "ArrayExpressionOpening": 1,
       "ArrayExpressionClosing": 0,
       "ArrayExpressionComma": 0,
       "ArgumentComma": 0,
@@ -303,7 +302,6 @@
   "plugins": [
     "esformatter-quotes",
     "esformatter-braces",
-    "esformatter-var-each",
     "esformatter-dot-notation"
   ],
   "quotes": {

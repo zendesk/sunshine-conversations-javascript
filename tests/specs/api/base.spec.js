@@ -1,104 +1,104 @@
-import { BaseApi, SERVICE_URL } from '../../../src/api/base';
+import { BaseApi } from '../../../src/api/base';
 
 const serviceUrl = 'http://some-url.com';
 const headers = {
-  jwt: 'jwt'
+    jwt: 'jwt'
 };
 
 describe('Base API', () => {
-  describe('#constructor', () => {
-    it('should set service URL and auth headers', () => {
-      const api = new BaseApi(serviceUrl, headers);
+    describe('#constructor', () => {
+        it('should set service URL and auth headers', () => {
+            const api = new BaseApi(serviceUrl, headers);
 
-      api.serviceUrl.should.equal(serviceUrl);
-      api.authHeaders.should.equal(headers);
-    });
-  });
-
-  describe('#getFullURL', () => {
-    const api = new BaseApi(serviceUrl, headers);
-
-    it('should use the serverURL and encode fragments', () => {
-      const finalUrl = api.getFullURL('some', 'u/rl', 'this is an id');
-      finalUrl.should.eql(serviceUrl + '/some/u%2Frl/this%20is%20an%20id');
-    });
-  });
-
-  describe('#validateAuthHeaders', () => {
-    it('should not return an error if Authorization header is present and allowed', () => {
-      const api = new BaseApi(serviceUrl, {
-        Authorization: 'Bearer stuff'
-      });
-
-      api.allowedAuth = ['jwt'];
-
-      return api.validateAuthHeaders();
+            api.serviceUrl.should.equal(serviceUrl);
+            api.authHeaders.should.equal(headers);
+        });
     });
 
-    it('should return an error if Authorization header is present and not allowed', (done) => {
-      const api = new BaseApi(serviceUrl, {
-        Authorization: 'Bearer stuff'
-      });
+    describe('#getFullURL', () => {
+        const api = new BaseApi(serviceUrl, headers);
 
-      api.allowedAuth = ['appToken'];
-
-      api.validateAuthHeaders().catch(() => {
-        done();
-      });
+        it('should use the serverURL and encode fragments', () => {
+            const finalUrl = api.getFullURL('some', 'u/rl', 'this is an id');
+            finalUrl.should.eql(serviceUrl + '/some/u%2Frl/this%20is%20an%20id');
+        });
     });
 
-    it('should not return an error if app-token header is present and allowed', () => {
-      const api = new BaseApi(serviceUrl, {
-        'app-token': 'some-token'
-      });
+    describe('#validateAuthHeaders', () => {
+        it('should not return an error if Authorization header is present and allowed', () => {
+            const api = new BaseApi(serviceUrl, {
+                Authorization: 'Bearer stuff'
+            });
 
-      api.allowedAuth = ['appToken'];
+            api.allowedAuth = ['jwt'];
 
-      return api.validateAuthHeaders();
+            return api.validateAuthHeaders();
+        });
+
+        it('should return an error if Authorization header is present and not allowed', (done) => {
+            const api = new BaseApi(serviceUrl, {
+                Authorization: 'Bearer stuff'
+            });
+
+            api.allowedAuth = ['appToken'];
+
+            api.validateAuthHeaders().catch(() => {
+                done();
+            });
+        });
+
+        it('should not return an error if app-token header is present and allowed', () => {
+            const api = new BaseApi(serviceUrl, {
+                'app-token': 'some-token'
+            });
+
+            api.allowedAuth = ['appToken'];
+
+            return api.validateAuthHeaders();
+        });
+
+        it('should return an error if app-token header is present and not allowed', (done) => {
+            const api = new BaseApi(serviceUrl, {
+                'app-token': 'some-token'
+            });
+
+            api.allowedAuth = ['jwt'];
+
+            api.validateAuthHeaders().catch(() => {
+                done();
+            });
+        });
+
+        it('should not return an error if jwt header is present and both are allowed', () => {
+            const api = new BaseApi(serviceUrl, {
+                Authorization: 'Bearer stuff'
+            });
+
+            api.allowedAuth = ['appToken', 'jwt'];
+
+            return api.validateAuthHeaders();
+        });
+
+        it('should not return an error if app-token header is present and both are allowed', () => {
+            const api = new BaseApi(serviceUrl, {
+                'app-token': 'some-token'
+            });
+
+            api.allowedAuth = ['appToken', 'jwt'];
+
+            return api.validateAuthHeaders();
+        });
+
+        it('should return an error if no allowed auth are present', (done) => {
+            const api = new BaseApi(serviceUrl, {
+                'app-token': 'some-token'
+            });
+
+            api.allowedAuth = [];
+
+            api.validateAuthHeaders().catch(() => {
+                done();
+            });
+        });
     });
-
-    it('should return an error if app-token header is present and not allowed', (done) => {
-      const api = new BaseApi(serviceUrl, {
-        'app-token': 'some-token'
-      });
-
-      api.allowedAuth = ['jwt'];
-
-      api.validateAuthHeaders().catch(() => {
-        done();
-      });
-    });
-
-    it('should not return an error if jwt header is present and both are allowed', () => {
-      const api = new BaseApi(serviceUrl, {
-        Authorization: 'Bearer stuff'
-      });
-
-      api.allowedAuth = ['appToken', 'jwt'];
-
-      return api.validateAuthHeaders();
-    });
-
-    it('should not return an error if app-token header is present and both are allowed', () => {
-      const api = new BaseApi(serviceUrl, {
-        'app-token': 'some-token'
-      });
-
-      api.allowedAuth = ['appToken', 'jwt'];
-
-      return api.validateAuthHeaders();
-    });
-
-    it('should return an error if no allowed auth are present', (done) => {
-      const api = new BaseApi(serviceUrl, {
-        'app-token': 'some-token'
-      });
-
-      api.allowedAuth = [];
-
-      api.validateAuthHeaders().catch(() => {
-        done();
-      });
-    });
-  });
 });
