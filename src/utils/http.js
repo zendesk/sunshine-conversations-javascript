@@ -65,12 +65,18 @@ export function http(method, url, data, headers = {}) {
     };
 
     if (data) {
-        data = Object.assign({}, data);
-
-        if (method === 'GET') {
-            url = stringifyGETParams(url, data);
-        } else if (method === 'POST' || method === 'PUT') {
-            fetchOptions.body = JSON.stringify(data);
+        if (data instanceof FormData) {
+            fetchOptions.body = data;
+            Object.assign(fetchOptions.headers, {
+                'Content-Type': 'multipart/form-data'
+            });
+        } else {
+            data = Object.assign({}, data);
+            if (method === 'GET') {
+                url = stringifyGETParams(url, data);
+            } else if (method === 'POST' || method === 'PUT') {
+                fetchOptions.body = JSON.stringify(data);
+            }
         }
     }
 

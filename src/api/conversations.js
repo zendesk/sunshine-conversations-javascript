@@ -39,6 +39,25 @@ export class ConversationsApi extends BaseApi {
     }
 
     /**
+     * Send a message to an app user's conversation
+     * @param  {string} userId - an user id
+     * @param  {Message} message - the message to be sent
+     * @return {APIResponse}
+     */
+    uploadImage(userId, source, message = {}) {
+        const url = this.getFullURL('appUsers', userId, 'conversation', 'images');
+        return this.validateAuthHeaders().then((headers) => {
+            const data = new FormData();
+            data.append('source', source);
+            Object.keys(message).forEach((key) => {
+                data.append(key, message[key]);
+            });
+
+            return http('POST', url, data, headers);
+        });
+    }
+
+    /**
      * Reset the unread count of the conversation
      * @return {APIResponse}
      */
