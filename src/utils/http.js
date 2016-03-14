@@ -67,6 +67,8 @@ export function http(method, url, data, headers = {}) {
     if (data) {
         if (data instanceof FormData) {
             fetchOptions.body = data;
+            // Remove the Content-Type header, `fetch` will
+            // generate one to add the form boundary.
             delete fetchOptions.headers['Content-Type'];
         } else {
             data = Object.assign({}, data);
