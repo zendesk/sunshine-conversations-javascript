@@ -4,6 +4,12 @@ import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { ConversationsApi } from '../../../src/api/conversations';
 
+let FormData = global.FormData;
+
+if (!FormData) {
+    FormData = require('form-data');
+}
+
 
 describe('Conversations API', () => {
     const serviceUrl = 'http://some-url.com';
