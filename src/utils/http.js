@@ -1,6 +1,6 @@
 if (typeof process !== 'undefined') {
-  // on node, fetch already exists
-  require('isomorphic-fetch');
+    // on node, fetch already exists
+    require('isomorphic-fetch');
 }
 
 /**
@@ -17,70 +17,76 @@ if (typeof process !== 'undefined') {
  * @return {string}      - the final url
  */
 export function stringifyGETParams(url, data) {
-  let query = '';
+    let query = '';
 
-  for (var key in Object.keys(data)) {
-    if (data[key] !== null) {
-      query += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+    for (var key in Object.keys(data)) {
+        if (data[key] !== null) {
+            query += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+        }
     }
-  }
-  if (query) {
-    url += (~url.indexOf('?') ? '&' : '?') + query.substring(1);
-  }
-  return url;
+    if (query) {
+        url += (~url.indexOf('?') ? '&' : '?') + query.substring(1);
+    }
+    return url;
 }
 
 export function handleStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
+    if (response.status >= 200 && response.status < 300) {
+        return response;
+    }
 
-  var error = new Error(response.statusText);
-  error.response = response;
+    var error = new Error(response.statusText);
+    error.response = response;
 
-  throw error;
+    throw error;
 }
 
 
 export function handleBody(response) {
-  if (response.status === 202 || response.status === 204) {
-    return Promise.resolve();
-  }
+    if (response.status === 202 || response.status === 204) {
+        return Promise.resolve();
+    }
 
-  var contentType = response.headers.get('Content-Type') || '';
-  var isJson = contentType.indexOf('application/json') > -1;
+    var contentType = response.headers.get('Content-Type') || '';
+    var isJson = contentType.indexOf('application/json') > -1;
 
-  return isJson ? response.json() : Promise.resolve();
+    return isJson ? response.json() : Promise.resolve();
 }
 
 export function http(method, url, data, headers = {}) {
-  method = method.toUpperCase();
+    method = method.toUpperCase();
 
-  let fetchOptions = {
-    method: method,
-    headers: Object.assign({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }, headers)
-  };
+    const fetchOptions = {
+        method: method,
+        headers: Object.assign({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, headers)
+    };
 
-  if (data) {
-    data = Object.assign({}, data);
-
-    if (method === 'GET') {
-      url = stringifyGETParams(url, data);
-    } else if (method === 'POST' || method === 'PUT') {
-      fetchOptions.body = JSON.stringify(data);
+    if (data) {
+        if (data instanceof FormData) {
+            fetchOptions.body = data;
+            // Remove the Content-Type header, `fetch` will
+            // generate one to add the form boundary.
+            delete fetchOptions.headers['Content-Type'];
+        } else {
+            data = Object.assign({}, data);
+            if (method === 'GET') {
+                url = stringifyGETParams(url, data);
+            } else if (method === 'POST' || method === 'PUT') {
+                fetchOptions.body = JSON.stringify(data);
+            }
+        }
     }
-  }
 
-  return fetch(url, fetchOptions)
-    .then(handleStatus)
-    .then(handleBody);
+    return fetch(url, fetchOptions)
+        .then(handleStatus)
+        .then(handleBody);
 }
 
 export function urljoin(...args) {
-  return args.map((part) => {
-    return part.replace(/\/$/, '');
-  }).join('/');
+    return args.map((part) => {
+        return part.replace(/\/$/, '');
+    }).join('/');
 }

@@ -1,3 +1,3 @@
-require('../utils/poylfills');
+require('../utils/polyfills');
 
 module.exports = require('../smooch').Smooch;
