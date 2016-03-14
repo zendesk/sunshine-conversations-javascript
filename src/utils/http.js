@@ -67,9 +67,7 @@ export function http(method, url, data, headers = {}) {
     if (data) {
         if (data instanceof FormData) {
             fetchOptions.body = data;
-            Object.assign(fetchOptions.headers, {
-                'Content-Type': 'multipart/form-data'
-            });
+            delete fetchOptions.headers['Content-Type'];
         } else {
             data = Object.assign({}, data);
             if (method === 'GET') {
