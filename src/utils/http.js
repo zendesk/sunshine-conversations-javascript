@@ -3,6 +3,12 @@ if (typeof process !== 'undefined') {
     require('isomorphic-fetch');
 }
 
+let FormData = global.FormData;
+
+if (!FormData) {
+    FormData = require('form-data');
+}
+
 /**
  * API Response promise - resolves with the requested resource
  * @typedef APIResponse
@@ -65,12 +71,18 @@ export function http(method, url, data, headers = {}) {
     };
 
     if (data) {
-        data = Object.assign({}, data);
-
-        if (method === 'GET') {
-            url = stringifyGETParams(url, data);
-        } else if (method === 'POST' || method === 'PUT') {
-            fetchOptions.body = JSON.stringify(data);
+        if (data instanceof FormData) {
+            fetchOptions.body = data;
+            // Remove the Content-Type header, `fetch` will
+            // generate one to add the form boundary.
+            delete fetchOptions.headers['Content-Type'];
+        } else {
+            data = Object.assign({}, data);
+            if (method === 'GET') {
+                url = stringifyGETParams(url, data);
+            } else if (method === 'POST' || method === 'PUT') {
+                fetchOptions.body = JSON.stringify(data);
+            }
         }
     }
 

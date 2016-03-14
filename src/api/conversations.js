@@ -1,6 +1,11 @@
 import { BaseApi } from './base';
 import { http } from '../utils/http';
 
+let FormData = global.FormData;
+
+if (!FormData) {
+    FormData = require('form-data');
+}
 
 /**
  * @typedef Message
@@ -35,6 +40,27 @@ export class ConversationsApi extends BaseApi {
         const url = this.getFullURL('appUsers', userId, 'conversation', 'messages');
         return this.validateAuthHeaders().then((headers) => {
             return http('POST', url, message, headers);
+        });
+    }
+
+    /**
+     * Send an image to an app user's conversation
+     * @param  {string} userId - an user id
+     * @param  {Blob|Readable stream} source - source image
+     * @param  {Message} message - the message to be sent
+     * @return {APIResponse}
+     */
+    uploadImage(userId, source, message = {}) {
+        const url = this.getFullURL('appUsers', userId, 'conversation', 'images');
+        return this.validateAuthHeaders().then((headers) => {
+            const data = new FormData();
+            data.append('source', source);
+
+            Object.keys(message).forEach((key) => {
+                data.append(key, message[key]);
+            });
+
+            return http('POST', url, data, headers);
         });
     }
 

@@ -43,11 +43,13 @@
     "should": "7.1.1",
     "sinon": "1.17.2",
     "sinon-chai": "2.8.0",
+    "streamifier": "0.1.1",
     "uglifyify": "3.0.1",
     "uglifyjs": "2.4.10"
   },
   "dependencies": {
     "babel-runtime": "6.1.18",
+    "form-data": "0.2.0",
     "isomorphic-fetch": "2.2.0",
     "jsonwebtoken": "5.4.1"
   },
