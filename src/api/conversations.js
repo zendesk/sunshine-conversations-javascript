@@ -1,12 +1,6 @@
 import { BaseApi } from './base';
 import { http } from '../utils/http';
 
-let FormData = global.FormData;
-
-if (!FormData) {
-    FormData = require('form-data');
-}
-
 /**
  * @typedef Message
  *

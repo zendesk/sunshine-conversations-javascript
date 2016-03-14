@@ -3,12 +3,6 @@ if (typeof process !== 'undefined') {
     require('isomorphic-fetch');
 }
 
-let FormData = global.FormData;
-
-if (!FormData) {
-    FormData = require('form-data');
-}
-
 /**
  * API Response promise - resolves with the requested resource
  * @typedef APIResponse
