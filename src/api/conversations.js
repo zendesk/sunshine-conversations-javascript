@@ -39,8 +39,9 @@ export class ConversationsApi extends BaseApi {
     }
 
     /**
-     * Send a message to an app user's conversation
+     * Send an image to an app user's conversation
      * @param  {string} userId - an user id
+     * @param  {Blob} source - source image
      * @param  {Message} message - the message to be sent
      * @return {APIResponse}
      */
@@ -49,6 +50,7 @@ export class ConversationsApi extends BaseApi {
         return this.validateAuthHeaders().then((headers) => {
             const data = new FormData();
             data.append('source', source);
+            
             Object.keys(message).forEach((key) => {
                 data.append(key, message[key]);
             });
