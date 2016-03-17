@@ -132,4 +132,18 @@ describe('AppUsers API', () => {
             });
         });
     });
+
+    describe('#updateDevice', () => {
+        it('should call http', () => {
+            const deviceId = 'device-id';
+            const attrs = {
+                test: true
+            };
+
+            return api.updateDevice(userId, deviceId, attrs).then(() => {
+                const fullUrl = api.getFullURL('appusers', userId, 'devices', deviceId);
+                httpSpy.should.have.been.calledWith('PUT', fullUrl, attrs, httpHeaders);
+            });
+        });
+    });
 });
