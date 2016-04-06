@@ -76,8 +76,8 @@ export class BaseApi {
      */
     getHeaders() {
         return {
-            ...this.authHeaders,
-            ...this.headers
+            ...this.headers,
+            ...this.authHeaders
         };
     }
 }
