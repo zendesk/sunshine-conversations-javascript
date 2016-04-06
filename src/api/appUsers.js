@@ -1,6 +1,5 @@
 import { BaseApi } from './base';
 import { AppUsersStripeApi } from './appUsersStripe';
-import { http } from '../utils/http';
 
 /**
  * Init API properties
@@ -25,9 +24,7 @@ export class AppUsersApi extends BaseApi {
      */
     init(props) {
         const url = this.getFullURL('init');
-        return this.validateAuthHeaders().then((headers) => {
-            return http('POST', url, props, headers);
-        });
+        return this.request('POST', url, props);
     }
 
     create(userId, props = {}) {
@@ -46,10 +43,9 @@ export class AppUsersApi extends BaseApi {
         const url = this.getFullURL('appusers');
 
         // this endpoint only accepts JWT auth with app scope
-        return this.validateAuthHeaders(['jwt']).then((authHeaders) => {
-            return http('POST', url, payload, authHeaders);
+        return this.request('POST', url, payload, {
+            allowedAuth: ['jwt']
         });
-
     }
 
     /**
@@ -59,9 +55,7 @@ export class AppUsersApi extends BaseApi {
      */
     get(userId) {
         const url = this.getFullURL('appusers', userId);
-        return this.validateAuthHeaders().then((headers) => {
-            return http('GET', url, {}, headers);
-        });
+        return this.request('GET', url, {});
     }
 
     /**
@@ -72,9 +66,7 @@ export class AppUsersApi extends BaseApi {
      */
     update(userId, attributes) {
         const url = this.getFullURL('appusers', userId);
-        return this.validateAuthHeaders().then((headers) => {
-            return http('PUT', url, attributes, headers);
-        });
+        return this.request('PUT', url, attributes);
     }
 
     /**
@@ -86,11 +78,9 @@ export class AppUsersApi extends BaseApi {
      */
     trackEvent(userId, eventName, attributes = {}) {
         const url = this.getFullURL('appusers', userId, 'events');
-        return this.validateAuthHeaders().then((headers) => {
-            return http('POST', url, {
-                name: eventName,
-                appUser: attributes
-            }, headers);
+        return this.request('POST', url, {
+            name: eventName,
+            appUser: attributes
         });
     }
 
@@ -103,11 +93,9 @@ export class AppUsersApi extends BaseApi {
      */
     updatePushToken(userId, deviceId, token) {
         const url = this.getFullURL('appusers', userId, 'pushToken');
-        return this.validateAuthHeaders().then((headers) => {
-            return http('POST', url, {
-                deviceId,
-                token
-            }, headers);
+        return this.request('POST', url, {
+            deviceId,
+            token
         });
     }
 
@@ -119,8 +107,6 @@ export class AppUsersApi extends BaseApi {
     */
     updateDevice(userId, deviceId, attributes) {
         const url = this.getFullURL('appusers', userId, 'devices', deviceId);
-        return this.validateAuthHeaders().then((headers) => {
-            return http('PUT', url, attributes, headers);
-        });
+        return this.request('PUT', url, attributes);
     }
 }

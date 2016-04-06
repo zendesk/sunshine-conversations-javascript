@@ -1,4 +1,5 @@
 import { urljoin } from '../utils/http';
+import { http } from '../utils/http';
 
 /**
  * Authentication credentials - an app token or a JWT must be provided
@@ -12,9 +13,10 @@ import { urljoin } from '../utils/http';
  * @class BaseApi
  */
 export class BaseApi {
-    constructor(serviceUrl, authHeaders) {
+    constructor(serviceUrl, authHeaders, headers) {
         this.serviceUrl = serviceUrl;
         this.authHeaders = authHeaders;
+        this.headers = headers;
 
         // both are allowed unless stated otherwise
         this.allowedAuth = ['jwt', 'appToken'];
@@ -57,6 +59,25 @@ export class BaseApi {
             return Promise.reject(new Error('Must not use an app token for authentication.'));
         }
 
-        return Promise.resolve(this.authHeaders);
+        return Promise.resolve();
+    }
+
+
+    request(method, url, data, {allowedAuth=this.allowedAuth} = {}) {
+        return this.validateAuthHeaders(allowedAuth)
+            .then(() => {
+                return http(method, url, data, this.getHeaders());
+            });
+    }
+
+    /**
+     * Combines authorization headers and custom headers passed in the Smooch constructor
+     * returns {object} - The headers to be sent in HTTP requests
+     */
+    getHeaders() {
+        return {
+            ...this.authHeaders,
+            ...this.headers
+        };
     }
 }

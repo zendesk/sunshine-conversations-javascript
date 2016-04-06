@@ -56,7 +56,7 @@ describe('Conversations API', () => {
                 httpSpy.args[0][0].should.eq('POST');
                 httpSpy.args[0][1].should.eq(fullUrl);
                 httpSpy.args[0][2].should.be.instanceof(FormData);
-                httpSpy.args[0][3].should.eq(httpHeaders);
+                httpSpy.args[0][3].should.eql(httpHeaders);
             });
         });
     });

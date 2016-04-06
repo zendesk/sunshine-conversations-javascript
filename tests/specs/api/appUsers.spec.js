@@ -3,7 +3,6 @@ import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersApi } from '../../../src/api/appUsers';
 
 
-
 describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
