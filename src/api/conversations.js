@@ -18,7 +18,7 @@ export class ConversationsApi extends BaseApi {
      */
     get(userId) {
         const url = this.getFullURL('appUsers', userId, 'conversation');
-        return this.request('GET', url, {});
+        return this.request('GET', url);
     }
 
     /**
@@ -57,6 +57,6 @@ export class ConversationsApi extends BaseApi {
      */
     resetUnreadCount(userId) {
         const url = this.getFullURL('appUsers', userId, 'conversation', 'read');
-        return this.request('POST', url, {});
+        return this.request('POST', url);
     }
 }

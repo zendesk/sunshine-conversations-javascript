@@ -55,7 +55,7 @@ export class AppUsersApi extends BaseApi {
      */
     get(userId) {
         const url = this.getFullURL('appusers', userId);
-        return this.request('GET', url, {});
+        return this.request('GET', url);
     }
 
     /**

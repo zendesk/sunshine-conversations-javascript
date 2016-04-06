@@ -41,7 +41,7 @@ export class WebhooksApi extends BaseApi {
      */
     list() {
         const url = this.getFullURL('webhooks');
-        return this.request('GET', url, {});
+        return this.request('GET', url);
     }
 
     /**
@@ -63,7 +63,7 @@ export class WebhooksApi extends BaseApi {
      */
     get(webhookId) {
         const url = this.getFullURL('webhooks', webhookId);
-        return this.request('GET', url, {});
+        return this.request('GET', url);
     }
 
     /**

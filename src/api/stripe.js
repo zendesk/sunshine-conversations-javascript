@@ -9,7 +9,7 @@ export class StripeApi extends BaseApi {
 
     getAccount() {
         const url = this.getFullURL('stripe', 'account');
-        return this.request('GET', url, {});
+        return this.request('GET', url);
     }
 
 }
