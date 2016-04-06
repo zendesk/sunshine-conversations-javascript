@@ -26,7 +26,7 @@ describe('Conversations API', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
                 const fullUrl = api.getFullURL('appUsers', userId, 'conversation');
-                httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
     });
@@ -65,7 +65,7 @@ describe('Conversations API', () => {
         it('should call http', () => {
             return api.resetUnreadCount(userId).then(() => {
                 const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'read');
-                httpSpy.should.have.been.calledWith('POST', fullUrl, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, httpHeaders);
             });
         });
     });

@@ -68,7 +68,7 @@ describe('Webhooks API', () => {
         it('should call http', () => {
             return api.list().then(() => {
                 const fullUrl = api.getFullURL('webhooks');
-                httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
 
@@ -88,7 +88,7 @@ describe('Webhooks API', () => {
         it('should call http', () => {
             return api.get(webhookId).then(() => {
                 const fullUrl = api.getFullURL('webhooks', webhookId);
-                httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
 

@@ -31,7 +31,7 @@ describe('AppUsers API', () => {
             return api.get(userId).then(() => {
                 const fullUrl = api.getFullURL('appusers', userId);
 
-                httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
     });
