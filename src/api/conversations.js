@@ -1,5 +1,4 @@
 import { BaseApi } from './base';
-import { http } from '../utils/http';
 
 /**
  * @typedef Message
@@ -14,48 +13,42 @@ export class ConversationsApi extends BaseApi {
 
     /**
      * Fetch an app user's conversation
-     * @param  {string} userId - an user id
+     * @param  {string} userId - a user id
      * @return {APIResponse}
      */
     get(userId) {
         const url = this.getFullURL('appUsers', userId, 'conversation');
-        return this.validateAuthHeaders().then((headers) => {
-            return http('GET', url, {}, headers);
-        });
+        return this.request('GET', url);
     }
 
     /**
      * Send a message to an app user's conversation
-     * @param  {string} userId - an user id
+     * @param  {string} userId - a user id
      * @param  {Message} message - the message to be sent
      * @return {APIResponse}
      */
     sendMessage(userId, message) {
         const url = this.getFullURL('appUsers', userId, 'conversation', 'messages');
-        return this.validateAuthHeaders().then((headers) => {
-            return http('POST', url, message, headers);
-        });
+        return this.request('POST', url, message);
     }
 
     /**
      * Send an image to an app user's conversation
-     * @param  {string} userId - an user id
+     * @param  {string} userId - a user id
      * @param  {Blob|Readable stream} source - source image
      * @param  {Message} message - the message to be sent
      * @return {APIResponse}
      */
     uploadImage(userId, source, message = {}) {
         const url = this.getFullURL('appUsers', userId, 'conversation', 'images');
-        return this.validateAuthHeaders().then((headers) => {
-            const data = new FormData();
-            data.append('source', source);
+        const data = new FormData();
+        data.append('source', source);
 
-            Object.keys(message).forEach((key) => {
-                data.append(key, message[key]);
-            });
-
-            return http('POST', url, data, headers);
+        Object.keys(message).forEach((key) => {
+            data.append(key, message[key]);
         });
+
+        return this.request('POST', url, data);
     }
 
     /**
@@ -64,8 +57,6 @@ export class ConversationsApi extends BaseApi {
      */
     resetUnreadCount(userId) {
         const url = this.getFullURL('appUsers', userId, 'conversation', 'read');
-        return this.validateAuthHeaders().then((headers) => {
-            return http('POST', url, {}, headers);
-        });
+        return this.request('POST', url);
     }
 }

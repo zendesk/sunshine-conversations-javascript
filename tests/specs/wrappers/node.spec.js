@@ -29,6 +29,22 @@ describe('Smooch', () => {
         var smooch = new Smooch(authOptions);
         smooch.authHeaders.should.deep.equal(headers);
     });
+
+    it('should accept custom headers', () => {
+        const authOptions = {
+            jwt: 'jwt'
+        };
+
+        const customHeaders = {
+            myheader: '1234'
+        };
+
+        var smooch = new Smooch(authOptions, {
+            headers: customHeaders
+        });
+        smooch.headers.should.deep.equal(customHeaders);
+    });
+
     describe('generating jwt', () => {
         const keyId = 'keyId';
         const secret = 'secret';

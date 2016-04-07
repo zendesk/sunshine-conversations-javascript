@@ -1,5 +1,4 @@
 import { BaseApi } from './base';
-import { http } from '../utils/http';
 
 
 /**
@@ -14,10 +13,10 @@ export class AppUsersStripeApi extends BaseApi {
         }
 
         const url = this.getFullURL('appUsers', userId, 'stripe', 'customer');
-        return this.validateAuthHeaders(['jwt']).then((headers) => {
-            return http('POST', url, {
-                token
-            }, headers);
+        return this.request('POST', url, {
+            token
+        }, {
+            allowedAuth: ['jwt']
         });
     }
 
@@ -38,8 +37,6 @@ export class AppUsersStripeApi extends BaseApi {
             });
         }
 
-        return this.validateAuthHeaders().then((headers) => {
-            return http('POST', url, body, headers);
-        });
+        return this.request('POST', url, body);
     }
 }

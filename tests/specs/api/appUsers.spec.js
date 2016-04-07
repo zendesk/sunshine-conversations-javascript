@@ -3,7 +3,6 @@ import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersApi } from '../../../src/api/appUsers';
 
 
-
 describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
@@ -32,7 +31,7 @@ describe('AppUsers API', () => {
             return api.get(userId).then(() => {
                 const fullUrl = api.getFullURL('appusers', userId);
 
-                httpSpy.should.have.been.calledWith('GET', fullUrl, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
     });

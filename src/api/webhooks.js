@@ -1,5 +1,4 @@
 import { BaseApi } from './base';
-import { http } from '../utils/http';
 
 /**
  * Webhook properties
@@ -42,9 +41,7 @@ export class WebhooksApi extends BaseApi {
      */
     list() {
         const url = this.getFullURL('webhooks');
-        return this.validateAuthHeaders().then((authHeaders) => {
-            return http('GET', url, {}, authHeaders);
-        });
+        return this.request('GET', url);
     }
 
     /**
@@ -54,10 +51,8 @@ export class WebhooksApi extends BaseApi {
      */
     create(props) {
         const url = this.getFullURL('webhooks');
-        return this.validateAuthHeaders().then((authHeaders) => {
-            return this.validateProps(props, true).then((validatedProps) => {
-                return http('POST', url, validatedProps, authHeaders);
-            });
+        return this.validateProps(props, true).then((validatedProps) => {
+            return this.request('POST', url, validatedProps);
         });
     }
 
@@ -68,9 +63,7 @@ export class WebhooksApi extends BaseApi {
      */
     get(webhookId) {
         const url = this.getFullURL('webhooks', webhookId);
-        return this.validateAuthHeaders().then((authHeaders) => {
-            return http('GET', url, {}, authHeaders);
-        });
+        return this.request('GET', url);
     }
 
     /**
@@ -81,10 +74,8 @@ export class WebhooksApi extends BaseApi {
      */
     update(webhookId, props) {
         const url = this.getFullURL('webhooks', webhookId);
-        return this.validateAuthHeaders().then((authHeaders) => {
-            return this.validateProps(props).then(() => {
-                return http('PUT', url, props, authHeaders);
-            });
+        return this.validateProps(props).then((validatedProps) => {
+            return this.request('PUT', url, validatedProps);
         });
     }
 
@@ -96,8 +87,6 @@ export class WebhooksApi extends BaseApi {
      */
     delete(webhookId) {
         const url = this.getFullURL('webhooks', webhookId);
-        return this.validateAuthHeaders().then((authHeaders) => {
-            return http('DELETE', url, undefined, authHeaders);
-        });
+        return this.request('DELETE', url);
     }
 }
