@@ -31,6 +31,19 @@ describe('Conversations API', () => {
         });
     });
 
+    describe('#postPostback', () => {
+        it('should call http', () => {
+            const body = {
+                actionId: 'action-id'
+            };
+
+            return api.postPostback(userId, body.actionId).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'postback');
+                httpSpy.should.have.been.calledWith('POST', fullUrl, body, httpHeaders);
+            });
+        });
+    });
+
     describe('#sendMessage', () => {
         it('should call http', () => {
             const message = {
