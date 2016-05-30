@@ -54,7 +54,7 @@
     "jsonwebtoken": "5.4.1"
   },
   "peerDependencies": {
-      "babel-runtime": "6.9.0"
+      "babel-runtime": "6.9.x"
   },
   "release-script": {
     "bowerRepo": "git@github.com:smooch/smooch-core-js-bower.git"
