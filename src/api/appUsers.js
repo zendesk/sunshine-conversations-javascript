@@ -1,6 +1,7 @@
 import { BaseApi } from './base';
 import { AppUsersStripeApi } from './appUsersStripe';
 import { AppUsersWeChatApi } from './appUsersWeChat';
+import { AppUsersLinkApi } from './appUsersLink';
 
 /**
  * Init API properties
@@ -17,6 +18,7 @@ export class AppUsersApi extends BaseApi {
         super(...args);
         this.stripe = new AppUsersStripeApi(...args);
         this.wechat = new AppUsersWeChatApi(...args);
+        this.link = new AppUsersLinkApi(...args);
     }
 
     /**
