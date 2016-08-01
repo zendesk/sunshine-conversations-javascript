@@ -26,6 +26,14 @@ describe('AppUsers API', () => {
         api.stripe.should.exist;
     });
 
+    it('should have the WeChat API', () => {
+        api.wechat.should.exist;
+    });
+
+    it('should have the Link API', () => {
+        api.link.should.exist;
+    });
+
     describe('#get', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
