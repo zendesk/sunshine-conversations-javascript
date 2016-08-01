@@ -25,10 +25,11 @@ export class AppUsersLinkApi extends BaseApi {
     /**
      * Unlinks the specified channel
      * @param {string} userId - a user id
+     * @param {string} channel - the channel to unlink
      * @return {APIResponse}
      */
-    deleteTwilioChannel(userId) {
-        const url = this.getFullURL('appUsers', userId, 'channels', 'twilio');
+    deleteChannel(userId, channel) {
+        const url = this.getFullURL('appUsers', userId, 'channels', channel);
         return this.request('DELETE', url);
     }
 }

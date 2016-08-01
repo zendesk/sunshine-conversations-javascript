@@ -41,9 +41,9 @@ describe('AppUsersLink API', () => {
         });
     });
 
-    describe('#deleteTwilioChannel', () => {
+    describe('#deleteChannel', () => {
         it('should call http', () => {
-            return api.deleteTwilioChannel(userId).then(() => {
+            return api.deleteChannel(userId, 'twilio').then(() => {
                 const fullUrl = api.getFullURL('appUsers', userId, 'channels', 'twilio');
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
             });
