@@ -28,7 +28,7 @@ export class AppUsersLinkApi extends BaseApi {
      * @param {string} channel - the channel to unlink
      * @return {APIResponse}
      */
-    deleteChannel(userId, channel) {
+    unlinkChannel(userId, channel) {
         const url = this.getFullURL('appUsers', userId, 'channels', channel);
         return this.request('DELETE', url);
     }
