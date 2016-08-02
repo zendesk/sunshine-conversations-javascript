@@ -32,4 +32,14 @@ export class AppUsersLinkApi extends BaseApi {
         const url = this.getFullURL('appUsers', userId, 'channels', channel);
         return this.request('DELETE', url);
     }
+
+    /**
+     * Pings linked channel
+     * @param {string} userId - a user id
+     * @param {string} channel - the channel to ping
+     */
+    pingChannel(userId, channel) {
+        const url = this.getFullURL('appUsers', userId, 'integrations', channel, 'ping');
+        return this.request('GET', url);
+    }
 }

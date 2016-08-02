@@ -49,4 +49,13 @@ describe('AppUsersLink API', () => {
             });
         });
     });
+
+    describe('#pingChannel', () => {
+        it('should call http', () => {
+            return api.pingChannel(userId, 'twilio').then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'integrations', 'twilio', 'ping');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+            });
+        });
+    });
 });
