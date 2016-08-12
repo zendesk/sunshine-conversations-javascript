@@ -146,6 +146,6 @@ export class AppUsersApi extends BaseApi {
      */
     pingChannel(userId, channel) {
         const url = this.getFullURL('appUsers', userId, 'integrations', channel, 'ping');
-        return this.request('GET', url);
+        return this.request('POST', url);
     }
 }
