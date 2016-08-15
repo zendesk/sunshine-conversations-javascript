@@ -26,6 +26,10 @@ describe('AppUsers API', () => {
         api.stripe.should.exist;
     });
 
+    it('should have the WeChat API', () => {
+        api.wechat.should.exist;
+    });
+
     describe('#get', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
@@ -142,6 +146,45 @@ describe('AppUsers API', () => {
             return api.updateDevice(userId, deviceId, attrs).then(() => {
                 const fullUrl = api.getFullURL('appusers', userId, 'devices', deviceId);
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, attrs, httpHeaders);
+            });
+        });
+    });
+
+    describe('#linkChannel', () => {
+        it('should call http', () => {
+            const data = {
+                type: 'twilio',
+                phoneNumber: '15145555555'
+            };
+            return api.linkChannel(userId, data).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'channels');
+                httpSpy.should.have.been.calledWith('POST', fullUrl, {
+                    ...data
+                }, httpHeaders);
+            });
+        });
+
+        it('should throw if no channelType provided', () => {
+            return api.linkChannel(userId, {}).catch(() => {
+                httpSpy.should.not.have.been.called;
+            });
+        });
+    });
+
+    describe('#unlinkChannel', () => {
+        it('should call http', () => {
+            return api.unlinkChannel(userId, 'twilio').then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'channels', 'twilio');
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
+            });
+        });
+    });
+
+    describe('#pingChannel', () => {
+        it('should call http', () => {
+            return api.pingChannel(userId, 'twilio').then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'integrations', 'twilio', 'ping');
+                httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, httpHeaders);
             });
         });
     });
