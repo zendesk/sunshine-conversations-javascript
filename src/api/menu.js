@@ -4,7 +4,7 @@ import { BaseApi } from './base';
  * @class MenuApi
  * @extends BaseApi
  */
-export class ConversationsApi extends BaseApi {
+export class MenuApi extends BaseApi {
 
     constructor() {
         super(...arguments);
@@ -26,8 +26,12 @@ export class ConversationsApi extends BaseApi {
      * @return {APIResponse}
      */
     configure(menuData) {
+        if (!menuData) {
+            return Promise.reject(new Error('Must provide props.'));
+        }
+
         if (!menuData.items) {
-            return Promise.reject(new Error('Must provide an array of items'));
+            return Promise.reject(new Error('Must provide an array of items.'));
         }
 
         const url = this.getFullURL('menu');
