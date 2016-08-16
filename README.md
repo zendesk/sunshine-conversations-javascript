@@ -85,3 +85,6 @@ This is an overview of what the library has to offer. A better documentation wil
 |  | get | [GET `/v1/webhooks/:id`](http://docs.smooch.io/rest/#get-webhook) |
 |  | update | [PUT `/v1/webhooks/:id`](http://docs.smooch.io/rest/#update-webhook) |
 |  | delete | [DELETE `/v1/webhooks/:id`](http://docs.smooch.io/rest/#delete-webhook) |
+| menu      | get      | [GET `/v1/menu`](http://docs.smooch.io/rest#persistent-menus)       |
+|           | configure| [PUT `/v1/menu`](http://docs.smooch.io/rest#persistent-menus)   |
+|           | remove   | [DELETE `/v1/menu`](http://docs.smooch.io/rest#persistent-menus)|
