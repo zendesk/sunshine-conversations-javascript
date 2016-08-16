@@ -2,7 +2,7 @@
 
 Smooch Core is the most basic for interaction possible for the [Smooch API](http://docs.smooch.io/rest). It wraps the public API in a convenient Javascript API.
 
-This library is meant to be isomorphic, which means it can be used in the browser and server-side with Node.js. However, the webhooks API and the JWT utils are not available in the browser to reduce the bundle size. Those actions should not be done in the browser anyway.
+This library is meant to be isomorphic, which means it can be used in the browser and server-side with Node.js. However, the webhooks API, menu API, and the JWT utils are not available in the browser to reduce the bundle size. In any case, those actions should not be performed in the browser for security reasons.
 
 ## Installation
 ```bash
