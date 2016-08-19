@@ -176,4 +176,34 @@ export class AppUsersApi extends BaseApi {
 
         return this.request('GET', url, params);
     }
+
+    /**
+     * Send a message to an app user's conversation
+     * @param  {string} userId - a user id
+     * @param  {Message} message - the message to be sent
+     * @return  {APIResponse}
+     */
+    sendMessage(userId, message) {
+        const url = this.getFullURL('appUsers', userId, 'messages');
+        return this.request('POST', url, message);
+    }
+
+    /**
+     * Send an image to an app user's conversation
+     * @param  {string} userId - a user id
+     * @param  {Blob|Readable stream} source - source image
+     * @param  {Message} message - the message to be sent
+     * @return {APIResponse}
+     */
+    uploadImage(userId, source, message = {}) {
+        const url = this.getFullURL('appUsers', userId, 'images');
+        const data = new FormData();
+        data.append('source', source);
+
+        Object.keys(message).forEach((key) => {
+            data.append(key, message[key]);
+        });
+
+        return this.request('POST', url, data);
+    }
 }
