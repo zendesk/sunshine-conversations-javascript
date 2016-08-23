@@ -78,8 +78,11 @@ This is an overview of what the library has to offer. A better documentation wil
 |           | get     | [GET `/v1/appusers/:id`](http://docs.smooch.io/rest/#get-app-user)         |
 |           | update  | [PUT `/v1/appusers/:id`](http://docs.smooch.io/rest/#update-app-user)         |
 |           | trackEvent  | [POST `/v1/appusers/:id/events`](http://docs.smooch.io/rest/#track-event)         |
-| conversations | get | [GET `/v1/appusers/:id/conversation`](http://docs.smooch.io/rest/#get-conversation) |
-|  | sendMessage | [POST `/v1/appusers/:id/conversation/messages`](http://docs.smooch.io/rest/#post-message) |
+|           | getMessages | [GET `/v1/appusers/:id/messages`](http://docs.smooch.io/rest/#get-conversation) |
+|           | sendMessage | [POST `/v1/appusers/:id/messages`](http://docs.smooch.io/rest/#post-message) |
+|           | uploadImage | [POST `/v1/appusers/:id/images`](http://docs.smooch.io/rest/#upload-image) |
+|           | linkChannel | [POST `/v1/appusers/:id/channels`](http://docs.smooch.io/rest/#link-app-user-to-channel) |
+|           | unlinkChannel | [POST `/v1/appusers/:id/channels/:channel`](http://docs.smooch.io/rest/#unlink-app-user-from-channel) |
 | webhooks | list | [GET `/v1/webhooks`](http://docs.smooch.io/rest/#list-webhook) |
 |  | create | [POST `/v1/webhooks`](http://docs.smooch.io/rest/#create-webhook) |
 |  | get | [GET `/v1/webhooks/:id`](http://docs.smooch.io/rest/#get-webhook) |
