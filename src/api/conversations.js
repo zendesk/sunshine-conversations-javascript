@@ -41,35 +41,17 @@ export class ConversationsApi extends BaseApi {
     }
 
     /**
-     * Send a message to an app user's conversation
-     * @param  {string} userId - a user id
-     * @param  {Message} message - the message to be sent
-     * @return {APIResponse}
+     * Deprecated. Use appUsers.sendMessage() instead.
      */
-    sendMessage(userId, message) {
-        console.warn('appUsers.conversations.sendMessage() is deprecated and will be removed in v2 \nPlease use appUsers.sendMessage()');
-        const url = this.getFullURL('appUsers', userId, 'conversation', 'messages');
-        return this.request('POST', url, message);
+    sendMessage() {
+        return Promise.reject(new Error('This endpoint is deprecated. Please use appUsers.sendMessage() instead.'));
     }
 
     /**
-     * Send an image to an app user's conversation
-     * @param  {string} userId - a user id
-     * @param  {Blob|Readable stream} source - source image
-     * @param  {Message} message - the message to be sent
-     * @return {APIResponse}
+     * Deprecated. Use appusers.uploadImage() instead.
      */
-    uploadImage(userId, source, message = {}) {
-        console.warn('appUsers.conversations.uploadImage() is deprecated and will be removed in v2 \nPlease use appUsers.uploadImage()');
-        const url = this.getFullURL('appUsers', userId, 'conversation', 'images');
-        const data = new FormData();
-        data.append('source', source);
-
-        Object.keys(message).forEach((key) => {
-            data.append(key, message[key]);
-        });
-
-        return this.request('POST', url, data);
+    uploadImage() {
+        return Promise.reject(new Error('This endpoint is deprecated. Please use appUsers.uploadImage() instead.'));
     }
 
     /**
