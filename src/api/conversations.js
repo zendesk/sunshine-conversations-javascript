@@ -47,6 +47,7 @@ export class ConversationsApi extends BaseApi {
      * @return {APIResponse}
      */
     sendMessage(userId, message) {
+        console.warn('appUsers.conversations.sendMessage() is deprecated and will be removed in v2 \nPlease use appUsers.sendMessage()');
         const url = this.getFullURL('appUsers', userId, 'conversation', 'messages');
         return this.request('POST', url, message);
     }
@@ -59,6 +60,7 @@ export class ConversationsApi extends BaseApi {
      * @return {APIResponse}
      */
     uploadImage(userId, source, message = {}) {
+        console.warn('appUsers.conversations.uploadImage() is deprecated and will be removed in v2 \nPlease use appUsers.uploadImage()');
         const url = this.getFullURL('appUsers', userId, 'conversation', 'images');
         const data = new FormData();
         data.append('source', source);
