@@ -17,13 +17,13 @@ if (typeof process !== 'undefined') {
  * @return {string}      - the final url
  */
 export function stringifyGETParams(url, data) {
-    let query = '';
-
-    for (var key in Object.keys(data)) {
+    const query = Object.keys(data).reduce((q, key) => {
         if (data[key] !== null) {
-            query += '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+            return q +  '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
         }
-    }
+        return q;
+    }, '');
+
     if (query) {
         url += (~url.indexOf('?') ? '&' : '?') + query.substring(1);
     }

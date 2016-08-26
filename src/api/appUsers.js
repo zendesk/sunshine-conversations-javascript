@@ -148,4 +148,62 @@ export class AppUsersApi extends BaseApi {
         const url = this.getFullURL('appUsers', userId, 'integrations', channel, 'ping');
         return this.request('POST', url);
     }
+
+    /**
+     * Fetch app user's messages
+     * @param  {string} userId - a user id
+     * @param  {object} options - the paging parameters (before, after)
+     * @return {APIResponse}
+     */
+    getMessages(userId, {before, after} = {}) {
+        if (before && after) {
+            return Promise.reject(new Error('Parameters "before" and "after" are mutually exclusive. You must provide one or the other.'));
+        }
+
+        const url = this.getFullURL('appUsers', userId, 'messages');
+
+        let params;
+
+        if (before) {
+            params = {
+                before
+            };
+        } else if (after) {
+            params = {
+                after
+            };
+        }
+
+        return this.request('GET', url, params);
+    }
+
+    /**
+     * Send a message to an app user's conversation
+     * @param  {string} userId - a user id
+     * @param  {Message} message - the message to be sent
+     * @return  {APIResponse}
+     */
+    sendMessage(userId, message) {
+        const url = this.getFullURL('appUsers', userId, 'messages');
+        return this.request('POST', url, message);
+    }
+
+    /**
+     * Send an image to an app user's conversation
+     * @param  {string} userId - a user id
+     * @param  {Blob|Readable stream} source - source image
+     * @param  {Message} message - the message to be sent
+     * @return {APIResponse}
+     */
+    uploadImage(userId, source, message = {}) {
+        const url = this.getFullURL('appUsers', userId, 'images');
+        const data = new FormData();
+        data.append('source', source);
+
+        Object.keys(message).forEach((key) => {
+            data.append(key, message[key]);
+        });
+
+        return this.request('POST', url, data);
+    }
 }

@@ -1,7 +1,7 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersApi } from '../../../src/api/appUsers';
-
+import { createReadStream } from 'streamifier';
 
 describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -185,6 +185,76 @@ describe('AppUsers API', () => {
             return api.pingChannel(userId, 'twilio').then(() => {
                 const fullUrl = api.getFullURL('appUsers', userId, 'integrations', 'twilio', 'ping');
                 httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, httpHeaders);
+            });
+        });
+    });
+
+    describe('#getMessages', () => {
+        it('should call http', () => {
+            return api.getMessages(userId).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+            });
+        });
+
+        it('should call http with before param', () => {
+            return api.getMessages(userId, {
+                before: 'XYZ'
+            }).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, {
+                    before: 'XYZ'
+                }, httpHeaders);
+            });
+        });
+
+        it('should call http with after param', () => {
+            return api.getMessages(userId, {
+                after: 'XYZ'
+            }).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, {
+                    after: 'XYZ'
+                }, httpHeaders);
+            });
+        });
+
+        it('should throw if before and after are specified', () => {
+            return api.getMessages(userId, {
+                before: 'XYZ',
+                after: 'XYZ'
+            }).catch(() => {
+                httpSpy.should.not.have.been.called;
+            });
+        });
+    });
+
+    describe('#sendMessage', () => {
+        it('should call http', () => {
+            const message = {
+                text: 'this is a message'
+            };
+
+            return api.sendMessage(userId, message).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('POST', fullUrl, message, httpHeaders);
+            });
+        });
+    });
+
+    describe('#uploadImage', () => {
+        it('should call http', () => {
+            const fullUrl = api.getFullURL('appUsers', userId, 'images');
+            const source = createReadStream('some source object');
+            const message = {
+                text: 'this is a message'
+            };
+
+            return api.uploadImage(userId, source, message).then(() => {
+                httpSpy.args[0][0].should.eq('POST');
+                httpSpy.args[0][1].should.eq(fullUrl);
+                httpSpy.args[0][2].should.be.instanceof(FormData);
+                httpSpy.args[0][3].should.eql(httpHeaders);
             });
         });
     });
