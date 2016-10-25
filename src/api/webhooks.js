@@ -31,6 +31,10 @@ export class WebhooksApi extends BaseApi {
             return Promise.reject(new Error('Must provide a target.'));
         }
 
+        if (props.target && !props.target.startsWith('http://') && !props.target.startsWith('https://')) {
+            return Promise.reject(new Error('Malformed target url.'));
+        }
+
         return Promise.resolve(props);
     }
 

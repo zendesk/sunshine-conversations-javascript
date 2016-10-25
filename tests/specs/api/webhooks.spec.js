@@ -6,7 +6,10 @@ import { WebhooksApi } from '../../../src/api/webhooks';
 describe('Webhooks API', () => {
     const serviceUrl = 'http://some-url.com';
     const webhookId = 'some-id';
+    const webhookUrl = 'http://some-url.com/webhook';
+    const malformedWebhookUrl = 'some-url-missing-http-prefix.com';
     const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
+    const malformedTargetUrl = 'Malformed target url.';
     const noPropsMessage = 'Must provide props.';
     const noTargetMessage = 'Must provide a target.';
     const httpHeaders = getAuthenticationHeaders({
@@ -51,9 +54,19 @@ describe('Webhooks API', () => {
 
         it('should not return an error if target is provided and required', () => {
             return api.validateProps({
-                target: 'target',
+                target: webhookUrl,
                 event: 'message'
             }, true);
+        });
+
+       it('should return an error if props url target is malformed', (done) => {
+            api.validateProps({
+                target: malformedWebhookUrl,
+                event: 'message'
+            }).catch((e) => {
+                e.message.should.equal(malformedTargetUrl);
+                done();
+            });
         });
 
         it('should not return an error if props are provided and target is not required', () => {
@@ -107,7 +120,7 @@ describe('Webhooks API', () => {
 
     describe('#create', () => {
         const props = {
-            target: 'http://some-url.com'
+            target: webhookUrl
         };
 
         it('should call http', () => {
@@ -140,6 +153,15 @@ describe('Webhooks API', () => {
             });
         });
 
+        it('should return an error if target url is malformed', (done) => {
+            api.create({
+                target: malformedWebhookUrl
+            }).catch((e) => {
+                e.message.should.equal(malformedTargetUrl);
+                done();
+            });
+        });
+
         it('should return an error if app token in auth', (done) => {
             const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
                 appToken: 'some-token'
@@ -155,7 +177,7 @@ describe('Webhooks API', () => {
 
     describe('#update', () => {
         const props = {
-            target: 'http://some-url.com'
+            target: webhookUrl
         };
 
         it('should call http', () => {
@@ -175,6 +197,15 @@ describe('Webhooks API', () => {
         it('should return an error if props are empty', (done) => {
             api.update(webhookId, {}).catch((e) => {
                 e.message.should.equal(noPropsMessage);
+                done();
+            });
+        });
+
+        it('should return an error if target url is malformed', (done) => {
+            api.update(webhookId, {
+                target: malformedWebhookUrl
+            }).catch((e) => {
+                e.message.should.equal(malformedTargetUrl);
                 done();
             });
         });
