@@ -1,5 +1,6 @@
 import { BaseApi } from './base';
 import { AppUsersStripeApi } from './appUsersStripe';
+import { AppUsersViberApi } from './appUsersViber';
 import { AppUsersWeChatApi } from './appUsersWeChat';
 
 /**
@@ -16,6 +17,7 @@ export class AppUsersApi extends BaseApi {
     constructor(...args) {
         super(...args);
         this.stripe = new AppUsersStripeApi(...args);
+        this.viber = new AppUsersViberApi(...args);
         this.wechat = new AppUsersWeChatApi(...args);
     }
 
