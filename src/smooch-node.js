@@ -5,6 +5,20 @@ import * as jwt from './utils/jwt';
 
 export class Smooch extends SmoochBase {
     constructor(auth = {}, options = {}) {
+        if (auth.keyId || auth.secret) {
+            if (!auth.scope) {
+                throw new Error('Invalid auth: missing scope.');
+            }
+
+            if (!auth.keyId) {
+                throw new Error('Invalid auth: missing keyId.');
+            }
+
+            if (!auth.keyId) {
+                throw new Error('Invalid auth: missing secret.');
+            }
+        }
+
         if (auth.keyId && auth.secret && auth.scope) {
             const jwtBody = {
                 scope: auth.scope
