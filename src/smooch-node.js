@@ -14,7 +14,7 @@ export class Smooch extends SmoochBase {
                 throw new Error('Invalid auth: missing keyId.');
             }
 
-            if (!auth.keyId) {
+            if (!auth.secret) {
                 throw new Error('Invalid auth: missing secret.');
             }
         }
