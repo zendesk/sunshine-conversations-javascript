@@ -258,4 +258,44 @@ describe('AppUsers API', () => {
             });
         });
     });
+
+    describe('#getMessages', () => {
+        it('should call http', () => {
+            return api.getMessages(userId).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+            });
+        });
+
+        it('should call http with before param', () => {
+            return api.getMessages(userId, {
+                before: 'XYZ'
+            }).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, {
+                    before: 'XYZ'
+                }, httpHeaders);
+            });
+        });
+
+        it('should call http with after param', () => {
+            return api.getMessages(userId, {
+                after: 'XYZ'
+            }).then(() => {
+                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                httpSpy.should.have.been.calledWith('GET', fullUrl, {
+                    after: 'XYZ'
+                }, httpHeaders);
+            });
+        });
+
+        it('should throw if before and after are specified', () => {
+            return api.getMessages(userId, {
+                before: 'XYZ',
+                after: 'XYZ'
+            }).catch(() => {
+                httpSpy.should.not.have.been.called;
+            });
+        });
+    });
 });

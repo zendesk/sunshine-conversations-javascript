@@ -208,4 +208,32 @@ export class AppUsersApi extends BaseApi {
 
         return this.request('POST', url, data);
     }
+
+    /**
+     * Fetch app user's messages
+     * @param  {string} userId - a user id
+     * @param  {object} options - the paging parameters (before, after)
+     * @return {APIResponse}
+     */
+    getMessages(userId, {before, after} = {}) {
+        if (before && after) {
+            return Promise.reject(new Error('Parameters "before" and "after" are mutually exclusive. You must provide one or the other.'));
+        }
+
+        const url = this.getFullURL('appUsers', userId, 'messages');
+
+        let params;
+
+        if (before) {
+            params = {
+                before
+            };
+        } else if (after) {
+            params = {
+                after
+            };
+        }
+
+        return this.request('GET', url, params);
+    }
 }
