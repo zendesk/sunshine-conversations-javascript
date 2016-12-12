@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
+import credential from '../../../src/utils/credential';
 import { testJwt } from '../../mocks/jwt';
-
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
 
 import Smooch from '../../../src/wrappers/node';
 
@@ -25,7 +24,7 @@ describe('Smooch', () => {
         const authOptions = {
             jwt: testJwt()
         };
-        const headers = getAuthenticationHeaders(authOptions);
+        const headers = credential(authOptions).authHeaders;
 
         var smooch = new Smooch(authOptions);
         smooch.credential.authHeaders.should.deep.equal(headers);

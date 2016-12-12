@@ -1,16 +1,16 @@
 import * as httpMock from '../../mocks/http';
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { MenuApi } from '../../../src/api/menu';
-
+import credential from '../../../src/utils/credential';
+import { testJwt } from '../../mocks/jwt';
 
 describe('Menu API', () => {
     const serviceUrl = 'http://some-url.com';
     const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
-    const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
-    });
+    const httpHeaders = credential({
+        jwt: testJwt()
+    }).authHeaders;
     let httpSpy;
     let api;
 
@@ -33,9 +33,9 @@ describe('Menu API', () => {
 
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new MenuApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new MenuApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.get().catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);
@@ -74,9 +74,9 @@ describe('Menu API', () => {
         });
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new MenuApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new MenuApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.configure(props).catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);
@@ -94,9 +94,9 @@ describe('Menu API', () => {
         });
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new MenuApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new MenuApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.remove().catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);

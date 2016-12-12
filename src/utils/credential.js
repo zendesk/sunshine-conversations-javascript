@@ -64,6 +64,8 @@ export default function credential(auth) {
         cred.authHeaders = {
             'app-token': auth.appToken
         };
+    } else {
+        throw new Error('Invalid auth options');
     }
 
     return cred;

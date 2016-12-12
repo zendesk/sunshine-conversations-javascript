@@ -1,10 +1,11 @@
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import credential from '../../../src/utils/credential';
+import { testJwt } from '../../mocks/jwt';
 
-describe('Auth utils', () => {
-    describe('#getAuthenticationHeaders', () => {
+describe('Credential util', () => {
+    describe('#credential', () => {
         it('should return an error if no props provided', (done) => {
             try {
-                getAuthenticationHeaders();
+                credential();
             }
             catch (e) {
                 done();
@@ -13,10 +14,10 @@ describe('Auth utils', () => {
 
         it('should transform a JWT', () => {
             const baseHeaders = {
-                jwt: 'jwt'
+                jwt: testJwt()
             };
 
-            const headers = getAuthenticationHeaders(baseHeaders);
+            const headers = credential(baseHeaders).authHeaders;
             headers.should.eql({
                 'Authorization': 'Bearer ' + baseHeaders.jwt
             });
@@ -27,7 +28,7 @@ describe('Auth utils', () => {
                 appToken: 'app-token'
             };
 
-            const headers = getAuthenticationHeaders(baseHeaders);
+            const headers = credential(baseHeaders).authHeaders;
             headers.should.eql({
                 'app-token': baseHeaders.appToken
             });
@@ -35,11 +36,11 @@ describe('Auth utils', () => {
 
         it('should use the JWT if both are provided', () => {
             const baseHeaders = {
-                jwt: 'jwt',
+                jwt: testJwt(),
                 appToken: 'app-token'
             };
 
-            const headers = getAuthenticationHeaders(baseHeaders);
+            const headers = credential(baseHeaders).authHeaders;
             headers.should.eql({
                 'Authorization': 'Bearer ' + baseHeaders.jwt
             });
@@ -50,7 +51,19 @@ describe('Auth utils', () => {
                 what: 'is this?'
             };
             try {
-                getAuthenticationHeaders(baseHeaders);
+                credential(baseHeaders);
+            }
+            catch (e) {
+                done();
+            }
+        });
+
+        it('should reject malformed JWT', (done) => {
+            const baseHeaders = {
+                jwt: 'banana'
+            };
+            try {
+                credential(baseHeaders);
             }
             catch (e) {
                 done();
