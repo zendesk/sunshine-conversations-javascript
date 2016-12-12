@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import credential from '../../../src/utils/credential';
+import { testJwt } from '../../mocks/jwt';
 
 import Smooch from '../../../src/wrappers/node';
 
@@ -8,31 +8,31 @@ describe('Smooch', () => {
 
     it('should have the webhooks API', () => {
         var smooch = new Smooch({
-            jwt: 'jwt'
+            jwt: testJwt()
         });
         smooch.webhooks.should.exist;
     });
 
     it('should have the JWT utils', () => {
         var smooch = new Smooch({
-            jwt: 'jwt'
+            jwt: testJwt()
         });
         smooch.utils.jwt.should.exist;
     });
 
     it('should generate the auth headers', () => {
         const authOptions = {
-            jwt: 'jwt'
+            jwt: testJwt()
         };
-        const headers = getAuthenticationHeaders(authOptions);
+        const headers = credential(authOptions).authHeaders;
 
         var smooch = new Smooch(authOptions);
-        smooch.authHeaders.should.deep.equal(headers);
+        smooch.credential.authHeaders.should.deep.equal(headers);
     });
 
     it('should accept custom headers', () => {
         const authOptions = {
-            jwt: 'jwt'
+            jwt: testJwt()
         };
 
         const customHeaders = {
@@ -58,7 +58,7 @@ describe('Smooch', () => {
                 scope: scope
             });
 
-            const token = smooch.authHeaders.Authorization.replace('Bearer ', '');
+            const token = smooch.credential.authHeaders.Authorization.replace('Bearer ', '');
 
             const decodedToken = jwt.decode(token);
 
@@ -73,7 +73,7 @@ describe('Smooch', () => {
                 userId: userId
             });
 
-            const token = smooch.authHeaders.Authorization.replace('Bearer ', '');
+            const token = smooch.credential.authHeaders.Authorization.replace('Bearer ', '');
 
             const decodedToken = jwt.decode(token);
 

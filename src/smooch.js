@@ -1,4 +1,4 @@
-import { getAuthenticationHeaders } from './utils/auth';
+import credential from './utils/credential';
 import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
 import { StripeApi } from './api/stripe';
@@ -16,12 +16,13 @@ export class Smooch {
             throw new Error('Key Id or Secret should not be used on the browser side. You must generate a JWT beforehand.');
         }
 
+        this.credential = credential(auth);
         this.headers = headers;
-        this.authHeaders = getAuthenticationHeaders(auth);
+        const authHeaders = this.credential.authHeaders;
 
-        this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers);
-        this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers);
-        this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers);
+        this.appUsers = new AppUsersApi(this.serviceUrl, authHeaders, this.headers);
+        this.conversations = new ConversationsApi(this.serviceUrl, authHeaders, this.headers);
+        this.stripe = new StripeApi(this.serviceUrl, authHeaders, this.headers);
 
         this.utils = {};
     }

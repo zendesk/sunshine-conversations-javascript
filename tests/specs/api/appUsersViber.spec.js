@@ -1,13 +1,14 @@
 import * as httpMock from '../../mocks/http';
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersViberApi } from '../../../src/api/appUsersViber';
+import credential from '../../../src/utils/credential';
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsersViber API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
-    });
+    const httpHeaders = credential({
+        jwt: testJwt()
+    }).authHeaders;
     let httpSpy;
     let api;
 

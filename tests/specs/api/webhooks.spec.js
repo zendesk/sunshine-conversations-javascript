@@ -1,7 +1,7 @@
 import * as httpMock from '../../mocks/http';
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { WebhooksApi } from '../../../src/api/webhooks';
-
+import credential from '../../../src/utils/credential';
+import { testJwt } from '../../mocks/jwt';
 
 describe('Webhooks API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -12,9 +12,9 @@ describe('Webhooks API', () => {
     const malformedTargetUrl = 'Malformed target url.';
     const noPropsMessage = 'Must provide props.';
     const noTargetMessage = 'Must provide a target.';
-    const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
-    });
+    const httpHeaders = credential({
+        jwt: testJwt()
+    }).authHeaders;
     let httpSpy;
     let api;
 
@@ -86,9 +86,9 @@ describe('Webhooks API', () => {
         });
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new WebhooksApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.list().catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);
@@ -107,9 +107,9 @@ describe('Webhooks API', () => {
 
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new WebhooksApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.get(webhookId).catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);
@@ -163,9 +163,9 @@ describe('Webhooks API', () => {
         });
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new WebhooksApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.create(props).catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);
@@ -211,9 +211,9 @@ describe('Webhooks API', () => {
         });
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new WebhooksApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.update(webhookId, props).catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);
@@ -231,9 +231,9 @@ describe('Webhooks API', () => {
         });
 
         it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
+            const badApi = new WebhooksApi(serviceUrl, credential({
                 appToken: 'some-token'
-            }));
+            }).authHeaders);
 
             badApi.delete(webhookId).catch((e) => {
                 e.message.should.equal(invalidAuthErrorMessage);

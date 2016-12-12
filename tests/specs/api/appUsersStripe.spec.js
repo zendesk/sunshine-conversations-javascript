@@ -1,14 +1,15 @@
 import * as httpMock from '../../mocks/http';
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
-import { AppUsersStripeApi } from '../../../src/api/appUsersStripe';
 
+import { AppUsersStripeApi } from '../../../src/api/appUsersStripe';
+import credential from '../../../src/utils/credential';
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsersStripe API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
-    });
+    const httpHeaders = credential({
+        jwt: testJwt()
+    }).authHeaders;
     let httpSpy;
     let api;
 
@@ -39,9 +40,9 @@ describe('AppUsersStripe API', () => {
 
         describe('with app-token', () => {
             it('should throw', () => {
-                const badApi = new AppUsersStripeApi(serviceUrl, getAuthenticationHeaders({
+                const badApi = new AppUsersStripeApi(serviceUrl, credential({
                     appToken: 'token'
-                }));
+                }).authHeaders);
 
                 return badApi.updateCustomer(userId, 'token').catch(() => {
                     httpSpy.should.not.have.been.called;

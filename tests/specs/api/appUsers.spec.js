@@ -1,14 +1,15 @@
 import * as httpMock from '../../mocks/http';
-import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import credential from '../../../src/utils/credential';
 import { AppUsersApi } from '../../../src/api/appUsers';
 import { createReadStream } from 'streamifier';
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
+    const httpHeaders = credential({
         appToken: 'token'
-    });
+    }).authHeaders;
 
     let httpSpy;
     let api;
@@ -73,9 +74,9 @@ describe('AppUsers API', () => {
             email: 'this is an email'
         };
 
-        const jwtHttpHeaders = getAuthenticationHeaders({
-            jwt: 'jwt'
-        });
+        const jwtHttpHeaders = credential({
+            jwt: testJwt()
+        }).authHeaders;
 
         it('should throw an error if used with app token', (done) => {
             api.create(userId).catch((err) => {
