@@ -1,0 +1,2 @@
+set wildignore+=lib
+let NERDTreeIgnore = ['lib']
