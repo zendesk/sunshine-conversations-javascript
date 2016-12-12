@@ -114,8 +114,12 @@ describe('HTTP', () => {
             });
         });
 
+        function randomIntBetween(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
         describe('#handleStatus', () => {
-            for (let status = 200; status < 300; status++) {
+            [200, randomIntBetween(201, 299), 299].forEach((status) => {
                 it('should not throw an error with HTTP ' + status, () => {
                     const response = handleStatus({
                         status: status
@@ -123,9 +127,9 @@ describe('HTTP', () => {
 
                     response.status.should.equals(status);
                 });
-            }
+            });
 
-            for (let status = 300; status < 600; status++) {
+            [300, randomIntBetween(301, 599), 599].forEach((status) => {
                 it('should throw an error with HTTP ' + status, () => {
                     const response = {
                         status: status,
@@ -140,40 +144,39 @@ describe('HTTP', () => {
                         e.response.should.equal(response);
                     }
                 });
-            }
+
+            });
         });
 
         describe('#handleBody', () => {
-            const noBodyStatuses = [202, 204];
-            for (let status = 200; status < 300; status++) {
-                if (noBodyStatuses.indexOf(status) >= 0) {
-                    it('should not return a body if HTTP ' + status, () => {
-                        return handleBody({
-                            status: status,
-                            headers: getMockedHeaders({
-                                'Content-Type': 'application/json'
-                            })
-                        }).then((body) => {
-                            expect(body).to.be.undefined;
-                        });
+            [202, 204].forEach((status) => {
+                it('should not return a body if HTTP ' + status, () => {
+                    return handleBody({
+                        status: status,
+                        headers: getMockedHeaders({
+                            'Content-Type': 'application/json'
+                        })
+                    }).then((body) => {
+                        expect(body).to.be.undefined;
                     });
-                } else {
-                    it('should return the value of json() if HTTP ' + status, () => {
-                        const response = {
-                            status: status,
-                            headers: getMockedHeaders({
-                                'Content-Type': 'application/json'
-                            }),
-                            json: sinon.spy(() => 'body for http ' + status)
-                        };
+                });
+            });
+            [200, 201, 203, randomIntBetween(205, 299), 299].forEach((status) => {
+                it('should return the value of json() if HTTP ' + status, () => {
+                    const response = {
+                        status: status,
+                        headers: getMockedHeaders({
+                            'Content-Type': 'application/json'
+                        }),
+                        json: sinon.spy(() => 'body for http ' + status)
+                    };
 
-                        const body = handleBody(response);
+                    const body = handleBody(response);
 
-                        response.json.should.have.been.calledOnce;
-                        body.should.equals(response.json());
-                    });
-                }
-            }
+                    response.json.should.have.been.calledOnce;
+                    body.should.equals(response.json());
+                });
+            });
 
             it('should not return a body if content type is not application/json', () => {
                 return handleBody({
