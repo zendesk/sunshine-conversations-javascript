@@ -1,2 +1,0 @@
-set wildignore+=lib,dist,amd
-let NERDTreeIgnore = ['lib', 'dist', 'amd']
