@@ -1,13 +1,13 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersStripeApi } from '../../../src/api/appUsersStripe';
-
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsersStripe API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
     const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;

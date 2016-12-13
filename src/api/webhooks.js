@@ -87,7 +87,6 @@ export class WebhooksApi extends BaseApi {
      * Deletes a webhook
      * @param  {string} webhookId - an id
      * @return {APIResponse}
-     import { getAuthenticationHeaders } from '../../../src/utils/auth';
      */
     delete(webhookId) {
         const url = this.getFullURL('webhooks', webhookId);
