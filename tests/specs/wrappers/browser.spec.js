@@ -36,4 +36,9 @@ describe('Smooch', () => {
             e.message.should.contain('beforehand');
         }
     });
+
+    it('should force appUser scope', () => {
+        const s = new Smooch({appToken:'foo', scope: 'appMaker'});
+        s.should.have.property('scope', 'appUser');
+    });
 });

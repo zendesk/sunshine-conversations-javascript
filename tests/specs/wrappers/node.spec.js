@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import Smooch from '../../../src/wrappers/node';
 import { testJwt } from '../../mocks/jwt';
+import { sign } from 'jsonwebtoken';
 
 describe('Smooch', () => {
 
@@ -27,6 +28,41 @@ describe('Smooch', () => {
 
         var smooch = new Smooch(authOptions);
         smooch.authHeaders.should.deep.equal(headers);
+    });
+
+    ['appUser', 'appMaker', 'integration', 'account'].forEach((scope) => {
+        it(`should extract ${scope} scope from a provided jwt`, () => {
+            const smooch = new Smooch({
+                jwt: testJwt(scope)
+            });
+            smooch.should.have.property('scope', scope);
+        });
+    });
+
+    it('should reject a malformed jwt', (done) => {
+        try {
+            new Smooch({
+                jwt: 'malformed'
+            });
+            done(new Error('should fail'));
+        } catch (err) {
+            done();
+        }
+    });
+
+    it('should reject a jwt without scope', (done) => {
+        try {
+            new Smooch({
+                jwt: sign({}, 'secret', {
+                    headers: {
+                        kid: 'keyid'
+                    }
+                })
+            });
+            done(new Error('should fail'));
+        } catch (err) {
+            done();
+        }
     });
 
     it('should accept custom headers', () => {
@@ -57,10 +93,9 @@ describe('Smooch', () => {
                 scope: scope
             });
 
+            smooch.should.have.property('scope', scope);
             const token = smooch.authHeaders.Authorization.replace('Bearer ', '');
-
             const decodedToken = jwt.decode(token);
-
             decodedToken.scope.should.equal(scope);
         });
 
@@ -72,10 +107,9 @@ describe('Smooch', () => {
                 userId: userId
             });
 
+            smooch.should.have.property('scope', scope);
             const token = smooch.authHeaders.Authorization.replace('Bearer ', '');
-
             const decodedToken = jwt.decode(token);
-
             decodedToken.scope.should.equal(scope);
             decodedToken.userId.should.equal(userId);
         });

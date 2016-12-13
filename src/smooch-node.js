@@ -2,6 +2,7 @@ import { Smooch as SmoochBase } from './smooch';
 import { WebhooksApi } from './api/webhooks';
 import { MenuApi } from './api/menu';
 import * as jwt from './utils/jwt';
+import { decode } from 'jsonwebtoken';
 
 export class Smooch extends SmoochBase {
     constructor(auth = {}, options = {}) {
@@ -29,11 +30,24 @@ export class Smooch extends SmoochBase {
             }
 
             auth = {
-                jwt: jwt.generate(jwtBody, auth.secret, auth.keyId)
+                jwt: jwt.generate(jwtBody, auth.secret, auth.keyId),
+                scope: auth.scope
             };
         }
 
+        if (auth.jwt) {
+            const decoded = decode(auth.jwt);
+            if (!decoded) {
+                throw new Error('jwt is malformed.');
+            }
+            if (!decoded.scope) {
+                throw new Error('jwt has no scope defined.');
+            }
+            auth.scope = decoded.scope;
+        }
+
         super(auth, options);
+        this.scope = auth.scope || 'appUser';
 
         this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers);
         this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers);

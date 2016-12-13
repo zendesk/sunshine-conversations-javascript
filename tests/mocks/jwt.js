@@ -1,8 +1,8 @@
-const jwt = require('jsonwebtoken');
+import { sign } from 'jsonwebtoken';
 
-export function testJwt() {
-    return jwt.sign({
-        scope: 'appUser'
+export function testJwt(scope = 'appUser') {
+    return sign({
+        scope
     }, 'secret', {
         headers: {
             kid: 'keyid'
