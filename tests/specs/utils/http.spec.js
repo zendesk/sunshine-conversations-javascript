@@ -114,12 +114,8 @@ describe('HTTP', () => {
             });
         });
 
-        function randomIntBetween(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
-
         describe('#handleStatus', () => {
-            [200, randomIntBetween(201, 299), 299].forEach((status) => {
+            [200, 201, 202, 203, 204, 299].forEach((status) => {
                 it('should not throw an error with HTTP ' + status, () => {
                     const response = handleStatus({
                         status: status
@@ -129,7 +125,7 @@ describe('HTTP', () => {
                 });
             });
 
-            [300, randomIntBetween(301, 599), 599].forEach((status) => {
+            [300, 301, 302, 303, 304, 401, 402, 403, 404, 429, 500, 503, 599].forEach((status) => {
                 it('should throw an error with HTTP ' + status, () => {
                     const response = {
                         status: status,
@@ -161,7 +157,7 @@ describe('HTTP', () => {
                     });
                 });
             });
-            [200, 201, 203, randomIntBetween(205, 299), 299].forEach((status) => {
+            [200, 201, 203, 299].forEach((status) => {
                 it('should return the value of json() if HTTP ' + status, () => {
                     const response = {
                         status: status,
