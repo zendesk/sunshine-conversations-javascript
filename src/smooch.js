@@ -11,6 +11,7 @@ export class Smooch {
         const {serviceUrl = SERVICE_URL, headers = {}} = options;
         this.VERSION = packageInfo.version;
         this.serviceUrl = serviceUrl;
+        this.scope = 'appUser';
 
         if (auth.keyId || auth.secret) {
             throw new Error('Key Id or Secret should not be used on the browser side. You must generate a JWT beforehand.');

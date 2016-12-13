@@ -2,6 +2,7 @@ import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersApi } from '../../../src/api/appUsers';
 import { createReadStream } from 'streamifier';
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -74,7 +75,7 @@ describe('AppUsers API', () => {
         };
 
         const jwtHttpHeaders = getAuthenticationHeaders({
-            jwt: 'jwt'
+            jwt: testJwt()
         });
 
         it('should throw an error if used with app token', (done) => {
