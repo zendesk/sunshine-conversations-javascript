@@ -1,4 +1,5 @@
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
+import { testJwt } from '../../mocks/jwt';
 
 describe('Auth utils', () => {
     describe('#getAuthenticationHeaders', () => {
@@ -13,7 +14,7 @@ describe('Auth utils', () => {
 
         it('should transform a JWT', () => {
             const baseHeaders = {
-                jwt: 'jwt'
+                jwt: testJwt()
             };
 
             const headers = getAuthenticationHeaders(baseHeaders);
@@ -35,7 +36,7 @@ describe('Auth utils', () => {
 
         it('should use the JWT if both are provided', () => {
             const baseHeaders = {
-                jwt: 'jwt',
+                jwt: testJwt(),
                 appToken: 'app-token'
             };
 

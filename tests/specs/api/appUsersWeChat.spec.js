@@ -1,12 +1,13 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersWeChatApi } from '../../../src/api/appUsersWeChat';
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsersWeChat API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
     const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;

@@ -1,7 +1,7 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { WebhooksApi } from '../../../src/api/webhooks';
-
+import { testJwt } from '../../mocks/jwt';
 
 describe('Webhooks API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -13,7 +13,7 @@ describe('Webhooks API', () => {
     const noPropsMessage = 'Must provide props.';
     const noTargetMessage = 'Must provide a target.';
     const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;

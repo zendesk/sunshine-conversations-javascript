@@ -1,15 +1,16 @@
 import Smooch from '../../../src/wrappers/browser';
+
 describe('Smooch', () => {
     it('should not have the webhooks API', () => {
         const smooch = new Smooch({
-            jwt: 'jwt'
+            jwt: 'jwt_nodecoding'
         });
         expect(smooch.webhooks).to.be.undefined;
     });
 
     it('should not have the JWT utils', () => {
         const smooch = new Smooch({
-            jwt: 'jwt'
+            jwt: 'jwt_nodecoding'
         });
         expect(smooch.utils.jwt).to.be.undefined;
     });

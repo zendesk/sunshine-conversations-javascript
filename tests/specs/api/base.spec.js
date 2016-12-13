@@ -1,8 +1,9 @@
 import { BaseApi } from '../../../src/api/base';
+import { testJwt } from '../../mocks/jwt';
 
 const serviceUrl = 'http://some-url.com';
 const headers = {
-    jwt: 'jwt'
+    jwt: testJwt()
 };
 
 describe('Base API', () => {

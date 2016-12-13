@@ -1,7 +1,7 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { MenuApi } from '../../../src/api/menu';
-
+import { testJwt } from '../../mocks/jwt';
 
 describe('Menu API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -9,7 +9,7 @@ describe('Menu API', () => {
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
     const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;

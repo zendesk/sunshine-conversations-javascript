@@ -1,28 +1,27 @@
 import jwt from 'jsonwebtoken';
-
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
-
 import Smooch from '../../../src/wrappers/node';
+import { testJwt } from '../../mocks/jwt';
 
 describe('Smooch', () => {
 
     it('should have the webhooks API', () => {
         var smooch = new Smooch({
-            jwt: 'jwt'
+            jwt: testJwt()
         });
         smooch.webhooks.should.exist;
     });
 
     it('should have the JWT utils', () => {
         var smooch = new Smooch({
-            jwt: 'jwt'
+            jwt: testJwt()
         });
         smooch.utils.jwt.should.exist;
     });
 
     it('should generate the auth headers', () => {
         const authOptions = {
-            jwt: 'jwt'
+            jwt: testJwt()
         };
         const headers = getAuthenticationHeaders(authOptions);
 
@@ -32,7 +31,7 @@ describe('Smooch', () => {
 
     it('should accept custom headers', () => {
         const authOptions = {
-            jwt: 'jwt'
+            jwt: testJwt()
         };
 
         const customHeaders = {
