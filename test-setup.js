@@ -5,4 +5,4 @@ chai.use(sinonChai);
 
 global.sinon = sinon;
 global.expect = chai.expect;
-global.should = chai.should()
+global.should = chai.should();

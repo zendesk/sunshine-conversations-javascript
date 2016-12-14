@@ -6,6 +6,7 @@ import packageInfo from '../package.json';
 
 export const SERVICE_URL = 'https://api.smooch.io/v1';
 
+
 export class Smooch {
     constructor(auth = {}, options = {}) {
         const {serviceUrl = SERVICE_URL, headers = {}} = options;
