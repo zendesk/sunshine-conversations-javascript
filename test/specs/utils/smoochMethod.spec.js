@@ -83,6 +83,8 @@ Object.assign(TestApi.prototype, {
      * Accepts optional params
      * @memberof TestApi.prototype
      * @method optionalParams
+     * @param {string} param1 - The first param
+     * @param {string=} props - The second param
      */
     optionalParams: smoochMethod({
         params: ['param1', 'param2'],
