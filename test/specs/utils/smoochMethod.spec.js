@@ -77,6 +77,19 @@ Object.assign(TestApi.prototype, {
     noParams: smoochMethod({
         params: [],
         func: function noParams() {}
+    }),
+
+    /**
+     * Accepts optional params
+     * @memberof TestApi.prototype
+     * @method optionalParams
+     */
+    optionalParams: smoochMethod({
+        params: ['param1', 'param2'],
+        optional: ['param2'],
+        func: function optionalParams(param1, param2 = 'default') {
+            return [param1, param2];
+        }
     })
 });
 
@@ -98,12 +111,17 @@ describe('Smooch Method', () => {
         });
 
         it('should accept object with appId', () => {
-            const result = testApi.usesAppId({appId, param1});
+            const result = testApi.usesAppId({
+                appId,
+                param1
+            });
             result.should.equal(`${serviceUrl}/apps/${appId}/param1/${param1}`);
         });
 
         it('should reject object missing appId', () => {
-            expect(() => testApi.usesAppId({param1})).to.throw(Error, 'missing required argument');
+            expect(() => testApi.usesAppId({
+                param1
+            })).to.throw(Error, 'missing required argument');
         });
     });
 
@@ -118,7 +136,9 @@ describe('Smooch Method', () => {
         });
 
         it('should accept object', () => {
-            const result = testApi.noAppId({param1});
+            const result = testApi.noAppId({
+                param1
+            });
             result.should.equal(`${serviceUrl}/param1/${param1}`);
         });
 
@@ -127,7 +147,10 @@ describe('Smooch Method', () => {
         });
 
         it('should ignore appId in object', () => {
-            const result = testApi.noAppId({appId, param1});
+            const result = testApi.noAppId({
+                appId,
+                param1
+            });
             result.should.equal(`${serviceUrl}/param1/${param1}`);
         });
     });
@@ -147,12 +170,17 @@ describe('Smooch Method', () => {
         });
 
         it('should accept object', () => {
-            const result = testApi.usesAppId({param1});
+            const result = testApi.usesAppId({
+                param1
+            });
             result.should.equal(`${serviceUrl}/param1/${param1}`);
         });
 
         it('should ignore appId in object', () => {
-            const result = testApi.usesAppId({appId, param1});
+            const result = testApi.usesAppId({
+                appId,
+                param1
+            });
             result.should.equal(`${serviceUrl}/param1/${param1}`);
         });
     });
@@ -171,7 +199,11 @@ describe('Smooch Method', () => {
         });
 
         it('should accept object', () => {
-            const result = testApi.manyParams({param1, param2, param3});
+            const result = testApi.manyParams({
+                param1,
+                param2,
+                param3
+            });
             result.should.equal(`${serviceUrl}/param1/${param1}/param2/${param2}/param3/${param3}`);
         });
     });
@@ -192,13 +224,14 @@ describe('Smooch Method', () => {
         });
 
         it('should accept object', () => {
-            const result = testApi.singleProps({props});
+            const result = testApi.singleProps({
+                props
+            });
             result.should.deep.equal(props);
         });
     });
 
     describe('method with no params', () => {
-
         beforeEach(() => {
             testApi = new TestApi(serviceUrl, {}, {}, false);
         });
@@ -212,7 +245,36 @@ describe('Smooch Method', () => {
         });
 
         it('should ignore object', () => {
-            testApi.noParams({foo: 'bar'});
+            testApi.noParams({
+                foo: 'bar'
+            });
+        });
+    });
+
+    describe('method with optional params', () => {
+        const param2 = 'bar';
+        beforeEach(() => {
+            testApi = new TestApi(serviceUrl, {}, {}, false);
+        });
+
+        it('should accept full param list', () => {
+            const result = testApi.optionalParams(param1, param2);
+            result.should.deep.equal([param1, param2]);
+        });
+
+        it('should accept full object', () => {
+            const result = testApi.optionalParams({param1, param2});
+            result.should.deep.equal([param1, param2]);
+        });
+
+        it('should accept only required param list', () => {
+            const result = testApi.optionalParams(param1);
+            result.should.deep.equal([param1, 'default']);
+        });
+
+        it('should accept only required object', () => {
+            const result = testApi.optionalParams({param1});
+            result.should.deep.equal([param1, 'default']);
         });
     });
 });

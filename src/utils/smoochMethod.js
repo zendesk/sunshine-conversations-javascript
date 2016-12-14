@@ -1,8 +1,9 @@
-export default function smoochMethod({params, func}) {
+export default function smoochMethod({params, optional=[], func}) {
     return function() {
         let args;
         const implicitAppId = params.includes('appId') && !this.requireAppId;
-        const expectedParams = implicitAppId ? params.filter((p) => p !== 'appId') : params;
+        const allParams = implicitAppId ? params.filter((p) => p !== 'appId') : params;
+        const requiredParams = allParams.filter((p) => !optional.includes(p));
 
         if (typeof arguments[0] === 'object' && arguments.length === 1) {
             const paramObject = arguments[0];
@@ -13,19 +14,29 @@ export default function smoochMethod({params, func}) {
                 args = [paramObject];
             } else {
                 // Map the object params into an array of args
-                args = expectedParams.map((param) => {
-                    if (!paramObject[param]) {
+                args = [];
+                allParams.forEach((param) => {
+                    const value = paramObject[param];
+                    const isRequired = requiredParams.includes(param);
+                    if (!value && isRequired) {
                         throw new Error(`${func.name}: missing required argument: ${param}`);
                     }
-                    return paramObject[param];
+
+                    if (value) {
+                        args.push(value);
+                    }
                 });
             }
         } else {
             args = [].slice.call(arguments);
         }
 
-        if (args.length !== expectedParams.length) {
-            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected ${expectedParams.length}`);
+        if (args.length < requiredParams.length) {
+            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected at least ${requiredParams.length}`);
+        }
+
+        if (args.length > allParams.length) {
+            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected at most ${allParams.length}`);
         }
 
         // appId param is used by func, but in this case its not required, so pad the arg list
