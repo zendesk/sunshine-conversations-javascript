@@ -15,7 +15,6 @@ import smoochMethod from '../utils/smoochMethod';
  * @extends BaseApi
  */
 export class AppUsersApi extends BaseApi {
-
     constructor(...args) {
         super(...args);
         this.stripe = new AppUsersStripeApi(...args);

@@ -32,9 +32,7 @@ describe('AppUsersStripe API', () => {
         });
 
         it('should throw if no token provided', () => {
-            return api.updateCustomer(userId).catch(() => {
-                httpSpy.should.not.have.been.called;
-            });
+            expect(() => api.updateCustomer(userId)).to.throw(Error, 'incorrect number of parameters');
         });
 
         describe('with app-token', () => {
