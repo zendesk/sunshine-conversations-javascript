@@ -28,7 +28,7 @@ export default function smoochMethod({params, optional=[], func}) {
                 });
             }
         } else {
-            args = [].slice.call(arguments);
+            args = [...arguments];
         }
 
         if (args.length < requiredParams.length) {

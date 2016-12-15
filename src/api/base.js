@@ -32,6 +32,12 @@ export class BaseApi {
         return urljoin(this.serviceUrl, ...fragments);
     }
 
+    /**
+     * Build an URL from fragments to call the API
+     * Automatically append /apps/ if required, and remove appId fragment if
+     * it is undefined if not required
+     * @return {string} - an URL
+     */
     getFullURLWithApp(...args) {
         if (this.requireAppId) {
             args.unshift('apps');
