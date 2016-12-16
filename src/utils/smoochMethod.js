@@ -1,13 +1,18 @@
-export default function smoochMethod({params, optional=[], func}) {
+export default function smoochMethod({params, optional=[], path, func}) {
     return function() {
         let args;
-        const implicitAppId = params.includes('appId') && !this.requireAppId;
-        const allParams = implicitAppId ? params.filter((p) => p !== 'appId') : params;
+        let allParams = params;
+        let renderedPath = path;
+        if (this.requireAppId) {
+            allParams = ['appId', ...params];
+            renderedPath = `/apps/:appId${path}`;
+        }
+
         const requiredParams = allParams.filter((p) => !optional.includes(p));
 
         if (typeof arguments[0] === 'object' && arguments.length === 1) {
             const paramObject = arguments[0];
-            if (params.includes('props') &&
+            if (allParams.includes('props') &&
                 typeof paramObject.props !== 'object') {
                 // func accepts a single object arg called props
                 // and it's not wrapped inside any outer object
@@ -36,12 +41,20 @@ export default function smoochMethod({params, optional=[], func}) {
         }
 
         if (args.length > allParams.length) {
-            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected at most ${allParams.length}`);
+            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected at most ${params.length}`);
         }
 
-        // appId param is used by func, but in this case its not required, so pad the arg list
-        if (implicitAppId) {
-            args.unshift(undefined);
+        allParams.forEach((param, i) => {
+            if (args[i] && renderedPath.includes(`:${param}`)) {
+                renderedPath = renderedPath.replace(`:${param}`, args[i]);
+            }
+        });
+
+        const url = this.serviceUrl + renderedPath;
+        if (this.requireAppId) {
+            args[0] = url;
+        } else {
+            args.unshift(url);
         }
 
         return func.apply(this, args);

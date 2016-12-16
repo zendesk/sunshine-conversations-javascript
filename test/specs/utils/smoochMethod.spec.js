@@ -17,27 +17,14 @@ Object.assign(TestApi.prototype, {
     /**
      * Uses appId param if its needed
      * @memberof TestApi.prototype
-     * @method usesAppId
-     * @param {string} appId - The app id
+     * @method oneParam
      * @param {string} param1 - The second param
      */
-    usesAppId: smoochMethod({
-        params: ['appId', 'param1'],
-        func: function usesAppId(appId, param1) {
-            return this.getFullURLWithApp(appId, 'param1', param1);
-        }
-    }),
-
-    /**
-     * Doesn't use the appId param
-     * @memberof TestApi.prototype
-     * @method noAppId
-     * @param {string} param1 - The first param
-     */
-    noAppId: smoochMethod({
+    oneParam: smoochMethod({
         params: ['param1'],
-        func: function noAppId(param1) {
-            return this.getFullURL('param1', param1);
+        path: '/param1/:param1',
+        func: function oneParam(url, param1) {
+            return {url, param1};
         }
     }),
 
@@ -51,8 +38,9 @@ Object.assign(TestApi.prototype, {
      */
     manyParams: smoochMethod({
         params: ['param1', 'param2', 'param3'],
-        func: function manyParams(param1, param2, param3) {
-            return this.getFullURL('param1', param1, 'param2', param2, 'param3', param3);
+        path: '/param1/:param1/param2/:param2/param3/:param3',
+        func: function manyParams(url, param1, param2, param3) {
+            return {url, param1, param2, param3};
         }
     }),
 
@@ -64,7 +52,8 @@ Object.assign(TestApi.prototype, {
      */
     singleProps: smoochMethod({
         params: ['props'],
-        func: function singleProps(props) {
+        path: '/foo',
+        func: function singleProps(url, props) {
             return props;
         }
     }),
@@ -76,7 +65,10 @@ Object.assign(TestApi.prototype, {
      */
     noParams: smoochMethod({
         params: [],
-        func: function noParams() {}
+        path: '/foo',
+        func: function noParams(url) {
+            return url;
+        }
     }),
 
     /**
@@ -89,7 +81,8 @@ Object.assign(TestApi.prototype, {
     optionalParams: smoochMethod({
         params: ['param1', 'param2'],
         optional: ['param2'],
-        func: function optionalParams(param1, param2 = 'default') {
+        path: '/foo',
+        func: function optionalParams(url, param1, param2 = 'default') {
             return [param1, param2];
         }
     })
@@ -97,93 +90,72 @@ Object.assign(TestApi.prototype, {
 
 describe('Smooch Method', () => {
     let testApi;
+    let expected;
 
     describe('method requires appId', () => {
         beforeEach(() => {
             testApi = new TestApi(serviceUrl, {}, {}, true);
+            expected = {
+                url: `${serviceUrl}/apps/${appId}/param1/${param1}`,
+                param1
+            };
         });
 
         it('should accept param list with appId', () => {
-            const result = testApi.usesAppId(appId, param1);
-            result.should.equal(`${serviceUrl}/apps/${appId}/param1/${param1}`);
+            const result = testApi.oneParam(appId, param1);
+            result.should.deep.equal(expected);
         });
 
         it('should reject param list missing appId', () => {
-            expect(() => testApi.usesAppId(param1)).to.throw(Error, 'incorrect number of parameters');
+            expect(() => testApi.oneParam(param1)).to.throw(Error, 'incorrect number of parameters');
         });
 
         it('should accept object with appId', () => {
-            const result = testApi.usesAppId({
+            const result = testApi.oneParam({
                 appId,
                 param1
             });
-            result.should.equal(`${serviceUrl}/apps/${appId}/param1/${param1}`);
+            result.should.deep.equal(expected);
         });
 
         it('should reject object missing appId', () => {
-            expect(() => testApi.usesAppId({
+            expect(() => testApi.oneParam({
                 param1
             })).to.throw(Error, 'missing required argument');
-        });
-    });
-
-    describe('method does not use appId', () => {
-        beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, true);
-        });
-
-        it('should accept param list', () => {
-            const result = testApi.noAppId(param1);
-            result.should.equal(`${serviceUrl}/param1/${param1}`);
-        });
-
-        it('should accept object', () => {
-            const result = testApi.noAppId({
-                param1
-            });
-            result.should.equal(`${serviceUrl}/param1/${param1}`);
-        });
-
-        it('should reject appId in param list', () => {
-            expect(() => testApi.noAppId(appId, param1)).to.throw(Error, 'incorrect number of parameters');
-        });
-
-        it('should ignore appId in object', () => {
-            const result = testApi.noAppId({
-                appId,
-                param1
-            });
-            result.should.equal(`${serviceUrl}/param1/${param1}`);
         });
     });
 
     describe('appId resolved by credential scope', () => {
         beforeEach(() => {
             testApi = new TestApi(serviceUrl, {}, {}, false);
+            expected = {
+                url: `${serviceUrl}/param1/${param1}`,
+                param1
+            };
         });
 
         it('should accept param list', () => {
-            const result = testApi.usesAppId(param1);
-            result.should.equal(`${serviceUrl}/param1/${param1}`);
+            const result = testApi.oneParam(param1);
+            result.should.deep.equal(expected);
         });
 
         it('should reject param list with appId', () => {
-            expect(() => testApi.usesAppId(appId, param1)).to.throw(Error, 'incorrect number of parameters');
+            expect(() => testApi.oneParam(appId, param1)).to.throw(Error, 'incorrect number of parameters');
         });
 
         it('should accept object', () => {
-            const result = testApi.usesAppId({
+            const result = testApi.oneParam({
                 param1
             });
-            result.should.equal(`${serviceUrl}/param1/${param1}`);
+            result.should.deep.equal(expected);
         });
 
         it('should ignore appId in object', () => {
-            const result = testApi.usesAppId({
+            const result = testApi.oneParam({
                 appId,
                 param1
             });
-            result.should.equal(`${serviceUrl}/param1/${param1}`);
+            result.should.deep.equal(expected);
         });
     });
 
@@ -193,11 +165,17 @@ describe('Smooch Method', () => {
 
         beforeEach(() => {
             testApi = new TestApi(serviceUrl, {}, {}, false);
+            expected = {
+                url: `${serviceUrl}/param1/${param1}/param2/${param2}/param3/${param3}`,
+                param1,
+                param2,
+                param3
+            };
         });
 
         it('should accept param list', () => {
             const result = testApi.manyParams(param1, param2, param3);
-            result.should.equal(`${serviceUrl}/param1/${param1}/param2/${param2}/param3/${param3}`);
+            result.should.deep.equal(expected);
         });
 
         it('should accept object', () => {
@@ -206,7 +184,7 @@ describe('Smooch Method', () => {
                 param2,
                 param3
             });
-            result.should.equal(`${serviceUrl}/param1/${param1}/param2/${param2}/param3/${param3}`);
+            result.should.deep.equal(expected);
         });
     });
 
@@ -236,10 +214,12 @@ describe('Smooch Method', () => {
     describe('method with no params', () => {
         beforeEach(() => {
             testApi = new TestApi(serviceUrl, {}, {}, false);
+            expected = `${serviceUrl}/foo`;
         });
 
         it('should accept no params', () => {
-            testApi.noParams();
+            const result = testApi.noParams();
+            result.should.equal(expected);
         });
 
         it('should reject param list', () => {
@@ -247,9 +227,10 @@ describe('Smooch Method', () => {
         });
 
         it('should ignore object', () => {
-            testApi.noParams({
+            const result = testApi.noParams({
                 foo: 'bar'
             });
+            result.should.equal(expected);
         });
     });
 
