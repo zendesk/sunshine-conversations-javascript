@@ -23,10 +23,8 @@ Object.assign(ConversationsApi.prototype, {
      */
     get: smoochMethod({
         params: ['userId'],
-        func: function get(userId) {
-            const url = this.getFullURL('appUsers', userId, 'conversation');
-            return this.request('GET', url);
-        }
+        path: '/appusers/:userId/conversation',
+        method: 'GET'
     }),
 
     /**
@@ -39,12 +37,12 @@ Object.assign(ConversationsApi.prototype, {
      */
     postPostback: smoochMethod({
         params: ['userId', 'actionId'],
-        func: function postPostback(userId, actionId) {
+        path: '/appusers/:userId/conversation/postback',
+        func: function postPostback(url, userId, actionId) {
             if (!actionId) {
                 return Promise.reject(new Error('Must provide an action id.'));
             }
 
-            const url = this.getFullURL('appUsers', userId, 'conversation', 'postback');
             const body = {
                 actionId
             };
@@ -62,8 +60,8 @@ Object.assign(ConversationsApi.prototype, {
      */
     resetUnreadCount: smoochMethod({
         params: ['userId'],
-        func: function resetUnreadCount(userId) {
-            const url = this.getFullURL('appUsers', userId, 'conversation', 'read');
+        path: '/appusers/:userId/conversation/read',
+        func: function resetUnreadCount(url) {
             return this.request('POST', url);
         }
     }),

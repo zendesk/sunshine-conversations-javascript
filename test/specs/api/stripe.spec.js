@@ -24,7 +24,7 @@ describe('Stripe API', () => {
 
         it('should call http', () => {
             return api.getAccount().then(() => {
-                const fullUrl = api.getFullURL('stripe', 'account');
+                const fullUrl = `${serviceUrl}/stripe/account`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
@@ -37,7 +37,7 @@ describe('Stripe API', () => {
 
             return api.getAccount()
                 .then(() => {
-                    const fullUrl = api.getFullURL('stripe', 'account');
+                    const fullUrl = `${serviceUrl}/stripe/account`;
                     httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
                 });
         });

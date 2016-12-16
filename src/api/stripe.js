@@ -18,9 +18,7 @@ Object.assign(StripeApi.prototype, {
      */
     getAccount: smoochMethod({
         params: [],
-        func: function getAccount() {
-            const url = this.getFullURL('stripe', 'account');
-            return this.request('GET', url);
-        }
+        path: '/stripe/account',
+        method: 'GET'
     })
 });
