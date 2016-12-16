@@ -1,4 +1,4 @@
-export default function smoochMethod({params, optional=[], path, func}) {
+export default function smoochMethod({params, optional=[], path, method, func}) {
     return function() {
         let args;
         let allParams = params;
@@ -51,12 +51,20 @@ export default function smoochMethod({params, optional=[], path, func}) {
         });
 
         const url = this.serviceUrl + renderedPath;
+        if (method) {
+            if (['POST', 'PUT'].includes(method)) {
+                // Payload object must always specified in the last arg
+                return this.request(method, url, args.pop());
+            } else {
+                return this.request(method, url);
+            }
+        }
+
         if (this.requireAppId) {
             args[0] = url;
         } else {
             args.unshift(url);
         }
-
         return func.apply(this, args);
     };
 }

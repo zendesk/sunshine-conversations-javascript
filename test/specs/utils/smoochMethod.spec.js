@@ -1,5 +1,6 @@
 import { BaseApi } from '../../../src/api/base';
 import smoochMethod from '../../../src/utils/smoochMethod';
+import * as httpMock from '../../mocks/http';
 
 const serviceUrl = 'http://example.org/v1';
 const appId = 'appId';
@@ -24,7 +25,10 @@ Object.assign(TestApi.prototype, {
         params: ['param1'],
         path: '/param1/:param1',
         func: function oneParam(url, param1) {
-            return {url, param1};
+            return {
+                url,
+                param1
+            };
         }
     }),
 
@@ -40,7 +44,12 @@ Object.assign(TestApi.prototype, {
         params: ['param1', 'param2', 'param3'],
         path: '/param1/:param1/param2/:param2/param3/:param3',
         func: function manyParams(url, param1, param2, param3) {
-            return {url, param1, param2, param3};
+            return {
+                url,
+                param1,
+                param2,
+                param3
+            };
         }
     }),
 
@@ -85,6 +94,56 @@ Object.assign(TestApi.prototype, {
         func: function optionalParams(url, param1, param2 = 'default') {
             return [param1, param2];
         }
+    }),
+
+    /**
+     * GET method
+     * @memberof TestApi.prototype
+     * @method getMethod
+     * @param {string} param1 - The first param
+     */
+    getMethod: smoochMethod({
+        params: ['param1'],
+        path: '/param1/:param1',
+        method: 'GET'
+    }),
+
+    /**
+     * POST method
+     * @memberof TestApi.prototype
+     * @method postMethod
+     * @param {string} param1 - The first param
+     * @param {object} props - The props
+     */
+    postMethod: smoochMethod({
+        params: ['param1', 'props'],
+        path: '/param1/:param1',
+        method: 'POST'
+    }),
+
+    /**
+     * PUT method
+     * @memberof TestApi.prototype
+     * @method putMethod
+     * @param {string} param1 - The first param
+     * @param {object} props - The props
+     */
+    putMethod: smoochMethod({
+        params: ['param1', 'props'],
+        path: '/param1/:param1',
+        method: 'PUT'
+    }),
+
+    /**
+     * POST method
+     * @memberof TestApi.prototype
+     * @method deleteMethod
+     * @param {string} param1 - The first param
+     */
+    deleteMethod: smoochMethod({
+        params: ['param1'],
+        path: '/param1/:param1',
+        method: 'DELETE'
     })
 });
 
@@ -246,7 +305,10 @@ describe('Smooch Method', () => {
         });
 
         it('should accept full object', () => {
-            const result = testApi.optionalParams({param1, param2});
+            const result = testApi.optionalParams({
+                param1,
+                param2
+            });
             result.should.deep.equal([param1, param2]);
         });
 
@@ -256,8 +318,51 @@ describe('Smooch Method', () => {
         });
 
         it('should accept only required object', () => {
-            const result = testApi.optionalParams({param1});
+            const result = testApi.optionalParams({
+                param1
+            });
             result.should.deep.equal([param1, 'default']);
+        });
+    });
+
+    describe('simple methods', () => {
+        let httpSpy;
+        let expectedUrl;
+        let body;
+
+        beforeEach(() => {
+            testApi = new TestApi(serviceUrl, {}, {}, false);
+            httpSpy = httpMock.mock();
+            expectedUrl = `${serviceUrl}/param1/${param1}`;
+            body = {
+                'foo': 'bar'
+            };
+        });
+
+        afterEach(() => httpMock.restore());
+
+        it('should make a GET', () => {
+            return testApi.getMethod(param1).then(() => {
+                httpSpy.should.have.been.calledWith('GET', expectedUrl, undefined, {});
+            });
+        });
+
+        it('should make a POST', () => {
+            return testApi.postMethod(param1, body).then(() => {
+                httpSpy.should.have.been.calledWith('POST', expectedUrl, body, {});
+            });
+        });
+
+        it('should make a PUT', () => {
+            return testApi.putMethod(param1, body).then(() => {
+                httpSpy.should.have.been.calledWith('PUT', expectedUrl, body, {});
+            });
+        });
+
+        it('should make a DELETE', () => {
+            return testApi.deleteMethod(param1).then(() => {
+                httpSpy.should.have.been.calledWith('DELETE', expectedUrl, undefined, {});
+            });
         });
     });
 });
