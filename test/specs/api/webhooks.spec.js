@@ -28,11 +28,8 @@ describe('Webhooks API', () => {
     });
 
     describe('#validateProps', () => {
-        it('should return an error if props are not provided', (done) => {
-            api.validateProps().catch((e) => {
-                e.message.should.equal(noPropsMessage);
-                done();
-            });
+        it('should return an error if props are not provided', () => {
+            expect(() => api.validateProps()).to.throw(Error, 'incorrect number of parameters');
         });
 
         it('should return an error if props are empty', (done) => {

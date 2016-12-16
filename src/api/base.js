@@ -13,10 +13,11 @@ import { http } from '../utils/http';
  * @class BaseApi
  */
 export class BaseApi {
-    constructor(serviceUrl, authHeaders, headers) {
+    constructor(serviceUrl, authHeaders, headers, requireAppId) {
         this.serviceUrl = serviceUrl;
         this.authHeaders = authHeaders;
         this.headers = headers;
+        this.requireAppId = !!requireAppId;
 
         // both are allowed unless stated otherwise
         this.allowedAuth = ['jwt', 'appToken'];
@@ -27,8 +28,23 @@ export class BaseApi {
      * @return {string} - an URL
      */
     getFullURL(...args) {
-        const fragments = args.map((fragment) => encodeURIComponent(fragment));
+        const fragments = args.map((a) => encodeURIComponent(a));
         return urljoin(this.serviceUrl, ...fragments);
+    }
+
+    /**
+     * Build an URL from fragments to call the API
+     * Automatically append /apps/ if required, and remove appId fragment if
+     * it is undefined if not required
+     * @return {string} - an URL
+     */
+    getFullURLWithApp(...args) {
+        if (this.requireAppId) {
+            args.unshift('apps');
+        } else {
+            args = args.filter((a) => a !== undefined);
+        }
+        return this.getFullURL(...args);
     }
 
     /**
