@@ -28,8 +28,11 @@ describe('Webhooks API', () => {
     });
 
     describe('#validateProps', () => {
-        it('should return an error if props are not provided', () => {
-            expect(() => api.validateProps()).to.throw(Error, 'incorrect number of parameters');
+        it('should return an error if props are not provided', (done) => {
+            api.validateProps().catch((e) => {
+                e.message.should.equal(noPropsMessage);
+                done();
+            });
         });
 
         it('should return an error if props are empty', (done) => {
@@ -77,7 +80,7 @@ describe('Webhooks API', () => {
     describe('#list', () => {
         it('should call http', () => {
             return api.list().then(() => {
-                const fullUrl = api.getFullURL('webhooks');
+                const fullUrl = `${serviceUrl}/webhooks`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
@@ -97,7 +100,7 @@ describe('Webhooks API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(webhookId).then(() => {
-                const fullUrl = api.getFullURL('webhooks', webhookId);
+                const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
@@ -122,7 +125,7 @@ describe('Webhooks API', () => {
 
         it('should call http', () => {
             return api.create(props).then(() => {
-                const fullUrl = api.getFullURL('webhooks');
+                const fullUrl = `${serviceUrl}/webhooks`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
             });
         });
@@ -179,7 +182,7 @@ describe('Webhooks API', () => {
 
         it('should call http', () => {
             return api.update(webhookId, props).then(() => {
-                const fullUrl = api.getFullURL('webhooks', webhookId);
+                const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
             });
         });
@@ -222,7 +225,7 @@ describe('Webhooks API', () => {
     describe('#delete', () => {
         it('should call http', () => {
             return api.delete(webhookId).then(() => {
-                const fullUrl = api.getFullURL('webhooks', webhookId);
+                const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
             });
         });

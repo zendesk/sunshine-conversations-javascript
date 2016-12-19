@@ -16,15 +16,6 @@ describe('Base API', () => {
         });
     });
 
-    describe('#getFullURL', () => {
-        const api = new BaseApi(serviceUrl, headers);
-
-        it('should use the serverURL and encode fragments', () => {
-            const finalUrl = api.getFullURL('some', 'u/rl', 'this is an id');
-            finalUrl.should.eql(serviceUrl + '/some/u%2Frl/this%20is%20an%20id');
-        });
-    });
-
     describe('#getHeaders', function() {
         it('should include auth headers and custom headers', () => {
             const api = new BaseApi(serviceUrl, {

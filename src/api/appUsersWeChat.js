@@ -19,9 +19,7 @@ Object.assign(AppUsersWeChatApi.prototype, {
      */
     getQRCode: smoochMethod({
         params: ['userId'],
-        func: function getQRCode(userId) {
-            const url = this.getFullURL('appUsers', userId, 'integrations', 'wechat', 'qrcode');
-            return this.request('GET', url);
-        }
+        path: '/appusers/:userId/integrations/wechat/qrcode',
+        method: 'GET'
     })
 });
