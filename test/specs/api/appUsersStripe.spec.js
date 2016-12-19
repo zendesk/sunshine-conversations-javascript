@@ -24,7 +24,7 @@ describe('AppUsersStripe API', () => {
     describe('#updateCustomer', () => {
         it('should call http', () => {
             return api.updateCustomer(userId, 'token').then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'customer');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/customer`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     token: 'token'
                 }, httpHeaders);
@@ -52,7 +52,7 @@ describe('AppUsersStripe API', () => {
         describe('with token', () => {
             it('should call http', () => {
                 return api.createTransaction(userId, 'actionId', 'token').then(() => {
-                    const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'transaction');
+                    const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/transaction`;
                     httpSpy.should.have.been.calledWith('POST', fullUrl, {
                         actionId: 'actionId',
                         token: 'token'
@@ -70,7 +70,7 @@ describe('AppUsersStripe API', () => {
         describe('without token', () => {
             it('should call http', () => {
                 return api.createTransaction(userId, 'actionId').then(() => {
-                    const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'transaction');
+                    const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/transaction`;
                     httpSpy.should.have.been.calledWith('POST', fullUrl, {
                         actionId: 'actionId'
                     }, httpHeaders);

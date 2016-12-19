@@ -19,9 +19,7 @@ Object.assign(AppUsersViberApi.prototype, {
      */
     getQRCode: smoochMethod({
         params: ['userId'],
-        func: function getQRCode(userId) {
-            const url = this.getFullURL('appUsers', userId, 'integrations', 'viber', 'qrcode');
-            return this.request('GET', url);
-        }
+        path: '/appusers/:userId/integrations/viber/qrcode',
+        method: 'GET'
     })
 });

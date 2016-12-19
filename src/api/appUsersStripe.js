@@ -20,12 +20,12 @@ Object.assign(AppUsersStripeApi.prototype, {
      */
     updateCustomer: smoochMethod({
         params: ['userId', 'token'],
-        func: function updateCustomer(userId, token) {
+        path: '/appusers/:userId/stripe/customer',
+        func: function updateCustomer(url, userId, token) {
             if (!token) {
                 return Promise.reject(new Error('Must provide a Stripe token.'));
             }
 
-            const url = this.getFullURL('appUsers', userId, 'stripe', 'customer');
             return this.request('POST', url, {
                 token
             }, {
@@ -46,12 +46,11 @@ Object.assign(AppUsersStripeApi.prototype, {
     createTransaction: smoochMethod({
         params: ['userId', 'actionId', 'token'],
         optional: ['token'],
-        func: function createTransaction(userId, actionId, token) {
+        path: '/appusers/:userId/stripe/transaction',
+        func: function createTransaction(url, userId, actionId, token) {
             if (!actionId) {
                 return Promise.reject(new Error('Must provide an action id.'));
             }
-
-            const url = this.getFullURL('appUsers', userId, 'stripe', 'transaction');
 
             const body = {
                 actionId

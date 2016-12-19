@@ -23,10 +23,8 @@ Object.assign(MenuApi.prototype, {
      */
     get: smoochMethod({
         params: [],
-        func: function get() {
-            const url = this.getFullURL('menu');
-            return this.request('GET', url);
-        }
+        path: '/menu',
+        method: 'GET'
     }),
 
     /**
@@ -38,7 +36,8 @@ Object.assign(MenuApi.prototype, {
      */
     configure: smoochMethod({
         params: ['props'],
-        func: function configure(props) {
+        path: '/menu',
+        func: function configure(url, props) {
             if (!props) {
                 return Promise.reject(new Error('Must provide props.'));
             }
@@ -46,8 +45,6 @@ Object.assign(MenuApi.prototype, {
             if (!props.items) {
                 return Promise.reject(new Error('Must provide an array of items.'));
             }
-
-            const url = this.getFullURL('menu');
 
             return this.request('PUT', url, props);
         }
@@ -61,9 +58,7 @@ Object.assign(MenuApi.prototype, {
      */
     remove: smoochMethod({
         params: [],
-        func: function remove() {
-            const url = this.getFullURL('menu');
-            return this.request('DELETE', url);
-        }
+        path: '/menu',
+        method: 'DELETE'
     })
 });

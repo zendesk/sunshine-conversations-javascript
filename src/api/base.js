@@ -1,4 +1,3 @@
-import { urljoin } from '../utils/http';
 import { http } from '../utils/http';
 
 /**
@@ -21,30 +20,6 @@ export class BaseApi {
 
         // both are allowed unless stated otherwise
         this.allowedAuth = ['jwt', 'appToken'];
-    }
-
-    /**
-     * Build an URL from fragments to call the API
-     * @return {string} - an URL
-     */
-    getFullURL(...args) {
-        const fragments = args.map((a) => encodeURIComponent(a));
-        return urljoin(this.serviceUrl, ...fragments);
-    }
-
-    /**
-     * Build an URL from fragments to call the API
-     * Automatically append /apps/ if required, and remove appId fragment if
-     * it is undefined if not required
-     * @return {string} - an URL
-     */
-    getFullURLWithApp(...args) {
-        if (this.requireAppId) {
-            args.unshift('apps');
-        } else {
-            args = args.filter((a) => a !== undefined);
-        }
-        return this.getFullURL(...args);
     }
 
     /**
