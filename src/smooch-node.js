@@ -1,6 +1,8 @@
 import { Smooch as SmoochBase } from './smooch';
 import { WebhooksApi } from './api/webhooks';
 import { MenuApi } from './api/menu';
+import { IntegrationsApi } from './api/integrations';
+import { DisabledApi } from './api/disabled';
 import * as jwt from './utils/jwt';
 import { decode } from 'jsonwebtoken';
 
@@ -51,6 +53,11 @@ export class Smooch extends SmoochBase {
 
         this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers);
         this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers);
+        if (this.scope === 'account') {
+            this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true);
+        } else {
+            this.integrations = new DisabledApi('This API requires account level scope');
+        }
 
         Object.assign(this.utils, {
             jwt
