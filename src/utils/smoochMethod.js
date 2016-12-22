@@ -1,4 +1,18 @@
 export default function smoochMethod({params, optional=[], path, method, func}) {
+    if (!params || !path) {
+        throw new Error('params and path are required');
+    }
+
+    if (!method && !func) {
+        throw new Error('at least one of func or method are required');
+    }
+
+    if (method && func) {
+        throw new Error('func and method are mutually exclusive');
+    }
+
+    const methodName = func ? func.name : `${method} ${path}`;
+
     return function() {
         let args;
         let allParams = params;
@@ -24,7 +38,7 @@ export default function smoochMethod({params, optional=[], path, method, func}) 
                     const value = paramObject[param];
                     const isRequired = requiredParams.includes(param);
                     if (!value && isRequired) {
-                        throw new Error(`${func.name}: missing required argument: ${param}`);
+                        throw new Error(`${methodName}: missing required argument: ${param}`);
                     }
 
                     if (value) {
@@ -37,11 +51,11 @@ export default function smoochMethod({params, optional=[], path, method, func}) 
         }
 
         if (args.length < requiredParams.length) {
-            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected at least ${requiredParams.length}`);
+            throw new Error(`${methodName}: incorrect number of parameters (${args.length}). Expected at least ${requiredParams.length}`);
         }
 
         if (args.length > allParams.length) {
-            throw new Error(`${func.name}: incorrect number of parameters (${args.length}). Expected at most ${params.length}`);
+            throw new Error(`${methodName}: incorrect number of parameters (${args.length}). Expected at most ${params.length}`);
         }
 
         allParams.forEach((param, i) => {
