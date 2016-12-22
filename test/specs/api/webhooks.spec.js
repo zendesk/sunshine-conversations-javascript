@@ -12,7 +12,6 @@ describe('Webhooks API', () => {
     const malformedTargetUrl = 'Malformed target url.';
     const noPropsMessage = 'Must provide props.';
     const noTargetMessage = 'Must provide a target.';
-    const incorrectParamCount = 'incorrect number of parameters';
     const httpHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });

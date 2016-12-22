@@ -1,17 +1,10 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
-import { IntegrationsApi } from '../../../src/api/Integrations';
+import { IntegrationsApi } from '../../../src/api/integrations';
 import { testJwt } from '../../mocks/jwt';
 
 describe('Integrations API', () => {
     const serviceUrl = 'http://some-url.com';
-    const webhookId = 'some-id';
-    const webhookUrl = 'http://some-url.com/webhook';
-    const malformedWebhookUrl = 'some-url-missing-http-prefix.com';
-    const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
-    const malformedTargetUrl = 'Malformed target url.';
-    const noPropsMessage = 'Must provide props.';
-    const noTargetMessage = 'Must provide a target.';
     const missingParams = 'incorrect number of parameters';
     const httpHeaders = getAuthenticationHeaders({
         jwt: testJwt()
