@@ -50,9 +50,10 @@ export class Smooch extends SmoochBase {
 
         super(auth, options);
         this.scope = auth.scope || 'appUser';
+        const accountScope = this.scope === 'account';
 
-        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers);
-        this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers);
+        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, accountScope);
+        this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, accountScope);
         if (this.scope === 'account') {
             this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true);
         } else {
