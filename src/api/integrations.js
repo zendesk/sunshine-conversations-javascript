@@ -42,6 +42,11 @@ const integrations = {
  * @extends BaseApi
  */
 export class IntegrationsApi extends BaseApi {
+    constructor() {
+        super(...arguments);
+        this.allowedAuth = ['jwt'];
+    }
+
     validateProps(props) {
         if (!props.type) {
             throw new Error('props missing required field type');

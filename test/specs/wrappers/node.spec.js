@@ -30,13 +30,24 @@ describe('Smooch', () => {
         smooch.authHeaders.should.deep.equal(headers);
     });
 
-    it('should return disabled APIs without account scope', () => {
+    it('should return disabled integration APIs without account scope', () => {
         const authOptions = {
             jwt: testJwt('app')
         };
         const smooch = new Smooch(authOptions);
         ['create', 'list', 'get', 'delete'].forEach((method) => {
             expect(() => smooch.integrations[method]())
+                .to.throw(Error, 'This API requires account level scope');
+        });
+    });
+
+    it('should return disabled apps APIs without account scope', () => {
+        const authOptions = {
+            jwt: testJwt('app')
+        };
+        const smooch = new Smooch(authOptions);
+        ['create', 'list', 'get', 'delete'].forEach((method) => {
+            expect(() => smooch.apps[method]())
                 .to.throw(Error, 'This API requires account level scope');
         });
     });
