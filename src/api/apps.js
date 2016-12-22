@@ -1,4 +1,5 @@
 import { BaseApi } from './base';
+import { AppKeysApi } from './appKeys';
 import smoochMethod from '../utils/smoochMethod';
 
 /**
@@ -9,7 +10,10 @@ import smoochMethod from '../utils/smoochMethod';
 export class AppsApi extends BaseApi {
     constructor() {
         super(...arguments);
+        this.requireAppId = false;
         this.allowedAuth = ['jwt'];
+
+        this.keys = new AppKeysApi(...arguments);
     }
 }
 
@@ -28,7 +32,9 @@ Object.assign(AppsApi.prototype, {
             if (typeof name !== 'string') {
                 throw new Error('Invalid name parameter type, expected string');
             }
-            return this.request('POST', url, {name});
+            return this.request('POST', url, {
+                name
+            });
         }
     }),
 
@@ -48,13 +54,13 @@ Object.assign(AppsApi.prototype, {
             const q = {};
             if (limit) {
                 if (typeof limit !== 'number') {
-                   throw new Error('limit must be a number');
+                    throw new Error('limit must be a number');
                 }
                 q.limit = limit;
             }
             if (offset) {
                 if (typeof offset !== 'number') {
-                   throw new Error('offset must be a number');
+                    throw new Error('offset must be a number');
                 }
                 q.offset = offset;
             }

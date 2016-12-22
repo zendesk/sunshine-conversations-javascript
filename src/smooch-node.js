@@ -3,6 +3,7 @@ import { WebhooksApi } from './api/webhooks';
 import { MenuApi } from './api/menu';
 import { IntegrationsApi } from './api/integrations';
 import { AppsApi } from './api/apps';
+import { AppKeysApi } from './api/apps';
 import { DisabledApi } from './api/disabled';
 import * as jwt from './utils/jwt';
 import { decode } from 'jsonwebtoken';
@@ -57,7 +58,7 @@ export class Smooch extends SmoochBase {
         this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, accountScope);
         if (this.scope === 'account') {
             this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true);
-            this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, false);
+            this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, true);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
             this.integrations = this.apps = disabled;
