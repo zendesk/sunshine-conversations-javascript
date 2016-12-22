@@ -77,18 +77,27 @@ Object.assign(IntegrationsApi.prototype, {
      * Fetch the integrations currently configured
      * @memberof IntegrationsApi.prototype
      * @method list
-     * @param  {string=} type - Filter results to a specific integration type
+     * @param  {(string|string[])=} type - Filter results to a specific integration type
      * @return {APIResponse}
      */
     list: smoochMethod({
-        params: ['type'],
-        optional: ['type'],
+        params: ['types'],
+        optional: ['types'],
         path: '/integrations',
-        func: function list(url, type) {
-            const q = (type && typeof type === 'string') ? {
-                type
-            } : undefined;
-            return this.request('GET', url, q);
+        func: function list(url, types) {
+            const query = {};
+            if (typeof types === 'string') {
+                query.types = types;
+            } else if (types && types.constructor === Array) {
+                query.types = types.filter((t) => typeof t === 'string')
+                    .join(',') || undefined;
+            }
+
+            if (query.types) {
+                return this.request('GET', url, query);
+            } else {
+                return this.request('GET', url);
+            }
         }
     }),
 

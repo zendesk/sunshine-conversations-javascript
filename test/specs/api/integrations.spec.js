@@ -203,11 +203,19 @@ describe('Integrations API', () => {
             });
         });
 
-        it('should accept type query', () => {
-            const type = 'my_type';
-            return api.list(appId, type).then(() => {
+        it('should accept types string', () => {
+            const types = 'type1,type2';
+            return api.list(appId, types).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
-                httpSpy.should.have.been.calledWith('GET', url, {type}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, {types}, httpHeaders);
+            });
+        });
+
+        it('should accept types array', () => {
+            const types = ['type1', 'type2'];
+            return api.list(appId, types).then(() => {
+                const url = `${serviceUrl}/apps/${appId}/integrations`;
+                httpSpy.should.have.been.calledWith('GET', url, {types: 'type1,type2'}, httpHeaders);
             });
         });
     });
