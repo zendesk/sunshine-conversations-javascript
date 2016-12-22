@@ -27,18 +27,16 @@ export class WebhooksApi extends BaseApi {
      */
     validateProps(props, isTargetRequired = false) {
         if (!props || Object.keys(props).length === 0) {
-            return Promise.reject(new Error('Must provide props.'));
+            throw new Error('Must provide props.');
         }
 
         if (isTargetRequired && !props.target) {
-            return Promise.reject(new Error('Must provide a target.'));
+            throw new Error('Must provide a target.');
         }
 
         if (props.target && !props.target.startsWith('http://') && !props.target.startsWith('https://')) {
-            return Promise.reject(new Error('Malformed target url.'));
+            throw new Error('Malformed target url.');
         }
-
-        return Promise.resolve(props);
     }
 }
 
@@ -66,10 +64,8 @@ Object.assign(WebhooksApi.prototype, {
         params: ['props'],
         path: '/webhooks',
         func: function create(url, props) {
-            this.validateProps(props);
-            return this.validateProps(props, true).then((validatedProps) => {
-                return this.request('POST', url, validatedProps);
-            });
+            this.validateProps(props, true);
+            return this.request('POST', url, props);
         }
     }),
 
@@ -98,9 +94,8 @@ Object.assign(WebhooksApi.prototype, {
         params: ['webhookId', 'props'],
         path: '/webhooks/:webhookId',
         func: function update(url, webhookId, props) {
-            return this.validateProps(props).then((validatedProps) => {
-                return this.request('PUT', url, validatedProps);
-            });
+            this.validateProps(props);
+            return this.request('PUT', url, props);
         }
     }),
 
