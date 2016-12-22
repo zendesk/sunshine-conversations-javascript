@@ -170,10 +170,10 @@ describe('Integrations API', () => {
             });
         });
 
-        describe('email', () => {
+        describe('frontendEmail', () => {
             it('should call http', () => {
                 const props = {
-                    type: 'email'
+                    type: 'frontendEmail'
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
@@ -183,7 +183,7 @@ describe('Integrations API', () => {
 
             it('should call http with optional props', () => {
                 const props = {
-                    type: 'email',
+                    type: 'frontendEmail',
                     fromAddress: 'foo'
                 };
                 return api.create(appId, props).then(() => {
@@ -200,6 +200,14 @@ describe('Integrations API', () => {
             return api.list(appId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+            });
+        });
+
+        it('should accept type query', () => {
+            const type = 'my_type';
+            return api.list(appId, type).then(() => {
+                const url = `${serviceUrl}/apps/${appId}/integrations`;
+                httpSpy.should.have.been.calledWith('GET', url, {type}, httpHeaders);
             });
         });
     });

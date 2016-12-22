@@ -15,11 +15,13 @@ export default function smoochMethod({params, optional=[], path, method, func}) 
 
     return function() {
         let args;
-        let allParams = params;
+        let allParams;
         let renderedPath = path;
         if (this.requireAppId) {
             allParams = ['appId', ...params];
             renderedPath = `/apps/:appId${path}`;
+        } else {
+            allParams = [...params];
         }
 
         const requiredParams = allParams.filter((p) => !optional.includes(p));

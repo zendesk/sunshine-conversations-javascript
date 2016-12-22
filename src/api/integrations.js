@@ -33,7 +33,7 @@ const integrations = {
     line: new IntegrationType(['channelAccessToken', 'channelSecret']),
     viber: new IntegrationType(['token']),
     wechat: new IntegrationType(['appId', 'appSecret'], ['encodingAesKey']),
-    email: new IntegrationType([], ['fromAddress'])
+    frontendEmail: new IntegrationType([], ['fromAddress'])
 };
 
 /**
@@ -77,12 +77,19 @@ Object.assign(IntegrationsApi.prototype, {
      * Fetch the integrations currently configured
      * @memberof IntegrationsApi.prototype
      * @method list
+     * @param  {string=} type - Filter results to a specific integration type
      * @return {APIResponse}
      */
     list: smoochMethod({
-        params: [],
+        params: ['type'],
+        optional: ['type'],
         path: '/integrations',
-        method: 'GET'
+        func: function list(url, type) {
+            const q = (type && typeof type === 'string') ? {
+                type
+            } : undefined;
+            return this.request('GET', url, q);
+        }
     }),
 
     /**
@@ -111,4 +118,3 @@ Object.assign(IntegrationsApi.prototype, {
         method: 'DELETE'
     })
 });
-
