@@ -4,3 +4,4 @@ dist
 amd
 npm-debug.log
 tmp-bower-repo
+out

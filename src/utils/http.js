@@ -19,7 +19,7 @@ if (typeof process !== 'undefined') {
 export function stringifyGETParams(url, data) {
     const query = Object.keys(data).reduce((q, key) => {
         if (data[key] !== null) {
-            return q +  '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+            return q + '&' + encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
         }
         return q;
     }, '');
@@ -85,8 +85,3 @@ export function http(method, url, data, headers = {}) {
         .then(handleBody);
 }
 
-export function urljoin(...args) {
-    return args.map((part) => {
-        return part.replace(/\/$/, '');
-    }).join('/');
-}

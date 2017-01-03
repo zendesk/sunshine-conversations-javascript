@@ -1,7 +1,7 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { MenuApi } from '../../../src/api/menu';
-
+import { testJwt } from '../../mocks/jwt';
 
 describe('Menu API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -9,7 +9,7 @@ describe('Menu API', () => {
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
     const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;
@@ -26,7 +26,7 @@ describe('Menu API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get().then(() => {
-                const fullUrl = api.getFullURL('menu');
+                const fullUrl = `${serviceUrl}/menu`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
@@ -52,7 +52,7 @@ describe('Menu API', () => {
 
         it('should call http', () => {
             return api.configure(props).then(() => {
-                const fullUrl = api.getFullURL('menu');
+                const fullUrl = `${serviceUrl}/menu`;
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
             });
         });
@@ -88,7 +88,7 @@ describe('Menu API', () => {
     describe('#remove', () => {
         it('should call http', () => {
             return api.remove().then(() => {
-                const fullUrl = api.getFullURL('menu');
+                const fullUrl = `${serviceUrl}/menu`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
             });
         });

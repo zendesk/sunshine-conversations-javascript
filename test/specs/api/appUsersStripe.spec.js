@@ -1,13 +1,13 @@
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersStripeApi } from '../../../src/api/appUsersStripe';
-
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsersStripe API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
     const httpHeaders = getAuthenticationHeaders({
-        jwt: 'jwt'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;
@@ -24,7 +24,7 @@ describe('AppUsersStripe API', () => {
     describe('#updateCustomer', () => {
         it('should call http', () => {
             return api.updateCustomer(userId, 'token').then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'customer');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/customer`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     token: 'token'
                 }, httpHeaders);
@@ -32,9 +32,7 @@ describe('AppUsersStripe API', () => {
         });
 
         it('should throw if no token provided', () => {
-            return api.updateCustomer(userId).catch(() => {
-                httpSpy.should.not.have.been.called;
-            });
+            expect(() => api.updateCustomer(userId)).to.throw(Error, 'incorrect number of parameters');
         });
 
         describe('with app-token', () => {
@@ -54,7 +52,7 @@ describe('AppUsersStripe API', () => {
         describe('with token', () => {
             it('should call http', () => {
                 return api.createTransaction(userId, 'actionId', 'token').then(() => {
-                    const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'transaction');
+                    const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/transaction`;
                     httpSpy.should.have.been.calledWith('POST', fullUrl, {
                         actionId: 'actionId',
                         token: 'token'
@@ -72,7 +70,7 @@ describe('AppUsersStripe API', () => {
         describe('without token', () => {
             it('should call http', () => {
                 return api.createTransaction(userId, 'actionId').then(() => {
-                    const fullUrl = api.getFullURL('appUsers', userId, 'stripe', 'transaction');
+                    const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/transaction`;
                     httpSpy.should.have.been.calledWith('POST', fullUrl, {
                         actionId: 'actionId'
                     }, httpHeaders);

@@ -1,50 +1,64 @@
 import { BaseApi } from './base';
+import smoochMethod from '../utils/smoochMethod';
 
 /**
- * @class MenuApi
+ * @constructor
+ * @name MenuApi
  * @extends BaseApi
  */
 export class MenuApi extends BaseApi {
-
     constructor() {
         super(...arguments);
         this.allowedAuth = ['jwt'];
     }
+}
+
+Object.assign(MenuApi.prototype, {
 
     /**
      * Fetch an app's menu
+     * @memberof MenuApi.prototype
+     * @method get
      * @return {APIResponse}
      */
-    get() {
-        const url = this.getFullURL('menu');
-        return this.request('GET', url);
-    }
+    get: smoochMethod({
+        params: [],
+        path: '/menu',
+        method: 'GET'
+    }),
 
     /**
      * Update an app's menu
-     * @param  {object} menuData
+     * @memberof MenuApi.prototype
+     * @method configure
+     * @param  {object} props
      * @return {APIResponse}
      */
-    configure(menuData) {
-        if (!menuData) {
-            return Promise.reject(new Error('Must provide props.'));
+    configure: smoochMethod({
+        params: ['props'],
+        path: '/menu',
+        func: function configure(url, props) {
+            if (!props) {
+                return Promise.reject(new Error('Must provide props.'));
+            }
+
+            if (!props.items) {
+                return Promise.reject(new Error('Must provide an array of items.'));
+            }
+
+            return this.request('PUT', url, props);
         }
-
-        if (!menuData.items) {
-            return Promise.reject(new Error('Must provide an array of items.'));
-        }
-
-        const url = this.getFullURL('menu');
-
-        return this.request('PUT', url, menuData);
-    }
+    }),
 
     /**
      * Delete an app's menu
+     * @memberof MenuApi.prototype
+     * @method remove
      * @return {APIResponse}
      */
-    remove() {
-        const url = this.getFullURL('menu');
-        return this.request('DELETE', url);
-    }
-}
+    remove: smoochMethod({
+        params: [],
+        path: '/menu',
+        method: 'DELETE'
+    })
+});

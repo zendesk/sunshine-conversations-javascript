@@ -2,6 +2,7 @@ import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { AppUsersApi } from '../../../src/api/appUsers';
 import { createReadStream } from 'streamifier';
+import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
@@ -33,7 +34,7 @@ describe('AppUsers API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
-                const fullUrl = api.getFullURL('appusers', userId);
+                const fullUrl = `${serviceUrl}/appusers/${userId}`;
 
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
@@ -47,7 +48,7 @@ describe('AppUsers API', () => {
             };
 
             return api.update(userId, attributes).then(() => {
-                const fullUrl = api.getFullURL('appusers', userId);
+                const fullUrl = `${serviceUrl}/appusers/${userId}`;
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, attributes, httpHeaders);
             });
         });
@@ -60,7 +61,7 @@ describe('AppUsers API', () => {
             };
 
             return api.init(props).then(() => {
-                const fullUrl = api.getFullURL('init');
+                const fullUrl = `${serviceUrl}/init`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
             });
         });
@@ -74,7 +75,7 @@ describe('AppUsers API', () => {
         };
 
         const jwtHttpHeaders = getAuthenticationHeaders({
-            jwt: 'jwt'
+            jwt: testJwt()
         });
 
         it('should throw an error if used with app token', (done) => {
@@ -87,7 +88,7 @@ describe('AppUsers API', () => {
         it('should call http', () => {
             const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
             return jwtApi.create(userId, props).then(() => {
-                const fullUrl = jwtApi.getFullURL('appusers');
+                const fullUrl = `${serviceUrl}/appusers`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, Object.assign({
                     userId: userId
                 }, props), jwtHttpHeaders);
@@ -112,7 +113,7 @@ describe('AppUsers API', () => {
             };
 
             return api.trackEvent(userId, eventName, props).then(() => {
-                const fullUrl = api.getFullURL('appusers', userId, 'events');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/events`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     name: eventName,
                     appUser: props
@@ -127,7 +128,7 @@ describe('AppUsers API', () => {
             const token = 'some-token';
 
             return api.updatePushToken(userId, deviceId, token).then(() => {
-                const fullUrl = api.getFullURL('appusers', userId, 'pushToken');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/pushToken`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     deviceId,
                     token
@@ -144,7 +145,7 @@ describe('AppUsers API', () => {
             };
 
             return api.updateDevice(userId, deviceId, attrs).then(() => {
-                const fullUrl = api.getFullURL('appusers', userId, 'devices', deviceId);
+                const fullUrl = `${serviceUrl}/appusers/${userId}/devices/${deviceId}`;
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, attrs, httpHeaders);
             });
         });
@@ -157,7 +158,7 @@ describe('AppUsers API', () => {
                 phoneNumber: '15145555555'
             };
             return api.linkChannel(userId, data).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'channels');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/channels`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     ...data
                 }, httpHeaders);
@@ -174,7 +175,7 @@ describe('AppUsers API', () => {
     describe('#unlinkChannel', () => {
         it('should call http', () => {
             return api.unlinkChannel(userId, 'twilio').then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'channels', 'twilio');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/channels/twilio`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
             });
         });
@@ -183,7 +184,7 @@ describe('AppUsers API', () => {
     describe('#pingChannel', () => {
         it('should call http', () => {
             return api.pingChannel(userId, 'twilio').then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'integrations', 'twilio', 'ping');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/integrations/twilio/ping`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, httpHeaders);
             });
         });
@@ -192,7 +193,7 @@ describe('AppUsers API', () => {
     describe('#getMessages', () => {
         it('should call http', () => {
             return api.getMessages(userId).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
@@ -201,7 +202,7 @@ describe('AppUsers API', () => {
             return api.getMessages(userId, {
                 before: 'XYZ'
             }).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
                     before: 'XYZ'
                 }, httpHeaders);
@@ -212,7 +213,7 @@ describe('AppUsers API', () => {
             return api.getMessages(userId, {
                 after: 'XYZ'
             }).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
                     after: 'XYZ'
                 }, httpHeaders);
@@ -236,7 +237,7 @@ describe('AppUsers API', () => {
             };
 
             return api.sendMessage(userId, message).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'messages');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, message, httpHeaders);
             });
         });
@@ -244,7 +245,7 @@ describe('AppUsers API', () => {
 
     describe('#uploadImage', () => {
         it('should call http', () => {
-            const fullUrl = api.getFullURL('appUsers', userId, 'images');
+            const fullUrl = `${serviceUrl}/appusers/${userId}/images`;
             const source = createReadStream('some source object');
             const message = {
                 text: 'this is a message'

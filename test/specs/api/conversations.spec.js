@@ -25,7 +25,7 @@ describe('Conversations API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'conversation');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
@@ -38,7 +38,7 @@ describe('Conversations API', () => {
             };
 
             return api.postPostback(userId, body.actionId).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'postback');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/postback`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, body, httpHeaders);
             });
         });
@@ -72,7 +72,7 @@ describe('Conversations API', () => {
     describe('#resetUnreadCount', () => {
         it('should call http', () => {
             return api.resetUnreadCount(userId).then(() => {
-                const fullUrl = api.getFullURL('appUsers', userId, 'conversation', 'read');
+                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/read`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, httpHeaders);
             });
         });

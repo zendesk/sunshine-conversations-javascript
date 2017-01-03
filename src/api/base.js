@@ -1,4 +1,3 @@
-import { urljoin } from '../utils/http';
 import { http } from '../utils/http';
 
 /**
@@ -13,22 +12,14 @@ import { http } from '../utils/http';
  * @class BaseApi
  */
 export class BaseApi {
-    constructor(serviceUrl, authHeaders, headers) {
+    constructor(serviceUrl, authHeaders, headers, requireAppId) {
         this.serviceUrl = serviceUrl;
         this.authHeaders = authHeaders;
         this.headers = headers;
+        this.requireAppId = !!requireAppId;
 
         // both are allowed unless stated otherwise
         this.allowedAuth = ['jwt', 'appToken'];
-    }
-
-    /**
-     * Build an URL from fragments to call the API
-     * @return {string} - an URL
-     */
-    getFullURL(...args) {
-        const fragments = args.map((fragment) => encodeURIComponent(fragment));
-        return urljoin(this.serviceUrl, ...fragments);
     }
 
     /**

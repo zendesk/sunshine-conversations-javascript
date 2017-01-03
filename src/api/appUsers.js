@@ -2,6 +2,7 @@ import { BaseApi } from './base';
 import { AppUsersStripeApi } from './appUsersStripe';
 import { AppUsersViberApi } from './appUsersViber';
 import { AppUsersWeChatApi } from './appUsersWeChat';
+import smoochMethod from '../utils/smoochMethod';
 
 /**
  * Init API properties
@@ -9,203 +10,254 @@ import { AppUsersWeChatApi } from './appUsersWeChat';
  */
 
 /**
- * @class AppUsersApi
+ * @constructor
+ * @name AppUsersApi
  * @extends BaseApi
  */
 export class AppUsersApi extends BaseApi {
-
     constructor(...args) {
         super(...args);
         this.stripe = new AppUsersStripeApi(...args);
         this.viber = new AppUsersViberApi(...args);
         this.wechat = new AppUsersWeChatApi(...args);
     }
+}
 
+Object.assign(AppUsersApi.prototype, {
     /**
      * Initializes the conversation for a user
+     * @memberof AppUsersApi.prototype
+     * @method init
      * @param  {InitProps} props
      * @return {APIResponse}
      */
-    init(props) {
-        const url = this.getFullURL('init');
-        return this.request('POST', url, props);
-    }
+    init: smoochMethod({
+        params: ['props'],
+        path: '/init',
+        method: 'POST'
+    }),
 
-    create(userId, props = {}) {
-        if (!userId || !userId.trim()) {
-            return Promise.reject(new Error('Must provide a userId.'));
+    /**
+     * Create
+     * @memberof AppUsersApi.prototype
+     * @method create
+     * @param  {string} userId
+     * @param  {object=} props
+     * @return {APIResponse}
+     */
+    create: smoochMethod({
+        params: ['userId', 'props'],
+        optional: ['props'],
+        path: '/appusers',
+        func: function create(url, userId, props = {}) {
+            if (!userId || !userId.trim()) {
+                return Promise.reject(new Error('Must provide a userId.'));
+            }
+
+            const payload = Object.assign({
+                userId: userId
+            }, props);
+
+            if (props.signedUpAt && !(props.signedUpAt instanceof Date)) {
+                return Promise.reject(new Error('signedUpAt must be a date.'));
+            }
+
+            // this endpoint only accepts JWT auth with app scope
+            return this.request('POST', url, payload, {
+                allowedAuth: ['jwt']
+            });
         }
-
-        const payload = Object.assign({
-            userId: userId
-        }, props);
-
-        if (props.signedUpAt && !(props.signedUpAt instanceof Date)) {
-            return Promise.reject(new Error('signedUpAt must be a date.'));
-        }
-
-        const url = this.getFullURL('appusers');
-
-        // this endpoint only accepts JWT auth with app scope
-        return this.request('POST', url, payload, {
-            allowedAuth: ['jwt']
-        });
-    }
+    }),
 
     /**
      * Fetch an app user
+     * @memberof AppUsersApi.prototype
+     * @method get
      * @param  {string} userId - a user id
      * @return {APIResponse}
      */
-    get(userId) {
-        const url = this.getFullURL('appusers', userId);
-        return this.request('GET', url);
-    }
+    get: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId',
+        method: 'GET'
+    }),
 
     /**
      * Update an app user
-     * @param  {string} userId     - a user id
-     * @param  {object} attributes - the attributes to update
+     * @memberof AppUsersApi.prototype
+     * @method update
+     * @param  {string} userId - a user id
+     * @param  {object} props  - the props to update
      * @return {APIResponse}
      */
-    update(userId, attributes) {
-        const url = this.getFullURL('appusers', userId);
-        return this.request('PUT', url, attributes);
-    }
+    update: smoochMethod({
+        params: ['userId', 'props'],
+        path: '/appusers/:userId',
+        method: 'PUT'
+    }),
 
     /**
      * Track an event for an app user
-     * @param  {string} userId     - a user id
-     * @param  {string} eventName  - the name of the event to track
-     * @param  {object} {attributes} - attributes to update before tracking the event
+     * @memberof AppUsersApi.prototype
+     * @method trackEvent
+     * @param  {string} userId    - a user id
+     * @param  {string} eventName - the name of the event to track
+     * @param  {object=} props    - props to update before tracking the event
      * @return {APIResponse}
      */
-    trackEvent(userId, eventName, attributes = {}) {
-        const url = this.getFullURL('appusers', userId, 'events');
-        return this.request('POST', url, {
-            name: eventName,
-            appUser: attributes
-        });
-    }
+    trackEvent: smoochMethod({
+        params: ['userId', 'eventName', 'props'],
+        optional: ['props'],
+        path: '/appusers/:userId/events',
+        func: function trackEvent(url, userId, eventName, props = {}) {
+            return this.request('POST', url, {
+                name: eventName,
+                appUser: props
+            });
+        }
+    }),
 
     /**
      * Update the push notification token for a given app user's device
-     * @param  {string} userId     - a user id
-     * @param  {string} deviceId  - a device id
-     * @param  {string} token  - a push notification token
+     * @memberof AppUsersApi.prototype
+     * @method updatePushToken
+     * @param  {string} userId   - a user id
+     * @param  {string} deviceId - a device id
+     * @param  {string} token    - a push notification token
      * @return {APIResponse}
      */
-    updatePushToken(userId, deviceId, token) {
-        const url = this.getFullURL('appusers', userId, 'pushToken');
-        return this.request('POST', url, {
-            deviceId,
-            token
-        });
-    }
+    updatePushToken: smoochMethod({
+        params: ['userId', 'deviceId', 'token'],
+        path: '/appusers/:userId/pushToken',
+        func: function updatePushToken(url, userId, deviceId, token) {
+            return this.request('POST', url, {
+                deviceId,
+                token
+            });
+        }
+    }),
 
     /**
     * Update the specified device for a given app user
-    * @param {string} userId    - a user id
-    * @param  {string} deviceId  - a device id
-    * @param  {object} {attributes} - attributes to update on the device
+    * @memberof AppUsersApi.prototype
+    * @method updateDevice
+    * @param  {string} userId   - a user id
+    * @param  {string} deviceId - a device id
+    * @param  {object} props    - props to update on the device
     */
-    updateDevice(userId, deviceId, attributes) {
-        const url = this.getFullURL('appusers', userId, 'devices', deviceId);
-        return this.request('PUT', url, attributes);
-    }
+    updateDevice: smoochMethod({
+        params: ['userId', 'deviceId', 'props'],
+        path: '/appusers/:userId/devices/:deviceId',
+        method: 'PUT'
+    }),
 
     /**
      * Links the specified channel to a user
-     * @param {string} userId - a user id
-     * @param {object} data - the data object
+     * @memberof AppUsersApi.prototype
+     * @method linkChannel
+     * @param  {string} userId - a user id
+     * @param  {object} data   - the data object
      * @return {APIResponse}
      */
-    linkChannel(userId, data) {
-        if (!data.type) {
-            return Promise.reject(new Error('Must provide a channel type.'));
-        }
-
-        const url = this.getFullURL('appUsers', userId, 'channels');
-        return this.request('POST', url, data);
-    }
+    linkChannel: smoochMethod({
+        params: ['userId', 'data'],
+        path: '/appusers/:userId/channels',
+        method: 'POST'
+    }),
 
     /**
      * Unlinks the specified channel
-     * @param {string} userId - a user id
-     * @param {string} channel - the channel to unlink
+     * @memberof AppUsersApi.prototype
+     * @method unlinkChannel
+     * @param  {string} userId  - a user id
+     * @param  {string} channel - the channel to unlink
      * @return {APIResponse}
      */
-    unlinkChannel(userId, channel) {
-        const url = this.getFullURL('appUsers', userId, 'channels', channel);
-        return this.request('DELETE', url);
-    }
+    unlinkChannel: smoochMethod({
+        params: ['userId', 'channel'],
+        path: '/appusers/:userId/channels/:channel',
+        method: 'DELETE'
+    }),
 
     /**
      * Pings linked channel
-     * @param {string} userId - a user id
-     * @param {string} channel - the channel to ping
+     * @memberof AppUsersApi.prototype
+     * @method pingChannel
+     * @param  {string} userId  - a user id
+     * @param  {string} channel - the channel to ping
      * @return {APIResponse}
      */
-    pingChannel(userId, channel) {
-        const url = this.getFullURL('appUsers', userId, 'integrations', channel, 'ping');
-        return this.request('POST', url);
-    }
+    pingChannel: smoochMethod({
+        params: ['userId', 'channel'],
+        path: '/appusers/:userId/integrations/:channel/ping',
+        func: function pingChannel(url) {
+            return this.request('POST', url);
+        }
+    }),
 
     /**
      * Fetch app user's messages
+     * @memberof AppUsersApi.prototype
+     * @method getMessages
      * @param  {string} userId - a user id
-     * @param  {object} options - the paging parameters (before, after)
+     * @param  {object=} query - paging parameters (before, after)
      * @return {APIResponse}
      */
-    getMessages(userId, {before, after} = {}) {
-        if (before && after) {
-            return Promise.reject(new Error('Parameters "before" and "after" are mutually exclusive. You must provide one or the other.'));
-        }
+    getMessages: smoochMethod({
+        params: ['userId', 'query'],
+        optional: ['query'],
+        path: '/appusers/:userId/messages',
+        func: function getMessages(url, userId, query = {}) {
+            const {before, after} = query;
+            if (before && after) {
+                return Promise.reject(new Error('Parameters "before" and "after" are mutually exclusive. You must provide one or the other.'));
+            }
 
-        const url = this.getFullURL('appUsers', userId, 'messages');
-
-        let params;
-
-        if (before) {
-            params = {
+            const q = before ? {
                 before
-            };
-        } else if (after) {
-            params = {
+            } : after ? {
                 after
-            };
+            } : undefined;
+            return this.request('GET', url, q);
         }
-
-        return this.request('GET', url, params);
-    }
+    }),
 
     /**
      * Send a message to an app user's conversation
-     * @param  {string} userId - a user id
-     * @param  {Message} message - the message to be sent
-     * @return  {APIResponse}
-     */
-    sendMessage(userId, message) {
-        const url = this.getFullURL('appUsers', userId, 'messages');
-        return this.request('POST', url, message);
-    }
-
-    /**
-     * Send an image to an app user's conversation
-     * @param  {string} userId - a user id
-     * @param  {Blob|Readable stream} source - source image
+     * @memberof AppUsersApi.prototype
+     * @method sendMessage
+     * @param  {string} userId   - a user id
      * @param  {Message} message - the message to be sent
      * @return {APIResponse}
      */
-    uploadImage(userId, source, message = {}) {
-        const url = this.getFullURL('appUsers', userId, 'images');
-        const data = new FormData();
-        data.append('source', source);
+    sendMessage: smoochMethod({
+        params: ['userId', 'message'],
+        path: '/appusers/:userId/messages',
+        method: 'POST'
+    }),
 
-        Object.keys(message).forEach((key) => {
-            data.append(key, message[key]);
-        });
+    /**
+     * Send an image to an app user's conversation
+     * @memberof AppUsersApi.prototype
+     * @method uploadImage
+     * @param  {string} userId   - a user id
+     * @param  {Readable} source - source image readable stream
+     * @param  {Message=} message - the message to be sent
+     * @return {APIResponse}
+     */
+    uploadImage: smoochMethod({
+        params: ['userId', 'source', 'message'],
+        optional: ['message'],
+        path: '/appusers/:userId/images',
+        func: function uploadImage(url, userId, source, message = {}) {
+            const data = new FormData();
+            data.append('source', source);
 
-        return this.request('POST', url, data);
-    }
-}
+            Object.keys(message).forEach((key) => {
+                data.append(key, message[key]);
+            });
+
+            return this.request('POST', url, data);
+        }
+    })
+});
