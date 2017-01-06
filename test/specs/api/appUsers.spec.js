@@ -251,7 +251,7 @@ describe('AppUsers API', () => {
             };
 
             return api.typingActivity(userId, activity).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/activity`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, activity, httpHeaders);
             });
         });
