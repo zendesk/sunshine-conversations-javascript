@@ -271,7 +271,7 @@ Object.assign(AppUsersApi.prototype, {
      */
     typingActivity: smoochMethod({
       params: ['userId', 'activityProps'],
-      path: '/appusers/:userId/conversation/activity/',
+      path: '/appusers/:userId/conversation/activity',
       method: 'POST'
     })
 });
