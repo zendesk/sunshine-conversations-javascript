@@ -243,6 +243,20 @@ describe('AppUsers API', () => {
         });
     });
 
+    describe('#typingActivity', () => {
+        it('should call http', () => {
+            const activity = {
+                role: 'appMaker',
+                type: 'typing:start'
+            };
+
+            return api.typingActivity(userId, activity).then(() => {
+                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                httpSpy.should.have.been.calledWith('POST', fullUrl, activity, httpHeaders);
+            });
+        });
+    });
+
     describe('#uploadImage', () => {
         it('should call http', () => {
             const fullUrl = `${serviceUrl}/appusers/${userId}/images`;

@@ -259,5 +259,22 @@ Object.assign(AppUsersApi.prototype, {
 
             return this.request('POST', url, data);
         }
+    }),
+
+    /**
+     * Sets or resets the appMaker's typing indicator
+     * @memberof AppUsersApi.prototype
+     * @method typingActivity
+     * @param  {string} userId    - a user id
+     * @param  {string} role      - The role of the actor. Must be 'appMaker'
+     * @param  {string} type      - The type of activity to trigger. Must be either 'typing:start' or 'typing:stop'
+     * @param  {string} name      - The name of the app maker that starts or stops typing a response
+     * @param  {string} avatarUrl - The avatar URL of the app maker that starts typing a response
+     * @return {APIResponse}
+     */
+    typingActivity: smoochMethod({
+      params: ['userId', 'role', 'type', 'name', 'avatarUrl'],
+      path: '/appusers/:userId/conversation/activity/',
+      method: 'POST'
     })
 });
