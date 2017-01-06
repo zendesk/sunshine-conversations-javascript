@@ -259,5 +259,19 @@ Object.assign(AppUsersApi.prototype, {
 
             return this.request('POST', url, data);
         }
+    }),
+
+    /**
+     * Sets or resets the appMaker's typing indicator
+     * @memberof AppUsersApi.prototype
+     * @method typingActivity
+     * @param  {string} userId    - a user id
+     * @param  {object=} activityProps  - properties as defined in http://docs.smooch.io/rest
+     * @return {APIResponse}
+     */
+    typingActivity: smoochMethod({
+      params: ['userId', 'activityProps'],
+      path: '/appusers/:userId/conversation/activity',
+      method: 'POST'
     })
 });

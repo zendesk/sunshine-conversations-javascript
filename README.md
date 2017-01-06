@@ -83,6 +83,7 @@ This is an overview of what the library has to offer. A better documentation wil
 |           | uploadImage | [POST `/v1/appusers/:id/images`](http://docs.smooch.io/rest/#upload-image) |
 |           | linkChannel | [POST `/v1/appusers/:id/channels`](http://docs.smooch.io/rest/#link-app-user-to-channel) |
 |           | unlinkChannel | [POST `/v1/appusers/:id/channels/:channel`](http://docs.smooch.io/rest/#unlink-app-user-from-channel) |
+|           | typingActivity | [POST `/v1/appusers/:id/conversation/:activity`](http://docs.smooch.io/rest/#typing-activity) |
 | webhooks | list | [GET `/v1/webhooks`](http://docs.smooch.io/rest/#list-webhook) |
 |  | create | [POST `/v1/webhooks`](http://docs.smooch.io/rest/#create-webhook) |
 |  | get | [GET `/v1/webhooks/:id`](http://docs.smooch.io/rest/#get-webhook) |
