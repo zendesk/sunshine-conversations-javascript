@@ -170,6 +170,84 @@ describe('Integrations API', () => {
             });
         });
 
+        describe('fcm', () => {
+            it('should throw if missing required params', () => {
+                const invalid = {
+                    type: 'fcm'
+                };
+
+                expect(() => api.create(appId, invalid)).to.throw(Error, 'integration has missing required keys: serverKey, senderId');
+            });
+
+            it('should call http', () => {
+                const props = {
+                    type: 'fcm',
+                    serverKey: 'yay',
+                    senderId: 'woo'
+                };
+                return api.create(appId, props).then(() => {
+                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                });
+            });
+        });
+
+        describe('apn', () => {
+            it('should throw if missing required params', () => {
+                const invalid = {
+                    type: 'apn'
+                };
+
+                expect(() => api.create(appId, invalid)).to.throw(Error, 'integration has missing required keys: certificate');
+            });
+
+            it('should call http', () => {
+                const props = {
+                    type: 'apn',
+                    certificate: 'yay'
+                };
+                return api.create(appId, props).then(() => {
+                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                });
+            });
+
+            it('should call http with optional props', () => {
+                const props = {
+                    type: 'apn',
+                    certificate: 'yay',
+                    password: 'oooooh',
+                    autoUpdateBadge: true
+                };
+                return api.create(appId, props).then(() => {
+                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                });
+            });
+
+            it('should throw an error if the property types are wrong', () => {
+                const props = {
+                    type: 'apn',
+                    certificate: {},
+                    autoUpdateBadge: 12345,
+                    password: false
+                };
+
+                const expectedTypes = [{
+                    name: 'certificate',
+                    type: 'string'
+                }, {
+                    name: 'autoUpdateBadge',
+                    type: 'boolean'
+                }, {
+                    name: 'password',
+                    type: 'string'
+                }];
+
+                expect(() => api.create(appId, props)).to.throw(Error, `integration has invalid types: ${JSON.stringify(expectedTypes)}`);
+            });
+        });
+
         describe('frontendEmail', () => {
             it('should call http', () => {
                 const props = {
@@ -207,7 +285,9 @@ describe('Integrations API', () => {
             const types = 'type1,type2';
             return api.list(appId, types).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
-                httpSpy.should.have.been.calledWith('GET', url, {types}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, {
+                    types
+                }, httpHeaders);
             });
         });
 
@@ -215,7 +295,9 @@ describe('Integrations API', () => {
             const types = ['type1', 'type2'];
             return api.list(appId, types).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
-                httpSpy.should.have.been.calledWith('GET', url, {types: 'type1,type2'}, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, {
+                    types: 'type1,type2'
+                }, httpHeaders);
             });
         });
     });
