@@ -56,7 +56,12 @@ const integrations = {
     line: new IntegrationType(['channelAccessToken', 'channelSecret']),
     viber: new IntegrationType(['token']),
     wechat: new IntegrationType(['appId', 'appSecret'], ['encodingAesKey']),
-    frontendEmail: new IntegrationType([], ['fromAddress'])
+    frontendEmail: new IntegrationType([], ['fromAddress']),
+    fcm: new IntegrationType(['serverKey', 'senderId']),
+    apn: new IntegrationType(['certificate'], [{
+        name: 'autoUpdateBadge',
+        type: 'boolean'
+    }, 'password'])
 };
 
 /**
