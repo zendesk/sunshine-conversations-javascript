@@ -1,28 +1,51 @@
 import { BaseApi } from './base';
 import smoochMethod from '../utils/smoochMethod';
 
+function transformProps(val) {
+    if (typeof val === 'string') {
+        return {
+            name: val,
+            type: 'string'
+        };
+    }
+
+    return val;
+}
+
 /**
  * Init API properties
  * @typedef IntegrationProps
  */
-
 function IntegrationType(required, optional = []) {
-    this.required = ['type', ...required];
-    this.optional = optional;
+    //convert parameter string values to object
+    this.required = required.map(transformProps);
+    this.optional = optional.map(transformProps);
 }
 
 IntegrationType.prototype.validate = function(props) {
     const missing = this.required.filter((field) => {
-        return !props[field];
+        return !props[field.name];
     });
 
     if (missing.length > 0) {
-        throw new Error(`integration has missing required keys: ${missing.join(', ')}`);
+        const keys = missing.map(function(val) {
+            return val.name;
+        });
+
+        throw new Error(`integration has missing required keys: ${keys.join(', ')}`);
     }
 
-    const invalid = Object.keys(props).filter((k) => 'string' !== typeof props[k]);
+    const both = [...this.required, ...this.optional];
+    const invalid = [];
+
+    both.forEach(function(val) {
+        if (props[val.name] !== undefined && typeof props[val.name] !== val.type) {
+            invalid.push(val);
+        }
+    });
+
     if (invalid.length > 0) {
-        throw new Error(`integration has invalid types (expected string): ${invalid.join(', ')}`);
+        throw new Error(`integration has invalid types: ${JSON.stringify(invalid)}`);
     }
 };
 
