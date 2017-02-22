@@ -273,4 +273,25 @@ describe('AppUsers API', () => {
             });
         });
     });
+
+    describe('#deleteProfile', () => {
+        const jwtHttpHeaders = getAuthenticationHeaders({
+            jwt: testJwt()
+        });
+
+        it('should throw an error if used with app token', (done) => {
+            api.deleteProfile(userId).catch((err) => {
+                err.message.should.equal('Must not use an app token for authentication.');
+                done();
+            });
+        });
+
+        it('should call http', () => {
+            const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
+            return jwtApi.deleteProfile(userId).then(() => {
+                const fullUrl = `${serviceUrl}/appusers/${userId}/profile`;
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, {}, jwtHttpHeaders);
+            });
+        });
+    });
 });
