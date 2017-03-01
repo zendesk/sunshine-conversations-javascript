@@ -270,8 +270,30 @@ Object.assign(AppUsersApi.prototype, {
      * @return {APIResponse}
      */
     typingActivity: smoochMethod({
-      params: ['userId', 'activityProps'],
-      path: '/appusers/:userId/conversation/activity',
-      method: 'POST'
+        params: ['userId', 'activityProps'],
+        path: '/appusers/:userId/conversation/activity',
+        method: 'POST'
+    }),
+
+    /**
+     * Deletes an appUser's profile
+     * @memberof AppUsersApi.prototype
+     * @method deleteProfile
+     * @param  {string} userId    - a user id
+     * @return {APIResponse}
+     */
+    deleteProfile: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/profile',
+        func: function deleteProfile(url, userId) {
+            if (!userId || !userId.trim()) {
+                return Promise.reject(new Error('Must provide a userId.'));
+            }
+
+            // this endpoint only accepts JWT auth
+            return this.request('DELETE', url, {}, {
+                allowedAuth: ['jwt']
+            });
+        }
     })
 });
