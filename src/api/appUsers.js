@@ -262,6 +262,28 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
+     * Deletes an appUser's message history
+     * @memberof AppUsersApi.prototype
+     * @method deleteMessages
+     * @param  {string} userId    - a user id
+     * @return {APIResponse}
+     */
+    deleteMessages: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/messages',
+        func: function deleteMessages(url, userId) {
+             if (!userId || !userId.trim()) {
+                 return Promise.reject(new Error('Must provide a userId.'));
+             }
+
+             // this endpoint only accepts JWT auth with app scope
+             return this.request('DELETE', url, {}, {
+                 allowedAuth: ['jwt']
+             });
+         }
+    }),
+
+    /**
      * Sets or resets the appMaker's typing indicator
      * @memberof AppUsersApi.prototype
      * @method typingActivity
