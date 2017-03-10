@@ -315,4 +315,20 @@ describe('AppUsers API', () => {
             });
         });
     });
+
+    describe('#transferRequest', () => {
+        it('should call http', () => {
+            const fullUrl = `${serviceUrl}/appusers/${userId}/transferrequest`;
+
+            return api.transferRequest(userId, 'messenger').then(() => {
+                httpSpy.should.have.been.calledWith('GET', fullUrl, {
+                    type: 'messenger'
+                }, httpHeaders);
+            });
+        });
+
+        it('should throw if no type provided', () => {
+            expect(() => api.transferRequest(userId)).to.throw(Error);
+        });
+    });
 });
