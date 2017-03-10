@@ -57,8 +57,8 @@ var smoochCore = new SmoochCore({
 var smoochCore = new SmoochCore({
     keyId: 'some-key',
     secret: 'some-secret',
-    scope: 'appUser', // app or appUser
-    userId: 'some-id' // not necessary if scope === 'app'
+    scope: 'appUser', // account, app, or appUser
+    userId: 'some-id' // only necessary for appUser scope
 });
 
 // ...
@@ -70,25 +70,44 @@ smoochCore.webhooks.get(id).then(function(response) {
 ```
 
 ## API
-This is an overview of what the library has to offer. A better documentation will be available soon.
 
-| Module    | Method  | Endpoint |
-|--------   |-------- |-------------|
-| appUsers  | init    | [POST `/v1/init`](http://docs.smooch.io/rest/#init-beta)       |
-|           | get     | [GET `/v1/appusers/:id`](http://docs.smooch.io/rest/#get-app-user)         |
-|           | update  | [PUT `/v1/appusers/:id`](http://docs.smooch.io/rest/#update-app-user)         |
-|           | trackEvent  | [POST `/v1/appusers/:id/events`](http://docs.smooch.io/rest/#track-event)         |
-|           | getMessages | [GET `/v1/appusers/:id/messages`](http://docs.smooch.io/rest/#get-conversation) |
-|           | sendMessage | [POST `/v1/appusers/:id/messages`](http://docs.smooch.io/rest/#post-message) |
-|           | uploadImage | [POST `/v1/appusers/:id/images`](http://docs.smooch.io/rest/#upload-image) |
-|           | linkChannel | [POST `/v1/appusers/:id/channels`](http://docs.smooch.io/rest/#link-app-user-to-channel) |
-|           | unlinkChannel | [POST `/v1/appusers/:id/channels/:channel`](http://docs.smooch.io/rest/#unlink-app-user-from-channel) |
-|           | typingActivity | [POST `/v1/appusers/:id/conversation/:activity`](http://docs.smooch.io/rest/#typing-activity) |
-| webhooks | list | [GET `/v1/webhooks`](http://docs.smooch.io/rest/#list-webhook) |
-|  | create | [POST `/v1/webhooks`](http://docs.smooch.io/rest/#create-webhook) |
-|  | get | [GET `/v1/webhooks/:id`](http://docs.smooch.io/rest/#get-webhook) |
-|  | update | [PUT `/v1/webhooks/:id`](http://docs.smooch.io/rest/#update-webhook) |
-|  | delete | [DELETE `/v1/webhooks/:id`](http://docs.smooch.io/rest/#delete-webhook) |
-| menu      | get      | [GET `/v1/menu`](http://docs.smooch.io/rest#persistent-menus)       |
-|           | configure| [PUT `/v1/menu`](http://docs.smooch.io/rest#persistent-menus)   |
-|           | remove   | [DELETE `/v1/menu`](http://docs.smooch.io/rest#persistent-menus)|
+Below is a list of methods included in Smooch Core. For comprehensive documentation of Smooch Core and it's methods see Smooch's [REST API docs](https://docs.smooch.io/rest/).
+
+| Module       | Method           | Endpoint                                                                                                        |
+|--------------|------------------|-----------------------------------------------------------------------------------------------------------------|
+| appUsers     | init             | [POST /v1/init](https://docs.smooch.io/rest/?javascript#init) |
+|              | get              | [GET /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#get-app-user) |
+|              | update           | [PUT /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#update-app-user) |
+|              | deleteProfile    | [DELETE /v1/appusers/:id/profile](https://docs.smooch.io/rest/?javascript#delete-app-user) |
+|              | updateDevice     | [PUT /v1/appusers/:id/devices/:deviceId](https://docs.smooch.io/rest/?javascript#update-device) |
+|              | trackEvent       | [POST /v1/appusers/:id/events](https://docs.smooch.io/rest/?javascript#track-event) |
+|              | create           | [POST /v1/appusers](https://docs.smooch.io/rest/?javascript#pre-create-app-user) |
+|              | linkChannel      | [POST /v1/appusers/:id/channels](https://docs.smooch.io/rest/?javascript#link-app-user-to-channel) |
+|              | unlinkChannel    | [POST /v1/appusers/:id/channels/:channel](https://docs.smooch.io/rest/?javascript#unlink-app-user-from-channel) |
+|              | getMessages      | [GET /v1/appusers/:id/messages](https://docs.smooch.io/rest/?javascript#get-messages) |
+|              | resetUnreadCount | [POST /v1/appusers/:id/conversation/read](https://docs.smooch.io/rest/?javascript#reset-unread-count) |
+|              | typingActivity   | [POST /v1/appusers/:id/conversation/:activity](https://docs.smooch.io/rest/?javascript#typing-activity) |
+|              | sendMessage      | [POST /v1/appusers/:id/messages](https://docs.smooch.io/rest/?javascript#post-message) |
+|              | uploadImage      | [POST /v1/appusers/:id/images](https://docs.smooch.io/rest/?javascript#upload-image) |
+|              | deleteMessages   | [DELETE /v1/appusers/:id/messages](https://docs.smooch.io/rest/?javascript#delete-messages) |
+| menu         | get              | [GET /v1/menu](https://docs.smooch.io/rest/?javascript#get-menu) |
+|              | configure        | [PUT /v1/menu](https://docs.smooch.io/rest/?javascript#update-menu) |
+|              | remove           | [DELETE /v1/menu](https://docs.smooch.io/rest/?javascript#delete-menu) |
+| webhooks     | list             | [GET /v1/webhooks](https://docs.smooch.io/rest/?javascript#list-webhooks) |
+|              | create           | [POST /v1/webhooks](https://docs.smooch.io/rest/?javascript#create-webhook) |
+|              | get              | [GET /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#get-webhook) |
+|              | update           | [PUT /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#update-webhook) |
+|              | delete           | [DELETE /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#dlete-webhook) |
+| apps         | create           | [POST /v1/apps](https://docs.smooch.io/rest/?javascript#create-app) |
+|              | list             | [GET /v1/apps](https://docs.smooch.io/rest/?javascript#list-apps) |
+|              | get              | [GET /v1/apps/:id](https://docs.smooch.io/rest/?javascript#get-app) |
+|              | delete           | [DELETE /v1/apps/:id](https://docs.smooch.io/rest/?javascript#delete-app) |
+|              | keys.create      | [POST /v1/apps/:id/keys](https://docs.smooch.io/rest/?javascript#create-key) |
+|              | keys.list        | [GET /v1/apps/:id/keys](https://docs.smooch.io/rest/?javascript#list-keys) |
+|              | keys.get         | [GET /v1/apps/:id/keys/:keyId](https://docs.smooch.io/rest/?javascript#get-key) |
+|              | keys.delete      | [DELETE /v1/apps/:id/:keyId](https://docs.smooch.io/rest/?javascript#delete-key) |
+|              | keys.getJwt      | [GET /v1/apps/:id/keys/:keyId/jwt](https://docs.smooch.io/rest/?javascript#get-jwt) |
+| integrations | create           | [POST /v1/apps](https://docs.smooch.io/rest/?javascript#create-integration) |
+|              | list             | [GET /v1/apps](https://docs.smooch.io/rest/?javascript#list-integrations) |
+|              | get              | [GET /v1/apps/:id](https://docs.smooch.io/rest/?javascript#get-integration) |
+|              | delete           | [DELETE /v1/apps/:id](https://docs.smooch.io/rest/?javascript#delete-integration) |
