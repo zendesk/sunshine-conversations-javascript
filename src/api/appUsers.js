@@ -323,15 +323,15 @@ Object.assign(AppUsersApi.prototype, {
      * Initiates a channel tranfser request in order to link a new channel to the user's conversation
      * @memberof AppUsersApi.prototype
      * @method transferRequest
-     * @param  {string} type - the channel type, e.g: 'messenger' or 'telegram'
+     * @param  {object} channel - the channel criteria, eg { type: 'messenger' }
      * @return {APIResponse}
      */
     transferRequest: smoochMethod({
-        params: ['userId', 'type'],
+        params: ['userId', 'channel'],
         path: '/appusers/:userId/transferrequest',
-        func: function transferRequest(url, userId, type) {
+        func: function transferRequest(url, userId, channel) {
             return this.request('GET', url, {
-                type
+                type: channel.type
             });
         }
     })

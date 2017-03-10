@@ -320,7 +320,9 @@ describe('AppUsers API', () => {
         it('should call http', () => {
             const fullUrl = `${serviceUrl}/appusers/${userId}/transferrequest`;
 
-            return api.transferRequest(userId, 'messenger').then(() => {
+            return api.transferRequest(userId, {
+                type: 'messenger'
+            }).then(() => {
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
                     type: 'messenger'
                 }, httpHeaders);
