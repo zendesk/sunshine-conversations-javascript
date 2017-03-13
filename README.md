@@ -9,6 +9,10 @@ This library is meant to be isomorphic, which means it can be used in the browse
 $ npm install smooch-core --save
 ```
 
+## Contributing
+
+If a method is missing please file an Issue, or better yet make a PR!
+
 ## Usage
 
 ### In the browser (using browserify or webpack)
@@ -58,7 +62,7 @@ var smoochCore = new SmoochCore({
     keyId: 'some-key',
     secret: 'some-secret',
     scope: 'appUser', // account, app, or appUser
-    userId: 'some-id' // only necessary for appUser scope
+    userId: 'some-id' // only required for appUser scope
 });
 
 // ...
