@@ -262,6 +262,28 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
+     * Deletes an appUser's message history
+     * @memberof AppUsersApi.prototype
+     * @method deleteMessages
+     * @param  {string} userId    - a user id
+     * @return {APIResponse}
+     */
+    deleteMessages: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/messages',
+        func: function deleteMessages(url, userId) {
+             if (!userId || !userId.trim()) {
+                 return Promise.reject(new Error('Must provide a userId.'));
+             }
+
+             // this endpoint only accepts JWT auth with app scope
+             return this.request('DELETE', url, {}, {
+                 allowedAuth: ['jwt']
+             });
+         }
+    }),
+
+    /**
      * Sets or resets the appMaker's typing indicator
      * @memberof AppUsersApi.prototype
      * @method typingActivity
@@ -270,8 +292,47 @@ Object.assign(AppUsersApi.prototype, {
      * @return {APIResponse}
      */
     typingActivity: smoochMethod({
-      params: ['userId', 'activityProps'],
-      path: '/appusers/:userId/conversation/activity',
-      method: 'POST'
+        params: ['userId', 'activityProps'],
+        path: '/appusers/:userId/conversation/activity',
+        method: 'POST'
+    }),
+
+    /**
+     * Deletes an appUser's profile
+     * @memberof AppUsersApi.prototype
+     * @method deleteProfile
+     * @param  {string} userId    - a user id
+     * @return {APIResponse}
+     */
+    deleteProfile: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/profile',
+        func: function deleteProfile(url, userId) {
+            if (!userId || !userId.trim()) {
+                return Promise.reject(new Error('Must provide a userId.'));
+            }
+
+            // this endpoint only accepts JWT auth
+            return this.request('DELETE', url, {}, {
+                allowedAuth: ['jwt']
+            });
+        }
+    }),
+
+    /**
+     * Initiates a channel tranfser request in order to link a new channel to the user's conversation
+     * @memberof AppUsersApi.prototype
+     * @method transferRequest
+     * @param  {object} channel - the channel criteria, eg { type: 'messenger' }
+     * @return {APIResponse}
+     */
+    transferRequest: smoochMethod({
+        params: ['userId', 'channel'],
+        path: '/appusers/:userId/transferrequest',
+        func: function transferRequest(url, userId, channel) {
+            return this.request('GET', url, {
+                type: channel.type
+            });
+        }
     })
 });
