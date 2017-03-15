@@ -317,5 +317,22 @@ Object.assign(AppUsersApi.prototype, {
                 allowedAuth: ['jwt']
             });
         }
+    }),
+
+    /**
+     * Initiates a channel tranfser request in order to link a new channel to the user's conversation
+     * @memberof AppUsersApi.prototype
+     * @method transferRequest
+     * @param  {object} channel - the channel criteria, eg { type: 'messenger' }
+     * @return {APIResponse}
+     */
+    transferRequest: smoochMethod({
+        params: ['userId', 'channel'],
+        path: '/appusers/:userId/transferrequest',
+        func: function transferRequest(url, userId, channel) {
+            return this.request('GET', url, {
+                type: channel.type
+            });
+        }
     })
 });
