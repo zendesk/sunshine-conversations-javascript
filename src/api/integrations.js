@@ -1,4 +1,5 @@
 import { BaseApi } from './base';
+import { IntegrationMenuApi } from './integrationMenu';
 import smoochMethod from '../utils/smoochMethod';
 
 function transformProps(val) {
@@ -73,6 +74,8 @@ export class IntegrationsApi extends BaseApi {
     constructor() {
         super(...arguments);
         this.allowedAuth = ['jwt'];
+
+        this.menu = new IntegrationMenuApi(...arguments);
     }
 
     validateProps(props) {
