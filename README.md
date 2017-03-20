@@ -111,7 +111,11 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | keys.get         | [GET /v1/apps/:id/keys/:keyId](https://docs.smooch.io/rest/?javascript#get-key) |
 |              | keys.delete      | [DELETE /v1/apps/:id/:keyId](https://docs.smooch.io/rest/?javascript#delete-key) |
 |              | keys.getJwt      | [GET /v1/apps/:id/keys/:keyId/jwt](https://docs.smooch.io/rest/?javascript#get-jwt) |
-| integrations | create           | [POST /v1/apps](https://docs.smooch.io/rest/?javascript#create-integration) |
-|              | list             | [GET /v1/apps](https://docs.smooch.io/rest/?javascript#list-integrations) |
-|              | get              | [GET /v1/apps/:id](https://docs.smooch.io/rest/?javascript#get-integration) |
-|              | delete           | [DELETE /v1/apps/:id](https://docs.smooch.io/rest/?javascript#delete-integration) |
+| integrations | create           | [POST /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#create-integration) |
+|              | list             | [GET /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#list-integrations) |
+|              | get              | [GET /v1/apps/:id/integrations/integrationId](https://docs.smooch.io/rest/?javascript#get-integration) |
+|              | delete           | [DELETE /v1/apps/:id/integrations/:integrationId](https://docs.smooch.io/rest/?javascript#delete-integration) |
+|              | menu.get         | [GET /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration) |
+|              | menu.create      | [POST /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration) |
+|              | menu.update      | [PUT /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration) |
+|              | menu.delete      | [DELETE /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration) |
