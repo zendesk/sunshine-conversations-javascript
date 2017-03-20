@@ -75,7 +75,7 @@ smoochCore.webhooks.get(id).then(function(response) {
 
 ## API
 
-Below is a list of methods included in Smooch Core. For comprehensive documentation of Smooch Core and it's methods see Smooch's [REST API docs](https://docs.smooch.io/rest/).
+Below is a list of methods included in Smooch Core. For comprehensive documentation of Smooch Core and its methods see Smooch's [REST API docs](https://docs.smooch.io/rest/).
 
 | Module       | Method           | Endpoint                                                                                                        |
 |--------------|------------------|-----------------------------------------------------------------------------------------------------------------|
