@@ -138,7 +138,7 @@ Object.assign(IntegrationsApi.prototype, {
      * Retrieve an existing integration
      * @memberof IntegrationsApi.prototype
      * @method get
-     * @param  {stirng} integrationId
+     * @param  {string} integrationId
      * @return {APIResponse}
      */
     get: smoochMethod({
@@ -151,7 +151,7 @@ Object.assign(IntegrationsApi.prototype, {
      * Delete an existing integration
      * @memberof IntegrationsApi.prototype
      * @method delete
-     * @param  {stirng} integrationId
+     * @param  {string} integrationId
      * @return {APIResponse}
      */
     delete: smoochMethod({
