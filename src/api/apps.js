@@ -77,7 +77,7 @@ Object.assign(AppsApi.prototype, {
      * Retrieve an existing app
      * @memberof AppsApi.prototype
      * @method get
-     * @param  {stirng} appId
+     * @param  {string} appId
      * @return {APIResponse}
      */
     get: smoochMethod({
@@ -90,7 +90,7 @@ Object.assign(AppsApi.prototype, {
      * Delete an existing app
      * @memberof AppsApi.prototype
      * @method delete
-     * @param  {stirng} appId
+     * @param  {string} appId
      * @return {APIResponse}
      */
     delete: smoochMethod({
