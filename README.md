@@ -75,7 +75,7 @@ smoochCore.webhooks.get(id).then(function(response) {
 
 ## API
 
-Below is a list of methods included in Smooch Core. For comprehensive documentation of Smooch Core and it's methods see Smooch's [REST API docs](https://docs.smooch.io/rest/).
+Below is a list of methods included in Smooch Core. For comprehensive documentation of Smooch Core and its methods see Smooch's [REST API docs](https://docs.smooch.io/rest/).
 
 | Module       | Method           | Endpoint                                                                                                        |
 |--------------|------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -94,9 +94,9 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | sendMessage      | [POST /v1/appusers/:id/messages](https://docs.smooch.io/rest/?javascript#post-message) |
 |              | uploadImage      | [POST /v1/appusers/:id/images](https://docs.smooch.io/rest/?javascript#upload-image) |
 |              | deleteMessages   | [DELETE /v1/appusers/:id/messages](https://docs.smooch.io/rest/?javascript#delete-messages) |
-| menu         | get              | [GET /v1/menu](https://docs.smooch.io/rest/?javascript#get-menu) |
-|              | configure        | [PUT /v1/menu](https://docs.smooch.io/rest/?javascript#update-menu) |
-|              | remove           | [DELETE /v1/menu](https://docs.smooch.io/rest/?javascript#delete-menu) |
+| menu         | get              | [GET /v1/menu](https://docs.smooch.io/rest/?javascript#get-app-menu) |
+|              | configure        | [PUT /v1/menu](https://docs.smooch.io/rest/?javascript#update-app-menu) |
+|              | remove           | [DELETE /v1/menu](https://docs.smooch.io/rest/?javascript#delete-app-menu) |
 | webhooks     | list             | [GET /v1/webhooks](https://docs.smooch.io/rest/?javascript#list-webhooks) |
 |              | create           | [POST /v1/webhooks](https://docs.smooch.io/rest/?javascript#create-webhook) |
 |              | get              | [GET /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#get-webhook) |
@@ -111,7 +111,11 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | keys.get         | [GET /v1/apps/:id/keys/:keyId](https://docs.smooch.io/rest/?javascript#get-key) |
 |              | keys.delete      | [DELETE /v1/apps/:id/:keyId](https://docs.smooch.io/rest/?javascript#delete-key) |
 |              | keys.getJwt      | [GET /v1/apps/:id/keys/:keyId/jwt](https://docs.smooch.io/rest/?javascript#get-jwt) |
-| integrations | create           | [POST /v1/apps](https://docs.smooch.io/rest/?javascript#create-integration) |
-|              | list             | [GET /v1/apps](https://docs.smooch.io/rest/?javascript#list-integrations) |
-|              | get              | [GET /v1/apps/:id](https://docs.smooch.io/rest/?javascript#get-integration) |
-|              | delete           | [DELETE /v1/apps/:id](https://docs.smooch.io/rest/?javascript#delete-integration) |
+| integrations | create           | [POST /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#create-integration) |
+|              | list             | [GET /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#list-integrations) |
+|              | get              | [GET /v1/apps/:id/integrations/integrationId](https://docs.smooch.io/rest/?javascript#get-integration) |
+|              | delete           | [DELETE /v1/apps/:id/integrations/:integrationId](https://docs.smooch.io/rest/?javascript#delete-integration) |
+|              | menu.get         | [GET /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#get-integration-menu) |
+|              | menu.create      | [POST /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#create-integration-menu) |
+|              | menu.update      | [PUT /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#update-integration-menu) |
+|              | menu.delete      | [DELETE /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration-menu) |

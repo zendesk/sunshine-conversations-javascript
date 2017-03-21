@@ -48,7 +48,7 @@ Object.assign(AppKeysApi.prototype, {
      * Retrieve an existing app key
      * @memberof AppKeysApi.prototype
      * @method get
-     * @param  {stirng} keyId
+     * @param  {string} keyId
      * @return {APIResponse}
      */
     get: smoochMethod({
@@ -61,7 +61,7 @@ Object.assign(AppKeysApi.prototype, {
      * Generate a JWT with app scope using the specified key
      * @memberof AppKeysApi.prototype
      * @method getJwt
-     * @param  {stirng} keyId
+     * @param  {string} keyId
      * @return {APIResponse}
      */
     getJwt: smoochMethod({
@@ -74,7 +74,7 @@ Object.assign(AppKeysApi.prototype, {
      * Delete an existing app
      * @memberof AppKeysApi.prototype
      * @method delete
-     * @param  {stirng} keyId
+     * @param  {string} keyId
      * @return {APIResponse}
      */
     delete: smoochMethod({
