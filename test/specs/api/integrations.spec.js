@@ -53,6 +53,52 @@ describe('Integrations API', () => {
             });
         });
 
+
+        describe('twitter', () => {
+            it('should throw if missing required params', () => {
+                const invalid = {
+                    type: 'twitter'
+                };
+                expect(() => api.create(appId, invalid)).to.throw(Error, 'integration has missing required keys: consumerKey, consumerSecret, accessTokenKey, accessTokenSecret');
+            });
+
+            it('should call http', () => {
+                const props = {
+                    type: 'twitter',
+                    consumerKey: 'foo',
+                    consumerSecret: 'bar',
+                    accessTokenKey: 'baz',
+                    accessTokenSecret: 'schwifty'
+                };
+                return api.create(appId, props).then(() => {
+                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                });
+            });
+        });
+
+        describe('mailgun', () => {
+            it('should throw if missing required params', () => {
+                const invalid = {
+                    type: 'mailgun'
+                };
+                expect(() => api.create(appId, invalid)).to.throw(Error, 'integration has missing required keys: apiKey, domain, incomingAddress');
+            });
+
+            it('should call http', () => {
+                const props = {
+                    type: 'mailgun',
+                    apiKey: 'foo',
+                    domain: 'bar',
+                    incomingAddress: 'baz'
+                };
+                return api.create(appId, props).then(() => {
+                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                });
+            });
+        });
+
         describe('twilio', () => {
             it('should throw if missing required params', () => {
                 const invalid = {
@@ -245,29 +291,6 @@ describe('Integrations API', () => {
                 }];
 
                 expect(() => api.create(appId, props)).to.throw(Error, `integration has invalid types: ${JSON.stringify(expectedTypes)}`);
-            });
-        });
-
-        describe('frontendEmail', () => {
-            it('should call http', () => {
-                const props = {
-                    type: 'frontendEmail'
-                };
-                return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
-                });
-            });
-
-            it('should call http with optional props', () => {
-                const props = {
-                    type: 'frontendEmail',
-                    fromAddress: 'foo'
-                };
-                return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
-                });
             });
         });
     });

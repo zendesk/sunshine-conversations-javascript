@@ -57,7 +57,8 @@ const integrations = {
     line: new IntegrationType(['channelAccessToken', 'channelSecret']),
     viber: new IntegrationType(['token']),
     wechat: new IntegrationType(['appId', 'appSecret'], ['encodingAesKey']),
-    frontendEmail: new IntegrationType([], ['fromAddress']),
+    twitter: new IntegrationType(['consumerKey', 'consumerSecret', 'accessTokenKey', 'accessTokenSecret']),
+    mailgun: new IntegrationType(['apiKey', 'domain', 'incomingAddress']),
     fcm: new IntegrationType(['serverKey', 'senderId']),
     apn: new IntegrationType(['certificate'], [{
         name: 'autoUpdateBadge',
