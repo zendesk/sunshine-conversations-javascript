@@ -40,6 +40,19 @@ describe('Apps API', () => {
                 }, httpHeaders);
             });
         });
+
+        it('should call http', () => {
+            return api.create({
+                name: appName,
+                settings: {}
+            }).then(() => {
+                const url = `${serviceUrl}/apps`;
+                httpSpy.should.have.been.calledWith('POST', url, {
+                    name: appName,
+                    settings: {}
+                }, httpHeaders);
+            });
+        });
     });
 
     describe('#list', () => {
@@ -55,21 +68,28 @@ describe('Apps API', () => {
         it('should use limit', () => {
             return api.list(limit).then(() => {
                 const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, {limit} , httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, {
+                    limit
+                }, httpHeaders);
             });
         });
 
         it('should use offset', () => {
             return api.list(undefined, offset).then(() => {
                 const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, {offset} , httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, {
+                    offset
+                }, httpHeaders);
             });
         });
 
         it('should use both', () => {
             return api.list(limit, offset).then(() => {
                 const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, {limit, offset} , httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, {
+                    limit,
+                    offset
+                }, httpHeaders);
             });
         });
 
@@ -90,6 +110,27 @@ describe('Apps API', () => {
 
         it('should throw if missing appId', () => {
             expect(() => api.get()).to.throw(Error, missingParams);
+        });
+    });
+
+    describe('#put', () => {
+        it('should call http', () => {
+            const appId = 'app_123456';
+
+            return api.update(appId, {
+                name: appName,
+                settings: {}
+            }).then(() => {
+                const url = `${serviceUrl}/apps/${appId}`;
+                httpSpy.should.have.been.calledWith('PUT', url, {
+                    name: appName,
+                    settings: {}
+                }, httpHeaders);
+            });
+        });
+
+        it('should throw if missing appId', () => {
+            expect(() => api.update()).to.throw(Error, missingParams);
         });
     });
 
