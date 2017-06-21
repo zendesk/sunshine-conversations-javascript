@@ -35,8 +35,8 @@ export function handleResponse(response) {
         return Promise.resolve();
     }
 
-    var contentType = response.headers.get('Content-Type') || '';
-    var isJson = contentType.indexOf('application/json') > -1;
+    const contentType = response.headers.get('Content-Type') || '';
+    const isJson = contentType.indexOf('application/json') > -1;
 
     if (response.status >= 200 && response.status < 300) {
         return isJson ? response.json() : Promise.resolve();
@@ -45,7 +45,7 @@ export function handleResponse(response) {
             return response.json().then(function(json) {
                 const {error={}} = json;
 
-                var err = new Error(error.description || response.statusText);
+                const err = new Error(error.description || response.statusText);
                 err.response = response;
                 err.code = error.code;
                 err.description = error.description;
@@ -53,7 +53,7 @@ export function handleResponse(response) {
                 throw err;
             });
         } else {
-            var error = new Error(response.statusText);
+            const error = new Error(response.statusText);
             error.response = response;
 
             return Promise.reject(error);
