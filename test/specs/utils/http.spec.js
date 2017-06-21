@@ -1,6 +1,7 @@
 import sinon from 'sinon';
+import hat from 'hat';
 import * as fetchMock from '../../mocks/fetch';
-import { http, stringifyGETParams, handleStatus, handleBody } from '../../../src/utils/http';
+import { http, stringifyGETParams, handleResponse } from '../../../src/utils/http';
 
 function getMockedHeaders(headers = {}) {
     return {
@@ -114,72 +115,97 @@ describe('HTTP', () => {
             });
         });
 
-        describe('#handleStatus', () => {
-            [200, 201, 202, 203, 204, 299].forEach((status) => {
-                it('should not throw an error with HTTP ' + status, () => {
-                    const response = handleStatus({
-                        status: status
+        describe('#handleResponse', () => {
+            let response;
+
+            beforeEach(function() {
+                response = {
+                    status: 200,
+                    statusText: hat(),
+                    headers: getMockedHeaders()
+                };
+            });
+
+            [202, 204].forEach((status) => {
+                it('should not return a body if HTTP ' + status, () => {
+                    response.status = status;
+
+                    return handleResponse(response).then((body) => {
+                        expect(body).to.be.undefined;
+                    });
+                });
+            });
+
+            [200, 201, 203, 299].forEach((status) => {
+                it('should return the value of json() if HTTP ' + status, () => {
+                    const jsonData = {
+                        val1: hat()
+                    };
+
+                    response.status = status;
+                    response.json = sinon.stub().resolves(jsonData);
+                    response.headers = getMockedHeaders({
+                        'Content-Type': 'application/json'
                     });
 
-                    response.status.should.equals(status);
+                    return handleResponse(response).then((body) => {
+                        response.json.should.have.been.calledOnce;
+                        body.should.equals(jsonData);
+                    });
+                });
+            });
+
+            it('should not return a body if content type is not application/json', () => {
+                response.json = sinon.stub();
+
+                return handleResponse(response).then((body) => {
+                    response.json.should.not.have.been.called;
+                    expect(body).to.be.undefined;
                 });
             });
 
             [300, 301, 302, 303, 304, 401, 402, 403, 404, 429, 500, 503, 599].forEach((status) => {
                 it('should throw an error with HTTP ' + status, () => {
-                    const response = {
-                        status: status,
-                        statusText: 'status text of error ' + status
-                    };
+                    response.status = status;
 
-                    try {
-                        handleStatus(response);
-                    }
-                    catch (e) {
-                        e.message.should.equal(response.statusText);
-                        e.response.should.equal(response);
-                    }
-                });
+                    const promise = handleResponse(response);
 
-            });
-        });
-
-        describe('#handleBody', () => {
-            [202, 204].forEach((status) => {
-                it('should not return a body if HTTP ' + status, () => {
-                    return handleBody({
-                        status: status,
-                        headers: getMockedHeaders({
-                            'Content-Type': 'application/json'
+                    return promise.should.be.rejected
+                        .then(function() {
+                            return promise;
                         })
-                    }).then((body) => {
-                        expect(body).to.be.undefined;
-                    });
+                        .catch((e) => {
+                            e.message.should.equal(response.statusText);
+                            e.response.should.equal(response);
+                        });
                 });
-            });
-            [200, 201, 203, 299].forEach((status) => {
-                it('should return the value of json() if HTTP ' + status, () => {
-                    const response = {
-                        status: status,
-                        headers: getMockedHeaders({
-                            'Content-Type': 'application/json'
-                        }),
-                        json: sinon.spy(() => 'body for http ' + status)
+
+                it('should parse the json error with HTTP ' + status, () => {
+                    const jsonData = {
+                        error: {
+                            code: hat(),
+                            description: hat()
+                        }
                     };
 
-                    const body = handleBody(response);
+                    response.status = status;
+                    response.json = sinon.stub().resolves(jsonData);
+                    response.headers = getMockedHeaders({
+                        'Content-Type': 'application/json'
+                    });
 
-                    response.json.should.have.been.calledOnce;
-                    body.should.equals(response.json());
-                });
-            });
+                    const promise = handleResponse(response);
 
-            it('should not return a body if content type is not application/json', () => {
-                return handleBody({
-                    status: 200,
-                    headers: getMockedHeaders()
-                }).then((body) => {
-                    expect(body).to.be.undefined;
+                    return promise.should.be.rejected
+                        .then(function() {
+                            return promise;
+                        })
+                        .catch((e) => {
+                            e.message.should.equal(jsonData.error.description);
+                            e.description.should.equal(jsonData.error.description);
+                            e.code.should.equal(jsonData.error.code);
+                            e.response.should.equal(response);
+                        });
                 });
             });
         });
