@@ -62,17 +62,19 @@ export function handleResponse(response) {
 }
 
 export function http(method, url, data, headers = {}, agent) {
-    console.log('AGENT', agent)
     method = method.toUpperCase();
 
     const fetchOptions = {
         method: method,
-        agent,
         headers: Object.assign({
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }, headers)
     };
+
+    if (agent) {
+        fetchOptions.agent = agent;
+    }
 
     if (data) {
         if (data instanceof FormData) {
