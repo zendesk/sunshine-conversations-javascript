@@ -8,7 +8,7 @@ export const SERVICE_URL = 'https://api.smooch.io/v1';
 
 export class Smooch {
     constructor(auth = {}, options = {}) {
-        const {serviceUrl = SERVICE_URL, headers = {}} = options;
+        const {serviceUrl = SERVICE_URL, headers = {}, agent = {}} = options;
         this.VERSION = packageInfo.version;
         this.serviceUrl = serviceUrl;
         this.scope = 'appUser';
@@ -18,6 +18,7 @@ export class Smooch {
         }
 
         this.headers = headers;
+        this.agent = agent;
         this.authHeaders = getAuthenticationHeaders(auth);
 
         this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers);

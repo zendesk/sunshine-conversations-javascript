@@ -57,7 +57,7 @@ export class BaseApi {
     request(method, url, data, {allowedAuth=this.allowedAuth} = {}) {
         return this.validateAuthHeaders(allowedAuth)
             .then(() => {
-                return http(method, url, data, this.getHeaders());
+                return http(method, url, data, this.getHeaders(), this.agent);
             });
     }
 
