@@ -73,6 +73,24 @@ smoochCore.webhooks.get(id).then(function(response) {
 
 ```
 
+#### Usage with a proxy
+If you need to use a proxy, you can use one of the [many](https://www.npmjs.com/package/socks-proxy-agent) [proxies](https://www.npmjs.com/package/http-proxy-agent) [available](https://www.npmjs.com/package/https-proxy-agent), as long as it an `http.Agent` implementation. You only need to pass the agent when creating the SmoochCore instance. 
+
+
+```js
+var SmoochCore = require('smooch-core');
+var SocksProxyAgent = require('socks-proxy-agent');
+var proxy = process.env.http_proxy || 'socks://localhost:8123';
+var agent = new SocksProxyAgent(proxy);
+
+var core = new SmoochCore({
+    keyId: 'some-key',
+    secret: 'some-secret'
+}, {
+  httpAgent: agent
+});
+```
+
 ## API
 
 Below is a list of methods included in Smooch Core. For comprehensive documentation of Smooch Core and its methods see Smooch's [REST API docs](https://docs.smooch.io/rest/).
