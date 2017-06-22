@@ -30,27 +30,35 @@ export function stringifyGETParams(url, data) {
     return url;
 }
 
-export function handleStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return response;
-    }
-
-    var error = new Error(response.statusText);
-    error.response = response;
-
-    throw error;
-}
-
-
-export function handleBody(response) {
+export function handleResponse(response) {
     if (response.status === 202 || response.status === 204) {
         return Promise.resolve();
     }
 
-    var contentType = response.headers.get('Content-Type') || '';
-    var isJson = contentType.indexOf('application/json') > -1;
+    const contentType = response.headers.get('Content-Type') || '';
+    const isJson = contentType.indexOf('application/json') > -1;
 
-    return isJson ? response.json() : Promise.resolve();
+    if (response.status >= 200 && response.status < 300) {
+        return isJson ? response.json() : Promise.resolve();
+    } else {
+        if (isJson) {
+            return response.json().then(function(json) {
+                const {error={}} = json;
+
+                const err = new Error(error.description || response.statusText);
+                err.response = response;
+                err.code = error.code;
+                err.description = error.description;
+
+                throw err;
+            });
+        } else {
+            const error = new Error(response.statusText);
+            error.response = response;
+
+            return Promise.reject(error);
+        }
+    }
 }
 
 export function http(method, url, data, headers = {}) {
@@ -81,7 +89,5 @@ export function http(method, url, data, headers = {}) {
     }
 
     return fetch(url, fetchOptions)
-        .then(handleStatus)
-        .then(handleBody);
+        .then(handleResponse);
 }
-
