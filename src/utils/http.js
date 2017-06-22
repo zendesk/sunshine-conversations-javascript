@@ -61,12 +61,13 @@ export function handleResponse(response) {
     }
 }
 
-export function http(method, url, data, headers = {}, agent = {}) {
+export function http(method, url, data, headers = {}, agent) {
+    console.log('AGENT', agent)
     method = method.toUpperCase();
 
     const fetchOptions = {
         method: method,
-        agent: agent,
+        agent,
         headers: Object.assign({
             'Accept': 'application/json',
             'Content-Type': 'application/json'

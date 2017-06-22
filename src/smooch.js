@@ -8,7 +8,7 @@ export const SERVICE_URL = 'https://api.smooch.io/v1';
 
 export class Smooch {
     constructor(auth = {}, options = {}) {
-        const {serviceUrl = SERVICE_URL, headers = {}, agent = {}} = options;
+        const {serviceUrl = SERVICE_URL, headers = {}, httpAgent} = options;
         this.VERSION = packageInfo.version;
         this.serviceUrl = serviceUrl;
         this.scope = 'appUser';
@@ -18,12 +18,12 @@ export class Smooch {
         }
 
         this.headers = headers;
-        this.agent = agent;
+        this.httpAgent = httpAgent;
         this.authHeaders = getAuthenticationHeaders(auth);
 
-        this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers);
-        this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers);
-        this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers);
+        this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, false, this.httpAgent);
+        this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, false, this.headers, this.httpAgent);
+        this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, false, this.httpAgent);
 
         this.utils = {};
     }
