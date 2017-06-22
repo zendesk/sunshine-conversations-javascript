@@ -11,7 +11,7 @@ function getMockedHeaders(headers = {}) {
     };
 }
 
-function generateExpectation(method, url, data, headers) {
+function generateExpectation(method, url, data, headers, agent) {
     method = method.toUpperCase();
 
     const options = {
@@ -21,6 +21,10 @@ function generateExpectation(method, url, data, headers) {
             'Content-Type': 'application/json'
         }, headers)
     };
+
+    if (agent) {
+        options.agent = agent;
+    }
 
     if (data) {
         data = Object.assign({}, data);
@@ -38,11 +42,12 @@ function generateExpectation(method, url, data, headers) {
     };
 }
 
-function generateTestName(method, data, headers) {
+function generateTestName(method, data, headers, agent) {
     const dataPart = data && Object.keys(data).length > 0 ? 'with data' : 'without data';
     const headersPart = headers && Object.keys(headers).length > 0 ? 'with headers' : 'without headers';
+    const agentPart = agent ? 'with headers' : 'without headers';
 
-    return `${method} ${dataPart}, ${headersPart}`;
+    return `${method} ${dataPart}, ${headersPart}, ${agentPart}`;
 }
 
 describe('HTTP', () => {
@@ -67,6 +72,11 @@ describe('HTTP', () => {
             },
             {
                 url: 'http://some-url.com',
+                method: 'GET',
+                agent: 'yes'
+            },
+            {
+                url: 'http://some-url.com',
                 method: 'post',
                 data: {
                     some: 'data'
@@ -81,10 +91,26 @@ describe('HTTP', () => {
             },
             {
                 url: 'http://some-url.com',
+                method: 'POST',
+                data: {
+                    some: 'data'
+                },
+                agent: 'yes'
+            },
+            {
+                url: 'http://some-url.com',
                 method: 'DELETE',
                 data: {
                     some: 'data'
                 }
+            },
+            {
+                url: 'http://some-url.com',
+                method: 'DELETE',
+                data: {
+                    some: 'data'
+                },
+                agent: 'yes'
             },
             {
                 url: 'http://some-url.com',
@@ -98,17 +124,36 @@ describe('HTTP', () => {
             },
             {
                 url: 'http://some-url.com',
+                method: 'POST',
+                data: {
+                    some: 'data'
+                },
+                headers: {
+                    header: 'yes'
+                },
+                agent: 'yes'
+            },
+            {
+                url: 'http://some-url.com',
                 method: 'PUT',
                 headers: {
                     header: 'yes'
                 }
+            },
+            {
+                url: 'http://some-url.com',
+                method: 'PUT',
+                headers: {
+                    header: 'yes'
+                },
+                agent: 'yes'
             }
         ].forEach((options) => {
-            describe(generateTestName(options.method, options.data, options.headers), () => {
+            describe(generateTestName(options.method, options.data, options.headers, options.agent), () => {
                 it('should transform the options correctly', () => {
-                    const expection = generateExpectation(options.method, options.url, options.data, options.headers);
+                    const expection = generateExpectation(options.method, options.url, options.data, options.headers, options.agent);
 
-                    return http(options.method, options.url, options.data, options.headers).then(() => {
+                    return http(options.method, options.url, options.data, options.headers, options.agent).then(() => {
                         fetchSpy.should.have.been.calledWith(expection.url, expection.options);
                     });
                 });

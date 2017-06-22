@@ -12,11 +12,12 @@ import { http } from '../utils/http';
  * @class BaseApi
  */
 export class BaseApi {
-    constructor(serviceUrl, authHeaders, headers, requireAppId) {
+    constructor(serviceUrl, authHeaders, headers, requireAppId, httpAgent) {
         this.serviceUrl = serviceUrl;
         this.authHeaders = authHeaders;
         this.headers = headers;
         this.requireAppId = !!requireAppId;
+        this.httpAgent = httpAgent;
 
         // both are allowed unless stated otherwise
         this.allowedAuth = ['jwt', 'appToken'];
@@ -57,7 +58,7 @@ export class BaseApi {
     request(method, url, data, {allowedAuth=this.allowedAuth} = {}) {
         return this.validateAuthHeaders(allowedAuth)
             .then(() => {
-                return http(method, url, data, this.getHeaders());
+                return http(method, url, data, this.getHeaders(), this.httpAgent);
             });
     }
 

@@ -3,7 +3,6 @@ import { WebhooksApi } from './api/webhooks';
 import { MenuApi } from './api/menu';
 import { IntegrationsApi } from './api/integrations';
 import { AppsApi } from './api/apps';
-import { AppKeysApi } from './api/apps';
 import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
 import { StripeApi } from './api/stripe';
@@ -55,16 +54,16 @@ export class Smooch extends SmoochBase {
 
         super(auth, options);
         this.scope = auth.scope || 'appUser';
-        const accountScope = this.scope === 'account';
+        const isAccountScope = this.scope === 'account';
 
-        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, accountScope);
-        this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, accountScope);
+        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
+        this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
         if (this.scope === 'account') {
-            this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true);
-            this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, true);
-            this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, true);
-            this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers, true);
-            this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, true);
+            this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
             this.integrations = this.apps = disabled;

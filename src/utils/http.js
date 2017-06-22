@@ -61,7 +61,7 @@ export function handleResponse(response) {
     }
 }
 
-export function http(method, url, data, headers = {}) {
+export function http(method, url, data, headers = {}, agent) {
     method = method.toUpperCase();
 
     const fetchOptions = {
@@ -71,6 +71,10 @@ export function http(method, url, data, headers = {}) {
             'Content-Type': 'application/json'
         }, headers)
     };
+
+    if (agent) {
+        fetchOptions.agent = agent;
+    }
 
     if (data) {
         if (data instanceof FormData) {
