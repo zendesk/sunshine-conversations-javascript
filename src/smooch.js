@@ -1,6 +1,7 @@
 import { getAuthenticationHeaders } from './utils/auth';
 import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
+import { AttachmentsApi } from './api/attachments';
 import { StripeApi } from './api/stripe';
 import packageInfo from '../package.json';
 
@@ -24,6 +25,7 @@ export class Smooch {
         this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, false, this.httpAgent);
         this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, false, this.headers, this.httpAgent);
         this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, false, this.httpAgent);
+        this.attachments = new AttachmentsApi(this.serviceUrl, this.authHeaders, this.headers, false, this.httpAgent);
 
         this.utils = {};
     }

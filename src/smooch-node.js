@@ -7,6 +7,7 @@ import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
 import { StripeApi } from './api/stripe';
 import { DisabledApi } from './api/disabled';
+import { AttachmentsApi } from './api/attachments';
 import * as jwt from './utils/jwt';
 import { decode } from 'jsonwebtoken';
 
@@ -64,6 +65,7 @@ export class Smooch extends SmoochBase {
             this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
             this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
             this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.attachments = new AttachmentsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
             this.integrations = this.apps = disabled;
