@@ -7,6 +7,7 @@ import { AppUsersApi } from './api/appUsers';
 import { ConversationsApi } from './api/conversations';
 import { StripeApi } from './api/stripe';
 import { DisabledApi } from './api/disabled';
+import { AttachmentsApi } from './api/attachments';
 import * as jwt from './utils/jwt';
 import { decode } from 'jsonwebtoken';
 
@@ -56,8 +57,10 @@ export class Smooch extends SmoochBase {
         this.scope = auth.scope || 'appUser';
         const isAccountScope = this.scope === 'account';
 
-        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
         this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
+        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
+        this.attachments = new AttachmentsApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
+
         if (this.scope === 'account') {
             this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
             this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);

@@ -74,7 +74,7 @@ smoochCore.webhooks.get(id).then(function(response) {
 ```
 
 #### Usage with a proxy
-If you need to use a proxy, you can use one of the [many](https://www.npmjs.com/package/socks-proxy-agent) [proxies](https://www.npmjs.com/package/http-proxy-agent) [available](https://www.npmjs.com/package/https-proxy-agent), as long as it an `http.Agent` implementation. You only need to pass the agent when creating the SmoochCore instance. 
+If you need to use a proxy, you can use one of the [many](https://www.npmjs.com/package/socks-proxy-agent) [proxies](https://www.npmjs.com/package/http-proxy-agent) [available](https://www.npmjs.com/package/https-proxy-agent), as long as it an `http.Agent` implementation. You only need to pass the agent when creating the SmoochCore instance.
 
 
 ```js
@@ -137,3 +137,4 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | menu.create      | [POST /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#create-integration-menu) |
 |              | menu.update      | [PUT /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#update-integration-menu) |
 |              | menu.delete      | [DELETE /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration-menu) |
+| attachments  | create           | [POST /v1/apps/:id/attachments](https://docs.smooch.io/rest/?javascript#upload-attachment) |
