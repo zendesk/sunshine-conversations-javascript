@@ -105,23 +105,6 @@ describe('AppUsers API', () => {
         });
     });
 
-    describe('#trackEvent', () => {
-        it('should call http', () => {
-            const eventName = 'some-event';
-            const props = {
-                email: 'this is an email'
-            };
-
-            return api.trackEvent(userId, eventName, props).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/events`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, {
-                    name: eventName,
-                    appUser: props
-                }, httpHeaders);
-            });
-        });
-    });
-
     describe('#updatePushToken', () => {
         it('should call http', () => {
             const deviceId = 'device-id';

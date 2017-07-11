@@ -97,27 +97,6 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
-     * Track an event for an app user
-     * @memberof AppUsersApi.prototype
-     * @method trackEvent
-     * @param  {string} userId    - a user id
-     * @param  {string} eventName - the name of the event to track
-     * @param  {object=} props    - props to update before tracking the event
-     * @return {APIResponse}
-     */
-    trackEvent: smoochMethod({
-        params: ['userId', 'eventName', 'props'],
-        optional: ['props'],
-        path: '/appusers/:userId/events',
-        func: function trackEvent(url, userId, eventName, props = {}) {
-            return this.request('POST', url, {
-                name: eventName,
-                appUser: props
-            });
-        }
-    }),
-
-    /**
      * Update the push notification token for a given app user's device
      * @memberof AppUsersApi.prototype
      * @method updatePushToken
