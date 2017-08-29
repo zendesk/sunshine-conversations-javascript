@@ -8,7 +8,7 @@ describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
     const httpHeaders = getAuthenticationHeaders({
-        appToken: 'token'
+        jwt: testJwt()
     });
 
     let httpSpy;
@@ -63,13 +63,6 @@ describe('AppUsers API', () => {
 
         const jwtHttpHeaders = getAuthenticationHeaders({
             jwt: testJwt()
-        });
-
-        it('should throw an error if used with app token', (done) => {
-            api.create(userId).catch((err) => {
-                err.message.should.equal('Must not use an app token for authentication.');
-                done();
-            });
         });
 
         it('should call http', () => {
@@ -235,13 +228,6 @@ describe('AppUsers API', () => {
             jwt: testJwt()
         });
 
-        it('should throw an error if used with app token', (done) => {
-            api.deleteMessages(userId).catch((err) => {
-                err.message.should.equal('Must not use an app token for authentication.');
-                done();
-            });
-        });
-
         it('should call http', () => {
             const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
             return jwtApi.deleteMessages(userId).then(() => {
@@ -285,13 +271,6 @@ describe('AppUsers API', () => {
     describe('#deleteProfile', () => {
         const jwtHttpHeaders = getAuthenticationHeaders({
             jwt: testJwt()
-        });
-
-        it('should throw an error if used with app token', (done) => {
-            api.deleteProfile(userId).catch((err) => {
-                err.message.should.equal('Must not use an app token for authentication.');
-                done();
-            });
         });
 
         it('should call http', () => {

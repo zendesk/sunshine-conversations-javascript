@@ -18,20 +18,12 @@ If a method is missing please file an Issue, or better yet make a PR!
 ```js
 var SmoochCore = require('smooch-core');
 
-// using app token
-var smoochCore = new SmoochCore({
-    appToken: 'some-token'
-});
-
-
 // using generated JWT
 var smoochCore = new SmoochCore({
     jwt: 'some-jwt'
 });
 
 // using JWT components
-// Only available server-side. NEVER put your keyId and secret
-// in you client-side code.
 var smoochCore = new SmoochCore({
     keyId: 'some-key',
     secret: 'some-secret',

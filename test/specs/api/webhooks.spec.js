@@ -8,7 +8,6 @@ describe('Webhooks API', () => {
     const webhookId = 'some-id';
     const webhookUrl = 'http://some-url.com/webhook';
     const malformedWebhookUrl = 'some-url-missing-http-prefix.com';
-    const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
     const malformedTargetUrl = 'Malformed target url.';
     const noPropsMessage = 'Must provide props.';
     const noTargetMessage = 'Must provide a target.';
@@ -71,17 +70,6 @@ describe('Webhooks API', () => {
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.list().catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
-            });
-        });
     });
 
     describe('#get', () => {
@@ -89,18 +77,6 @@ describe('Webhooks API', () => {
             return api.get(webhookId).then(() => {
                 const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
-            });
-        });
-
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.get(webhookId).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
             });
         });
     });
@@ -136,16 +112,6 @@ describe('Webhooks API', () => {
                 target: malformedWebhookUrl
             })).to.throw(Error, malformedTargetUrl);
         });
-
-        it('should reject if app token in auth', () => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.create(props).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-            });
-        });
     });
 
 
@@ -174,17 +140,6 @@ describe('Webhooks API', () => {
                 target: malformedWebhookUrl
             })).to.throw(Error, malformedTargetUrl);
         });
-
-        it('should reject if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.update(webhookId, props).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
-            });
-        });
     });
 
     describe('#delete', () => {
@@ -192,17 +147,6 @@ describe('Webhooks API', () => {
             return api.delete(webhookId).then(() => {
                 const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
-            });
-        });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new WebhooksApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.delete(webhookId).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
             });
         });
     });

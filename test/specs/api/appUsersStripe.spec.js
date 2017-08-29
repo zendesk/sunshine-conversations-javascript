@@ -34,18 +34,6 @@ describe('AppUsersStripe API', () => {
         it('should throw if no token provided', () => {
             expect(() => api.updateCustomer(userId)).to.throw(Error, 'incorrect number of parameters');
         });
-
-        describe('with app-token', () => {
-            it('should throw', () => {
-                const badApi = new AppUsersStripeApi(serviceUrl, getAuthenticationHeaders({
-                    appToken: 'token'
-                }));
-
-                return badApi.updateCustomer(userId, 'token').catch(() => {
-                    httpSpy.should.not.have.been.called;
-                });
-            });
-        });
     });
 
     describe('#createTransaction', () => {

@@ -23,30 +23,7 @@ describe('Auth utils', () => {
             });
         });
 
-        it('should transform an app token', () => {
-            const baseHeaders = {
-                appToken: 'app-token'
-            };
-
-            const headers = getAuthenticationHeaders(baseHeaders);
-            headers.should.eql({
-                'app-token': baseHeaders.appToken
-            });
-        });
-
-        it('should use the JWT if both are provided', () => {
-            const baseHeaders = {
-                jwt: testJwt(),
-                appToken: 'app-token'
-            };
-
-            const headers = getAuthenticationHeaders(baseHeaders);
-            headers.should.eql({
-                'Authorization': 'Bearer ' + baseHeaders.jwt
-            });
-        });
-
-        it('should return an error if no JWT or appToken provided', (done) => {
+        it('should return an error if no JWT provided', (done) => {
             const baseHeaders = {
                 what: 'is this?'
             };
