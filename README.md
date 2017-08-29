@@ -15,32 +15,6 @@ If a method is missing please file an Issue, or better yet make a PR!
 
 ## Usage
 
-### In the browser (using browserify or webpack)
-
-```js
-var SmoochCore = require('smooch-core');
-
-// using app token
-var smoochCore = new SmoochCore({
-    appToken: 'some-token'
-});
-
-
-// using generated JWT
-var smoochCore = new SmoochCore({
-    jwt: 'some-jwt'
-});
-
-// ...
-
-smoochCore.appUsers.init(options).then(function(response) {
-  // do something with the response.
-});
-```
-
-
-### Server-side
-
 ```js
 var SmoochCore = require('smooch-core');
 
@@ -97,8 +71,7 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 
 | Module       | Method           | Endpoint                                                                                                        |
 |--------------|------------------|-----------------------------------------------------------------------------------------------------------------|
-| appUsers     | init             | [POST /v1/init](https://docs.smooch.io/rest/?javascript#init) |
-|              | get              | [GET /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#get-app-user) |
+| appUsers     | get              | [GET /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#get-app-user) |
 |              | update           | [PUT /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#update-app-user) |
 |              | deleteProfile    | [DELETE /v1/appusers/:id/profile](https://docs.smooch.io/rest/?javascript#delete-app-user) |
 |              | updateDevice     | [PUT /v1/appusers/:id/devices/:deviceId](https://docs.smooch.io/rest/?javascript#update-device) |

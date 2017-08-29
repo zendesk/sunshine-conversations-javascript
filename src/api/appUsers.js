@@ -5,11 +5,6 @@ import { AppUsersWeChatApi } from './appUsersWeChat';
 import smoochMethod from '../utils/smoochMethod';
 
 /**
- * Init API properties
- * @typedef InitProps
- */
-
-/**
  * @constructor
  * @name AppUsersApi
  * @extends BaseApi
@@ -24,19 +19,6 @@ export class AppUsersApi extends BaseApi {
 }
 
 Object.assign(AppUsersApi.prototype, {
-    /**
-     * Initializes the conversation for a user
-     * @memberof AppUsersApi.prototype
-     * @method init
-     * @param  {InitProps} props
-     * @return {APIResponse}
-     */
-    init: smoochMethod({
-        params: ['props'],
-        path: '/init',
-        method: 'POST'
-    }),
-
     /**
      * Create
      * @memberof AppUsersApi.prototype

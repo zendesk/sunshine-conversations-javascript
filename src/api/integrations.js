@@ -14,7 +14,7 @@ function transformProps(val) {
 }
 
 /**
- * Init API properties
+ * Integration API properties
  * @typedef IntegrationProps
  */
 function IntegrationType(required, optional = []) {

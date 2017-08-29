@@ -54,19 +54,6 @@ describe('AppUsers API', () => {
         });
     });
 
-    describe('#init', () => {
-        it('should call http', () => {
-            const props = {
-                email: 'this is an email'
-            };
-
-            return api.init(props).then(() => {
-                const fullUrl = `${serviceUrl}/init`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
-            });
-        });
-    });
-
     describe('#create', () => {
         const userId = 'some-id';
 
