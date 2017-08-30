@@ -79,40 +79,6 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
-     * Update the push notification token for a given app user's device
-     * @memberof AppUsersApi.prototype
-     * @method updatePushToken
-     * @param  {string} userId   - a user id
-     * @param  {string} deviceId - a device id
-     * @param  {string} token    - a push notification token
-     * @return {APIResponse}
-     */
-    updatePushToken: smoochMethod({
-        params: ['userId', 'deviceId', 'token'],
-        path: '/appusers/:userId/pushToken',
-        func: function updatePushToken(url, userId, deviceId, token) {
-            return this.request('POST', url, {
-                deviceId,
-                token
-            });
-        }
-    }),
-
-    /**
-    * Update the specified device for a given app user
-    * @memberof AppUsersApi.prototype
-    * @method updateDevice
-    * @param  {string} userId   - a user id
-    * @param  {string} deviceId - a device id
-    * @param  {object} props    - props to update on the device
-    */
-    updateDevice: smoochMethod({
-        params: ['userId', 'deviceId', 'props'],
-        path: '/appusers/:userId/devices/:deviceId',
-        method: 'PUT'
-    }),
-
-    /**
      * Links the specified channel to a user
      * @memberof AppUsersApi.prototype
      * @method linkChannel
