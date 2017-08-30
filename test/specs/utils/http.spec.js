@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import hat from 'hat';
-import * as fetchMock from '../../mocks/fetch';
-import { http, stringifyGETParams, handleResponse } from '../../../src/utils/http';
+import { getMock } from '../../mocks/fetch';
+import { http, stringifyGETParams, handleResponse, __Rewire__ } from '../../../src/utils/http';
 
 function getMockedHeaders(headers = {}) {
     return {
@@ -51,13 +51,17 @@ function generateTestName(method, data, headers, agent) {
 }
 
 describe('HTTP', () => {
-    var fetchSpy;
+    const sandbox = sinon.sandbox.create();
+    let fetchMock;
+
     beforeEach(() => {
-        fetchSpy = fetchMock.mock();
+        fetchMock = getMock(sandbox);
+        __Rewire__('fetch', fetchMock);
     });
 
     afterEach(() => {
-        fetchMock.restore();
+        sandbox.restore();
+        __rewire_reset_all__();
     });
 
     describe('fetch', () => {
@@ -154,7 +158,7 @@ describe('HTTP', () => {
                     const expection = generateExpectation(options.method, options.url, options.data, options.headers, options.agent);
 
                     return http(options.method, options.url, options.data, options.headers, options.agent).then(() => {
-                        fetchSpy.should.have.been.calledWith(expection.url, expection.options);
+                        fetchMock.should.have.been.calledWith(expection.url, expection.options);
                     });
                 });
             });
