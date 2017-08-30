@@ -15,9 +15,13 @@ import { decode } from 'jsonwebtoken';
 
 import packageInfo from '../package.json';
 
-export const SERVICE_URL = 'https://api.smooch.io/v1';
+const SERVICE_URL = 'https://api.smooch.io/v1';
 
-export class Smooch {
+if (!global.FormData) {
+    global.FormData = require('form-data');
+}
+
+class Smooch {
     constructor(auth = {}, options = {}) {
         const {serviceUrl = SERVICE_URL, headers = {}, httpAgent} = options;
 
@@ -95,3 +99,5 @@ export class Smooch {
         });
     }
 }
+
+module.exports = Smooch;

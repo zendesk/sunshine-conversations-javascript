@@ -3,7 +3,7 @@
   "version": "4.3.0",
   "description": "Javascript wrapper for Smooch API",
   "homepage": "https://smooch.io",
-  "main": "lib/wrappers/node.js",
+  "main": "lib/smooch.js",
   "scripts": {
     "test": "BABEL_ENV=test mocha --compilers js:babel-core/register --require ./test-setup.js ./test/**/*.spec.js",
     "test-ci": "BABEL_ENV=test MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml mocha --compilers js:babel-core/register -R mocha-junit-reporter --require ./test-setup.js ./test/**/*.spec.js",
