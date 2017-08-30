@@ -67,7 +67,6 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | update           | [PUT /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#update-app-user) |
 |              | deleteProfile    | [DELETE /v1/appusers/:id/profile](https://docs.smooch.io/rest/?javascript#delete-app-user) |
 |              | updateDevice     | [PUT /v1/appusers/:id/devices/:deviceId](https://docs.smooch.io/rest/?javascript#update-device) |
-|              | trackEvent       | [POST /v1/appusers/:id/events](https://docs.smooch.io/rest/?javascript#track-event) |
 |              | create           | [POST /v1/appusers](https://docs.smooch.io/rest/?javascript#pre-create-app-user) |
 |              | linkChannel      | [POST /v1/appusers/:id/channels](https://docs.smooch.io/rest/?javascript#link-app-user-to-channel) |
 |              | unlinkChannel    | [POST /v1/appusers/:id/channels/:channel](https://docs.smooch.io/rest/?javascript#unlink-app-user-from-channel) |
