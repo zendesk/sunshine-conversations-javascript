@@ -1,6 +1,9 @@
+import { testJwt } from '../../mocks/jwt';
+import * as httpMock from '../../mocks/http';
 import { BaseApi } from '../../../src/api/base';
 import smoochMethod from '../../../src/utils/smoochMethod';
-import * as httpMock from '../../mocks/http';
+import { getAuthenticationHeaders } from '../../../src/utils/auth';
+
 
 const serviceUrl = 'http://example.org/v1';
 const appId = 'appId';
@@ -70,7 +73,7 @@ Object.assign(TestApi.prototype, {
     /**
      * Accepts no params
      * @memberof TestApi.prototype
-     * @method noParams 
+     * @method noParams
      */
     noParams: smoochMethod({
         params: [],
@@ -330,8 +333,12 @@ describe('Smooch Method', () => {
         let expectedUrl;
         let body;
 
+        const httpHeaders = getAuthenticationHeaders({
+            jwt: testJwt()
+        });
+
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, false);
+            testApi = new TestApi(serviceUrl, httpHeaders, {}, false);
             httpSpy = httpMock.mock();
             expectedUrl = `${serviceUrl}/param1/${param1}`;
             body = {
@@ -343,25 +350,25 @@ describe('Smooch Method', () => {
 
         it('should make a GET', () => {
             return testApi.getMethod(param1).then(() => {
-                httpSpy.should.have.been.calledWith('GET', expectedUrl, undefined, {});
+                httpSpy.should.have.been.calledWith('GET', expectedUrl, undefined, httpHeaders);
             });
         });
 
         it('should make a POST', () => {
             return testApi.postMethod(param1, body).then(() => {
-                httpSpy.should.have.been.calledWith('POST', expectedUrl, body, {});
+                httpSpy.should.have.been.calledWith('POST', expectedUrl, body, httpHeaders);
             });
         });
 
         it('should make a PUT', () => {
             return testApi.putMethod(param1, body).then(() => {
-                httpSpy.should.have.been.calledWith('PUT', expectedUrl, body, {});
+                httpSpy.should.have.been.calledWith('PUT', expectedUrl, body, httpHeaders);
             });
         });
 
         it('should make a DELETE', () => {
             return testApi.deleteMethod(param1).then(() => {
-                httpSpy.should.have.been.calledWith('DELETE', expectedUrl, undefined, {});
+                httpSpy.should.have.been.calledWith('DELETE', expectedUrl, undefined, httpHeaders);
             });
         });
     });
