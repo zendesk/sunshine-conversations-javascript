@@ -1,12 +1,9 @@
-import 'isomorphic-fetch';
-import sinon from 'sinon';
-
-const sandbox = sinon.sandbox.create();
-
-export function mock(status = 200, json = {}, statusText = '', headers = {
+export function getMock(sinon, status = 200, json = {}, statusText = '', headers = {
         'Content-Type': 'application/json'
     }) {
-    return sandbox.stub(global, 'fetch').callsFake(() => {
+    const stub = sinon.stub();
+
+    stub.callsFake(() => {
         return Promise.resolve({
             status: status,
             json: () => json,
@@ -18,6 +15,6 @@ export function mock(status = 200, json = {}, statusText = '', headers = {
             }
         });
     });
-}
 
-export const restore = sandbox.restore.bind(sandbox);
+    return stub;
+}

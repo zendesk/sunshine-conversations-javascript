@@ -3,12 +3,13 @@ import { createReadStream } from 'streamifier';
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { ConversationsApi } from '../../../src/api/conversations';
+import { testJwt } from '../../mocks/jwt';
 
 describe('Conversations API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
     const httpHeaders = getAuthenticationHeaders({
-        appToken: 'token'
+        jwt: testJwt()
     });
     let httpSpy;
     let api;

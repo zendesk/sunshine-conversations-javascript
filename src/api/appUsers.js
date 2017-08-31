@@ -5,11 +5,6 @@ import { AppUsersWeChatApi } from './appUsersWeChat';
 import smoochMethod from '../utils/smoochMethod';
 
 /**
- * Init API properties
- * @typedef InitProps
- */
-
-/**
  * @constructor
  * @name AppUsersApi
  * @extends BaseApi
@@ -24,19 +19,6 @@ export class AppUsersApi extends BaseApi {
 }
 
 Object.assign(AppUsersApi.prototype, {
-    /**
-     * Initializes the conversation for a user
-     * @memberof AppUsersApi.prototype
-     * @method init
-     * @param  {InitProps} props
-     * @return {APIResponse}
-     */
-    init: smoochMethod({
-        params: ['props'],
-        path: '/init',
-        method: 'POST'
-    }),
-
     /**
      * Create
      * @memberof AppUsersApi.prototype
@@ -93,61 +75,6 @@ Object.assign(AppUsersApi.prototype, {
     update: smoochMethod({
         params: ['userId', 'props'],
         path: '/appusers/:userId',
-        method: 'PUT'
-    }),
-
-    /**
-     * Track an event for an app user
-     * @memberof AppUsersApi.prototype
-     * @method trackEvent
-     * @param  {string} userId    - a user id
-     * @param  {string} eventName - the name of the event to track
-     * @param  {object=} props    - props to update before tracking the event
-     * @return {APIResponse}
-     */
-    trackEvent: smoochMethod({
-        params: ['userId', 'eventName', 'props'],
-        optional: ['props'],
-        path: '/appusers/:userId/events',
-        func: function trackEvent(url, userId, eventName, props = {}) {
-            return this.request('POST', url, {
-                name: eventName,
-                appUser: props
-            });
-        }
-    }),
-
-    /**
-     * Update the push notification token for a given app user's device
-     * @memberof AppUsersApi.prototype
-     * @method updatePushToken
-     * @param  {string} userId   - a user id
-     * @param  {string} deviceId - a device id
-     * @param  {string} token    - a push notification token
-     * @return {APIResponse}
-     */
-    updatePushToken: smoochMethod({
-        params: ['userId', 'deviceId', 'token'],
-        path: '/appusers/:userId/pushToken',
-        func: function updatePushToken(url, userId, deviceId, token) {
-            return this.request('POST', url, {
-                deviceId,
-                token
-            });
-        }
-    }),
-
-    /**
-    * Update the specified device for a given app user
-    * @memberof AppUsersApi.prototype
-    * @method updateDevice
-    * @param  {string} userId   - a user id
-    * @param  {string} deviceId - a device id
-    * @param  {object} props    - props to update on the device
-    */
-    updateDevice: smoochMethod({
-        params: ['userId', 'deviceId', 'props'],
-        path: '/appusers/:userId/devices/:deviceId',
         method: 'PUT'
     }),
 

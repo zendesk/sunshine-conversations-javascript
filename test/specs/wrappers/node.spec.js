@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
-import Smooch from '../../../src/wrappers/node';
+import Smooch from '../../../src/smooch';
 import { testJwt } from '../../mocks/jwt';
 import { sign } from 'jsonwebtoken';
 

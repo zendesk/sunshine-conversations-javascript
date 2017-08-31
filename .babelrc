@@ -1,6 +1,13 @@
 {
-  "presets": [
-    "stage-2",
-    "es2015-loose"
-  ]
+    "presets": [
+        "stage-2",
+        "es2015-loose"
+    ],
+    "env": {
+        "test": {
+            "plugins":  [
+                "rewire"
+            ]
+        }
+    }
 }

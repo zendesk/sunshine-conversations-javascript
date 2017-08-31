@@ -1,7 +1,4 @@
-if (typeof process !== 'undefined') {
-    // on node, fetch already exists
-    require('isomorphic-fetch');
-}
+const fetch = require('node-fetch');
 
 /**
  * API Response promise - resolves with the requested resource

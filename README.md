@@ -2,7 +2,7 @@
 
 Smooch Core is the most basic for interaction possible for the [Smooch API](http://docs.smooch.io/rest). It wraps the public API in a convenient Javascript API.
 
-This library is meant to be isomorphic, which means it can be used in the browser and server-side with Node.js. However, the webhooks API, menu API, and the JWT utils are not available in the browser to reduce the bundle size. In any case, those actions should not be performed in the browser for security reasons.
+This library is meant to be used server-side with Node.js.
 
 ## Installation
 ```bash
@@ -15,40 +15,8 @@ If a method is missing please file an Issue, or better yet make a PR!
 
 ## Usage
 
-### In the browser (using browserify or webpack)
-
 ```js
 var SmoochCore = require('smooch-core');
-
-// using app token
-var smoochCore = new SmoochCore({
-    appToken: 'some-token'
-});
-
-
-// using generated JWT
-var smoochCore = new SmoochCore({
-    jwt: 'some-jwt'
-});
-
-// ...
-
-smoochCore.appUsers.init(options).then(function(response) {
-  // do something with the response.
-});
-```
-
-
-### Server-side
-
-```js
-var SmoochCore = require('smooch-core');
-
-// using app token
-var smoochCore = new SmoochCore({
-    appToken: 'some-token'
-});
-
 
 // using generated JWT
 var smoochCore = new SmoochCore({
@@ -56,8 +24,6 @@ var smoochCore = new SmoochCore({
 });
 
 // using JWT components
-// Only available server-side. NEVER put your keyId and secret
-// in you client-side code.
 var smoochCore = new SmoochCore({
     keyId: 'some-key',
     secret: 'some-secret',
@@ -97,12 +63,9 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 
 | Module       | Method           | Endpoint                                                                                                        |
 |--------------|------------------|-----------------------------------------------------------------------------------------------------------------|
-| appUsers     | init             | [POST /v1/init](https://docs.smooch.io/rest/?javascript#init) |
-|              | get              | [GET /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#get-app-user) |
+| appUsers     | get              | [GET /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#get-app-user) |
 |              | update           | [PUT /v1/appusers/:id](https://docs.smooch.io/rest/?javascript#update-app-user) |
 |              | deleteProfile    | [DELETE /v1/appusers/:id/profile](https://docs.smooch.io/rest/?javascript#delete-app-user) |
-|              | updateDevice     | [PUT /v1/appusers/:id/devices/:deviceId](https://docs.smooch.io/rest/?javascript#update-device) |
-|              | trackEvent       | [POST /v1/appusers/:id/events](https://docs.smooch.io/rest/?javascript#track-event) |
 |              | create           | [POST /v1/appusers](https://docs.smooch.io/rest/?javascript#pre-create-app-user) |
 |              | linkChannel      | [POST /v1/appusers/:id/channels](https://docs.smooch.io/rest/?javascript#link-app-user-to-channel) |
 |              | unlinkChannel    | [POST /v1/appusers/:id/channels/:channel](https://docs.smooch.io/rest/?javascript#unlink-app-user-from-channel) |

@@ -5,7 +5,6 @@ import { testJwt } from '../../mocks/jwt';
 
 describe('Integration Menu API', () => {
     const serviceUrl = 'http://some-url.com';
-    const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
     const httpHeaders = getAuthenticationHeaders({
@@ -30,17 +29,6 @@ describe('Integration Menu API', () => {
             return api.get(appId, integrationId).then(() => {
                 const fullUrl = `${serviceUrl}/apps/${appId}/integrations/${integrationId}/menu`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
-            });
-        });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new IntegrationMenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }), null, true);
-
-            badApi.get(appId, integrationId).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
             });
         });
     });
@@ -76,17 +64,6 @@ describe('Integration Menu API', () => {
                 done();
             }
         });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new IntegrationMenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }), null, true);
-
-            badApi.create(appId, integrationId, props).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
-            });
-        });
     });
 
     describe('#update', () => {
@@ -118,17 +95,6 @@ describe('Integration Menu API', () => {
                 done();
             }
         });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new IntegrationMenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }), null, true);
-
-            badApi.update(appId, integrationId, props).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
-            });
-        });
     });
 
     describe('#delete', () => {
@@ -136,17 +102,6 @@ describe('Integration Menu API', () => {
             return api.delete(appId, integrationId).then(() => {
                 const fullUrl = `${serviceUrl}/apps/${appId}/integrations/${integrationId}/menu`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
-            });
-        });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new IntegrationMenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }), null, true);
-
-            badApi.delete(appId, integrationId).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
             });
         });
     });

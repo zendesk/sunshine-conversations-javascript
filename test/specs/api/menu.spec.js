@@ -5,7 +5,6 @@ import { testJwt } from '../../mocks/jwt';
 
 describe('Menu API', () => {
     const serviceUrl = 'http://some-url.com';
-    const invalidAuthErrorMessage = 'Must not use an app token for authentication.';
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
     const httpHeaders = getAuthenticationHeaders({
@@ -28,18 +27,6 @@ describe('Menu API', () => {
             return api.get().then(() => {
                 const fullUrl = `${serviceUrl}/menu`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
-            });
-        });
-
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new MenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.get().catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
             });
         });
     });
@@ -72,17 +59,6 @@ describe('Menu API', () => {
                 done();
             });
         });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new MenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.configure(props).catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
-            });
-        });
     });
 
     describe('#remove', () => {
@@ -90,17 +66,6 @@ describe('Menu API', () => {
             return api.remove().then(() => {
                 const fullUrl = `${serviceUrl}/menu`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
-            });
-        });
-
-        it('should return an error if app token in auth', (done) => {
-            const badApi = new MenuApi(serviceUrl, getAuthenticationHeaders({
-                appToken: 'some-token'
-            }));
-
-            badApi.remove().catch((e) => {
-                e.message.should.equal(invalidAuthErrorMessage);
-                done();
             });
         });
     });

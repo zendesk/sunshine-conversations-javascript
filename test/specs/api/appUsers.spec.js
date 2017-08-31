@@ -8,7 +8,7 @@ describe('AppUsers API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
     const httpHeaders = getAuthenticationHeaders({
-        appToken: 'token'
+        jwt: testJwt()
     });
 
     let httpSpy;
@@ -54,19 +54,6 @@ describe('AppUsers API', () => {
         });
     });
 
-    describe('#init', () => {
-        it('should call http', () => {
-            const props = {
-                email: 'this is an email'
-            };
-
-            return api.init(props).then(() => {
-                const fullUrl = `${serviceUrl}/init`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
-            });
-        });
-    });
-
     describe('#create', () => {
         const userId = 'some-id';
 
@@ -76,13 +63,6 @@ describe('AppUsers API', () => {
 
         const jwtHttpHeaders = getAuthenticationHeaders({
             jwt: testJwt()
-        });
-
-        it('should throw an error if used with app token', (done) => {
-            api.create(userId).catch((err) => {
-                err.message.should.equal('Must not use an app token for authentication.');
-                done();
-            });
         });
 
         it('should call http', () => {
@@ -101,52 +81,6 @@ describe('AppUsers API', () => {
                 signedUpAt: 'not a date'
             }).catch(() => {
                 done();
-            });
-        });
-    });
-
-    describe('#trackEvent', () => {
-        it('should call http', () => {
-            const eventName = 'some-event';
-            const props = {
-                email: 'this is an email'
-            };
-
-            return api.trackEvent(userId, eventName, props).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/events`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, {
-                    name: eventName,
-                    appUser: props
-                }, httpHeaders);
-            });
-        });
-    });
-
-    describe('#updatePushToken', () => {
-        it('should call http', () => {
-            const deviceId = 'device-id';
-            const token = 'some-token';
-
-            return api.updatePushToken(userId, deviceId, token).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/pushToken`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, {
-                    deviceId,
-                    token
-                }, httpHeaders);
-            });
-        });
-    });
-
-    describe('#updateDevice', () => {
-        it('should call http', () => {
-            const deviceId = 'device-id';
-            const attrs = {
-                test: true
-            };
-
-            return api.updateDevice(userId, deviceId, attrs).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/devices/${deviceId}`;
-                httpSpy.should.have.been.calledWith('PUT', fullUrl, attrs, httpHeaders);
             });
         });
     });
@@ -248,13 +182,6 @@ describe('AppUsers API', () => {
             jwt: testJwt()
         });
 
-        it('should throw an error if used with app token', (done) => {
-            api.deleteMessages(userId).catch((err) => {
-                err.message.should.equal('Must not use an app token for authentication.');
-                done();
-            });
-        });
-
         it('should call http', () => {
             const jwtApi = new AppUsersApi(serviceUrl, jwtHttpHeaders);
             return jwtApi.deleteMessages(userId).then(() => {
@@ -298,13 +225,6 @@ describe('AppUsers API', () => {
     describe('#deleteProfile', () => {
         const jwtHttpHeaders = getAuthenticationHeaders({
             jwt: testJwt()
-        });
-
-        it('should throw an error if used with app token', (done) => {
-            api.deleteProfile(userId).catch((err) => {
-                err.message.should.equal('Must not use an app token for authentication.');
-                done();
-            });
         });
 
         it('should call http', () => {

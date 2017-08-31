@@ -21,26 +21,11 @@ describe('Stripe API', () => {
     });
 
     describe('#getAccount', () => {
-
         it('should call http', () => {
             return api.getAccount().then(() => {
                 const fullUrl = `${serviceUrl}/stripe/account`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
             });
         });
-
-        it('should accept appToken as authentication method', () => {
-            const httpHeaders = getAuthenticationHeaders({
-                appToken: 'appToken'
-            });
-            api = new StripeApi(serviceUrl, httpHeaders);
-
-            return api.getAccount()
-                .then(() => {
-                    const fullUrl = `${serviceUrl}/stripe/account`;
-                    httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
-                });
-        });
-
     });
 });
