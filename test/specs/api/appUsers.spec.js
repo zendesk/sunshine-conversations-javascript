@@ -85,6 +85,16 @@ describe('AppUsers API', () => {
         });
     });
 
+    describe('#getChannels', () => {
+        it('should call http', () => {
+            return api.getChannels(userId).then(() => {
+                const fullUrl = `${serviceUrl}/appusers/${userId}/channels`;
+
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+            });
+        });
+    });
+
     describe('#linkChannel', () => {
         it('should call http', () => {
             const data = {
