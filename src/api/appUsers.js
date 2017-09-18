@@ -78,6 +78,19 @@ Object.assign(AppUsersApi.prototype, {
         method: 'PUT'
     }),
 
+/**
+     * Retrieves all of the app user’s channel entity IDs
+     * @memberof AppUsersApi.prototype
+     * @method getChannels
+     * @param  {string} userId - a user id
+     * @return {APIResponse}
+     */
+    getChannels: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/channels',
+        method: 'GET'
+    }),
+
     /**
      * Links the specified channel to a user
      * @memberof AppUsersApi.prototype
