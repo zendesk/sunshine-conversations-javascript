@@ -95,6 +95,16 @@ describe('AppUsers API', () => {
         });
     });
 
+    describe('#getBusinessSystems', () => {
+        it('should call http', () => {
+            return api.getBusinessSystems(userId).then(() => {
+                const fullUrl = `${serviceUrl}/appusers/${userId}/businesssystems`;
+
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+            });
+        });
+    });
+
     describe('#linkChannel', () => {
         it('should call http', () => {
             const data = {
