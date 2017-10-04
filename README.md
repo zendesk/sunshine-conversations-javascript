@@ -19,12 +19,12 @@ If a method is missing please file an Issue, or better yet make a PR!
 var SmoochCore = require('smooch-core');
 
 // using generated JWT
-var smoochCore = new SmoochCore({
+var smooch = new SmoochCore({
     jwt: 'some-jwt'
 });
 
 // using JWT components
-var smoochCore = new SmoochCore({
+var smooch = new SmoochCore({
     keyId: 'some-key',
     secret: 'some-secret',
     scope: 'appUser', // account, app, or appUser
@@ -33,7 +33,7 @@ var smoochCore = new SmoochCore({
 
 // ...
 
-smoochCore.webhooks.get(id).then(function(response) {
+smooch.webhooks.get(id).then(function(response) {
   // do something with the response.
 });
 
@@ -49,7 +49,7 @@ var SocksProxyAgent = require('socks-proxy-agent');
 var proxy = process.env.http_proxy || 'socks://localhost:8123';
 var agent = new SocksProxyAgent(proxy);
 
-var core = new SmoochCore({
+var smooch = new SmoochCore({
     keyId: 'some-key',
     secret: 'some-secret'
 }, {
