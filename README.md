@@ -103,3 +103,8 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | menu.update        | [PUT /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#update-integration-menu) |
 |              | menu.delete        | [DELETE /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration-menu) |
 | attachments  | create             | [POST /v1/apps/:id/attachments](https://docs.smooch.io/rest/?javascript#upload-attachment) |
+
+## Release process
+1. Merge your changes in `master`.
+2. Wait for CircleCI to run the test suite on `master`.
+3. Run `npm run release -- <level> --run`. Replace `<level>` with `patch`, `minor`, `major` depending on which type of version this is.
