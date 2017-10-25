@@ -78,7 +78,7 @@ Object.assign(AppUsersApi.prototype, {
         method: 'PUT'
     }),
 
-/**
+    /**
      * Retrieves all of the app user’s channel entity IDs
      * @memberof AppUsersApi.prototype
      * @method getChannels
@@ -88,6 +88,19 @@ Object.assign(AppUsersApi.prototype, {
     getChannels: smoochMethod({
         params: ['userId'],
         path: '/appusers/:userId/channels',
+        method: 'GET'
+    }),
+
+    /**
+     * Retrieves all of the app user's business system IDs
+     * @memberof AppUsersApi.prototype
+     * @method getBusinessSystems
+     * @param {string} userId - a user id
+     * @return {APIResponse}
+     */
+    getBusinessSystems: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/businesssystems',
         method: 'GET'
     }),
 
@@ -212,15 +225,15 @@ Object.assign(AppUsersApi.prototype, {
         params: ['userId'],
         path: '/appusers/:userId/messages',
         func: function deleteMessages(url, userId) {
-             if (!userId || !userId.trim()) {
-                 return Promise.reject(new Error('Must provide a userId.'));
-             }
+            if (!userId || !userId.trim()) {
+                return Promise.reject(new Error('Must provide a userId.'));
+            }
 
-             // this endpoint only accepts JWT auth with app scope
-             return this.request('DELETE', url, {}, {
-                 allowedAuth: ['jwt']
-             });
-         }
+            // this endpoint only accepts JWT auth with app scope
+            return this.request('DELETE', url, {}, {
+                allowedAuth: ['jwt']
+            });
+        }
     }),
 
     /**
@@ -274,5 +287,17 @@ Object.assign(AppUsersApi.prototype, {
                 type: channel.type
             });
         }
+    }),
+
+    /**
+     * Get an auth code for facilitating a channel transfer
+     * @memberof AppUsersApi.prototype
+     * @method getAuthCode
+     * @return {APIResponse}
+     */
+    getAuthCode: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/authcode',
+        method: 'GET'
     })
 });
