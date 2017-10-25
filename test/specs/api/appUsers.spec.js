@@ -273,4 +273,13 @@ describe('AppUsers API', () => {
             expect(() => api.transferRequest(userId)).to.throw(Error);
         });
     });
+
+    describe('#getAuthCode', () => {
+        it('should call http', () => {
+            return api.getAuthCode(userId).then(() => {
+                const fullUrl = `${serviceUrl}/appusers/${userId}/authcode`;
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+            });
+        });
+    });
 });

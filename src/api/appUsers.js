@@ -287,5 +287,17 @@ Object.assign(AppUsersApi.prototype, {
                 type: channel.type
             });
         }
+    }),
+
+    /**
+     * Get an auth code for facilitating a channel transfer
+     * @memberof AppUsersApi.prototype
+     * @method getAuthCode
+     * @return {APIResponse}
+     */
+    getAuthCode: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId/authcode',
+        method: 'GET'
     })
 });
