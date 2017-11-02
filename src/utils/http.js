@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('isomorphic-fetch');
 
 /**
  * API Response promise - resolves with the requested resource
