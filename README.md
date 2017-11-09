@@ -78,6 +78,7 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | getChannels        | [GET /v1/appusers/:id/channels](https://docs.smooch.io/rest/?javascript#get-app-user-channel-entities) |
 |              | getBusinessSystems | [GET /v1/appusers/:id/businesssystems](https://docs.smooch.io/rest/?javascript#get-app-user-business-system-ids) |
 |              | getAuthCode        | [GET /v1/appusers/:id/authcode](https://docs.smooch.io/rest/?javascript#get-auth-code) |
+|              | getLinkRequest     | [GET /v1/appusers/:id/linkrequest](https://docs.smooch.io/rest/?javascript#get-link-request) |
 | menu         | get                | [GET /v1/menu](https://docs.smooch.io/rest/?javascript#get-app-menu) |
 |              | configure          | [PUT /v1/menu](https://docs.smooch.io/rest/?javascript#update-app-menu) |
 |              | remove             | [DELETE /v1/menu](https://docs.smooch.io/rest/?javascript#delete-app-menu) |

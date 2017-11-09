@@ -275,14 +275,14 @@ Object.assign(AppUsersApi.prototype, {
     /**
      * Initiates a channel link request in order to link a new channel to the user's conversation
      * @memberof AppUsersApi.prototype
-     * @method linkRequest
+     * @method getLinkRequest
      * @param  {array} integrationIds - An array of integrationIds to generate link requests for
      * @return {APIResponse}
      */
-    linkRequest: smoochMethod({
+    getLinkRequest: smoochMethod({
         params: ['userId', 'integrationIds'],
         path: '/appusers/:userId/linkrequest',
-        func: function linkRequest(url, userId, integrationIds) {
+        func: function getLinkRequest(url, userId, integrationIds) {
             if (!integrationIds.join) {
                 return Promise.reject(new Error('IntegrationIds must be an array of strings'));
             }
