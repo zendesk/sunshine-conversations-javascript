@@ -256,15 +256,14 @@ describe('AppUsers API', () => {
         });
     });
 
-    describe('#transferRequest', () => {
+    describe('#linkRequest', () => {
         it('should call http', () => {
-            const fullUrl = `${serviceUrl}/appusers/${userId}/transferrequest`;
+            const fullUrl = `${serviceUrl}/appusers/${userId}/linkrequest`;
 
-            return api.transferRequest(userId, {
-                type: 'messenger'
-            }).then(() => {
+            const integrationIds = ['5a04b5df045fedda49fa89f1', '5a04b5e0045fedda49fa89f2'];
+            return api.linkRequest(userId, integrationIds).then(() => {
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
-                    type: 'messenger'
+                    integrationIds: integrationIds.join(',')
                 }, httpHeaders);
             });
         });

@@ -273,18 +273,22 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
-     * Initiates a channel tranfser request in order to link a new channel to the user's conversation
+     * Initiates a channel link request in order to link a new channel to the user's conversation
      * @memberof AppUsersApi.prototype
-     * @method transferRequest
-     * @param  {object} channel - the channel criteria, eg { type: 'messenger' }
+     * @method linkRequest
+     * @param  {array} integrationIds - An array of integrationIds to generate link requests for
      * @return {APIResponse}
      */
-    transferRequest: smoochMethod({
-        params: ['userId', 'channel'],
-        path: '/appusers/:userId/transferrequest',
-        func: function transferRequest(url, userId, channel) {
+    linkRequest: smoochMethod({
+        params: ['userId', 'integrationIds'],
+        path: '/appusers/:userId/linkrequest',
+        func: function linkRequest(url, userId, integrationIds) {
+            if (!integrationIds.join) {
+                return Promise.reject(new Error('IntegrationIds must be an array of strings'));
+            }
+
             return this.request('GET', url, {
-                type: channel.type
+                integrationIds: integrationIds.join(',')
             });
         }
     }),
