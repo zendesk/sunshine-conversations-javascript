@@ -256,12 +256,12 @@ describe('AppUsers API', () => {
         });
     });
 
-    describe('#getLinkRequest', () => {
+    describe('#getLinkRequests', () => {
         it('should call http', () => {
             const fullUrl = `${serviceUrl}/appusers/${userId}/linkrequest`;
 
             const integrationIds = ['5a04b5df045fedda49fa89f1', '5a04b5e0045fedda49fa89f2'];
-            return api.getLinkRequest(userId, integrationIds).then(() => {
+            return api.getLinkRequests(userId, integrationIds).then(() => {
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
                     integrationIds: integrationIds.join(',')
                 }, httpHeaders);
@@ -269,7 +269,7 @@ describe('AppUsers API', () => {
         });
 
         it('should throw if no type provided', () => {
-            expect(() => api.getLinkRequest(userId)).to.throw(Error);
+            expect(() => api.getLinkRequests(userId)).to.throw(Error);
         });
     });
 
