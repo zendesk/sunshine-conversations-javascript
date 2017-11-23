@@ -241,7 +241,7 @@ Object.assign(AppUsersApi.prototype, {
      * @memberof AppUsersApi.prototype
      * @method typingActivity
      * @param  {string} userId    - a user id
-     * @param  {object=} activityProps  - properties as defined in http://docs.smooch.io/rest
+     * @param  {object=} activityProps  - properties as defined in https://docs.smooch.io/rest
      * @return {APIResponse}
      * @deprecated use conversationActivity instead
      */
@@ -256,7 +256,7 @@ Object.assign(AppUsersApi.prototype, {
      * @memberof AppUsersApi.prototype
      * @method conversationActivity
      * @param  {string} userId    - a user id
-     * @param  {object=} activityProps  - properties as defined in http://docs.smooch.io/rest
+     * @param  {object=} activityProps  - properties as defined in https://docs.smooch.io/rest
      * @return {APIResponse}
      */
     conversationActivity: smoochMethod({
