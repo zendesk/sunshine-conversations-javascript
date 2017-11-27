@@ -99,6 +99,7 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 | integrations | create             | [POST /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#create-integration) |
 |              | list               | [GET /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#list-integrations) |
 |              | get                | [GET /v1/apps/:id/integrations/integrationId](https://docs.smooch.io/rest/?javascript#get-integration) |
+|              | update             | [PUT /v1/apps/:id/integrations/integrationId](https://docs.smooch.io/rest/?javascript#update-integration) |
 |              | delete             | [DELETE /v1/apps/:id/integrations/:integrationId](https://docs.smooch.io/rest/?javascript#delete-integration) |
 |              | menu.get           | [GET /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#get-integration-menu) |
 |              | menu.create        | [POST /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#create-integration-menu) |

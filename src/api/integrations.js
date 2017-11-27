@@ -51,6 +51,10 @@ IntegrationType.prototype.validate = function(props) {
 };
 
 const integrations = {
+    web: new IntegrationType([], ['brandColor', 'conversationColor', 'actionColor', 'displayStyle', 'businessName', 'businessIconUrl', 'buttonIconUrl', {
+        name: 'integrationOrder',
+        type: 'object'
+    }]),
     messenger: new IntegrationType(['pageAccessToken', 'appId', 'appSecret']),
     twilio: new IntegrationType(['accountSid', 'authToken', 'phoneNumberSid']),
     telegram: new IntegrationType(['token']),
@@ -149,6 +153,19 @@ Object.assign(IntegrationsApi.prototype, {
         params: ['integrationId'],
         path: '/integrations/:integrationId',
         method: 'GET'
+    }),
+
+    /**
+     * Update an existing integration
+     * @memberof IntegrationsApi.prototype
+     * @method update
+     * @param  {IntegrationProps} props
+     * @return {APIResponse}
+     */
+    update: smoochMethod({
+        params: ['integrationId', 'props'],
+        path: '/integrations/:integrationId',
+        method: 'PUT'
     }),
 
     /**
