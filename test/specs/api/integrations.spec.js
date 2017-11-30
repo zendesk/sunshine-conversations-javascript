@@ -31,6 +31,29 @@ describe('Integrations API', () => {
             expect(() => api.create(appId, {})).to.throw(Error, 'props missing required field type');
         });
 
+        describe('web messenger', () => {
+            it('should call http', () => {
+                const props = {
+                    type: 'web',
+                    integrationOrder: [
+                        '59fc8466260f48003505228b',
+                        '59d79780481d34002b7d3617'
+                    ],
+                    businessName: 'foo',
+                    brandColor: '00ff00',
+                    conversationColor: 'dd00ee',
+                    actionColor: 'eeff00',
+                    displayStyle: 'button',
+                    businessIconUrl: 'https://pbs.twimg.com/media/CtooA-VWIAAViqN.jpg',
+                    buttonIconUrl: 'https://pbs.twimg.com/media/CtooA-VWIAAViqN.jpg'
+                };
+                return api.create(appId, props).then(() => {
+                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                });
+            });
+        });
+
         describe('messenger', () => {
             it('should throw if missing required params', () => {
                 const invalid = {
@@ -52,7 +75,6 @@ describe('Integrations API', () => {
                 });
             });
         });
-
 
         describe('twitter', () => {
             it('should throw if missing required params', () => {
@@ -336,6 +358,20 @@ describe('Integrations API', () => {
 
         it('should throw if missing integrationId', () => {
             expect(() => api.get(appId)).to.throw(Error, missingParams);
+        });
+    });
+
+    describe('#update', () => {
+        it('should call http', () => {
+            const integrationId = 'integration_123456';
+            return api.update(appId, integrationId, {}).then(() => {
+                const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
+                httpSpy.should.have.been.calledWith('PUT', url, {}, httpHeaders);
+            });
+        });
+
+        it('should throw error if missing integrationId', () => {
+            expect(() => api.update(appId)).to.throw(Error, missingParams);
         });
     });
 
