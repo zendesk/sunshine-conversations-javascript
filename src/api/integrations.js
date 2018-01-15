@@ -57,6 +57,7 @@ const integrations = {
     }]),
     messenger: new IntegrationType(['pageAccessToken', 'appId', 'appSecret']),
     twilio: new IntegrationType(['accountSid', 'authToken', 'phoneNumberSid']),
+    messagebird: new IntegrationType(['accessKey', 'originator']),
     telegram: new IntegrationType(['token']),
     line: new IntegrationType(['channelAccessToken', 'channelSecret']),
     viber: new IntegrationType(['token']),
