@@ -55,6 +55,7 @@ const integrations = {
         name: 'integrationOrder',
         type: 'object'
     }]),
+    apple: new IntegrationType(['apiSecret', 'cspId', 'businessId']),
     messenger: new IntegrationType(['pageAccessToken', 'appId', 'appSecret']),
     twilio: new IntegrationType(['accountSid', 'authToken', 'phoneNumberSid']),
     messagebird: new IntegrationType(['accessKey', 'originator']),
