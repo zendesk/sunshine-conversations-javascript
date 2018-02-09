@@ -7,6 +7,7 @@ import { WebhooksApi } from './api/webhooks';
 import { AttachmentsApi } from './api/attachments';
 import { IntegrationsApi } from './api/integrations';
 import { ConversationsApi } from './api/conversations';
+import { ServiceAccountsApi } from './api/serviceAccounts';
 
 import { getAuthenticationHeaders } from './utils/auth';
 
@@ -89,6 +90,7 @@ class Smooch {
             this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
             this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
             this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.serviceAccounts = new ServiceAccountsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
             this.integrations = this.apps = disabled;

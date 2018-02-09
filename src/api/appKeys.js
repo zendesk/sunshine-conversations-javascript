@@ -71,7 +71,7 @@ Object.assign(AppKeysApi.prototype, {
     }),
 
     /**
-     * Delete an existing app
+     * Delete an existing app key
      * @memberof AppKeysApi.prototype
      * @method delete
      * @param  {string} keyId

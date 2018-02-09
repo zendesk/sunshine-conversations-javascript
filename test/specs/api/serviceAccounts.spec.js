@@ -2,23 +2,23 @@ import hat from 'hat';
 
 import * as httpMock from '../../mocks/http';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
-import { AppsApi } from '../../../src/api/apps';
+import { ServiceAccountsApi } from '../../../src/api/serviceAccounts';
 import { testJwt } from '../../mocks/jwt';
 
-describe('Apps API', () => {
+describe('Service Accounts API', () => {
     const serviceUrl = 'http://some-url.com';
     const missingParams = 'incorrect number of parameters';
     const httpHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
-    const appId = 'appid_12345';
-    const appName = 'My Awesome Unit Test App';
+    const serviceAccountId = hat();
+    const serviceAccountName = hat();
     let httpSpy;
     let api;
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppsApi(serviceUrl, httpHeaders, null, false);
+        api = new ServiceAccountsApi(serviceUrl, httpHeaders, null, false);
     });
 
     afterEach(() => {
@@ -35,23 +35,21 @@ describe('Apps API', () => {
         });
 
         it('should call http', () => {
-            return api.create(appName).then(() => {
-                const url = `${serviceUrl}/apps`;
+            return api.create(serviceAccountName).then(() => {
+                const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('POST', url, {
-                    name: appName
+                    name: serviceAccountName
                 }, httpHeaders);
             });
         });
 
         it('should call http', () => {
             return api.create({
-                name: appName,
-                settings: {}
+                name: serviceAccountName
             }).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('POST', url, {
-                    name: appName,
-                    settings: {}
+                    name: serviceAccountName
                 }, httpHeaders);
             });
         });
@@ -62,14 +60,14 @@ describe('Apps API', () => {
         const offset = 99;
         it('should call http with no limit or offset', () => {
             return api.list().then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
             });
         });
 
         it('should use limit', () => {
             return api.list(limit).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit
                 }, httpHeaders);
@@ -78,7 +76,7 @@ describe('Apps API', () => {
 
         it('should use offset', () => {
             return api.list(undefined, offset).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     offset
                 }, httpHeaders);
@@ -87,7 +85,7 @@ describe('Apps API', () => {
 
         it('should use both', () => {
             return api.list(limit, offset).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit,
                     offset
@@ -95,98 +93,52 @@ describe('Apps API', () => {
             });
         });
 
-        it('should use serviceAccountId', () => {
-            const serviceAccountId = hat();
-            return api.list(undefined, undefined, serviceAccountId).then(() => {
-                const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, {
-                    serviceAccountId
-                }, httpHeaders);
-            });
-        });
-
-        it('should use all three', () => {
-            const serviceAccountId = hat();
-            return api.list(limit, offset, serviceAccountId).then(() => {
-                const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, {
-                    limit,
-                    offset,
-                    serviceAccountId
-                }, httpHeaders);
-            });
-        });
-
-        it('should allow params object with only serviceAccountId', () => {
-            const serviceAccountId = hat();
-            
-            return api.list({
-                serviceAccountId
-            }).then(() => {
-                const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, {
-                    serviceAccountId
-                }, httpHeaders);
-            });
-        });
-
-        it('should reject non-number limit and offset', () => {
+        it('should reject non-number', () => {
             [['banana'], ['apple', true], [undefined, {}]].forEach((invalid) => {
                 expect(() => api.list(...invalid)).to.throw(Error, 'must be a number');
-            });
-        });
-
-        it('should reject non-string serviceAccountId', () => {
-            [1, true, {}].forEach((invalid) => {
-                expect(() => api.list(undefined, undefined, invalid)).to.throw(Error, 'must be a string');
             });
         });
     });
 
     describe('#get', () => {
         it('should call http', () => {
-            return api.get(appId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}`;
+            return api.get(serviceAccountId).then(() => {
+                const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
             });
         });
 
-        it('should throw if missing appId', () => {
+        it('should throw if missing serviceAccountId', () => {
             expect(() => api.get()).to.throw(Error, missingParams);
         });
     });
 
     describe('#put', () => {
         it('should call http', () => {
-            const appId = 'app_123456';
-
-            return api.update(appId, {
-                name: appName,
-                settings: {}
+            return api.update(serviceAccountId, {
+                name: serviceAccountName
             }).then(() => {
-                const url = `${serviceUrl}/apps/${appId}`;
+                const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('PUT', url, {
-                    name: appName,
-                    settings: {}
+                    name: serviceAccountName
                 }, httpHeaders);
             });
         });
 
-        it('should throw if missing appId', () => {
+        it('should throw if missing serviceAccountId', () => {
             expect(() => api.update()).to.throw(Error, missingParams);
         });
     });
 
     describe('#delete', () => {
         it('should call http', () => {
-            const appId = 'app_123456';
-            return api.delete(appId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}`;
+            return api.delete(serviceAccountId).then(() => {
+                const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('DELETE', url, undefined, httpHeaders);
             });
         });
 
-        it('should throw error if missing appId', () => {
+        it('should throw error if missing serviceAccountId', () => {
             expect(() => api.delete()).to.throw(Error, missingParams);
         });
     });

@@ -86,16 +86,16 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | create             | [POST /v1/webhooks](https://docs.smooch.io/rest/?javascript#create-webhook) |
 |              | get                | [GET /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#get-webhook) |
 |              | update             | [PUT /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#update-webhook) |
-|              | delete             | [DELETE /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#dlete-webhook) |
+|              | delete             | [DELETE /v1/webhooks/:id](https://docs.smooch.io/rest/?javascript#delete-webhook) |
 | apps         | create             | [POST /v1/apps](https://docs.smooch.io/rest/?javascript#create-app) |
 |              | list               | [GET /v1/apps](https://docs.smooch.io/rest/?javascript#list-apps) |
 |              | get                | [GET /v1/apps/:id](https://docs.smooch.io/rest/?javascript#get-app) |
 |              | delete             | [DELETE /v1/apps/:id](https://docs.smooch.io/rest/?javascript#delete-app) |
-|              | keys.create        | [POST /v1/apps/:id/keys](https://docs.smooch.io/rest/?javascript#create-key) |
-|              | keys.list          | [GET /v1/apps/:id/keys](https://docs.smooch.io/rest/?javascript#list-keys) |
-|              | keys.get           | [GET /v1/apps/:id/keys/:keyId](https://docs.smooch.io/rest/?javascript#get-key) |
-|              | keys.delete        | [DELETE /v1/apps/:id/:keyId](https://docs.smooch.io/rest/?javascript#delete-key) |
-|              | keys.getJwt        | [GET /v1/apps/:id/keys/:keyId/jwt](https://docs.smooch.io/rest/?javascript#get-jwt) |
+|              | keys.create        | [POST /v1/apps/:id/keys](https://docs.smooch.io/rest/?javascript#create-app-key) |
+|              | keys.list          | [GET /v1/apps/:id/keys](https://docs.smooch.io/rest/?javascript#list-app-keys) |
+|              | keys.get           | [GET /v1/apps/:id/keys/:keyId](https://docs.smooch.io/rest/?javascript#get-app-key) |
+|              | keys.delete        | [DELETE /v1/apps/:id/:keyId](https://docs.smooch.io/rest/?javascript#delete-app-key) |
+|              | keys.getJwt        | [GET /v1/apps/:id/keys/:keyId/jwt](https://docs.smooch.io/rest/?javascript#get-app-jwt) |
 | integrations | create             | [POST /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#create-integration) |
 |              | list               | [GET /v1/apps/:id/integrations](https://docs.smooch.io/rest/?javascript#list-integrations) |
 |              | get                | [GET /v1/apps/:id/integrations/integrationId](https://docs.smooch.io/rest/?javascript#get-integration) |
@@ -105,6 +105,15 @@ Below is a list of methods included in Smooch Core. For comprehensive documentat
 |              | menu.create        | [POST /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#create-integration-menu) |
 |              | menu.update        | [PUT /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#update-integration-menu) |
 |              | menu.delete        | [DELETE /v1/apps/:id/integrations/:integrationId/menu](https://docs.smooch.io/rest/?javascript#delete-integration-menu) |
+| serviceAccounts  | create             | [POST /v1/serviceaccounts](https://docs.smooch.io/rest/?javascript#create-service-account) |
+|              | list               | [GET /v1/serviceaccounts](https://docs.smooch.io/rest/?javascript#list-service-accounts) |
+|              | get                | [GET /v1/serviceaccounts/:id](https://docs.smooch.io/rest/?javascript#get-service-account) |
+|              | delete             | [DELETE /v1/serviceaccounts/:id](https://docs.smooch.io/rest/?javascript#delete-service-account) |
+|              | keys.create        | [POST /v1/serviceaccounts/:id/keys](https://docs.smooch.io/rest/?javascript#create-service-account-key) |
+|              | keys.list          | [GET /v1/serviceaccounts/:id/keys](https://docs.smooch.io/rest/?javascript#list-service-account-keys) |
+|              | keys.get           | [GET /v1/serviceaccounts/:id/keys/:keyId](https://docs.smooch.io/rest/?javascript#get-service-account-key) |
+|              | keys.delete        | [DELETE /v1/serviceaccounts/:id/:keyId](https://docs.smooch.io/rest/?javascript#delete-service-account-key) |
+|              | keys.getJwt        | [GET /v1/serviceaccounts/:id/keys/:keyId/jwt](https://docs.smooch.io/rest/?javascript#get-service-account-jwt) |
 | attachments  | create             | [POST /v1/apps/:id/attachments](https://docs.smooch.io/rest/?javascript#upload-attachment) |
 
 ## Release process
