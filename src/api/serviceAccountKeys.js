@@ -83,6 +83,7 @@ Object.assign(ServiceAccountKeysApi.prototype, {
      */
     delete: smoochMethod({
         params: ['serviceAccountId', 'keyId'],
-        path: '/serviceaccounts/:serviceAccountId/keys/:keyId', method: 'DELETE'
+        path: '/serviceaccounts/:serviceAccountId/keys/:keyId',
+        method: 'DELETE'
     })
 });

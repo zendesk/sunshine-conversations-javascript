@@ -28,7 +28,9 @@ Object.assign(AppKeysApi.prototype, {
             if (typeof name !== 'string') {
                 throw new Error('Invalid name parameter type, expected string');
             }
-            return this.request('POST', url, {name});
+            return this.request('POST', url, {
+                name
+            });
         }
     }),
 
@@ -79,6 +81,7 @@ Object.assign(AppKeysApi.prototype, {
      */
     delete: smoochMethod({
         params: ['keyId'],
-        path: '/keys/:keyId', method: 'DELETE'
+        path: '/keys/:keyId',
+        method: 'DELETE'
     })
 });
