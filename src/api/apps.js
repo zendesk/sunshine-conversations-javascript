@@ -52,13 +52,14 @@ Object.assign(AppsApi.prototype, {
      * @method list
      * @param  {number} limit
      * @param  {number} offset
+     * @param  {string} serviceAccountId
      * @return {APIResponse}
      */
     list: smoochMethod({
-        params: ['limit', 'offset'],
-        optional: ['limit', 'offset'],
+        params: ['limit', 'offset', 'serviceAccountId'],
+        optional: ['limit', 'offset', 'serviceAccountId'],
         path: '/apps',
-        func: function list(url, limit, offset) {
+        func: function list(url, limit, offset, serviceAccountId) {
             const q = {};
             if (limit) {
                 if (typeof limit !== 'number') {
@@ -72,8 +73,14 @@ Object.assign(AppsApi.prototype, {
                 }
                 q.offset = offset;
             }
+            if (serviceAccountId) {
+                if (typeof serviceAccountId !== 'string') {
+                    throw new Error('serviceAccountId must be a string');
+                }
+                q.serviceAccountId = serviceAccountId;
+            }
 
-            if (q.limit || q.offset) {
+            if (q.limit || q.offset || q.serviceAccountId) {
                 return this.request('GET', url, q);
             } else {
                 return this.request('GET', url);

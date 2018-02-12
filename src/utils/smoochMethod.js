@@ -43,9 +43,7 @@ export default function smoochMethod({params, optional=[], path, method, func}) 
                         throw new Error(`${methodName}: missing required argument: ${param}`);
                     }
 
-                    if (value) {
-                        args.push(value);
-                    }
+                    args.push(value);
                 });
             }
         } else {
