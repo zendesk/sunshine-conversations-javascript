@@ -51,9 +51,8 @@ var agent = new SocksProxyAgent(proxy);
 
 var smooch = new SmoochCore({
     keyId: 'some-key',
-    secret: 'some-secret'
-}, {
-  httpAgent: agent
+    secret: 'some-secret',
+    httpAgent: agent
 });
 ```
 
