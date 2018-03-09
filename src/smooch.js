@@ -24,7 +24,7 @@ if (!global.FormData) {
 
 class Smooch {
     constructor(options = {}) {
-        const {serviceUrl = SERVICE_URL, headers = {}, httpAgent} = options;
+        const {serviceUrl = SERVICE_URL, httpAgent} = options;
         const auth = {
             keyId: options.keyId,
             secret: options.secret,
@@ -68,7 +68,6 @@ class Smooch {
             auth.scope = decoded.scope;
         }
 
-        this.headers = headers;
         this.httpAgent = httpAgent;
         this.serviceUrl = serviceUrl;
         this.VERSION = packageInfo.version;

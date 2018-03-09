@@ -14,7 +14,6 @@ export class BaseApi {
     constructor(options) {
         this.serviceUrl = options.serviceUrl;
         this.authHeaders = options.authHeaders;
-        this.headers = options.headers;
         this.requireAppId = options.scope === 'account';
         this.httpAgent = options.httpAgent;
     }
@@ -51,7 +50,6 @@ export class BaseApi {
      */
     getHeaders() {
         return {
-            ...this.headers,
             ...this.authHeaders
         };
     }

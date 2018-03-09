@@ -87,21 +87,6 @@ describe('Smooch', () => {
         }
     });
 
-    it('should accept custom headers', () => {
-        const authOptions = {
-            jwt: testJwt()
-        };
-
-        const customHeaders = {
-            myheader: '1234'
-        };
-
-        const smooch = new Smooch(Object.assign(authOptions, {
-            headers: customHeaders
-        }));
-        smooch.headers.should.deep.equal(customHeaders);
-    });
-
     describe('generating jwt', () => {
         const keyId = 'keyId';
         const secret = 'secret';

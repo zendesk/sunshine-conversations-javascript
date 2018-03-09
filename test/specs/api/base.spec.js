@@ -20,20 +20,16 @@ describe('Base API', () => {
     });
 
     describe('#getHeaders', function() {
-        it('should include auth headers and custom headers', () => {
+        it('should include auth headers', () => {
             const api = new BaseApi({
                 serviceUrl,
                 authHeaders: {
                     Authorization: 'Bearer stuff'
-                },
-                headers: {
-                    customHeader: '1234'
                 }
             });
 
             api.getHeaders().should.eql({
-                Authorization: 'Bearer stuff',
-                customHeader: '1234'
+                Authorization: 'Bearer stuff'
             });
         });
     });
@@ -51,8 +47,9 @@ describe('Base API', () => {
         });
 
         it('should return an error if Authorization header is not present', (done) => {
-            const api = new BaseApi(serviceUrl, {
-                'something': 'whatever'
+            const api = new BaseApi({
+                serviceUrl,
+                authHeaders: {}
             });
 
             api.validateAuthHeaders().catch(() => {
