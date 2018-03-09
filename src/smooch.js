@@ -23,8 +23,15 @@ if (!global.FormData) {
 }
 
 class Smooch {
-    constructor(auth = {}, options = {}) {
+    constructor(options = {}) {
         const {serviceUrl = SERVICE_URL, headers = {}, httpAgent} = options;
+        const auth = {
+            keyId: options.keyId,
+            secret: options.secret,
+            scope: options.scope,
+            jwt: options.jwt,
+            userId: options.userId
+        };
 
         if (auth.keyId || auth.secret) {
             if (!auth.scope) {
@@ -49,13 +56,8 @@ class Smooch {
                 jwtBody.userId = auth.userId;
             }
 
-            auth = {
-                jwt: jwt.generate(jwtBody, auth.secret, auth.keyId),
-                scope: auth.scope
-            };
-        }
-
-        if (auth.jwt) {
+            auth.jwt = jwt.generate(jwtBody, auth.secret, auth.keyId);
+        } else if (auth.jwt) {
             const decoded = decode(auth.jwt);
             if (!decoded) {
                 throw new Error('jwt is malformed.');
@@ -70,7 +72,7 @@ class Smooch {
         this.httpAgent = httpAgent;
         this.serviceUrl = serviceUrl;
         this.VERSION = packageInfo.version;
-        this.scope = auth.scope || 'appUser';
+        this.scope = auth.scope;
         this.authHeaders = getAuthenticationHeaders(auth);
 
         this.utils = {};

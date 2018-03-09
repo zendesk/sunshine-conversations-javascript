@@ -96,9 +96,9 @@ describe('Smooch', () => {
             myheader: '1234'
         };
 
-        var smooch = new Smooch(authOptions, {
+        const smooch = new Smooch(Object.assign(authOptions, {
             headers: customHeaders
-        });
+        }));
         smooch.headers.should.deep.equal(customHeaders);
     });
 
