@@ -40,7 +40,7 @@ describe('App Keys API', () => {
         it('should call http', () => {
             const keyName = 'key_12345';
             return api.create(appId, keyName).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/keys`;
+                const url = `${serviceUrl}/v1/apps/${appId}/keys`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: keyName
                 }, authHeaders);
@@ -51,7 +51,7 @@ describe('App Keys API', () => {
     describe('#list', () => {
         it('should call http', () => {
             return api.list(appId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/keys`;
+                const url = `${serviceUrl}/v1/apps/${appId}/keys`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -60,7 +60,7 @@ describe('App Keys API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(appId, keyId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/keys/${keyId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}/keys/${keyId}`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -73,7 +73,7 @@ describe('App Keys API', () => {
     describe('#getJwt', () => {
         it('should call http', () => {
             return api.getJwt(appId, keyId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/keys/${keyId}/jwt`;
+                const url = `${serviceUrl}/v1/apps/${appId}/keys/${keyId}/jwt`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -86,7 +86,7 @@ describe('App Keys API', () => {
     describe('#delete', () => {
         it('should call http', () => {
             return api.delete(appId, keyId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/keys/${keyId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}/keys/${keyId}`;
                 httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });

@@ -37,7 +37,7 @@ describe('Apps API', () => {
 
         it('should call http', () => {
             return api.create(appName).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: appName
                 }, authHeaders);
@@ -49,7 +49,7 @@ describe('Apps API', () => {
                 name: appName,
                 settings: {}
             }).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: appName,
                     settings: {}
@@ -63,14 +63,14 @@ describe('Apps API', () => {
         const offset = 99;
         it('should call http with no limit or offset', () => {
             return api.list().then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
         it('should use limit', () => {
             return api.list(limit).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit
                 }, authHeaders);
@@ -79,7 +79,7 @@ describe('Apps API', () => {
 
         it('should use offset', () => {
             return api.list(undefined, offset).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     offset
                 }, authHeaders);
@@ -88,7 +88,7 @@ describe('Apps API', () => {
 
         it('should use both', () => {
             return api.list(limit, offset).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit,
                     offset
@@ -99,7 +99,7 @@ describe('Apps API', () => {
         it('should use serviceAccountId', () => {
             const serviceAccountId = hat();
             return api.list(undefined, undefined, serviceAccountId).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     serviceAccountId
                 }, authHeaders);
@@ -109,7 +109,7 @@ describe('Apps API', () => {
         it('should use all three', () => {
             const serviceAccountId = hat();
             return api.list(limit, offset, serviceAccountId).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit,
                     offset,
@@ -124,7 +124,7 @@ describe('Apps API', () => {
             return api.list({
                 serviceAccountId
             }).then(() => {
-                const url = `${serviceUrl}/apps`;
+                const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     serviceAccountId
                 }, authHeaders);
@@ -147,7 +147,7 @@ describe('Apps API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(appId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -165,7 +165,7 @@ describe('Apps API', () => {
                 name: appName,
                 settings: {}
             }).then(() => {
-                const url = `${serviceUrl}/apps/${appId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}`;
                 httpSpy.should.have.been.calledWith('PUT', url, {
                     name: appName,
                     settings: {}
@@ -182,7 +182,7 @@ describe('Apps API', () => {
         it('should call http', () => {
             const appId = 'app_123456';
             return api.delete(appId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}`;
                 httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });

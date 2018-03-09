@@ -12,7 +12,7 @@ import { http } from '../utils/http';
  */
 export class BaseApi {
     constructor(options) {
-        this.serviceUrl = options.serviceUrl;
+        this.serviceUrl = options.serviceUrl.replace(/\/$/, '');
         this.authHeaders = options.authHeaders;
         this.requireAppId = options.scope === 'account';
         this.httpAgent = options.httpAgent;

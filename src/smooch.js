@@ -16,7 +16,7 @@ import { decode } from 'jsonwebtoken';
 
 import packageInfo from '../package.json';
 
-const SERVICE_URL = 'https://api.smooch.io/v1';
+const SERVICE_URL = 'https://api.smooch.io';
 
 if (!global.FormData) {
     global.FormData = require('form-data');

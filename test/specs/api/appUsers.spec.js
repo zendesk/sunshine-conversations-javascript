@@ -37,7 +37,7 @@ describe('AppUsers API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}`;
 
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
@@ -51,7 +51,7 @@ describe('AppUsers API', () => {
             };
 
             return api.update(userId, attributes).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}`;
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, attributes, authHeaders);
             });
         });
@@ -74,7 +74,7 @@ describe('AppUsers API', () => {
                 authHeaders
             });
             return jwtApi.create(userId, props).then(() => {
-                const fullUrl = `${serviceUrl}/appusers`;
+                const fullUrl = `${serviceUrl}/v1/appusers`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, Object.assign({
                     userId: userId
                 }, props), authHeaders);
@@ -97,7 +97,7 @@ describe('AppUsers API', () => {
     describe('#getChannels', () => {
         it('should call http', () => {
             return api.getChannels(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/channels`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/channels`;
 
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
@@ -107,7 +107,7 @@ describe('AppUsers API', () => {
     describe('#getBusinessSystems', () => {
         it('should call http', () => {
             return api.getBusinessSystems(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/businesssystems`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/businesssystems`;
 
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
@@ -121,7 +121,7 @@ describe('AppUsers API', () => {
                 phoneNumber: '15145555555'
             };
             return api.linkChannel(userId, data).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/channels`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/channels`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     ...data
                 }, authHeaders);
@@ -138,7 +138,7 @@ describe('AppUsers API', () => {
     describe('#unlinkChannel', () => {
         it('should call http', () => {
             return api.unlinkChannel(userId, 'twilio').then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/channels/twilio`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/channels/twilio`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
             });
         });
@@ -147,7 +147,7 @@ describe('AppUsers API', () => {
     describe('#pingChannel', () => {
         it('should call http', () => {
             return api.pingChannel(userId, 'twilio').then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/integrations/twilio/ping`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/integrations/twilio/ping`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, authHeaders);
             });
         });
@@ -156,7 +156,7 @@ describe('AppUsers API', () => {
     describe('#getMessages', () => {
         it('should call http', () => {
             return api.getMessages(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
@@ -165,7 +165,7 @@ describe('AppUsers API', () => {
             return api.getMessages(userId, {
                 before: 'XYZ'
             }).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
                     before: 'XYZ'
                 }, authHeaders);
@@ -176,7 +176,7 @@ describe('AppUsers API', () => {
             return api.getMessages(userId, {
                 after: 'XYZ'
             }).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, {
                     after: 'XYZ'
                 }, authHeaders);
@@ -200,7 +200,7 @@ describe('AppUsers API', () => {
             };
 
             return api.sendMessage(userId, message).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, message, authHeaders);
             });
         });
@@ -217,7 +217,7 @@ describe('AppUsers API', () => {
                 authHeaders
             });
             return jwtApi.deleteMessages(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/messages`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, {}, authHeaders);
             });
         });
@@ -231,7 +231,7 @@ describe('AppUsers API', () => {
             };
 
             return api.typingActivity(userId, activity).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/activity`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/conversation/activity`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, activity, authHeaders);
             });
         });
@@ -245,7 +245,7 @@ describe('AppUsers API', () => {
             };
 
             return api.conversationActivity(userId, activity).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/activity`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/conversation/activity`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, activity, authHeaders);
             });
         });
@@ -253,7 +253,7 @@ describe('AppUsers API', () => {
 
     describe('#uploadImage', () => {
         it('should call http', () => {
-            const fullUrl = `${serviceUrl}/appusers/${userId}/images`;
+            const fullUrl = `${serviceUrl}/v1/appusers/${userId}/images`;
             const source = createReadStream('some source object');
             const message = {
                 text: 'this is a message'
@@ -279,7 +279,7 @@ describe('AppUsers API', () => {
                 authHeaders
             });
             return jwtApi.deleteProfile(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/profile`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/profile`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, {}, authHeaders);
             });
         });
@@ -287,7 +287,7 @@ describe('AppUsers API', () => {
 
     describe('#getLinkRequests', () => {
         it('should call http', () => {
-            const fullUrl = `${serviceUrl}/appusers/${userId}/linkrequest`;
+            const fullUrl = `${serviceUrl}/v1/appusers/${userId}/linkrequest`;
 
             const integrationIds = ['5a04b5df045fedda49fa89f1', '5a04b5e0045fedda49fa89f2'];
             return api.getLinkRequests(userId, integrationIds).then(() => {
@@ -305,7 +305,7 @@ describe('AppUsers API', () => {
     describe('#getAuthCode', () => {
         it('should call http', () => {
             return api.getAuthCode(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/authcode`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/authcode`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });

@@ -49,7 +49,7 @@ describe('Integrations API', () => {
                     buttonIconUrl: 'https://pbs.twimg.com/media/CtooA-VWIAAViqN.jpg'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -71,7 +71,7 @@ describe('Integrations API', () => {
                     appSecret: 'baz'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -94,7 +94,7 @@ describe('Integrations API', () => {
                     accessTokenSecret: 'schwifty'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -116,7 +116,7 @@ describe('Integrations API', () => {
                     incomingAddress: 'baz'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -138,7 +138,7 @@ describe('Integrations API', () => {
                     phoneNumberSid: 'baz'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -158,7 +158,7 @@ describe('Integrations API', () => {
                     token: 'foo'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -179,7 +179,7 @@ describe('Integrations API', () => {
                     channelSecret: 'bar'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -199,7 +199,7 @@ describe('Integrations API', () => {
                     token: 'foo'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -220,7 +220,7 @@ describe('Integrations API', () => {
                     appSecret: 'bar'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -233,7 +233,7 @@ describe('Integrations API', () => {
                     encodingAesKey: 'baz'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -255,7 +255,7 @@ describe('Integrations API', () => {
                     senderId: 'woo'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -276,7 +276,7 @@ describe('Integrations API', () => {
                     certificate: 'yay'
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -289,7 +289,7 @@ describe('Integrations API', () => {
                     autoUpdateBadge: true
                 };
                 return api.create(appId, props).then(() => {
-                    const url = `${serviceUrl}/apps/${appId}/integrations`;
+                    const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                     httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
@@ -322,7 +322,7 @@ describe('Integrations API', () => {
     describe('#list', () => {
         it('should call http', () => {
             return api.list(appId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/integrations`;
+                const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -330,7 +330,7 @@ describe('Integrations API', () => {
         it('should accept types string', () => {
             const types = 'type1,type2';
             return api.list(appId, types).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/integrations`;
+                const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     types
                 }, authHeaders);
@@ -340,7 +340,7 @@ describe('Integrations API', () => {
         it('should accept types array', () => {
             const types = ['type1', 'type2'];
             return api.list(appId, types).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/integrations`;
+                const url = `${serviceUrl}/v1/apps/${appId}/integrations`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     types: 'type1,type2'
                 }, authHeaders);
@@ -352,7 +352,7 @@ describe('Integrations API', () => {
         it('should call http', () => {
             const integrationId = 'integration_123456';
             return api.get(appId, integrationId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}/integrations/${integrationId}`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -366,7 +366,7 @@ describe('Integrations API', () => {
         it('should call http', () => {
             const integrationId = 'integration_123456';
             return api.update(appId, integrationId, {}).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}/integrations/${integrationId}`;
                 httpSpy.should.have.been.calledWith('PUT', url, {}, authHeaders);
             });
         });
@@ -380,7 +380,7 @@ describe('Integrations API', () => {
         it('should call http', () => {
             const integrationId = 'integration_123456';
             return api.delete(appId, integrationId).then(() => {
-                const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
+                const url = `${serviceUrl}/v1/apps/${appId}/integrations/${integrationId}`;
                 httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });

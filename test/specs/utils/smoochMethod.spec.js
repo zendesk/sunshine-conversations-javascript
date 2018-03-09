@@ -5,7 +5,7 @@ import smoochMethod from '../../../src/utils/smoochMethod';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 
 
-const serviceUrl = 'http://example.org/v1';
+const serviceUrl = 'http://example.org';
 const appId = 'appId';
 const param1 = 'foo';
 
@@ -161,7 +161,7 @@ describe('Smooch Method', () => {
                 scope: 'account'
             });
             expected = {
-                url: `${serviceUrl}/apps/${appId}/param1/${param1}`,
+                url: `${serviceUrl}/v1/apps/${appId}/param1/${param1}`,
                 param1
             };
         });
@@ -196,7 +196,7 @@ describe('Smooch Method', () => {
                 serviceUrl
             });
             expected = {
-                url: `${serviceUrl}/param1/${param1}`,
+                url: `${serviceUrl}/v1/param1/${param1}`,
                 param1
             };
         });
@@ -235,7 +235,7 @@ describe('Smooch Method', () => {
                 serviceUrl
             });
             expected = {
-                url: `${serviceUrl}/param1/${param1}/param2/${param2}/param3/${param3}`,
+                url: `${serviceUrl}/v1/param1/${param1}/param2/${param2}/param3/${param3}`,
                 param1,
                 param2,
                 param3
@@ -287,7 +287,7 @@ describe('Smooch Method', () => {
             testApi = new TestApi({
                 serviceUrl
             });
-            expected = `${serviceUrl}/foo`;
+            expected = `${serviceUrl}/v1/foo`;
         });
 
         it('should accept no params', () => {
@@ -356,7 +356,7 @@ describe('Smooch Method', () => {
                 authHeaders
             });
             httpSpy = httpMock.mock();
-            expectedUrl = `${serviceUrl}/param1/${param1}`;
+            expectedUrl = `${serviceUrl}/v1/param1/${param1}`;
             body = {
                 'foo': 'bar'
             };

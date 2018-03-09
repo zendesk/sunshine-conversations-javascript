@@ -121,4 +121,12 @@ describe('Smooch', () => {
             decodedToken.userId.should.equal(userId);
         });
     });
+
+    it('should accept custom serviceUrl', () => {
+        const smooch = new Smooch({
+            jwt: testJwt(),
+            serviceUrl: 'https://different.smooch.io'
+        });
+        smooch.serviceUrl.should.equal('https://different.smooch.io');
+    });
 });

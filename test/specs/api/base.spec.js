@@ -17,6 +17,16 @@ describe('Base API', () => {
             api.serviceUrl.should.equal(serviceUrl);
             api.authHeaders.should.equal(authHeaders);
         });
+
+        it('should strip trailing slash in serviceUrl', () => {
+            const api = new BaseApi({
+                serviceUrl: serviceUrl + '/',
+                authHeaders
+            });
+
+            api.serviceUrl.should.equal(serviceUrl);
+            api.authHeaders.should.equal(authHeaders);
+        });
     });
 
     describe('#getHeaders', function() {

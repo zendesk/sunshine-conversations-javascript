@@ -25,7 +25,7 @@ describe('Menu API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get().then(() => {
-                const fullUrl = `${serviceUrl}/menu`;
+                const fullUrl = `${serviceUrl}/v1/menu`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
@@ -39,7 +39,7 @@ describe('Menu API', () => {
 
         it('should call http', () => {
             return api.configure(props).then(() => {
-                const fullUrl = `${serviceUrl}/menu`;
+                const fullUrl = `${serviceUrl}/v1/menu`;
                 httpSpy.should.have.been.calledWith('PUT', fullUrl, props, authHeaders);
             });
         });
@@ -64,7 +64,7 @@ describe('Menu API', () => {
     describe('#remove', () => {
         it('should call http', () => {
             return api.remove().then(() => {
-                const fullUrl = `${serviceUrl}/menu`;
+                const fullUrl = `${serviceUrl}/v1/menu`;
                 httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
             });
         });

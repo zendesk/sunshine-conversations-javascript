@@ -23,7 +23,7 @@ describe('Stripe API', () => {
     describe('#getAccount', () => {
         it('should call http', () => {
             return api.getAccount().then(() => {
-                const fullUrl = `${serviceUrl}/stripe/account`;
+                const fullUrl = `${serviceUrl}/v1/stripe/account`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });

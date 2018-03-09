@@ -24,7 +24,7 @@ describe('AppUsersViber API', () => {
     describe('#getQRCode', () => {
         it('should call http', () => {
             return api.getQRCode(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/integrations/viber/qrcode`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/integrations/viber/qrcode`;
                 httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });

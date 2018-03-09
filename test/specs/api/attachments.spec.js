@@ -26,7 +26,7 @@ describe('Attachments API', () => {
 
     describe('#create', () => {
         it('should call http', () => {
-            const fullUrl = `${serviceUrl}/attachments?access=public`;
+            const fullUrl = `${serviceUrl}/v1/attachments?access=public`;
             const source = createReadStream('some source object');
 
             return api.create('public', source).then(() => {

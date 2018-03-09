@@ -37,7 +37,7 @@ describe('Service Accounts API', () => {
 
         it('should call http', () => {
             return api.create(serviceAccountName).then(() => {
-                const url = `${serviceUrl}/serviceaccounts`;
+                const url = `${serviceUrl}/v1/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: serviceAccountName
                 }, authHeaders);
@@ -48,7 +48,7 @@ describe('Service Accounts API', () => {
             return api.create({
                 name: serviceAccountName
             }).then(() => {
-                const url = `${serviceUrl}/serviceaccounts`;
+                const url = `${serviceUrl}/v1/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: serviceAccountName
                 }, authHeaders);
@@ -61,14 +61,14 @@ describe('Service Accounts API', () => {
         const offset = 99;
         it('should call http with no limit or offset', () => {
             return api.list().then(() => {
-                const url = `${serviceUrl}/serviceaccounts`;
+                const url = `${serviceUrl}/v1/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
         it('should use limit', () => {
             return api.list(limit).then(() => {
-                const url = `${serviceUrl}/serviceaccounts`;
+                const url = `${serviceUrl}/v1/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit
                 }, authHeaders);
@@ -77,7 +77,7 @@ describe('Service Accounts API', () => {
 
         it('should use offset', () => {
             return api.list(undefined, offset).then(() => {
-                const url = `${serviceUrl}/serviceaccounts`;
+                const url = `${serviceUrl}/v1/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     offset
                 }, authHeaders);
@@ -86,7 +86,7 @@ describe('Service Accounts API', () => {
 
         it('should use both', () => {
             return api.list(limit, offset).then(() => {
-                const url = `${serviceUrl}/serviceaccounts`;
+                const url = `${serviceUrl}/v1/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit,
                     offset
@@ -104,7 +104,7 @@ describe('Service Accounts API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(serviceAccountId).then(() => {
-                const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
+                const url = `${serviceUrl}/v1/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
@@ -119,7 +119,7 @@ describe('Service Accounts API', () => {
             return api.update(serviceAccountId, {
                 name: serviceAccountName
             }).then(() => {
-                const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
+                const url = `${serviceUrl}/v1/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('PUT', url, {
                     name: serviceAccountName
                 }, authHeaders);
@@ -134,7 +134,7 @@ describe('Service Accounts API', () => {
     describe('#delete', () => {
         it('should call http', () => {
             return api.delete(serviceAccountId).then(() => {
-                const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
+                const url = `${serviceUrl}/v1/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });
