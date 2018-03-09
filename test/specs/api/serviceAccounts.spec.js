@@ -8,9 +8,10 @@ import { testJwt } from '../../mocks/jwt';
 describe('Service Accounts API', () => {
     const serviceUrl = 'http://some-url.com';
     const missingParams = 'incorrect number of parameters';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
+    const scope = 'app';
     const serviceAccountId = hat();
     const serviceAccountName = hat();
     let httpSpy;
@@ -18,7 +19,7 @@ describe('Service Accounts API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new ServiceAccountsApi(serviceUrl, httpHeaders, null, false);
+        api = new ServiceAccountsApi({serviceUrl, authHeaders, scope});
     });
 
     afterEach(() => {
@@ -39,7 +40,7 @@ describe('Service Accounts API', () => {
                 const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: serviceAccountName
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -50,7 +51,7 @@ describe('Service Accounts API', () => {
                 const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: serviceAccountName
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
     });
@@ -61,7 +62,7 @@ describe('Service Accounts API', () => {
         it('should call http with no limit or offset', () => {
             return api.list().then(() => {
                 const url = `${serviceUrl}/serviceaccounts`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -70,7 +71,7 @@ describe('Service Accounts API', () => {
                 const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -79,7 +80,7 @@ describe('Service Accounts API', () => {
                 const url = `${serviceUrl}/serviceaccounts`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     offset
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -89,7 +90,7 @@ describe('Service Accounts API', () => {
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit,
                     offset
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -104,7 +105,7 @@ describe('Service Accounts API', () => {
         it('should call http', () => {
             return api.get(serviceAccountId).then(() => {
                 const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -121,7 +122,7 @@ describe('Service Accounts API', () => {
                 const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
                 httpSpy.should.have.been.calledWith('PUT', url, {
                     name: serviceAccountName
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -134,7 +135,7 @@ describe('Service Accounts API', () => {
         it('should call http', () => {
             return api.delete(serviceAccountId).then(() => {
                 const url = `${serviceUrl}/serviceaccounts/${serviceAccountId}`;
-                httpSpy.should.have.been.calledWith('DELETE', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });
 

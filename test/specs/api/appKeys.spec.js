@@ -6,9 +6,10 @@ import { testJwt } from '../../mocks/jwt';
 describe('App Keys API', () => {
     const serviceUrl = 'http://some-url.com';
     const missingParams = 'incorrect number of parameters';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
+    const scope = 'account';
     const appId = 'appid_12345';
     const keyId = 'key_12345';
     let httpSpy;
@@ -16,7 +17,11 @@ describe('App Keys API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppKeysApi(serviceUrl, httpHeaders, null, true);
+        api = new AppKeysApi({
+            serviceUrl,
+            authHeaders,
+            scope
+        });
     });
 
     afterEach(() => {
@@ -38,7 +43,7 @@ describe('App Keys API', () => {
                 const url = `${serviceUrl}/apps/${appId}/keys`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: keyName
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
     });
@@ -47,7 +52,7 @@ describe('App Keys API', () => {
         it('should call http', () => {
             return api.list(appId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/keys`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
     });
@@ -56,7 +61,7 @@ describe('App Keys API', () => {
         it('should call http', () => {
             return api.get(appId, keyId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/keys/${keyId}`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -69,7 +74,7 @@ describe('App Keys API', () => {
         it('should call http', () => {
             return api.getJwt(appId, keyId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/keys/${keyId}/jwt`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -82,7 +87,7 @@ describe('App Keys API', () => {
         it('should call http', () => {
             return api.delete(appId, keyId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/keys/${keyId}`;
-                httpSpy.should.have.been.calledWith('DELETE', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });
 

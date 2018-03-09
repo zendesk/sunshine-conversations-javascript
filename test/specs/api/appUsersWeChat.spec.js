@@ -6,7 +6,7 @@ import { testJwt } from '../../mocks/jwt';
 describe('AppUsersWeChat API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -14,7 +14,7 @@ describe('AppUsersWeChat API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppUsersWeChatApi(serviceUrl, httpHeaders);
+        api = new AppUsersWeChatApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -25,7 +25,7 @@ describe('AppUsersWeChat API', () => {
         it('should call http', () => {
             return api.getQRCode(userId).then(() => {
                 const fullUrl = `${serviceUrl}/appusers/${userId}/integrations/wechat/qrcode`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });

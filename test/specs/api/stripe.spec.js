@@ -5,7 +5,7 @@ import { testJwt } from '../../mocks/jwt';
 
 describe('Stripe API', () => {
     const serviceUrl = 'http://some-url.com';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -13,7 +13,7 @@ describe('Stripe API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new StripeApi(serviceUrl, httpHeaders);
+        api = new StripeApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -24,7 +24,7 @@ describe('Stripe API', () => {
         it('should call http', () => {
             return api.getAccount().then(() => {
                 const fullUrl = `${serviceUrl}/stripe/account`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });

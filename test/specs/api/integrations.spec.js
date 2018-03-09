@@ -6,16 +6,17 @@ import { testJwt } from '../../mocks/jwt';
 describe('Integrations API', () => {
     const serviceUrl = 'http://some-url.com';
     const missingParams = 'incorrect number of parameters';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
+    const scope = 'account';
     const appId = 'appid_12345';
     let httpSpy;
     let api;
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new IntegrationsApi(serviceUrl, httpHeaders, null, true);
+        api = new IntegrationsApi({serviceUrl, authHeaders, scope});
     });
 
     afterEach(() => {
@@ -49,7 +50,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -71,7 +72,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -94,7 +95,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -116,7 +117,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -138,7 +139,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -158,7 +159,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -179,7 +180,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -199,7 +200,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -220,7 +221,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
 
@@ -233,7 +234,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -255,7 +256,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
         });
@@ -276,7 +277,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
 
@@ -289,7 +290,7 @@ describe('Integrations API', () => {
                 };
                 return api.create(appId, props).then(() => {
                     const url = `${serviceUrl}/apps/${appId}/integrations`;
-                    httpSpy.should.have.been.calledWith('POST', url, props, httpHeaders);
+                    httpSpy.should.have.been.calledWith('POST', url, props, authHeaders);
                 });
             });
 
@@ -322,7 +323,7 @@ describe('Integrations API', () => {
         it('should call http', () => {
             return api.list(appId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -332,7 +333,7 @@ describe('Integrations API', () => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     types
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -342,7 +343,7 @@ describe('Integrations API', () => {
                 const url = `${serviceUrl}/apps/${appId}/integrations`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     types: 'type1,type2'
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
     });
@@ -352,7 +353,7 @@ describe('Integrations API', () => {
             const integrationId = 'integration_123456';
             return api.get(appId, integrationId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -366,7 +367,7 @@ describe('Integrations API', () => {
             const integrationId = 'integration_123456';
             return api.update(appId, integrationId, {}).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
-                httpSpy.should.have.been.calledWith('PUT', url, {}, httpHeaders);
+                httpSpy.should.have.been.calledWith('PUT', url, {}, authHeaders);
             });
         });
 
@@ -380,7 +381,7 @@ describe('Integrations API', () => {
             const integrationId = 'integration_123456';
             return api.delete(appId, integrationId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}/integrations/${integrationId}`;
-                httpSpy.should.have.been.calledWith('DELETE', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });
 

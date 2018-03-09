@@ -7,9 +7,10 @@ describe('Integration Menu API', () => {
     const serviceUrl = 'http://some-url.com';
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
+    const scope = 'account';
     const appId = 'appid_12345';
     const integrationId = 'integrationid_12345';
     let httpSpy;
@@ -17,7 +18,7 @@ describe('Integration Menu API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new IntegrationMenuApi(serviceUrl, httpHeaders, null, true);
+        api = new IntegrationMenuApi({serviceUrl, authHeaders, scope});
     });
 
     afterEach(() => {
@@ -28,7 +29,7 @@ describe('Integration Menu API', () => {
         it('should call http', () => {
             return api.get(appId, integrationId).then(() => {
                 const fullUrl = `${serviceUrl}/apps/${appId}/integrations/${integrationId}/menu`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });
@@ -42,7 +43,7 @@ describe('Integration Menu API', () => {
             api.create(appId, integrationId, props)
             .then(() => {
                 const fullUrl = `${serviceUrl}/apps/${appId}/integrations/${integrationId}/menu`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
+                httpSpy.should.have.been.calledWith('POST', fullUrl, props, authHeaders);
                 done();
             });
         });
@@ -74,7 +75,7 @@ describe('Integration Menu API', () => {
         it('should call http', () => {
             return api.update(appId, integrationId, props).then(() => {
                 const fullUrl = `${serviceUrl}/apps/${appId}/integrations/${integrationId}/menu`;
-                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
+                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, authHeaders);
             });
         });
 
@@ -101,7 +102,7 @@ describe('Integration Menu API', () => {
         it('should call http', () => {
             return api.delete(appId, integrationId).then(() => {
                 const fullUrl = `${serviceUrl}/apps/${appId}/integrations/${integrationId}/menu`;
-                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
             });
         });
     });

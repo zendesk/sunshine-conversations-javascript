@@ -10,13 +10,14 @@ describe('Attachments API', () => {
     let httpSpy;
     let api;
 
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
+    const scope = 'app';
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AttachmentsApi(serviceUrl, httpHeaders, null, false);
+        api = new AttachmentsApi({serviceUrl, authHeaders, scope});
     });
 
     afterEach(() => {
@@ -32,7 +33,7 @@ describe('Attachments API', () => {
                 httpSpy.args[0][0].should.eq('POST');
                 httpSpy.args[0][1].should.eq(fullUrl);
                 httpSpy.args[0][2].should.be.instanceof(FormData);
-                httpSpy.args[0][3].should.eql(httpHeaders);
+                httpSpy.args[0][3].should.eql(authHeaders);
             });
         });
     });

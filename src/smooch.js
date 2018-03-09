@@ -74,25 +74,22 @@ class Smooch {
         this.VERSION = packageInfo.version;
         this.scope = auth.scope;
         this.authHeaders = getAuthenticationHeaders(auth);
-
         this.utils = {};
 
-        const isAccountScope = this.scope === 'account';
-
-        this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.attachments = new AttachmentsApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, isAccountScope, this.headers, this.httpAgent);
-        this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
+        this.menu = new MenuApi(this);
+        this.webhooks = new WebhooksApi(this);
+        this.attachments = new AttachmentsApi(this);
+        this.appUsers = new AppUsersApi(this);
+        this.conversations = new ConversationsApi(this);
+        this.stripe = new StripeApi(this);
 
         if (this.scope === 'account') {
-            this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.serviceAccounts = new ServiceAccountsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.integrations = new IntegrationsApi(this);
+            this.apps = new AppsApi(this);
+            this.appUsers = new AppUsersApi(this);
+            this.conversations = new ConversationsApi(this);
+            this.stripe = new StripeApi(this);
+            this.serviceAccounts = new ServiceAccountsApi(this);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
             this.integrations = this.apps = disabled;

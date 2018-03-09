@@ -2,26 +2,33 @@ import { BaseApi } from '../../../src/api/base';
 import { testJwt } from '../../mocks/jwt';
 
 const serviceUrl = 'http://some-url.com';
-const headers = {
+const authHeaders = {
     jwt: testJwt()
 };
 
 describe('Base API', () => {
     describe('#constructor', () => {
         it('should set service URL and auth headers', () => {
-            const api = new BaseApi(serviceUrl, headers);
+            const api = new BaseApi({
+                serviceUrl,
+                authHeaders
+            });
 
             api.serviceUrl.should.equal(serviceUrl);
-            api.authHeaders.should.equal(headers);
+            api.authHeaders.should.equal(authHeaders);
         });
     });
 
     describe('#getHeaders', function() {
         it('should include auth headers and custom headers', () => {
-            const api = new BaseApi(serviceUrl, {
-                Authorization: 'Bearer stuff'
-            }, {
-                customHeader: '1234'
+            const api = new BaseApi({
+                serviceUrl,
+                authHeaders: {
+                    Authorization: 'Bearer stuff'
+                },
+                headers: {
+                    customHeader: '1234'
+                }
             });
 
             api.getHeaders().should.eql({
@@ -33,8 +40,11 @@ describe('Base API', () => {
 
     describe('#validateAuthHeaders', () => {
         it('should not return an error if Authorization header is present', () => {
-            const api = new BaseApi(serviceUrl, {
-                Authorization: 'Bearer stuff'
+            const api = new BaseApi({
+                serviceUrl,
+                authHeaders: {
+                    Authorization: 'Bearer stuff'
+                }
             });
 
             return api.validateAuthHeaders();

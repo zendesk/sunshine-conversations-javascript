@@ -8,9 +8,10 @@ import { testJwt } from '../../mocks/jwt';
 describe('Apps API', () => {
     const serviceUrl = 'http://some-url.com';
     const missingParams = 'incorrect number of parameters';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
+    const scope = 'app';
     const appId = 'appid_12345';
     const appName = 'My Awesome Unit Test App';
     let httpSpy;
@@ -18,7 +19,7 @@ describe('Apps API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppsApi(serviceUrl, httpHeaders, null, false);
+        api = new AppsApi({serviceUrl, authHeaders, scope});
     });
 
     afterEach(() => {
@@ -39,7 +40,7 @@ describe('Apps API', () => {
                 const url = `${serviceUrl}/apps`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: appName
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -52,7 +53,7 @@ describe('Apps API', () => {
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: appName,
                     settings: {}
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
     });
@@ -63,7 +64,7 @@ describe('Apps API', () => {
         it('should call http with no limit or offset', () => {
             return api.list().then(() => {
                 const url = `${serviceUrl}/apps`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -72,7 +73,7 @@ describe('Apps API', () => {
                 const url = `${serviceUrl}/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -81,7 +82,7 @@ describe('Apps API', () => {
                 const url = `${serviceUrl}/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     offset
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -91,7 +92,7 @@ describe('Apps API', () => {
                 httpSpy.should.have.been.calledWith('GET', url, {
                     limit,
                     offset
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -101,7 +102,7 @@ describe('Apps API', () => {
                 const url = `${serviceUrl}/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     serviceAccountId
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -113,7 +114,7 @@ describe('Apps API', () => {
                     limit,
                     offset,
                     serviceAccountId
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -126,7 +127,7 @@ describe('Apps API', () => {
                 const url = `${serviceUrl}/apps`;
                 httpSpy.should.have.been.calledWith('GET', url, {
                     serviceAccountId
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -147,7 +148,7 @@ describe('Apps API', () => {
         it('should call http', () => {
             return api.get(appId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}`;
-                httpSpy.should.have.been.calledWith('GET', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', url, undefined, authHeaders);
             });
         });
 
@@ -168,7 +169,7 @@ describe('Apps API', () => {
                 httpSpy.should.have.been.calledWith('PUT', url, {
                     name: appName,
                     settings: {}
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -182,7 +183,7 @@ describe('Apps API', () => {
             const appId = 'app_123456';
             return api.delete(appId).then(() => {
                 const url = `${serviceUrl}/apps/${appId}`;
-                httpSpy.should.have.been.calledWith('DELETE', url, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('DELETE', url, undefined, authHeaders);
             });
         });
 
