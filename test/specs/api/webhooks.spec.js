@@ -11,7 +11,7 @@ describe('Webhooks API', () => {
     const malformedTargetUrl = 'Malformed target url.';
     const noPropsMessage = 'Must provide props.';
     const noTargetMessage = 'Must provide a target.';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -19,7 +19,7 @@ describe('Webhooks API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new WebhooksApi(serviceUrl, httpHeaders);
+        api = new WebhooksApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -66,8 +66,8 @@ describe('Webhooks API', () => {
     describe('#list', () => {
         it('should call http', () => {
             return api.list().then(() => {
-                const fullUrl = `${serviceUrl}/webhooks`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/webhooks`;
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });
@@ -75,8 +75,8 @@ describe('Webhooks API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(webhookId).then(() => {
-                const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/webhooks/${webhookId}`;
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });
@@ -88,8 +88,8 @@ describe('Webhooks API', () => {
 
         it('should call http', () => {
             return api.create(props).then(() => {
-                const fullUrl = `${serviceUrl}/webhooks`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, props, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/webhooks`;
+                httpSpy.should.have.been.calledWith('POST', fullUrl, props, authHeaders);
             });
         });
 
@@ -122,8 +122,8 @@ describe('Webhooks API', () => {
 
         it('should call http', () => {
             return api.update(webhookId, props).then(() => {
-                const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
-                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/webhooks/${webhookId}`;
+                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, authHeaders);
             });
         });
 
@@ -145,8 +145,8 @@ describe('Webhooks API', () => {
     describe('#delete', () => {
         it('should call http', () => {
             return api.delete(webhookId).then(() => {
-                const fullUrl = `${serviceUrl}/webhooks/${webhookId}`;
-                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/webhooks/${webhookId}`;
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
             });
         });
     });

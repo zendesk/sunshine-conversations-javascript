@@ -64,7 +64,7 @@ export default function smoochMethod({params, optional=[], path, method, func}) 
             }
         });
 
-        const url = this.serviceUrl + renderedPath;
+        const url = this.serviceUrl + '/v1' + renderedPath;
         if (method) {
             if (['POST', 'PUT'].includes(method)) {
                 // Payload object must always specified in the last arg

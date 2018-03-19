@@ -11,12 +11,11 @@ import { http } from '../utils/http';
  * @class BaseApi
  */
 export class BaseApi {
-    constructor(serviceUrl, authHeaders, headers, requireAppId, httpAgent) {
-        this.serviceUrl = serviceUrl;
-        this.authHeaders = authHeaders;
-        this.headers = headers;
-        this.requireAppId = !!requireAppId;
-        this.httpAgent = httpAgent;
+    constructor(options) {
+        this.serviceUrl = options.serviceUrl.replace(/\/$/, '');
+        this.authHeaders = options.authHeaders;
+        this.requireAppId = options.scope === 'account';
+        this.httpAgent = options.httpAgent;
     }
 
     /**
@@ -51,7 +50,6 @@ export class BaseApi {
      */
     getHeaders() {
         return {
-            ...this.headers,
             ...this.authHeaders
         };
     }

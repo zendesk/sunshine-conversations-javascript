@@ -6,7 +6,7 @@ import { testJwt } from '../../mocks/jwt';
 describe('AppUsersStripe API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -14,7 +14,7 @@ describe('AppUsersStripe API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppUsersStripeApi(serviceUrl, httpHeaders);
+        api = new AppUsersStripeApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -24,10 +24,10 @@ describe('AppUsersStripe API', () => {
     describe('#updateCustomer', () => {
         it('should call http', () => {
             return api.updateCustomer(userId, 'token').then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/customer`;
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/stripe/customer`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, {
                     token: 'token'
-                }, httpHeaders);
+                }, authHeaders);
             });
         });
 
@@ -40,11 +40,11 @@ describe('AppUsersStripe API', () => {
         describe('with token', () => {
             it('should call http', () => {
                 return api.createTransaction(userId, 'actionId', 'token').then(() => {
-                    const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/transaction`;
+                    const fullUrl = `${serviceUrl}/v1/appusers/${userId}/stripe/transaction`;
                     httpSpy.should.have.been.calledWith('POST', fullUrl, {
                         actionId: 'actionId',
                         token: 'token'
-                    }, httpHeaders);
+                    }, authHeaders);
                 });
             });
 
@@ -58,10 +58,10 @@ describe('AppUsersStripe API', () => {
         describe('without token', () => {
             it('should call http', () => {
                 return api.createTransaction(userId, 'actionId').then(() => {
-                    const fullUrl = `${serviceUrl}/appusers/${userId}/stripe/transaction`;
+                    const fullUrl = `${serviceUrl}/v1/appusers/${userId}/stripe/transaction`;
                     httpSpy.should.have.been.calledWith('POST', fullUrl, {
                         actionId: 'actionId'
-                    }, httpHeaders);
+                    }, authHeaders);
                 });
             });
 

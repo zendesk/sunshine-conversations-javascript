@@ -6,7 +6,7 @@ import { testJwt } from '../../mocks/jwt';
 describe('AppUsersViber API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -14,7 +14,7 @@ describe('AppUsersViber API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppUsersViberApi(serviceUrl, httpHeaders);
+        api = new AppUsersViberApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -24,8 +24,8 @@ describe('AppUsersViber API', () => {
     describe('#getQRCode', () => {
         it('should call http', () => {
             return api.getQRCode(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/integrations/viber/qrcode`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/integrations/viber/qrcode`;
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });

@@ -8,7 +8,7 @@ import { testJwt } from '../../mocks/jwt';
 describe('Conversations API', () => {
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -16,7 +16,7 @@ describe('Conversations API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new ConversationsApi(serviceUrl, httpHeaders);
+        api = new ConversationsApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -26,8 +26,8 @@ describe('Conversations API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/conversation`;
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });
@@ -39,8 +39,8 @@ describe('Conversations API', () => {
             };
 
             return api.postPostback(userId, body.actionId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/postback`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, body, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/conversation/postback`;
+                httpSpy.should.have.been.calledWith('POST', fullUrl, body, authHeaders);
             });
         });
     });
@@ -73,8 +73,8 @@ describe('Conversations API', () => {
     describe('#resetUnreadCount', () => {
         it('should call http', () => {
             return api.resetUnreadCount(userId).then(() => {
-                const fullUrl = `${serviceUrl}/appusers/${userId}/conversation/read`;
-                httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}/conversation/read`;
+                httpSpy.should.have.been.calledWith('POST', fullUrl, undefined, authHeaders);
             });
         });
     });

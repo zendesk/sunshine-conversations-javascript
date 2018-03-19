@@ -16,15 +16,22 @@ import { decode } from 'jsonwebtoken';
 
 import packageInfo from '../package.json';
 
-const SERVICE_URL = 'https://api.smooch.io/v1';
+const SERVICE_URL = 'https://api.smooch.io';
 
 if (!global.FormData) {
     global.FormData = require('form-data');
 }
 
 class Smooch {
-    constructor(auth = {}, options = {}) {
-        const {serviceUrl = SERVICE_URL, headers = {}, httpAgent} = options;
+    constructor(options = {}) {
+        const {serviceUrl = SERVICE_URL, httpAgent} = options;
+        const auth = {
+            keyId: options.keyId,
+            secret: options.secret,
+            scope: options.scope,
+            jwt: options.jwt,
+            userId: options.userId
+        };
 
         if (auth.keyId || auth.secret) {
             if (!auth.scope) {
@@ -49,13 +56,8 @@ class Smooch {
                 jwtBody.userId = auth.userId;
             }
 
-            auth = {
-                jwt: jwt.generate(jwtBody, auth.secret, auth.keyId),
-                scope: auth.scope
-            };
-        }
-
-        if (auth.jwt) {
+            auth.jwt = jwt.generate(jwtBody, auth.secret, auth.keyId);
+        } else if (auth.jwt) {
             const decoded = decode(auth.jwt);
             if (!decoded) {
                 throw new Error('jwt is malformed.');
@@ -66,31 +68,27 @@ class Smooch {
             auth.scope = decoded.scope;
         }
 
-        this.headers = headers;
         this.httpAgent = httpAgent;
         this.serviceUrl = serviceUrl;
         this.VERSION = packageInfo.version;
-        this.scope = auth.scope || 'appUser';
+        this.scope = auth.scope;
         this.authHeaders = getAuthenticationHeaders(auth);
-
         this.utils = {};
 
-        const isAccountScope = this.scope === 'account';
-
-        this.menu = new MenuApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.webhooks = new WebhooksApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.attachments = new AttachmentsApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
-        this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, isAccountScope, this.headers, this.httpAgent);
-        this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, isAccountScope, this.httpAgent);
+        this.menu = new MenuApi(this);
+        this.webhooks = new WebhooksApi(this);
+        this.attachments = new AttachmentsApi(this);
+        this.appUsers = new AppUsersApi(this);
+        this.conversations = new ConversationsApi(this);
+        this.stripe = new StripeApi(this);
 
         if (this.scope === 'account') {
-            this.integrations = new IntegrationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.apps = new AppsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.appUsers = new AppUsersApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.conversations = new ConversationsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.stripe = new StripeApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
-            this.serviceAccounts = new ServiceAccountsApi(this.serviceUrl, this.authHeaders, this.headers, true, this.httpAgent);
+            this.integrations = new IntegrationsApi(this);
+            this.apps = new AppsApi(this);
+            this.appUsers = new AppUsersApi(this);
+            this.conversations = new ConversationsApi(this);
+            this.stripe = new StripeApi(this);
+            this.serviceAccounts = new ServiceAccountsApi(this);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
             this.integrations = this.apps = disabled;

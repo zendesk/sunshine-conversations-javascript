@@ -5,7 +5,7 @@ import smoochMethod from '../../../src/utils/smoochMethod';
 import { getAuthenticationHeaders } from '../../../src/utils/auth';
 
 
-const serviceUrl = 'http://example.org/v1';
+const serviceUrl = 'http://example.org';
 const appId = 'appId';
 const param1 = 'foo';
 
@@ -156,9 +156,12 @@ describe('Smooch Method', () => {
 
     describe('method requires appId', () => {
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, true);
+            testApi = new TestApi({
+                serviceUrl,
+                scope: 'account'
+            });
             expected = {
-                url: `${serviceUrl}/apps/${appId}/param1/${param1}`,
+                url: `${serviceUrl}/v1/apps/${appId}/param1/${param1}`,
                 param1
             };
         });
@@ -189,9 +192,11 @@ describe('Smooch Method', () => {
 
     describe('appId resolved by credential scope', () => {
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, false);
+            testApi = new TestApi({
+                serviceUrl
+            });
             expected = {
-                url: `${serviceUrl}/param1/${param1}`,
+                url: `${serviceUrl}/v1/param1/${param1}`,
                 param1
             };
         });
@@ -226,9 +231,11 @@ describe('Smooch Method', () => {
         const param3 = 'baz';
 
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, false);
+            testApi = new TestApi({
+                serviceUrl
+            });
             expected = {
-                url: `${serviceUrl}/param1/${param1}/param2/${param2}/param3/${param3}`,
+                url: `${serviceUrl}/v1/param1/${param1}/param2/${param2}/param3/${param3}`,
                 param1,
                 param2,
                 param3
@@ -253,7 +260,9 @@ describe('Smooch Method', () => {
     describe('method with single props arg', () => {
         let props;
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, false);
+            testApi = new TestApi({
+                serviceUrl
+            });
             props = {
                 a: 'foo',
                 b: 'bar'
@@ -275,8 +284,10 @@ describe('Smooch Method', () => {
 
     describe('method with no params', () => {
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, false);
-            expected = `${serviceUrl}/foo`;
+            testApi = new TestApi({
+                serviceUrl
+            });
+            expected = `${serviceUrl}/v1/foo`;
         });
 
         it('should accept no params', () => {
@@ -299,7 +310,9 @@ describe('Smooch Method', () => {
     describe('method with optional params', () => {
         const param2 = 'bar';
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, {}, {}, false);
+            testApi = new TestApi({
+                serviceUrl
+            });
         });
 
         it('should accept full param list', () => {
@@ -333,14 +346,17 @@ describe('Smooch Method', () => {
         let expectedUrl;
         let body;
 
-        const httpHeaders = getAuthenticationHeaders({
+        const authHeaders = getAuthenticationHeaders({
             jwt: testJwt()
         });
 
         beforeEach(() => {
-            testApi = new TestApi(serviceUrl, httpHeaders, {}, false);
+            testApi = new TestApi({
+                serviceUrl,
+                authHeaders
+            });
             httpSpy = httpMock.mock();
-            expectedUrl = `${serviceUrl}/param1/${param1}`;
+            expectedUrl = `${serviceUrl}/v1/param1/${param1}`;
             body = {
                 'foo': 'bar'
             };
@@ -350,25 +366,25 @@ describe('Smooch Method', () => {
 
         it('should make a GET', () => {
             return testApi.getMethod(param1).then(() => {
-                httpSpy.should.have.been.calledWith('GET', expectedUrl, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('GET', expectedUrl, undefined, authHeaders);
             });
         });
 
         it('should make a POST', () => {
             return testApi.postMethod(param1, body).then(() => {
-                httpSpy.should.have.been.calledWith('POST', expectedUrl, body, httpHeaders);
+                httpSpy.should.have.been.calledWith('POST', expectedUrl, body, authHeaders);
             });
         });
 
         it('should make a PUT', () => {
             return testApi.putMethod(param1, body).then(() => {
-                httpSpy.should.have.been.calledWith('PUT', expectedUrl, body, httpHeaders);
+                httpSpy.should.have.been.calledWith('PUT', expectedUrl, body, authHeaders);
             });
         });
 
         it('should make a DELETE', () => {
             return testApi.deleteMethod(param1).then(() => {
-                httpSpy.should.have.been.calledWith('DELETE', expectedUrl, undefined, httpHeaders);
+                httpSpy.should.have.been.calledWith('DELETE', expectedUrl, undefined, authHeaders);
             });
         });
     });

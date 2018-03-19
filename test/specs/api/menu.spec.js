@@ -7,7 +7,7 @@ describe('Menu API', () => {
     const serviceUrl = 'http://some-url.com';
     const noPropsMessage = 'Must provide props.';
     const noItemsMessage = 'Must provide an array of items.';
-    const httpHeaders = getAuthenticationHeaders({
+    const authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
     let httpSpy;
@@ -15,7 +15,7 @@ describe('Menu API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new MenuApi(serviceUrl, httpHeaders);
+        api = new MenuApi({serviceUrl, authHeaders});
     });
 
     afterEach(() => {
@@ -25,8 +25,8 @@ describe('Menu API', () => {
     describe('#get', () => {
         it('should call http', () => {
             return api.get().then(() => {
-                const fullUrl = `${serviceUrl}/menu`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/menu`;
+                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
             });
         });
     });
@@ -39,8 +39,8 @@ describe('Menu API', () => {
 
         it('should call http', () => {
             return api.configure(props).then(() => {
-                const fullUrl = `${serviceUrl}/menu`;
-                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/menu`;
+                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, authHeaders);
             });
         });
 
@@ -64,8 +64,8 @@ describe('Menu API', () => {
     describe('#remove', () => {
         it('should call http', () => {
             return api.remove().then(() => {
-                const fullUrl = `${serviceUrl}/menu`;
-                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, httpHeaders);
+                const fullUrl = `${serviceUrl}/v1/menu`;
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
             });
         });
     });

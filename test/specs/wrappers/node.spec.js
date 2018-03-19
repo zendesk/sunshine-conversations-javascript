@@ -87,21 +87,6 @@ describe('Smooch', () => {
         }
     });
 
-    it('should accept custom headers', () => {
-        const authOptions = {
-            jwt: testJwt()
-        };
-
-        const customHeaders = {
-            myheader: '1234'
-        };
-
-        var smooch = new Smooch(authOptions, {
-            headers: customHeaders
-        });
-        smooch.headers.should.deep.equal(customHeaders);
-    });
-
     describe('generating jwt', () => {
         const keyId = 'keyId';
         const secret = 'secret';
@@ -135,5 +120,13 @@ describe('Smooch', () => {
             decodedToken.scope.should.equal(scope);
             decodedToken.userId.should.equal(userId);
         });
+    });
+
+    it('should accept custom serviceUrl', () => {
+        const smooch = new Smooch({
+            jwt: testJwt(),
+            serviceUrl: 'https://different.smooch.io'
+        });
+        smooch.serviceUrl.should.equal('https://different.smooch.io');
     });
 });
