@@ -26,10 +26,10 @@ Object.assign(AppsApi.prototype, {
      * @return {APIResponse}
      */
     create: smoochMethod({
-        params: ['name', 'settings'],
-        optional: ['settings'],
+        params: ['name', 'settings', 'metadata'],
+        optional: ['settings', 'metadata'],
         path: '/apps',
-        func: function create(url, name, settings) {
+        func: function create(url, name, settings, metadata) {
             if (typeof name !== 'string') {
                 throw new Error('Invalid name parameter type, expected string');
             }
@@ -40,6 +40,10 @@ Object.assign(AppsApi.prototype, {
 
             if (settings) {
                 params.settings = settings;
+            }
+
+            if (metadata) {
+                params.metadata = metadata;
             }
 
             return this.request('POST', url, params);
