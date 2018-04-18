@@ -19,7 +19,11 @@ describe('Apps API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AppsApi({serviceUrl, authHeaders, scope});
+        api = new AppsApi({
+            serviceUrl,
+            authHeaders,
+            scope
+        });
     });
 
     afterEach(() => {
@@ -47,12 +51,18 @@ describe('Apps API', () => {
         it('should call http', () => {
             return api.create({
                 name: appName,
-                settings: {}
+                settings: {},
+                metadata: {
+                    a: 'b'
+                }
             }).then(() => {
                 const url = `${serviceUrl}/v1/apps`;
                 httpSpy.should.have.been.calledWith('POST', url, {
                     name: appName,
-                    settings: {}
+                    settings: {},
+                    metadata: {
+                        a: 'b'
+                    }
                 }, authHeaders);
             });
         });
