@@ -5,8 +5,10 @@ import { createReadStream } from 'streamifier';
 import { testJwt } from '../../mocks/jwt';
 
 describe('AppUsers API', () => {
+    const appId = 'app-id';
     const serviceUrl = 'http://some-url.com';
     const userId = 'user-id';
+    const messageId = 'message-id';
     let authHeaders = getAuthenticationHeaders({
         jwt: testJwt()
     });
@@ -202,6 +204,28 @@ describe('AppUsers API', () => {
             return api.sendMessage(userId, message).then(() => {
                 const fullUrl = `${serviceUrl}/v1/appusers/${userId}/messages`;
                 httpSpy.should.have.been.calledWith('POST', fullUrl, message, authHeaders);
+            });
+        });
+    });
+
+    describe('#deleteMessage', () => {
+        authHeaders = getAuthenticationHeaders({
+            jwt: testJwt()
+        });
+
+        it('should call http', () => {
+            const jwtApi = new AppUsersApi({
+                scope: 'account',
+                serviceUrl,
+                authHeaders
+            });
+            return jwtApi.deleteMessage({
+                appId,
+                userId,
+                messageId
+            }).then(() => {
+                const fullUrl = `${serviceUrl}/v1/apps/${appId}/appusers/${userId}/messages/${messageId}`;
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
             });
         });
     });
