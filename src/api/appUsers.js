@@ -215,6 +215,20 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
+     * Deletes a single message
+     * @memberof AppUsersApi.prototype
+     * @method deleteMessage
+     * @param  {string} userId    - a user id
+     * @param  {string} messageId - a message id
+     * @return {APIResponse}
+     */
+    deleteMessage: smoochMethod({
+        params: ['userId', 'messageId'],
+        path: '/appusers/:userId/messages/:messageId',
+        method: 'DELETE'
+    }),
+
+    /**
      * Deletes an appUser's message history
      * @memberof AppUsersApi.prototype
      * @method deleteMessages
