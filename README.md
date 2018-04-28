@@ -75,7 +75,8 @@ For more detailed information and example usage of each of the following methods
 | `appUsers.resetUnreadCount`   | Reset the unread count of the conversation to 0. | [:link:](https://docs.smooch.io/rest/?javascript#reset-unread-count) |
 | `appUsers.typingActivity`     | Notify Smooch when an app maker starts or stops typing a response. | [:link:](https://docs.smooch.io/rest/?javascript#typing-activity) |
 | `appUsers.sendMessage`        | Post a message to or from the appUser. | [:link:](https://docs.smooch.io/rest/?javascript#post-message) |
-| `appUsers.deleteMessages`     | Clears the message history for an appUser, permanently deleting all messages. | [:link:](https://docs.smooch.io/rest/?javascript#delete-messages) |
+| `appUsers.deleteMessage`      | Delete a single message. | [:link:](https://docs.smooch.io/rest/?javascript#delete-single-message) |
+| `appUsers.deleteMessages`     | Clears the message history for an appUser, permanently deleting all messages. | [:link:](https://docs.smooch.io/rest/?javascript#delete-all-messages) |
 | `appUsers.getChannels`        | Get all of the appUser’s channel entity Ids. | [:link:](https://docs.smooch.io/rest/?javascript#get-app-user-channel-entities) |
 | `appUsers.getBusinessSystems` | Get all the business systems to which an appUser’s conversation is connected.| [:link:](https://docs.smooch.io/rest/?javascript#get-app-user-business-system-ids) |
 | `appUsers.getAuthCode`        | Get auth code. | [:link:](https://docs.smooch.io/rest/?javascript#get-auth-code) |
