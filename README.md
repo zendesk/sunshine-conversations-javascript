@@ -122,6 +122,7 @@ For more detailed information and example usage of each of the following methods
 | `serviceAccounts.keys.getJwt` | Get an account-scoped JWT signed using the requested keyId/secret pair. | [:link:](https://docs.smooch.io/rest/?javascript#get-service-account-jwt) |
 | **attachments Module**        | | |
 | `attachments.create`          | Upload an attachment to Smooch to use in future messages. | [:link:](https://docs.smooch.io/rest/?javascript#upload-attachment) |
+| `attachments.delete`          | Remove an attachment uploaded to Smooch | [:link:](https://docs.smooch.io/rest/?javascript#delete-attachment) |
 
 ## Release process
 1. Merge your changes in `master`.

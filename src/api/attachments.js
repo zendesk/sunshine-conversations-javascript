@@ -36,5 +36,22 @@ Object.assign(AttachmentsApi.prototype, {
 
             return this.request('POST', url, data);
         }
+    }),
+
+    /**
+     * Remove an attachment
+     * @memberof AttachmentsApi.prototype
+     * @method delete
+     * @param  {string} mediaUrl
+     * @return {APIResponse}
+     */
+    delete: smoochMethod({
+        params: ['mediaUrl'],
+        path: '/attachments/remove',
+        func: function deleteAttachment(url, mediaUrl) {
+            return this.request('POST', url, {
+                mediaUrl
+            });
+        }
     })
 });
