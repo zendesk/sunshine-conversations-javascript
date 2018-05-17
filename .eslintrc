@@ -21,6 +21,10 @@
         "prefer-const": 2,
         "arrow-parens": [2, "always"]
     },
+    "globals": {
+        "__rewire_reset_all__": true,
+        "FormData": true
+    },
     "env": {
         "es6": true,
         "node": true,

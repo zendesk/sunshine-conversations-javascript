@@ -17,7 +17,11 @@ describe('Attachments API', () => {
 
     beforeEach(() => {
         httpSpy = httpMock.mock();
-        api = new AttachmentsApi({serviceUrl, authHeaders, scope});
+        api = new AttachmentsApi({
+            serviceUrl,
+            authHeaders,
+            scope
+        });
     });
 
     afterEach(() => {
@@ -34,6 +38,19 @@ describe('Attachments API', () => {
                 httpSpy.args[0][1].should.eq(fullUrl);
                 httpSpy.args[0][2].should.be.instanceof(FormData);
                 httpSpy.args[0][3].should.eql(authHeaders);
+            });
+        });
+    });
+
+    describe('#delete', () => {
+        it('should call http', () => {
+            const fullUrl = `${serviceUrl}/v1/attachments/remove`;
+            const body = {
+                mediaUrl: 'http://some-url.com/document.pdf'
+            };
+
+            return api.delete(body).then(() => {
+                httpSpy.should.have.been.calledWith('POST', fullUrl, body, authHeaders);
             });
         });
     });
