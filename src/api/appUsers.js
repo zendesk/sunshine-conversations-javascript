@@ -280,6 +280,28 @@ Object.assign(AppUsersApi.prototype, {
     }),
 
     /**
+     * Deletes an appUser
+     * @memberof AppUsersApi.prototype
+     * @method delete
+     * @param  {string} userId    - a user id
+     * @return {APIResponse}
+     */
+    delete: smoochMethod({
+        params: ['userId'],
+        path: '/appusers/:userId',
+        func: function deleteAppUser(url, userId) {
+            if (!userId || !userId.trim()) {
+                return Promise.reject(new Error('Must provide a userId.'));
+            }
+
+            // this endpoint only accepts JWT auth
+            return this.request('DELETE', url, {}, {
+                allowedAuth: ['jwt']
+            });
+        }
+    }),
+
+    /**
      * Deletes an appUser's profile
      * @memberof AppUsersApi.prototype
      * @method deleteProfile

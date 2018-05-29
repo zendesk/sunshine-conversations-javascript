@@ -67,7 +67,8 @@ For more detailed information and example usage of each of the following methods
 | **appUsers Module**           | | |
 | `appUsers.get`                | Get a specific appUser.  | [:link:](https://docs.smooch.io/rest/?javascript#get-app-user) |
 | `appUsers.update`             | Update an appUser’s basic profile information and specify custom profile data. | [:link:](https://docs.smooch.io/rest/?javascript#update-app-user) |
-| `appUsers.deleteProfile`      | Delete an appUser’s profile. | [:link:](https://docs.smooch.io/rest/?javascript#delete-app-user) |
+| `appUsers.delete`             | Delete an appUser. | [:link:](https://docs.smooch.io/rest/?javascript#delete-app-user) |
+| `appUsers.deleteProfile`      | Delete an appUser’s profile. | [:link:](https://docs.smooch.io/rest/?javascript#delete-app-user-profile) |
 | `appUsers.create`             | Pre-create an appUser object before that appUser runs your app for the first time. | [:link:](https://docs.smooch.io/rest/?javascript#pre-create-app-user) |
 | `appUsers.linkChannel`        | Link appUser to continue conversation on his/her preferred channel. | [:link:](https://docs.smooch.io/rest/?javascript#link-app-user-to-channel) |
 | `appUsers.unlinkChannel`      | Remove the specified channel from the appUser’s clients. | [:link:](https://docs.smooch.io/rest/?javascript#unlink-app-user-from-channel) |
