@@ -292,6 +292,23 @@ describe('AppUsers API', () => {
         });
     });
 
+    describe('#delete', () => {
+        authHeaders = getAuthenticationHeaders({
+            jwt: testJwt()
+        });
+
+        it('should call http', () => {
+            const jwtApi = new AppUsersApi({
+                serviceUrl,
+                authHeaders
+            });
+            return jwtApi.delete(userId).then(() => {
+                const fullUrl = `${serviceUrl}/v1/appusers/${userId}`;
+                httpSpy.should.have.been.calledWith('DELETE', fullUrl, {}, authHeaders);
+            });
+        });
+    });
+
     describe('#deleteProfile', () => {
         authHeaders = getAuthenticationHeaders({
             jwt: testJwt()
