@@ -29,11 +29,30 @@ describe('Attachments API', () => {
     });
 
     describe('#create', () => {
-        it('should call http', () => {
+        it('should call http given access as arg', () => {
             const fullUrl = `${serviceUrl}/v1/attachments?access=public`;
             const source = createReadStream('some source object');
 
             return api.create('public', source).then(() => {
+                httpSpy.args[0][0].should.eq('POST');
+                httpSpy.args[0][1].should.eq(fullUrl);
+                httpSpy.args[0][2].should.be.instanceof(FormData);
+                httpSpy.args[0][3].should.eql(authHeaders);
+            });
+        });
+
+        it('should call http given query params as arg', () => {
+            const fullUrl = `${serviceUrl}/v1/attachments?access=public&for=message&userId=userId&appUserId=appUserId`;
+            const source = createReadStream('some source object');
+
+            const params = {
+                access: 'public',
+                for: 'message',
+                userId: 'userId',
+                appUserId: 'appUserId'
+            };
+
+            return api.create(params, source).then(() => {
                 httpSpy.args[0][0].should.eq('POST');
                 httpSpy.args[0][1].should.eq(fullUrl);
                 httpSpy.args[0][2].should.be.instanceof(FormData);

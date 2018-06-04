@@ -28,11 +28,29 @@ Object.assign(AttachmentsApi.prototype, {
     create: smoochMethod({
         params: ['source', 'access'],
         path: '/attachments',
-        func: function create(url, access, source) {
+        func: function create(url, queryParams, source) {
             const data = new FormData();
             data.append('source', source);
 
-            url += `?access=${access}`;
+            // back compat, this is the access param
+            if (typeof queryParams === 'string') {
+                url += `?access=${queryParams}`;
+            } else {
+                const {access, for: attachmentFor, userId, appUserId} = queryParams;
+                url += `?access=${access}`;
+
+                if (attachmentFor) {
+                    url += `&for=${attachmentFor}`;
+                }
+
+                if (userId) {
+                    url += `&userId=${userId}`;
+                }
+
+                if (appUserId) {
+                    url += `&appUserId=${appUserId}`;
+                }
+            }
 
             return this.request('POST', url, data);
         }
