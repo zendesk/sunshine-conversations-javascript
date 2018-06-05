@@ -21,22 +21,22 @@ Object.assign(AttachmentsApi.prototype, {
      * Create an attachment
      * @memberof AttachmentsApi.prototype
      * @method create
-     * @param  {string} access
+     * @param  {Object|string} queryParams
      * @param  {Readable} source
      * @return {APIResponse}
      */
     create: smoochMethod({
-        params: ['source', 'access'],
+        params: ['props', 'source'],
         path: '/attachments',
-        func: function create(url, queryParams, source) {
+        func: function create(url, queryParamsOrAccess, source) {
             const data = new FormData();
             data.append('source', source);
 
             // back compat, this is the access param
-            if (typeof queryParams === 'string') {
-                url += `?access=${queryParams}`;
+            if (typeof queryParamsOrAccess === 'string') {
+                url += `?access=${queryParamsOrAccess}`;
             } else {
-                const {access, for: attachmentFor, userId, appUserId} = queryParams;
+                const {access, for: attachmentFor, userId, appUserId} = queryParamsOrAccess;
                 url += `?access=${access}`;
 
                 if (attachmentFor) {

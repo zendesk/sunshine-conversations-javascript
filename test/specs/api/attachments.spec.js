@@ -59,6 +59,28 @@ describe('Attachments API', () => {
                 httpSpy.args[0][3].should.eql(authHeaders);
             });
         });
+
+        it('should call http in object mode', () => {
+            const fullUrl = `${serviceUrl}/v1/attachments?access=public&for=message&userId=userId&appUserId=appUserId`;
+            const source = createReadStream('some source object');
+
+            const params = {
+                props: {
+                    access: 'public',
+                    for: 'message',
+                    userId: 'userId',
+                    appUserId: 'appUserId'
+                },
+                source
+            };
+
+            return api.create(params).then(() => {
+                httpSpy.args[0][0].should.eq('POST');
+                httpSpy.args[0][1].should.eq(fullUrl);
+                httpSpy.args[0][2].should.be.instanceof(FormData);
+                httpSpy.args[0][3].should.eql(authHeaders);
+            });
+        });
     });
 
     describe('#delete', () => {
