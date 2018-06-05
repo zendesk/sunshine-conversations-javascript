@@ -87,6 +87,8 @@ describe('Integrations API', () => {
 
             it('should call http', () => {
                 const props = {
+                    tier: 'premium',
+                    envName: 'env-beta',
                     type: 'twitter',
                     consumerKey: 'foo',
                     consumerSecret: 'bar',

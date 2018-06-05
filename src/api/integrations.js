@@ -62,7 +62,7 @@ const integrations = {
     line: new IntegrationType(['channelAccessToken', 'channelSecret']),
     viber: new IntegrationType(['token']),
     wechat: new IntegrationType(['appId', 'appSecret'], ['encodingAesKey']),
-    twitter: new IntegrationType(['consumerKey', 'consumerSecret', 'accessTokenKey', 'accessTokenSecret']),
+    twitter: new IntegrationType(['consumerKey', 'consumerSecret', 'accessTokenKey', 'accessTokenSecret'], ['tier', 'envName']),
     mailgun: new IntegrationType(['apiKey', 'domain', 'incomingAddress']),
     fcm: new IntegrationType(['serverKey', 'senderId']),
     apn: new IntegrationType(['certificate'], [{
