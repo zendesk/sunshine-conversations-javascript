@@ -124,6 +124,12 @@ For more detailed information and example usage of each of the following methods
 | **attachments Module**        | | |
 | `attachments.create`          | Upload an attachment to Smooch to use in future messages. | [:link:](https://docs.smooch.io/rest/?javascript#upload-attachment) |
 | `attachments.delete`          | Remove an attachment uploaded to Smooch | [:link:](https://docs.smooch.io/rest/?javascript#delete-attachment) |
+| **templates Module**        | | |
+| `templates.create`         | Create a new template. | [:link:](https://docs.smooch.io/rest/?javascript#create-template) |
+| `templates.list`           | List all templates for a given app. | [:link:](https://docs.smooch.io/rest/?javascript#list-templates) |
+| `templates.get`            | Return the specified template. | [:link:](https://docs.smooch.io/rest/?javascript#get-template) |
+| `templates.update`         | Update the specified template. | [:link:](https://docs.smooch.io/rest/?javascript#update-template) |
+| `templates.delete`         | Delete the specified template. | [:link:](https://docs.smooch.io/rest/?javascript#delete-template) |
 
 ## Release process
 1. Merge your changes in `master`.
