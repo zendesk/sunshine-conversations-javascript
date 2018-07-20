@@ -3,7 +3,7 @@ import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { testJwt } from '../../mocks/jwt';
 import { TemplatesApi } from '../../../src/api/templates';
 
-describe('Template API', () => {
+describe.only('Template API', () => {
     const serviceUrl = 'http://some-url.com';
     const noPropsMessage = 'Must provide props.';
     const noNameMessage = 'Must provide name for your template.';
@@ -31,138 +31,278 @@ describe('Template API', () => {
         httpMock.restore();
     });
 
-    describe('#create', () => {
-        const props = {
-            name: 'test',
-            message: {}
-        };
+    const templateApiSuite = (propsOnly) => {
+        describe('#create', () => {
+            const preArgs = [];
 
-        it('should call http', () => {
-            return api.create(appId, props)
-                .then(() => {
-                    const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates`;
-                    httpSpy.should.have.been.calledWith('POST', fullUrl, props, authHeaders);
+            const props = {
+                name: 'test',
+                message: {}
+            };
+
+            const data = { };
+
+            if (propsOnly) {
+                Object.assign(data, {
+                    appId,
+                    templateId,
+                    props
                 });
-        });
+            } else {
+                preArgs.push(appId);
+                Object.assign(data, props);
+            }
 
-        it('should return an error if no props', () => {
-            return api.create(appId, undefined)
-                .catch((e) => {
-                    e.message.should.equal(noPropsMessage);
+            it('should call http', () => {
+                return api.create(...preArgs, data)
+                    .then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates`;
+                        httpSpy.should.have.been.calledWith('POST', fullUrl, props, authHeaders);
+                    });
+            });
+
+            if (!propsOnly) {
+                it('should return an error if no props', () => {
+                    return api.create(...preArgs, {
+                        ...data
+                    }).catch((e) => {
+                        e.message.should.equal(noPropsMessage);
+                    });
                 });
+
+                it('should return an error if no name', () => {
+                    return api.create(...preArgs, {
+                        ...data,
+                        props: {
+                            ...props,
+                            name: undefined
+                        }
+                    }).catch((e) => {
+                        e.message.should.equal(noNameMessage);
+                    });
+                });
+
+                it('should return an error if no message', () => {
+                    return api.create(...preArgs, {
+                        ...data,
+                        props: {
+                            ...props,
+                            message: undefined
+                        }
+                    }).catch((e) => {
+                        e.message.should.equal(noMessageMessage);
+                    });
+                });
+            }
         });
 
-        it('should return an error if no name', () => {
-            return api.create(appId, {
-                ...props,
-                name: undefined
-            }).catch((e) => {
-                e.message.should.equal(noNameMessage);
-            });
-        });
+        describe('#list', () => {
+            const limit = 0;
+            const offset = 0;
 
-        it('should return an error if no message', () => {
-            return api.create(appId, {
-                ...props,
-                message: undefined
-            }).catch((e) => {
-                e.message.should.equal(noMessageMessage);
-            });
-        });
-    });
+            const preArgs = [];
 
-    describe('#list', () => {
-        const limit = 0;
-        const offset = 0;
-
-        it('should call http', () => {
-            return api.list(appId).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
-            });
-        });
-
-        it('should call http with limit/offset', () => {
-            return api.list(appId, {
+            const props = {
                 limit,
                 offset
-            }).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?limit=${limit}&offset=${offset}`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
-            });
-        });
+            };
 
-        it('should call http with just limit', () => {
-            return api.list(appId, {
-                limit
-            }).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?limit=${limit}`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
-            });
-        });
+            const data = { };
 
-        it('should call http with just offset', () => {
-            return api.list(appId, {
-                offset
-            }).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?offset=${offset}`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
-            });
-        });
-
-        it('should call http without extra query stuff', () => {
-            return api.list(appId, {
-                fake: 'stuff'
-            }).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
-            });
-        });
-    });
-
-    describe('#get', () => {
-        it('should call http', () => {
-            return api.get(appId, templateId).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
-                httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
-            });
-        });
-    });
-
-    describe('#update', () => {
-        const props = {
-            name: 'test',
-            message: {}
-        };
-
-        it('should call http', () => {
-            return api.update(appId, templateId, props).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
-                httpSpy.should.have.been.calledWith('PUT', fullUrl, props, authHeaders);
-            });
-        });
-
-        it('should return an error if no props', () => {
-            return api.update(appId, templateId, undefined)
-                .catch((e) => {
-                    e.message.should.equal(noPropsMessage);
+            if (propsOnly) {
+                Object.assign(data, {
+                    appId,
+                    props
                 });
-        });
+            } else {
+                preArgs.push(appId);
+                Object.assign(data, props);
+            }
 
-        it('should return an error if no name or message', () => {
-            return api.update(appId, templateId, {})
-                .catch((e) => {
-                    e.message.should.equal(noNameOrMessageMessage);
+            it('should call http', () => {
+                if (propsOnly) {
+                    return api.list(...preArgs, {
+                        ...data,
+                        props: { }
+                    }).then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates`;
+                        httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                    });
+                } else {
+                    return api.list(...preArgs).then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates`;
+                        httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                    });
+                }
+            });
+
+            it('should call http with limit/offset', () => {
+                return api.list(...preArgs, data).then(() => {
+                    const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?limit=${limit}&offset=${offset}`;
+                    httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
                 });
-        });
-    });
+            });
 
-    describe('#delete', () => {
-        it('should call http', () => {
-            return api.delete(appId, templateId).then(() => {
-                const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
-                httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
+            it('should call http with just limit', () => {
+                return api.list(...preArgs, {
+                    ...data,
+                    offset: undefined,
+                    props: {
+                        ...props,
+                        offset: undefined
+                    }
+                }).then(() => {
+                    const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?limit=${limit}`;
+                    httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                });
+            });
+
+            it('should call http with just offset', () => {
+                return api.list(...preArgs, {
+                    ...data,
+                    limit: undefined,
+                    props: {
+                        ...props,
+                        limit: undefined
+                    }
+                }).then(() => {
+                    const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?offset=${offset}`;
+                    httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                });
+            });
+
+            it('should call http without extra query stuff', () => {
+                return api.list(...preArgs, {
+                    ...data,
+                    props: {
+                        ...props,
+                        fake: 'stuff'
+                    }
+                }).then(() => {
+                    const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates?limit=${limit}&offset=${offset}`;
+                    httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                });
             });
         });
+
+        describe('#get', () => {
+            const preArgs = [];
+
+            const data = { };
+
+            if (propsOnly) {
+                Object.assign(data, {
+                    appId,
+                    templateId
+                });
+            } else {
+                preArgs.push(appId, templateId);
+            }
+
+            it('should call http', () => {
+                if (propsOnly) {
+                    return api.get(...preArgs, data).then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
+                        httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                    });
+                } else {
+                    return api.get(...preArgs).then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
+                        httpSpy.should.have.been.calledWith('GET', fullUrl, undefined, authHeaders);
+                    });
+                }
+            });
+        });
+
+        describe('#update', () => {
+            const preArgs = [];
+
+            const props = {
+                name: 'test',
+                message: {}
+            };
+
+            const data = { };
+
+            if (propsOnly) {
+                Object.assign(data, {
+                    appId,
+                    templateId,
+                    props
+                });
+            } else {
+                preArgs.push(appId, templateId);
+                Object.assign(data, props);
+            }
+
+            it('should call http', () => {
+                return api.update(...preArgs, data).then(() => {
+                    const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
+                    httpSpy.should.have.been.calledWith('PUT', fullUrl, props, authHeaders);
+                });
+            });
+
+            if (!propsOnly) {
+                it('should return an error if no props', () => {
+                    return api.update(...preArgs, {
+                        ...data
+                    })
+                        .catch((e) => {
+                            e.message.should.equal(noPropsMessage);
+                        });
+                });
+
+                it('should return an error if no name or message', () => {
+                    return api.update(...preArgs, {
+                        ...data,
+                        props: {
+                            ...props,
+                            name: undefined,
+                            message: undefined
+                        }
+                    })
+                        .catch((e) => {
+                            e.message.should.equal(noNameOrMessageMessage);
+                        });
+                });
+            }
+        });
+
+        describe('#delete', () => {
+            const preArgs = [];
+
+            const data = { };
+
+            if (propsOnly) {
+                Object.assign(data, {
+                    appId,
+                    templateId
+                });
+            } else {
+                preArgs.push(appId, templateId);
+            }
+
+            it('should call http', () => {
+                if (propsOnly) {
+                    return api.delete(...preArgs, data).then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
+                        httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
+                    });
+                } else {
+                    return api.delete(...preArgs).then(() => {
+                        const fullUrl = `${serviceUrl}/v1/apps/${appId}/templates/${templateId}`;
+                        httpSpy.should.have.been.calledWith('DELETE', fullUrl, undefined, authHeaders);
+                    });
+                }
+            });
+        });
+    };
+
+    describe('with props only', () => {
+        templateApiSuite(true);
+    });
+
+    describe('with appId, templateId as args', () => {
+        templateApiSuite(false);
     });
 });

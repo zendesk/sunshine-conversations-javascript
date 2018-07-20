@@ -1,5 +1,4 @@
 import { BaseApi } from './base';
-import { AppKeysApi } from './appKeys';
 import smoochMethod from '../utils/smoochMethod';
 
 /**
@@ -11,8 +10,6 @@ export class TemplatesApi extends BaseApi {
     constructor() {
         super(...arguments);
         this.allowedAuth = ['jwt'];
-
-        this.keys = new AppKeysApi(...arguments);
     }
 }
 
@@ -105,7 +102,7 @@ Object.assign(TemplatesApi.prototype, {
     update: smoochMethod({
         params: ['templateId', 'props'],
         path: '/templates/:templateId',
-        func: function create(url, templateId, props) {
+        func: function update(url, templateId, props) {
             if (!props) {
                 return Promise.reject(new Error('Must provide props.'));
             }

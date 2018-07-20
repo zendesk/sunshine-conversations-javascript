@@ -15,6 +15,7 @@ import * as jwt from './utils/jwt';
 import { decode } from 'jsonwebtoken';
 
 import packageInfo from '../package.json';
+import { TemplatesApi } from './api/templates';
 
 const SERVICE_URL = 'https://api.smooch.io';
 
@@ -81,13 +82,11 @@ class Smooch {
         this.appUsers = new AppUsersApi(this);
         this.conversations = new ConversationsApi(this);
         this.stripe = new StripeApi(this);
+        this.templates = new TemplatesApi(this);
 
         if (this.scope === 'account') {
-            this.integrations = new IntegrationsApi(this);
             this.apps = new AppsApi(this);
-            this.appUsers = new AppUsersApi(this);
-            this.conversations = new ConversationsApi(this);
-            this.stripe = new StripeApi(this);
+            this.integrations = new IntegrationsApi(this);
             this.serviceAccounts = new ServiceAccountsApi(this);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
