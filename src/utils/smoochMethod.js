@@ -41,13 +41,11 @@ export default function smoochMethod({params, optional=[], path, method, func}) 
                     const value = paramObject[param];
                     const isRequired = requiredParams.includes(param);
 
-                    if (!value) {
-                        if (isRequired) {
-                            throw new Error(`${methodName}: missing required argument: ${param}`);
-                        }
-                    } else {
-                        args.push(value);
+                    if (!value && isRequired) {
+                        throw new Error(`${methodName}: missing required argument: ${param}`);
                     }
+
+                    args.push(value);
                 });
             }
         } else {

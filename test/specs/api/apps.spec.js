@@ -130,7 +130,7 @@ describe('Apps API', () => {
 
         it('should allow params object with only serviceAccountId', () => {
             const serviceAccountId = hat();
-            
+
             return api.list({
                 serviceAccountId
             }).then(() => {

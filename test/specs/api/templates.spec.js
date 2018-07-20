@@ -3,7 +3,7 @@ import { getAuthenticationHeaders } from '../../../src/utils/auth';
 import { testJwt } from '../../mocks/jwt';
 import { TemplatesApi } from '../../../src/api/templates';
 
-describe.only('Template API', () => {
+describe('Template API', () => {
     const serviceUrl = 'http://some-url.com';
     const noPropsMessage = 'Must provide props.';
     const noNameMessage = 'Must provide name for your template.';
