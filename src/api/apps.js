@@ -65,6 +65,7 @@ Object.assign(AppsApi.prototype, {
         path: '/apps',
         func: function list(url, limit, offset, serviceAccountId) {
             const q = {};
+
             if (limit) {
                 if (typeof limit !== 'number') {
                     throw new Error('limit must be a number');

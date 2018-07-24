@@ -1,5 +1,4 @@
 import { BaseApi } from './base';
-import { AppKeysApi } from './appKeys';
 import smoochMethod from '../utils/smoochMethod';
 
 /**
@@ -11,8 +10,6 @@ export class AttachmentsApi extends BaseApi {
     constructor() {
         super(...arguments);
         this.allowedAuth = ['jwt'];
-
-        this.keys = new AppKeysApi(...arguments);
     }
 }
 
