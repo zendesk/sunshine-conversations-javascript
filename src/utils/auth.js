@@ -14,5 +14,11 @@ export function getAuthenticationHeaders(props) {
         };
     }
 
-    throw new Error('Must provide a JWT');
+    if (props.username && props.password) {
+        return {
+            'Authorization': `Basic ${new Buffer(`${props.username}:${props.password}`).toString('base64')}`
+        };
+    }
+
+    throw new Error('Must provide a JWT or basic auth');
 }

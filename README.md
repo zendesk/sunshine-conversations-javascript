@@ -31,6 +31,12 @@ var smooch = new SmoochCore({
     userId: 'some-id' // only required for appUser scope
 });
 
+// using basic auth
+var smooch = new SmoochCore({
+    username: 'some-key', // the key id
+    password: 'some-secret', // the secret
+});
+
 // ...
 
 smooch.webhooks.get(id).then(function(response) {

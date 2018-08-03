@@ -31,8 +31,20 @@ class Smooch {
             secret: options.secret,
             scope: options.scope,
             jwt: options.jwt,
+            username: options.username,
+            password: options.password,
             userId: options.userId
         };
+
+        if (auth.username || auth.password) {
+            if (!auth.username) {
+                throw new Error('Invalid auth: missing username.');
+            }
+
+            if (!auth.password) {
+                throw new Error('Invalid auth: missing password.');
+            }
+        }
 
         if (auth.keyId || auth.secret) {
             if (!auth.scope) {
@@ -84,13 +96,14 @@ class Smooch {
         this.stripe = new StripeApi(this);
         this.templates = new TemplatesApi(this);
 
-        if (this.scope === 'account') {
+        // scope is implicit in basic auth
+        if (!this.scope | this.scope === 'account') {
             this.apps = new AppsApi(this);
             this.integrations = new IntegrationsApi(this);
             this.serviceAccounts = new ServiceAccountsApi(this);
         } else {
             const disabled = new DisabledApi('This API requires account level scope');
-            this.integrations = this.apps = disabled;
+            this.integrations = this.apps = this.serviceAccounts = disabled;
         }
 
         Object.assign(this.utils, {

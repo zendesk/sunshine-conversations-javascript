@@ -23,7 +23,19 @@ describe('Auth utils', () => {
             });
         });
 
-        it('should return an error if no JWT provided', (done) => {
+        it('should transform basic auth', () => {
+            const baseHeaders = {
+                username: 'hello',
+                password: 'goodbye'
+            };
+
+            const headers = getAuthenticationHeaders(baseHeaders);
+            headers.should.eql({
+                'Authorization': 'Basic ' + new Buffer(`${baseHeaders.username}:${baseHeaders.password}`).toString('base64')
+            });
+        });
+
+        it('should return an error if no auth provided', (done) => {
             const baseHeaders = {
                 what: 'is this?'
             };
