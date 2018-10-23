@@ -111,6 +111,7 @@ For more detailed information and example usage of each of the following methods
 | `integrations.menu.get`       | Get the specified integration’s menu. | [:link:](https://docs.smooch.io/rest/?javascript#get-integration-menu) |
 | `integrations.menu.update`    | Update the specified integration’s menu. | [:link:](https://docs.smooch.io/rest/?javascript#update-integration-menu) |
 | `integrations.menu.delete`    | Delete the specified integration's menu. | [:link:](https://docs.smooch.io/rest/?javascript#delete-integration-menu) |
+| `integrations.profile.update` | Update the specified integration’s profile. | [:link:](https://docs.smooch.io/rest/?javascript#update-integration-profile) |
 | **serviceAccounts Module**    | | |
 | `serviceAccounts.create`      | Create a new service account. | [:link:](https://docs.smooch.io/rest/?javascript#create-service-account) |
 | `serviceAccounts.list`        | List all service accounts. | [:link:](https://docs.smooch.io/rest/?javascript#list-service-accounts) |
