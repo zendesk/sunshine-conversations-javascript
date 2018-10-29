@@ -13,6 +13,15 @@ $ npm install smooch-core --save
 
 If a method is missing please file an Issue, or better yet make a PR!
 
+# Smooch API Version
+
+The Smooch API offers multiple [versions](https://docs.smooch.io/guide/versioning/). Each release of this project targets one and only one Smooch API version. If you depend on an older version of the Smooch API, you may need to use an older release of this library. Use the table below as your guide:
+
+| Smooch API version | `smooch-core` version to use |
+|--------------------|--------------------|
+| `v1.1` [Upgrade guide](https://docs.smooch.io/guide/versioning/#upgrading-to-v11-from-v1) | `8.0.0` or newer      |
+| `v1`               | `7.*` or older        |
+
 ## Usage
 
 ```js
