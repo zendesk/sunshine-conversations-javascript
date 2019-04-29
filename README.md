@@ -5,6 +5,7 @@ Smooch Core is the most basic for interaction possible for the [Smooch API](http
 This library is meant to be used server-side with Node.js.
 
 ## Installation
+
 ```bash
 $ npm install smooch-core --save
 ```
@@ -17,10 +18,10 @@ If a method is missing please file an Issue, or better yet make a PR!
 
 The Smooch API offers multiple [versions](https://docs.smooch.io/guide/versioning/). Each release of this project targets one and only one Smooch API version. If you depend on an older version of the Smooch API, you may need to use an older release of this library. Use the table below as your guide:
 
-| Smooch API version | `smooch-core` version to use |
-|--------------------|--------------------|
-| `v1.1` [Upgrade guide](https://docs.smooch.io/guide/versioning/#upgrading-to-v11-from-v1) | `8.0.0` or newer      |
-| `v1`               | `7.*` or older        |
+| Smooch API version                                                                        | `smooch-core` version to use |
+| ----------------------------------------------------------------------------------------- | ---------------------------- |
+| `v1.1` [Upgrade guide](https://docs.smooch.io/guide/versioning/#upgrading-to-v11-from-v1) | `8.0.0` or newer             |
+| `v1`                                                                                      | `7.*` or older               |
 
 ## Usage
 
@@ -43,14 +44,13 @@ var smooch = new SmoochCore({
 // ...
 
 smooch.webhooks.get(id).then(function(response) {
-  // do something with the response.
+    // do something with the response.
 });
-
 ```
 
 #### Usage with a proxy
-If you need to use a proxy, you can use one of the [many](https://www.npmjs.com/package/socks-proxy-agent) [proxies](https://www.npmjs.com/package/http-proxy-agent) [available](https://www.npmjs.com/package/https-proxy-agent), as long as it an `http.Agent` implementation. You only need to pass the agent when creating the SmoochCore instance.
 
+If you need to use a proxy, you can use one of the [many](https://www.npmjs.com/package/socks-proxy-agent) [proxies](https://www.npmjs.com/package/http-proxy-agent) [available](https://www.npmjs.com/package/https-proxy-agent), as long as it an `http.Agent` implementation. You only need to pass the agent when creating the SmoochCore instance.
 
 ```js
 var SmoochCore = require('smooch-core');
@@ -123,6 +123,13 @@ For more detailed information and example usage of each of the following methods
 | `integrations.profile.get`          | Get the specified integration’s profile.                                           |     [:link:](https://docs.smooch.io/rest/?javascript#get-integration-profile)      |
 | `integrations.profile.update`       | Update the specified integration’s profile.                                        |    [:link:](https://docs.smooch.io/rest/?javascript#update-integration-profile)    |
 | `integrations.profile.photo.upload` | Upload a photo to be used for the the specified integration’s profile.             | [:link:](https://docs.smooch.io/rest/?javascript#update-integration-profile-photo) |
+| **deployments Module**              |                                                                                    |                                                                                    |
+| `deployments.create`                | Create a new deployment.                                                           |        [:link:](https://docs.smooch.io/rest/?javascript#create-deployment)         |
+| `deployments.activate`              | Activate the phone number of the deployment.                                       |       [:link:](https://docs.smooch.io/rest/?javascript#activate-deployment)        |
+| `deployments.confirmCode`           | Confirm the phone number of the deployment.                                        |           [:link:](https://docs.smooch.io/rest/?javascript#confirm-code)           |
+| `deployments.get`                   | Return the specified deployment.                                                   |          [:link:](https://docs.smooch.io/rest/?javascript#get-deployment)          |
+| `deployments.list`                  | List all configured deployments.                                                   |         [:link:](https://docs.smooch.io/rest/?javascript#list-deployments)         |
+| `deployments.delete`                | Delete the specified deployment.                                                   |        [:link:](https://docs.smooch.io/rest/?javascript#delete-deployment)         |
 | **serviceAccounts Module**          |                                                                                    |                                                                                    |
 | `serviceAccounts.create`            | Create a new service account.                                                      |      [:link:](https://docs.smooch.io/rest/?javascript#create-service-account)      |
 | `serviceAccounts.list`              | List all service accounts.                                                         |      [:link:](https://docs.smooch.io/rest/?javascript#list-service-accounts)       |
