@@ -59,7 +59,7 @@ const integrations = {
     twilio: new IntegrationType(['accountSid', 'authToken', 'phoneNumberSid']),
     messagebird: new IntegrationType(['accessKey', 'originator']),
     telegram: new IntegrationType(['token']),
-    line: new IntegrationType(['channelAccessToken', 'channelSecret']),
+    line: new IntegrationType(['channelId', 'channelSecret']),
     viber: new IntegrationType(['token']),
     wechat: new IntegrationType(['appId', 'appSecret'], ['encodingAesKey']),
     twitter: new IntegrationType(['consumerKey', 'consumerSecret', 'accessTokenKey', 'accessTokenSecret'], ['tier', 'envName']),
