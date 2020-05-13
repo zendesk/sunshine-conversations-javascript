@@ -1,6 +1,6 @@
 {
     "name": "smooch-core",
-    "version": "8.10.0",
+    "version": "8.10.1",
     "description": "Javascript wrapper for Smooch API",
     "homepage": "https://smooch.io",
     "main": "lib/smooch.js",
@@ -14,7 +14,7 @@
         "prettier:lint": "prettier '**/*.{js,jsx,ts,json,md}' --list-different"
     },
     "author": "Marc-Antoine Lemieux",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
         "url": "git@github.com:smooch/smooch-core-js.git"
