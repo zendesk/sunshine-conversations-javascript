@@ -51,6 +51,6 @@
     "dependencies": {
         "form-data": "0.2.0",
         "jsonwebtoken": "5.4.1",
-        "node-fetch": "1.7.2"
+        "node-fetch": "2.6.1"
     }
 }
