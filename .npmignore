@@ -1,9 +1,0 @@
-tests/
-.babelrc
-.esformatter
-.jsfmtrc
-.jshintrc
-.eslintrc
-.gitignore
-test-setup.js
-circle.yml
