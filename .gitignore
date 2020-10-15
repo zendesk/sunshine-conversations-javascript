@@ -1,6 +1,4 @@
 node_modules
-lib
 dist
-amd
-npm-debug.log
-out
+.openapi-generator/
+.openapi-generator-ignore
