@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **uri** | **String** | The webview URI. This is the URI that will open in the webview when clicking the button. | 
 **_default** | **Boolean** | Boolean value indicating whether the action is the default action for a message item in Facebook Messenger. | [optional] 
 **extraChannelOptions** | [**ExtraChannelOptions**](ExtraChannelOptions.md) |  | [optional] 
-**payload** | [**Object**](.md) | The payload of a postback or reply button. | 
+**payload** | **String** | The payload of a postback or reply button. | 
 **size** | **String** | The size to display a webview. Used for actions of type webview. | [optional] 
 **fallback** | **String** | The fallback uri for channels that don’t support webviews. Used for actions of type webview. | 
 **openOnReceive** | **Boolean** | Boolean value indicating if the webview should open automatically. Only one action per message can be set to true. Currently only supported on the Web Messenger. | [optional] 

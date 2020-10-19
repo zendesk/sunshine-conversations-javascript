@@ -19,6 +19,6 @@ Name | Type | Description | Notes
 **backgroundImageUrl** | **String** | A background image url for the conversation. Image will be tiled to fit the window. | [optional] 
 **originWhitelist** | **[String]** | A list of origins to whitelist. When set, only the origins from this list will be able to initialize the Web Messenger. If unset, all origins are whitelisted. The elements in the list should follow the serialized-origin format from RFC 6454: scheme \&quot;://\&quot; host [ \&quot;:\&quot; port ], where scheme is http or https.  | [optional] 
 **prechatCapture** | [**PrechatCapture**](PrechatCapture.md) | Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture. | [optional] 
-**canUserCreateConversation** | **Boolean** | Allows users to create more than one conversation on the web messenger integration. | [optional] 
+**canUserCreateMoreConversations** | **Boolean** | Allows users to create more than one conversation on the web messenger integration. | [optional] 
 
 
