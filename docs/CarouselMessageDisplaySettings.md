@@ -1,4 +1,4 @@
-# SunshineConversationsClient.CarouselMessageDisplaySettings
+# AloudinSunshineConversationsClient.CarouselMessageDisplaySettings
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SunshineConversationsClient.MessageBirdUpdate
+# AloudinSunshineConversationsClient.MessageBirdUpdate
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AppKeysApi
+# AloudinSunshineConversationsClient.AppKeysApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -22,8 +22,8 @@ Creates an API key for the specified app. The response body will include a secre
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -34,9 +34,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppKeysApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var appKeyCreateBody = new SunshineConversationsClient.AppKeyCreateBody(); // AppKeyCreateBody | 
+var appKeyCreateBody = new AloudinSunshineConversationsClient.AppKeyCreateBody(); // AppKeyCreateBody | 
 apiInstance.createAppKey(appId, appKeyCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -79,8 +79,8 @@ Removes an API key.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -91,7 +91,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppKeysApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var keyId = "int_5d8cff3cd55b040010928b5b"; // String | The id of the key.
 apiInstance.deleteAppKey(appId, keyId).then(function(data) {
@@ -136,8 +136,8 @@ Returns an API key.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -148,7 +148,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppKeysApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var keyId = "int_5d8cff3cd55b040010928b5b"; // String | The id of the key.
 apiInstance.getAppKey(appId, keyId).then(function(data) {
@@ -193,8 +193,8 @@ Lists all API keys for a given app.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -205,7 +205,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppKeysApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 apiInstance.listAppKeys(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AppKeyListResponse
+# AloudinSunshineConversationsClient.AppKeyListResponse
 
 ## Properties
 

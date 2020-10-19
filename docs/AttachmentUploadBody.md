@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AttachmentUploadBody
+# AloudinSunshineConversationsClient.AttachmentUploadBody
 
 ## Properties
 

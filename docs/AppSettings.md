@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AppSettings
+# AloudinSunshineConversationsClient.AppSettings
 
 ## Properties
 

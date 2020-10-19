@@ -1,4 +1,4 @@
-# SunshineConversationsClient.SwitchboardIntegrationWebhook
+# AloudinSunshineConversationsClient.SwitchboardIntegrationWebhook
 
 ## Properties
 

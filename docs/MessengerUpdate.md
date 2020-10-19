@@ -1,4 +1,4 @@
-# SunshineConversationsClient.MessengerUpdate
+# AloudinSunshineConversationsClient.MessengerUpdate
 
 ## Properties
 

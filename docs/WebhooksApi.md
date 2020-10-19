@@ -1,4 +1,4 @@
-# SunshineConversationsClient.WebhooksApi
+# AloudinSunshineConversationsClient.WebhooksApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -23,8 +23,8 @@ Creates a new webhook associated with a Sunshine Conversations Connect integrati
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -35,10 +35,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.WebhooksApi();
+var apiInstance = new AloudinSunshineConversationsClient.WebhooksApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var webhookCreateBody = new SunshineConversationsClient.WebhookCreateBody(); // WebhookCreateBody | 
+var webhookCreateBody = new AloudinSunshineConversationsClient.WebhookCreateBody(); // WebhookCreateBody | 
 apiInstance.createWebhook(appId, integrationId, webhookCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -82,8 +82,8 @@ Deletes the specified webhook associated with a Sunshine Conversations Connect i
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -94,7 +94,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.WebhooksApi();
+var apiInstance = new AloudinSunshineConversationsClient.WebhooksApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 var webhookId = "029c31f25a21b47effd7be90"; // String | The id of the webhook.
@@ -141,8 +141,8 @@ Gets the specified webhook associated with a Sunshine Conversations Connect inte
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -153,7 +153,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.WebhooksApi();
+var apiInstance = new AloudinSunshineConversationsClient.WebhooksApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 var webhookId = "029c31f25a21b47effd7be90"; // String | The id of the webhook.
@@ -200,8 +200,8 @@ Lists all webhooks for a given Sunshine Conversations Connect integration or cus
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -212,7 +212,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.WebhooksApi();
+var apiInstance = new AloudinSunshineConversationsClient.WebhooksApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 apiInstance.listWebhooks(appId, integrationId).then(function(data) {
@@ -257,8 +257,8 @@ Updates the specified webhook associated with a Sunshine Conversations Connect i
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -269,11 +269,11 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.WebhooksApi();
+var apiInstance = new AloudinSunshineConversationsClient.WebhooksApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 var webhookId = "029c31f25a21b47effd7be90"; // String | The id of the webhook.
-var webhookBody = new SunshineConversationsClient.WebhookBody(); // WebhookBody | 
+var webhookBody = new AloudinSunshineConversationsClient.WebhookBody(); // WebhookBody | 
 apiInstance.updateWebhook(appId, integrationId, webhookId, webhookBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ConversationMessageDeliveryFailureEventAllOf
+# AloudinSunshineConversationsClient.ConversationMessageDeliveryFailureEventAllOf
 
 ## Properties
 

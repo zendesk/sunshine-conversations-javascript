@@ -1,4 +1,4 @@
-# SunshineConversationsClient.MailgunAllOf
+# AloudinSunshineConversationsClient.MailgunAllOf
 
 ## Properties
 

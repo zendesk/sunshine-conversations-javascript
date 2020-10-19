@@ -1,4 +1,4 @@
-# SunshineConversationsClient.SwitchboardsApi
+# AloudinSunshineConversationsClient.SwitchboardsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -22,8 +22,8 @@ Create a switchboard.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -34,7 +34,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 apiInstance.createSwitchboard(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -77,8 +77,8 @@ Deletes the switchboard and all its switchboard integrations. The integrations l
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -89,7 +89,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var switchboardId = "5d8cff3cd55b040010928b5b"; // String | Identifies the switchboard.
 apiInstance.deleteSwitchboard(appId, switchboardId).then(function(data) {
@@ -134,8 +134,8 @@ Lists all switchboards belonging to the app.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -146,7 +146,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 apiInstance.listSwitchboards(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -189,8 +189,8 @@ Updates a switchboard record.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -201,10 +201,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var switchboardId = "5d8cff3cd55b040010928b5b"; // String | Identifies the switchboard.
-var switchboardUpdateBody = new SunshineConversationsClient.SwitchboardUpdateBody(); // SwitchboardUpdateBody | 
+var switchboardUpdateBody = new AloudinSunshineConversationsClient.SwitchboardUpdateBody(); // SwitchboardUpdateBody | 
 apiInstance.updateSwitchboard(appId, switchboardId, switchboardUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AppListFilter
+# AloudinSunshineConversationsClient.AppListFilter
 
 ## Properties
 

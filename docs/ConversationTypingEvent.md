@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ConversationTypingEvent
+# AloudinSunshineConversationsClient.ConversationTypingEvent
 
 ## Properties
 

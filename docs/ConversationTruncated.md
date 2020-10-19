@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ConversationTruncated
+# AloudinSunshineConversationsClient.ConversationTruncated
 
 ## Properties
 

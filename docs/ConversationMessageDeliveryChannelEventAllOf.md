@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ConversationMessageDeliveryChannelEventAllOf
+# AloudinSunshineConversationsClient.ConversationMessageDeliveryChannelEventAllOf
 
 ## Properties
 

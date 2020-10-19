@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AttachmentsApi
+# AloudinSunshineConversationsClient.AttachmentsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -22,8 +22,8 @@ Remove an attachment uploaded to Sunshine Conversations through the Upload attac
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -34,9 +34,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AttachmentsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AttachmentsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var attachmentDeleteBody = new SunshineConversationsClient.AttachmentDeleteBody(); // AttachmentDeleteBody | 
+var attachmentDeleteBody = new AloudinSunshineConversationsClient.AttachmentDeleteBody(); // AttachmentDeleteBody | 
 apiInstance.deleteAttachment(appId, attachmentDeleteBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -79,8 +79,8 @@ Generates a media JWT for a list of attachment paths. This media token is a prer
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -91,9 +91,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AttachmentsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AttachmentsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var attachmentMediaTokenBody = new SunshineConversationsClient.AttachmentMediaTokenBody(); // AttachmentMediaTokenBody | 
+var attachmentMediaTokenBody = new AloudinSunshineConversationsClient.AttachmentMediaTokenBody(); // AttachmentMediaTokenBody | 
 apiInstance.generateMediaJsonWebToken(appId, attachmentMediaTokenBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -136,14 +136,14 @@ With the media JWT retrieved, pass it in the header of the below request as itâ€
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Uncomment this section to use JWTs instead
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AttachmentsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AttachmentsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 apiInstance.setCookie(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -186,8 +186,8 @@ Upload an attachment to Sunshine Conversations to use in future messages. Files 
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -198,7 +198,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AttachmentsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AttachmentsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var access = "public"; // String | The access level for the attachment. Currently the available access levels are public and private.
 var source = "/path/to/file"; // File | 

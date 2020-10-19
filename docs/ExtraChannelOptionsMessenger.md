@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ExtraChannelOptionsMessenger
+# AloudinSunshineConversationsClient.ExtraChannelOptionsMessenger
 
 ## Properties
 

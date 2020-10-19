@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AppsApi
+# AloudinSunshineConversationsClient.AppsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -23,8 +23,8 @@ Creates a new app. When using [service account](#service-accounts) credentials, 
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -35,8 +35,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppsApi();
-var appCreateBody = new SunshineConversationsClient.AppCreateBody(); // AppCreateBody | 
+var apiInstance = new AloudinSunshineConversationsClient.AppsApi();
+var appCreateBody = new AloudinSunshineConversationsClient.AppCreateBody(); // AppCreateBody | 
 apiInstance.createApp(appCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -78,8 +78,8 @@ Removes the specified app, including all its enabled integrations.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -90,7 +90,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 apiInstance.deleteApp(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -133,8 +133,8 @@ Fetches an individual app.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -145,7 +145,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 apiInstance.getApp(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -188,8 +188,8 @@ Lists all apps that a user is part of. This API is paginated through [cursor pag
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -200,10 +200,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppsApi();
 var opts = {
-  'page': new SunshineConversationsClient.Page(), // Page | Contains parameters for applying cursor pagination.
-  'filter': new SunshineConversationsClient.AppListFilter() // AppListFilter | Contains parameters for filtering the results.
+  'page': new AloudinSunshineConversationsClient.Page(), // Page | Contains parameters for applying cursor pagination.
+  'filter': new AloudinSunshineConversationsClient.AppListFilter() // AppListFilter | Contains parameters for filtering the results.
 };
 apiInstance.listApps(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -247,8 +247,8 @@ Updates an app.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -259,9 +259,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.AppsApi();
+var apiInstance = new AloudinSunshineConversationsClient.AppsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var appUpdateBody = new SunshineConversationsClient.AppUpdateBody(); // AppUpdateBody | 
+var appUpdateBody = new AloudinSunshineConversationsClient.AppUpdateBody(); // AppUpdateBody | 
 apiInstance.updateApp(appId, appUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

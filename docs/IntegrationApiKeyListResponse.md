@@ -1,4 +1,4 @@
-# SunshineConversationsClient.IntegrationApiKeyListResponse
+# AloudinSunshineConversationsClient.IntegrationApiKeyListResponse
 
 ## Properties
 

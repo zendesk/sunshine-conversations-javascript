@@ -1,4 +1,4 @@
-# SunshineConversationsClient.CarouselMessage
+# AloudinSunshineConversationsClient.CarouselMessage
 
 ## Properties
 

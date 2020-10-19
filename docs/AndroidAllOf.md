@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AndroidAllOf
+# AloudinSunshineConversationsClient.AndroidAllOf
 
 ## Properties
 

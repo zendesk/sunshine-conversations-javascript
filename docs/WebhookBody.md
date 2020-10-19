@@ -1,4 +1,4 @@
-# SunshineConversationsClient.WebhookBody
+# AloudinSunshineConversationsClient.WebhookBody
 
 ## Properties
 

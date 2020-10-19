@@ -1,4 +1,4 @@
-# SunshineConversationsClient.OfferControlBody
+# AloudinSunshineConversationsClient.OfferControlBody
 
 ## Properties
 

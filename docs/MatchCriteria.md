@@ -1,4 +1,4 @@
-# SunshineConversationsClient.MatchCriteria
+# AloudinSunshineConversationsClient.MatchCriteria
 
 ## Properties
 

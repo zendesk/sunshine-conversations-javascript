@@ -1,4 +1,4 @@
-# SunshineConversationsClient.Mailgun
+# AloudinSunshineConversationsClient.Mailgun
 
 ## Properties
 

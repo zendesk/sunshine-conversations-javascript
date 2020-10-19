@@ -1,4 +1,4 @@
-# SunshineConversationsClient.WhatsAppUpdate
+# AloudinSunshineConversationsClient.WhatsAppUpdate
 
 ## Properties
 

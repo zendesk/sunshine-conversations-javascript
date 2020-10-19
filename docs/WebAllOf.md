@@ -1,4 +1,4 @@
-# SunshineConversationsClient.WebAllOf
+# AloudinSunshineConversationsClient.WebAllOf
 
 ## Properties
 

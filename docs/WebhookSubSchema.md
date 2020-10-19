@@ -1,4 +1,4 @@
-# SunshineConversationsClient.WebhookSubSchema
+# AloudinSunshineConversationsClient.WebhookSubSchema
 
 ## Properties
 

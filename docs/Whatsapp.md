@@ -1,4 +1,4 @@
-# SunshineConversationsClient.Whatsapp
+# AloudinSunshineConversationsClient.Whatsapp
 
 ## Properties
 

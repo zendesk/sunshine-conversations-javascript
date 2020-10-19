@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AuthorWebhook
+# AloudinSunshineConversationsClient.AuthorWebhook
 
 ## Properties
 

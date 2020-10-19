@@ -1,4 +1,4 @@
-# SunshineConversationsClient.UserMergeEventAllOfPayloadMergedConversations
+# AloudinSunshineConversationsClient.UserMergeEventAllOfPayloadMergedConversations
 
 ## Properties
 

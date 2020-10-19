@@ -1,4 +1,4 @@
-# SunshineConversationsClient.LocationMessageCoordinates
+# AloudinSunshineConversationsClient.LocationMessageCoordinates
 
 ## Properties
 

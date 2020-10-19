@@ -1,4 +1,4 @@
-# SunshineConversationsClient.UsersApi
+# AloudinSunshineConversationsClient.UsersApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -23,8 +23,8 @@ Creates a new user.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -35,9 +35,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.UsersApi();
+var apiInstance = new AloudinSunshineConversationsClient.UsersApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var userCreateBody = new SunshineConversationsClient.UserCreateBody(); // UserCreateBody | 
+var userCreateBody = new AloudinSunshineConversationsClient.UserCreateBody(); // UserCreateBody | 
 apiInstance.createUser(appId, userCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -80,8 +80,8 @@ Delete a user, its clients and its conversation history. The user is considered 
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -92,7 +92,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.UsersApi();
+var apiInstance = new AloudinSunshineConversationsClient.UsersApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
 apiInstance.deleteUser(appId, userIdOrExternalId).then(function(data) {
@@ -137,8 +137,8 @@ Delete a user’s personal information. Calling this API will clear &#x60;givenN
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -149,7 +149,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.UsersApi();
+var apiInstance = new AloudinSunshineConversationsClient.UsersApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
 apiInstance.deleteUserPersonalInformation(appId, userIdOrExternalId).then(function(data) {
@@ -194,8 +194,8 @@ Fetches an individual user.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -206,7 +206,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.UsersApi();
+var apiInstance = new AloudinSunshineConversationsClient.UsersApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
 apiInstance.getUser(appId, userIdOrExternalId).then(function(data) {
@@ -251,8 +251,8 @@ Updates a user.
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -263,10 +263,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.UsersApi();
+var apiInstance = new AloudinSunshineConversationsClient.UsersApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
-var userUpdateBody = new SunshineConversationsClient.UserUpdateBody(); // UserUpdateBody | 
+var userUpdateBody = new AloudinSunshineConversationsClient.UserUpdateBody(); // UserUpdateBody | 
 apiInstance.updateUser(appId, userIdOrExternalId, userUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

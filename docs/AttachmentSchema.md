@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AttachmentSchema
+# AloudinSunshineConversationsClient.AttachmentSchema
 
 ## Properties
 

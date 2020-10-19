@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ReferralDetails
+# AloudinSunshineConversationsClient.ReferralDetails
 
 ## Properties
 

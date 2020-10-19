@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ClientType
+# AloudinSunshineConversationsClient.ClientType
 
 ## Enum
 

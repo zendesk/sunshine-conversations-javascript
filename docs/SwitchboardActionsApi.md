@@ -1,4 +1,4 @@
-# SunshineConversationsClient.SwitchboardActionsApi
+# AloudinSunshineConversationsClient.SwitchboardActionsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -21,8 +21,8 @@ The acceptControl action transfers the control of the conversation to the pendin
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -33,10 +33,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardActionsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var acceptControlBody = new SunshineConversationsClient.AcceptControlBody(); // AcceptControlBody | 
+var acceptControlBody = new AloudinSunshineConversationsClient.AcceptControlBody(); // AcceptControlBody | 
 apiInstance.acceptControl(appId, conversationId, acceptControlBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -80,8 +80,8 @@ The offerControl action will invite a switchboard integration to accept control 
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -92,10 +92,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardActionsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var offerControlBody = new SunshineConversationsClient.OfferControlBody(); // OfferControlBody | 
+var offerControlBody = new AloudinSunshineConversationsClient.OfferControlBody(); // OfferControlBody | 
 apiInstance.offerControl(appId, conversationId, offerControlBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -139,8 +139,8 @@ Mark the named switchboard integration as active and transition all the other sw
 ### Example
 
 ```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
+var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
+var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -151,10 +151,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
+var apiInstance = new AloudinSunshineConversationsClient.SwitchboardActionsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var passControlBody = new SunshineConversationsClient.PassControlBody(); // PassControlBody | 
+var passControlBody = new AloudinSunshineConversationsClient.PassControlBody(); // PassControlBody | 
 apiInstance.passControl(appId, conversationId, passControlBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

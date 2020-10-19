@@ -1,4 +1,4 @@
-# SunshineConversationsClient.AttachmentDeleteBody
+# AloudinSunshineConversationsClient.AttachmentDeleteBody
 
 ## Properties
 

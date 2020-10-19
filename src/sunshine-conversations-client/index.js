@@ -278,9 +278,9 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
 * <pre>
-* var SunshineConversationsClient = require('sunshine-conversations-client/index'); // See note below*.
-* var xxxSvc = new SunshineConversationsClient.XxxApi(); // Allocate the API class we're going to use.
-* var yyyModel = new SunshineConversationsClient.Yyy(); // Construct a model instance.
+* var AloudinSunshineConversationsClient = require('sunshine-conversations-client/index'); // See note below*.
+* var xxxSvc = new AloudinSunshineConversationsClient.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new AloudinSunshineConversationsClient.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -292,8 +292,8 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * <p>
 * A non-AMD browser application (discouraged) might do something like this:
 * <pre>
-* var xxxSvc = new SunshineConversationsClient.XxxApi(); // Allocate the API class we're going to use.
-* var yyy = new SunshineConversationsClient.Yyy(); // Construct a model instance.
+* var xxxSvc = new AloudinSunshineConversationsClient.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new AloudinSunshineConversationsClient.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

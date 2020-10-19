@@ -1,4 +1,4 @@
-# SunshineConversationsClient.QuotedMessage
+# AloudinSunshineConversationsClient.QuotedMessage
 
 ## Properties
 

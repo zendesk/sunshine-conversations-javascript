@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ConversationUpdateBody
+# AloudinSunshineConversationsClient.ConversationUpdateBody
 
 ## Properties
 

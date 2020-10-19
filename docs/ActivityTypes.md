@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ActivityTypes
+# AloudinSunshineConversationsClient.ActivityTypes
 
 ## Properties
 

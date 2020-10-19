@@ -1,4 +1,4 @@
-# SunshineConversationsClient.Meta
+# AloudinSunshineConversationsClient.Meta
 
 ## Properties
 

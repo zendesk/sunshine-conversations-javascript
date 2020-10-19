@@ -1,4 +1,4 @@
-# SunshineConversationsClient.IntegrationUpdate
+# AloudinSunshineConversationsClient.IntegrationUpdate
 
 ## Properties
 

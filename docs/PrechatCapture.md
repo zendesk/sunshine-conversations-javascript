@@ -1,4 +1,4 @@
-# SunshineConversationsClient.PrechatCapture
+# AloudinSunshineConversationsClient.PrechatCapture
 
 ## Properties
 

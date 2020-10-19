@@ -1,4 +1,4 @@
-# SunshineConversationsClient.ParticipantJoinBody
+# AloudinSunshineConversationsClient.ParticipantJoinBody
 
 ## Properties
 
