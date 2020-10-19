@@ -17,7 +17,7 @@ import Participant from './Participant';
 /**
  * The ParticipantResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantResponse
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ParticipantResponse {
     /**

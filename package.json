@@ -1,6 +1,6 @@
 {
   "name": "sunshine-conversations-client",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "Sunshine Conversations JavaScript Client",
   "homepage": "https://smooch.io",
   "license": "Apache-2.0",
@@ -13,9 +13,9 @@
   "browser": {
     "fs": false
   },
-  "repository":{
-    "type":"git",
-    "url":"git@github.com:zendesk/sunshine-conversations-javascript.git"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zendesk/sunshine-conversations-javascript.git"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",

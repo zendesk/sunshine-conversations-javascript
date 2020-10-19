@@ -19,7 +19,7 @@ import WhatsappAllOf from './WhatsappAllOf';
 /**
  * The Whatsapp model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Whatsapp
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Whatsapp {
     /**

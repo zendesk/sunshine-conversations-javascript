@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Meta model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Meta
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Meta {
     /**
