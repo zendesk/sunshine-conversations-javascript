@@ -17,7 +17,7 @@ import ExtraChannelOptions from './ExtraChannelOptions';
 /**
  * The Webview model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Webview
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Webview {
     /**

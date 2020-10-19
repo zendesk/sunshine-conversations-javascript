@@ -19,7 +19,7 @@ import Author from './Author';
 /**
  * The ActivityPost model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ActivityPost
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ActivityPost {
     /**
