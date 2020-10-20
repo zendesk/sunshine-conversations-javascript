@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.MessagesApi
+# SunshineConversationsClient.MessagesApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -22,8 +22,8 @@ Delete all messages of a particular conversation.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -34,7 +34,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.MessagesApi();
+var apiInstance = new SunshineConversationsClient.MessagesApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 apiInstance.deleteAllMessages(appId, conversationId).then(function(data) {
@@ -79,8 +79,8 @@ Delete a single message of a particular conversation.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -91,7 +91,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.MessagesApi();
+var apiInstance = new SunshineConversationsClient.MessagesApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 var messageId = "029c31f25a21b47effd7be90"; // String | The id of the message.
@@ -138,8 +138,8 @@ List all messages for a particular conversation. This API is paginated through [
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -150,11 +150,11 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.MessagesApi();
+var apiInstance = new SunshineConversationsClient.MessagesApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 var opts = {
-  'page': new AloudinSunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
+  'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };
 apiInstance.listMessages(appId, conversationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -199,8 +199,8 @@ Send a message in a particular conversation.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -211,10 +211,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.MessagesApi();
+var apiInstance = new SunshineConversationsClient.MessagesApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var messagePost = new AloudinSunshineConversationsClient.MessagePost(); // MessagePost | 
+var messagePost = new SunshineConversationsClient.MessagePost(); // MessagePost | 
 apiInstance.postMessage(appId, conversationId, messagePost).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

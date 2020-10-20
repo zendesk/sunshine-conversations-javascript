@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ParticipantsApi
+# SunshineConversationsClient.ParticipantsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -21,8 +21,8 @@ Adds a user to a conversation using either their userId or userExternalId. The e
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -33,10 +33,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ParticipantsApi();
+var apiInstance = new SunshineConversationsClient.ParticipantsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var participantJoinBody = new AloudinSunshineConversationsClient.ParticipantJoinBody(); // ParticipantJoinBody | 
+var participantJoinBody = new SunshineConversationsClient.ParticipantJoinBody(); // ParticipantJoinBody | 
 apiInstance.joinConversation(appId, conversationId, participantJoinBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -80,8 +80,8 @@ Removes a user from a conversation using either their userId, userExternalId, or
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -92,10 +92,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ParticipantsApi();
+var apiInstance = new SunshineConversationsClient.ParticipantsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var participantLeaveBody = new AloudinSunshineConversationsClient.ParticipantLeaveBody(); // ParticipantLeaveBody | 
+var participantLeaveBody = new SunshineConversationsClient.ParticipantLeaveBody(); // ParticipantLeaveBody | 
 apiInstance.leaveConversation(appId, conversationId, participantLeaveBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -139,8 +139,8 @@ Lists all the participants of a particular conversation. This API is paginated t
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -151,11 +151,11 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ParticipantsApi();
+var apiInstance = new SunshineConversationsClient.ParticipantsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 var opts = {
-  'page': new AloudinSunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
+  'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };
 apiInstance.listParticipants(appId, conversationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

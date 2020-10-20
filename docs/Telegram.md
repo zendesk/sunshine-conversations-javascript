@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Telegram
+# SunshineConversationsClient.Telegram
 
 ## Properties
 

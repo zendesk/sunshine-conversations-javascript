@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.SwitchboardIntegrationUpdateBody
+# SunshineConversationsClient.SwitchboardIntegrationUpdateBody
 
 ## Properties
 

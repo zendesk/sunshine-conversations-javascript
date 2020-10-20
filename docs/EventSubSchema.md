@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.EventSubSchema
+# SunshineConversationsClient.EventSubSchema
 
 ## Properties
 

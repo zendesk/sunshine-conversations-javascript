@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.WebhookListResponse
+# SunshineConversationsClient.WebhookListResponse
 
 ## Properties
 

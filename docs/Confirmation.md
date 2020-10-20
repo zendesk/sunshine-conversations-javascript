@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Confirmation
+# SunshineConversationsClient.Confirmation
 
 ## Properties
 

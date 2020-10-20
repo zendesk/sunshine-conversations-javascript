@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.MatchCriteriaWhatsappAllOf
+# SunshineConversationsClient.MatchCriteriaWhatsappAllOf
 
 ## Properties
 

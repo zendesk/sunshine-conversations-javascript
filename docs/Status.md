@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Status
+# SunshineConversationsClient.Status
 
 ## Enum
 

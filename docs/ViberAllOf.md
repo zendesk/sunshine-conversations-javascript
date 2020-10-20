@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ViberAllOf
+# SunshineConversationsClient.ViberAllOf
 
 ## Properties
 

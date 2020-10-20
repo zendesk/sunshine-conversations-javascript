@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ActionSubset
+# SunshineConversationsClient.ActionSubset
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ConversationsApi
+# SunshineConversationsClient.ConversationsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -23,8 +23,8 @@ Create a conversation for the specified user(s).
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -35,9 +35,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ConversationsApi();
+var apiInstance = new SunshineConversationsClient.ConversationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationCreateBody = new AloudinSunshineConversationsClient.ConversationCreateBody(); // ConversationCreateBody | 
+var conversationCreateBody = new SunshineConversationsClient.ConversationCreateBody(); // ConversationCreateBody | 
 apiInstance.createConversation(appId, conversationCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -80,8 +80,8 @@ Delete an entire conversation record, along with its messages and attachments. N
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -92,7 +92,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ConversationsApi();
+var apiInstance = new SunshineConversationsClient.ConversationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 apiInstance.deleteConversation(appId, conversationId).then(function(data) {
@@ -137,8 +137,8 @@ Fetches an individual conversation.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -149,7 +149,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ConversationsApi();
+var apiInstance = new SunshineConversationsClient.ConversationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 apiInstance.getConversation(appId, conversationId).then(function(data) {
@@ -194,8 +194,8 @@ Lists all conversations that a user is part of. This API is paginated through [c
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -206,11 +206,11 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ConversationsApi();
+var apiInstance = new SunshineConversationsClient.ConversationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var filter = new AloudinSunshineConversationsClient.ConversationListFilter(); // ConversationListFilter | Contains parameters for filtering the results.
+var filter = new SunshineConversationsClient.ConversationListFilter(); // ConversationListFilter | Contains parameters for filtering the results.
 var opts = {
-  'page': new AloudinSunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
+  'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };
 apiInstance.listConversations(appId, filter, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -255,8 +255,8 @@ Updates a conversation record.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -267,10 +267,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ConversationsApi();
+var apiInstance = new SunshineConversationsClient.ConversationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var conversationUpdateBody = new AloudinSunshineConversationsClient.ConversationUpdateBody(); // ConversationUpdateBody | 
+var conversationUpdateBody = new SunshineConversationsClient.ConversationUpdateBody(); // ConversationUpdateBody | 
 apiInstance.updateConversation(appId, conversationId, conversationUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

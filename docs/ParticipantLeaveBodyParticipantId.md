@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ParticipantLeaveBodyParticipantId
+# SunshineConversationsClient.ParticipantLeaveBodyParticipantId
 
 ## Properties
 

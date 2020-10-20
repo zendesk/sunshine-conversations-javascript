@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.SwitchboardAcceptControlAllOf
+# SunshineConversationsClient.SwitchboardAcceptControlAllOf
 
 ## Properties
 

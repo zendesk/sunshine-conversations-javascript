@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ConversationReadEvent
+# SunshineConversationsClient.ConversationReadEvent
 
 ## Properties
 

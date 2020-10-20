@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ConversationListFilter
+# SunshineConversationsClient.ConversationListFilter
 
 ## Properties
 

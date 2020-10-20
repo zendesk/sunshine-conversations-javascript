@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ParticipantListResponse
+# SunshineConversationsClient.ParticipantListResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.AppSubSchema
+# SunshineConversationsClient.AppSubSchema
 
 ## Properties
 

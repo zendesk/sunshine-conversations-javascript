@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.SwitchboardOfferControlAllOfPayload
+# SunshineConversationsClient.SwitchboardOfferControlAllOfPayload
 
 ## Properties
 

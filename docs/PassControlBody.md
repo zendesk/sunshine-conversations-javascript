@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.PassControlBody
+# SunshineConversationsClient.PassControlBody
 
 ## Properties
 

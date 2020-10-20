@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.AppKeyCreateBody
+# SunshineConversationsClient.AppKeyCreateBody
 
 ## Properties
 

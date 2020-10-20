@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Field
+# SunshineConversationsClient.Field
 
 ## Properties
 

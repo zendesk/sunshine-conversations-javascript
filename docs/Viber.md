@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Viber
+# SunshineConversationsClient.Viber
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ActivityPostAllOf
+# SunshineConversationsClient.ActivityPostAllOf
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.MessageOverrideLine
+# SunshineConversationsClient.MessageOverrideLine
 
 ## Properties
 

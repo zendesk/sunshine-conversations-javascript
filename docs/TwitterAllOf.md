@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.TwitterAllOf
+# SunshineConversationsClient.TwitterAllOf
 
 ## Properties
 

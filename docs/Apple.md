@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Apple
+# SunshineConversationsClient.Apple
 
 ## Properties
 

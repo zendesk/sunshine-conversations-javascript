@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.AttachmentMediaTokenBody
+# SunshineConversationsClient.AttachmentMediaTokenBody
 
 ## Properties
 

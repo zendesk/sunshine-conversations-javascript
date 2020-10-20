@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ClientsApi
+# SunshineConversationsClient.ClientsApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -21,8 +21,8 @@ Create a client and link it to a channel specified by the matchCriteria.type.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -33,7 +33,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ClientsApi();
+var apiInstance = new SunshineConversationsClient.ClientsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
 var clientCreate = {"matchCriteria":{"type":"mailgun","integrationId":"582dedf230e788746891281a","primary":true,"address":"steveb@channel5.com","subject":"New message from {appName}"},"confirmation":{"type":"immediate","message":{"author":{"type":"business","displayName":"Steve","avatarUrl":"https://www.gravatar.com/image.jpg"},"content":{"type":"text","text":"Hello!"},"metadata":{"lang":"en-ca"}}},"target":{"conversationId":"029c31f25a21b47effd7be90"}}; // ClientCreate | 
@@ -80,8 +80,8 @@ Get all the clients for a particular user, including both linked clients and pen
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -92,11 +92,11 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ClientsApi();
+var apiInstance = new SunshineConversationsClient.ClientsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
 var opts = {
-  'page': new AloudinSunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
+  'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };
 apiInstance.listClients(appId, userIdOrExternalId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -141,8 +141,8 @@ Remove a particular client and unsubscribe it from all connected conversations.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -153,7 +153,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.ClientsApi();
+var apiInstance = new SunshineConversationsClient.ClientsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
 var clientId = "5d8cff3cd55b040010928b5b"; // String | The client's id.

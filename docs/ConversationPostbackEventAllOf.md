@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ConversationPostbackEventAllOf
+# SunshineConversationsClient.ConversationPostbackEventAllOf
 
 ## Properties
 

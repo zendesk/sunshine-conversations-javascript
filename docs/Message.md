@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Message
+# SunshineConversationsClient.Message
 
 ## Properties
 

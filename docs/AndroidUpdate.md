@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.AndroidUpdate
+# SunshineConversationsClient.AndroidUpdate
 
 ## Properties
 

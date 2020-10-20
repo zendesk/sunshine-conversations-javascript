@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ParticipantSubSchema
+# SunshineConversationsClient.ParticipantSubSchema
 
 ## Properties
 

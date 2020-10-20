@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.CustomIntegrationApiKeysApi
+# SunshineConversationsClient.CustomIntegrationApiKeysApi
 
 All URIs are relative to *https://api.smooch.io*
 
@@ -22,8 +22,8 @@ Creates an API key for the specified custom integration. The response body will 
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -34,10 +34,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.CustomIntegrationApiKeysApi();
+var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var integrationApiKey = new AloudinSunshineConversationsClient.IntegrationApiKey(); // IntegrationApiKey | 
+var integrationApiKey = new SunshineConversationsClient.IntegrationApiKey(); // IntegrationApiKey | 
 apiInstance.createCustomIntegrationKey(appId, integrationId, integrationApiKey).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -81,8 +81,8 @@ Removes an API key.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -93,7 +93,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.CustomIntegrationApiKeysApi();
+var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 var keyId = "int_5d8cff3cd55b040010928b5b"; // String | The id of the key.
@@ -140,8 +140,8 @@ Get the specified API key.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -152,7 +152,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.CustomIntegrationApiKeysApi();
+var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 var keyId = "int_5d8cff3cd55b040010928b5b"; // String | The id of the key.
@@ -199,8 +199,8 @@ Lists all API keys for a given integration.
 ### Example
 
 ```javascript
-var AloudinSunshineConversationsClient = require('aloudin-sunshine-conversations-client');
-var defaultClient = AloudinSunshineConversationsClient.ApiClient.instance;
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
 
 // Configure HTTP basic authorization: basicAuth
 var basicAuth = defaultClient.authentications['basicAuth'];
@@ -211,7 +211,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // var bearerAuth = defaultClient.authentications['bearerAuth'];
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
-var apiInstance = new AloudinSunshineConversationsClient.CustomIntegrationApiKeysApi();
+var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
 apiInstance.listCustomIntegrationKeys(appId, integrationId).then(function(data) {

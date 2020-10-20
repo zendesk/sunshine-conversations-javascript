@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.Buy
+# SunshineConversationsClient.Buy
 
 ## Properties
 

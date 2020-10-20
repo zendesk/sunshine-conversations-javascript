@@ -1,4 +1,4 @@
-# AloudinSunshineConversationsClient.ConversationMessageDeliveryUserEvent
+# SunshineConversationsClient.ConversationMessageDeliveryUserEvent
 
 ## Properties
 
