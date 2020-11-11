@@ -8,6 +8,7 @@
 ### Changed
 
 - Changed the `mediaUrl` field to be required for `file` and `image` messages
+- Changed coordinates fields to be required in `location` messages
 
 ### Fixed
 
