@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **actions** | [**[ActionSubset]**](ActionSubset.md) | An array of objects representing the actions associated with the message. The array length is limited by the third party channel. | [optional] 
 **items** | [**[Item]**](Item.md) | An array of objects representing the items associated with the message. Only present in carousel and list type messages. | 
 **displaySettings** | [**CarouselMessageDisplaySettings**](CarouselMessageDisplaySettings.md) |  | [optional] 
-**mediaUrl** | **String** | The URL for media, such as an image, attached to the message. | [optional] 
+**mediaUrl** | **String** | The URL for media, such as an image, attached to the message. | 
 **mediaSize** | **Number** | The size of the media. | [optional] [readonly] 
 **mediaType** | **String** | The media type of the file. | [optional] [readonly] 
 **blockChatInput** | **Boolean** | true if the message should block the chat input on Web Messenger. form message only. | [optional] 
 **fields** | [**[Field]**](Field.md) | Array of field objects that contain the submitted fields. | 
 **textFallback** | **String** | A string containing the &#x60;label: value&#x60; of all fields, each separated by a newline character. | [optional] [readonly] 
-**coordinates** | [**LocationMessageCoordinates**](LocationMessageCoordinates.md) |  | [optional] 
+**coordinates** | [**LocationMessageCoordinates**](LocationMessageCoordinates.md) |  | 
 **location** | [**LocationMessageLocation**](LocationMessageLocation.md) |  | [optional] 
 
 

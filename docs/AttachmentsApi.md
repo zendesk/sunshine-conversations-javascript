@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteAttachment**](AttachmentsApi.md#deleteAttachment) | **POST** /v2/apps/{appId}/attachments/remove | Delete Attachment
 [**generateMediaJsonWebToken**](AttachmentsApi.md#generateMediaJsonWebToken) | **POST** /v2/apps/{appId}/attachments/token | Generate Media Token
-[**setCookie**](AttachmentsApi.md#setCookie) | **POST** /v2/apps/{appId}/attachments/cookie | Set Cookie
+[**setCookie**](AttachmentsApi.md#setCookie) | **GET** /v2/apps/{appId}/attachments/cookie | Set Cookie
 [**uploadAttachment**](AttachmentsApi.md#uploadAttachment) | **POST** /v2/apps/{appId}/attachments | Upload Attachment
 
 
