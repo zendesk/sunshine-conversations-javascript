@@ -18,7 +18,7 @@ import MatchCriteriaWhatsappAllOf from './MatchCriteriaWhatsappAllOf';
 /**
  * The MatchCriteriaWhatsapp model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MatchCriteriaWhatsapp
- * @version 9.1.0
+ * @version 9.2.0
  */
 class MatchCriteriaWhatsapp {
     /**

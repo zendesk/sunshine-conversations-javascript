@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ParticipantWithUserExternalId model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantWithUserExternalId
- * @version 9.1.0
+ * @version 9.2.0
  */
 class ParticipantWithUserExternalId {
     /**

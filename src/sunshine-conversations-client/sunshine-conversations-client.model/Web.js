@@ -20,7 +20,7 @@ import WebAllOf from './WebAllOf';
 /**
  * The Web model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Web
- * @version 9.1.0
+ * @version 9.2.0
  */
 class Web {
     /**

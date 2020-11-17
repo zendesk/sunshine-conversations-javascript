@@ -19,7 +19,7 @@ import Status from './Status';
 /**
  * The Line model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Line
- * @version 9.1.0
+ * @version 9.2.0
  */
 class Line {
     /**

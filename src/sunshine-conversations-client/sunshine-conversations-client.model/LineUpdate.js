@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The LineUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/LineUpdate
- * @version 9.1.0
+ * @version 9.2.0
  */
 class LineUpdate {
     /**

@@ -12,23 +12,23 @@
  *
  */
 import ApiClient from '../ApiClient';
+import InstagramUpdateAllOf from './InstagramUpdateAllOf';
 import IntegrationUpdateBase from './IntegrationUpdateBase';
-import MessengerUpdateAllOf from './MessengerUpdateAllOf';
 
 /**
  * The MessengerUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessengerUpdate
- * @version 9.1.0
+ * @version 9.2.0
  */
 class MessengerUpdate {
     /**
      * Constructs a new <code>MessengerUpdate</code>.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/MessengerUpdate
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/IntegrationUpdateBase
-     * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/MessengerUpdateAllOf
+     * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/InstagramUpdateAllOf
      */
     constructor() { 
-        IntegrationUpdateBase.initialize(this);MessengerUpdateAllOf.initialize(this);
+        IntegrationUpdateBase.initialize(this);InstagramUpdateAllOf.initialize(this);
         MessengerUpdate.initialize(this);
     }
 
@@ -51,7 +51,7 @@ class MessengerUpdate {
         if (data) {
             obj = obj || new MessengerUpdate();
             IntegrationUpdateBase.constructFromObject(data, obj);
-            MessengerUpdateAllOf.constructFromObject(data, obj);
+            InstagramUpdateAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('displayName')) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
@@ -115,12 +115,12 @@ MessengerUpdate.prototype['pageAccessToken'] = undefined;
  * @member {String} displayName
  */
 IntegrationUpdateBase.prototype['displayName'] = undefined;
-// Implement MessengerUpdateAllOf interface:
+// Implement InstagramUpdateAllOf interface:
 /**
  * A Facebook Page Access Token.
  * @member {String} pageAccessToken
  */
-MessengerUpdateAllOf.prototype['pageAccessToken'] = undefined;
+InstagramUpdateAllOf.prototype['pageAccessToken'] = undefined;
 
 
 

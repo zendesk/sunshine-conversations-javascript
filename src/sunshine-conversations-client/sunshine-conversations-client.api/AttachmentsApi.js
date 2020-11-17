@@ -21,7 +21,7 @@ import AttachmentResponse from '../sunshine-conversations-client.model/Attachmen
 /**
 * Attachments service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/AttachmentsApi
-* @version 9.1.0
+* @version 9.2.0
 */
 export default class AttachmentsApi {
 

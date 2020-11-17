@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TwilioAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TwilioAllOf
- * @version 9.1.0
+ * @version 9.2.0
  */
 class TwilioAllOf {
     /**

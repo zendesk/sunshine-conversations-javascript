@@ -17,7 +17,7 @@ import Client from './Client';
 /**
  * The ClientResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientResponse
- * @version 9.1.0
+ * @version 9.2.0
  */
 class ClientResponse {
     /**

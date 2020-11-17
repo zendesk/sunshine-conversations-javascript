@@ -20,7 +20,7 @@ import IntegrationApiKeyResponse from '../sunshine-conversations-client.model/In
 /**
 * CustomIntegrationApiKeys service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/CustomIntegrationApiKeysApi
-* @version 9.1.0
+* @version 9.2.0
 */
 export default class CustomIntegrationApiKeysApi {
 

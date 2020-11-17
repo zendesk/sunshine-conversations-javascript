@@ -18,7 +18,7 @@ import LocationMessageLocation from './LocationMessageLocation';
 /**
  * The LocationMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/LocationMessage
- * @version 9.1.0
+ * @version 9.2.0
  */
 class LocationMessage {
     /**

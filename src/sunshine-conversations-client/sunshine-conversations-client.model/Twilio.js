@@ -19,7 +19,7 @@ import TwilioAllOf from './TwilioAllOf';
 /**
  * The Twilio model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Twilio
- * @version 9.1.0
+ * @version 9.2.0
  */
 class Twilio {
     /**

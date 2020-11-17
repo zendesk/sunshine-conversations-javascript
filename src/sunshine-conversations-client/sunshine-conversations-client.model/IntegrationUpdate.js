@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import AndroidUpdate from './AndroidUpdate';
 import AppleUpdate from './AppleUpdate';
 import CustomUpdate from './CustomUpdate';
+import InstagramUpdate from './InstagramUpdate';
 import IosUpdate from './IosUpdate';
 import LineUpdate from './LineUpdate';
 import MailgunUpdate from './MailgunUpdate';
@@ -31,7 +32,7 @@ import WhatsAppUpdate from './WhatsAppUpdate';
 /**
  * The IntegrationUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IntegrationUpdate
- * @version 9.1.0
+ * @version 9.2.0
  */
 class IntegrationUpdate {
     /**
@@ -40,6 +41,7 @@ class IntegrationUpdate {
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/AndroidUpdate
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/AppleUpdate
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/CustomUpdate
+     * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/InstagramUpdate
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/IosUpdate
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/LineUpdate
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/MailgunUpdate
@@ -53,7 +55,7 @@ class IntegrationUpdate {
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/WhatsAppUpdate
      */
     constructor() { 
-        AndroidUpdate.initialize(this);AppleUpdate.initialize(this);CustomUpdate.initialize(this);IosUpdate.initialize(this);LineUpdate.initialize(this);MailgunUpdate.initialize(this);MessageBirdUpdate.initialize(this);MessengerUpdate.initialize(this);TelegramUpdate.initialize(this);TwilioUpdate.initialize(this);TwitterUpdate.initialize(this);ViberUpdate.initialize(this);WebUpdate.initialize(this);WhatsAppUpdate.initialize(this);
+        AndroidUpdate.initialize(this);AppleUpdate.initialize(this);CustomUpdate.initialize(this);InstagramUpdate.initialize(this);IosUpdate.initialize(this);LineUpdate.initialize(this);MailgunUpdate.initialize(this);MessageBirdUpdate.initialize(this);MessengerUpdate.initialize(this);TelegramUpdate.initialize(this);TwilioUpdate.initialize(this);TwitterUpdate.initialize(this);ViberUpdate.initialize(this);WebUpdate.initialize(this);WhatsAppUpdate.initialize(this);
         IntegrationUpdate.initialize(this);
     }
 
@@ -78,6 +80,7 @@ class IntegrationUpdate {
             AndroidUpdate.constructFromObject(data, obj);
             AppleUpdate.constructFromObject(data, obj);
             CustomUpdate.constructFromObject(data, obj);
+            InstagramUpdate.constructFromObject(data, obj);
             IosUpdate.constructFromObject(data, obj);
             LineUpdate.constructFromObject(data, obj);
             MailgunUpdate.constructFromObject(data, obj);
@@ -102,6 +105,9 @@ class IntegrationUpdate {
             if (data.hasOwnProperty('canUserCreateMoreConversations')) {
                 obj['canUserCreateMoreConversations'] = ApiClient.convertToType(data['canUserCreateMoreConversations'], 'Boolean');
             }
+            if (data.hasOwnProperty('pageAccessToken')) {
+                obj['pageAccessToken'] = ApiClient.convertToType(data['pageAccessToken'], 'String');
+            }
             if (data.hasOwnProperty('certificate')) {
                 obj['certificate'] = ApiClient.convertToType(data['certificate'], 'String');
             }
@@ -119,9 +125,6 @@ class IntegrationUpdate {
             }
             if (data.hasOwnProperty('fromAddress')) {
                 obj['fromAddress'] = ApiClient.convertToType(data['fromAddress'], 'String');
-            }
-            if (data.hasOwnProperty('pageAccessToken')) {
-                obj['pageAccessToken'] = ApiClient.convertToType(data['pageAccessToken'], 'String');
             }
             if (data.hasOwnProperty('brandColor')) {
                 obj['brandColor'] = ApiClient.convertToType(data['brandColor'], 'String');
@@ -239,6 +242,21 @@ class IntegrationUpdate {
         this['canUserCreateMoreConversations'] = canUserCreateMoreConversations;
     }
 /**
+     * Returns A Facebook Page Access Token.
+     * @return {String}
+     */
+    getPageAccessToken() {
+        return this.pageAccessToken;
+    }
+
+    /**
+     * Sets A Facebook Page Access Token.
+     * @param {String} pageAccessToken A Facebook Page Access Token.
+     */
+    setPageAccessToken(pageAccessToken) {
+        this['pageAccessToken'] = pageAccessToken;
+    }
+/**
      * Returns The binary of your APN certificate base64 encoded.
      * @return {String}
      */
@@ -327,21 +345,6 @@ class IntegrationUpdate {
      */
     setFromAddress(fromAddress) {
         this['fromAddress'] = fromAddress;
-    }
-/**
-     * Returns A Facebook Page Access Token.
-     * @return {String}
-     */
-    getPageAccessToken() {
-        return this.pageAccessToken;
-    }
-
-    /**
-     * Sets A Facebook Page Access Token.
-     * @param {String} pageAccessToken A Facebook Page Access Token.
-     */
-    setPageAccessToken(pageAccessToken) {
-        this['pageAccessToken'] = pageAccessToken;
     }
 /**
      * Returns This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color.
@@ -626,6 +629,12 @@ IntegrationUpdate.prototype['senderId'] = undefined;
 IntegrationUpdate.prototype['canUserCreateMoreConversations'] = undefined;
 
 /**
+ * A Facebook Page Access Token.
+ * @member {String} pageAccessToken
+ */
+IntegrationUpdate.prototype['pageAccessToken'] = undefined;
+
+/**
  * The binary of your APN certificate base64 encoded.
  * @member {String} certificate
  */
@@ -660,12 +669,6 @@ IntegrationUpdate.prototype['hideUnsubscribeLink'] = undefined;
  * @member {String} fromAddress
  */
 IntegrationUpdate.prototype['fromAddress'] = undefined;
-
-/**
- * A Facebook Page Access Token.
- * @member {String} pageAccessToken
- */
-IntegrationUpdate.prototype['pageAccessToken'] = undefined;
 
 /**
  * This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color.
@@ -811,6 +814,17 @@ AppleUpdate.prototype['displayName'] = undefined;
  * @member {String} displayName
  */
 CustomUpdate.prototype['displayName'] = undefined;
+// Implement InstagramUpdate interface:
+/**
+ * A human-friendly name used to identify the integration. `displayName` can be unset by changing it to `null`.
+ * @member {String} displayName
+ */
+InstagramUpdate.prototype['displayName'] = undefined;
+/**
+ * A Facebook Page Access Token.
+ * @member {String} pageAccessToken
+ */
+InstagramUpdate.prototype['pageAccessToken'] = undefined;
 // Implement IosUpdate interface:
 /**
  * A human-friendly name used to identify the integration. `displayName` can be unset by changing it to `null`.

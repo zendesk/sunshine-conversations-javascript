@@ -20,7 +20,7 @@ import Source from './Source';
 /**
  * The Message model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Message
- * @version 9.1.0
+ * @version 9.2.0
  */
 class Message {
     /**

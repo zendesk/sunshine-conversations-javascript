@@ -107,6 +107,10 @@ import FormMessage from './sunshine-conversations-client.model/FormMessage';
 import FormResponseMessage from './sunshine-conversations-client.model/FormResponseMessage';
 import ImageMessage from './sunshine-conversations-client.model/ImageMessage';
 import InlineObject from './sunshine-conversations-client.model/InlineObject';
+import Instagram from './sunshine-conversations-client.model/Instagram';
+import InstagramAllOf from './sunshine-conversations-client.model/InstagramAllOf';
+import InstagramUpdate from './sunshine-conversations-client.model/InstagramUpdate';
+import InstagramUpdateAllOf from './sunshine-conversations-client.model/InstagramUpdateAllOf';
 import Integration from './sunshine-conversations-client.model/Integration';
 import IntegrationApiKey from './sunshine-conversations-client.model/IntegrationApiKey';
 import IntegrationApiKeyListResponse from './sunshine-conversations-client.model/IntegrationApiKeyListResponse';
@@ -164,7 +168,6 @@ import MessagebirdAllOf from './sunshine-conversations-client.model/MessagebirdA
 import Messenger from './sunshine-conversations-client.model/Messenger';
 import MessengerAllOf from './sunshine-conversations-client.model/MessengerAllOf';
 import MessengerUpdate from './sunshine-conversations-client.model/MessengerUpdate';
-import MessengerUpdateAllOf from './sunshine-conversations-client.model/MessengerUpdateAllOf';
 import Meta from './sunshine-conversations-client.model/Meta';
 import OfferControlBody from './sunshine-conversations-client.model/OfferControlBody';
 import Page from './sunshine-conversations-client.model/Page';
@@ -304,7 +307,7 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * </pre>
 * </p>
 * @module sunshine-conversations-client/index
-* @version 9.1.0
+* @version 9.2.0
 */
 export {
     /**
@@ -878,6 +881,30 @@ export {
     InlineObject,
 
     /**
+     * The Instagram model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Instagram}
+     */
+    Instagram,
+
+    /**
+     * The InstagramAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/InstagramAllOf}
+     */
+    InstagramAllOf,
+
+    /**
+     * The InstagramUpdate model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/InstagramUpdate}
+     */
+    InstagramUpdate,
+
+    /**
+     * The InstagramUpdateAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/InstagramUpdateAllOf}
+     */
+    InstagramUpdateAllOf,
+
+    /**
      * The Integration model constructor.
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Integration}
      */
@@ -1218,12 +1245,6 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/MessengerUpdate}
      */
     MessengerUpdate,
-
-    /**
-     * The MessengerUpdateAllOf model constructor.
-     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/MessengerUpdateAllOf}
-     */
-    MessengerUpdateAllOf,
 
     /**
      * The Meta model constructor.
