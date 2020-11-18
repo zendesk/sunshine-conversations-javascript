@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.3.0] - 2020-11-18
+
+### Added
+
+- Added a new optional field `altText` to the [message schema](https://docs.smooch.io/rest/#operation/postMessage) when sending an image or a file.
+
 ## [9.2.0] - 2020-11-16
 
 ### Added

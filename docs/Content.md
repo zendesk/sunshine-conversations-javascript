@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **mediaUrl** | **String** | The URL for media, such as an image, attached to the message. | 
 **mediaSize** | **Number** | The size of the media. | [optional] [readonly] 
 **mediaType** | **String** | The media type of the file. | [optional] [readonly] 
+**altText** | **String** | An optional description of the image for accessibility purposes. The field will be saved by default with the file name as the value. | [optional] 
 **blockChatInput** | **Boolean** | true if the message should block the chat input on Web Messenger. form message only. | [optional] 
 **fields** | [**[Field]**](Field.md) | Array of field objects that contain the submitted fields. | 
 **textFallback** | **String** | A string containing the &#x60;label: value&#x60; of all fields, each separated by a newline character. | [optional] [readonly] 
