@@ -66,6 +66,12 @@ import ConversationCreateBody from './sunshine-conversations-client.model/Conver
 import ConversationCreateEvent from './sunshine-conversations-client.model/ConversationCreateEvent';
 import ConversationCreateEventAllOf from './sunshine-conversations-client.model/ConversationCreateEventAllOf';
 import ConversationCreateEventAllOfPayload from './sunshine-conversations-client.model/ConversationCreateEventAllOfPayload';
+import ConversationJoinEvent from './sunshine-conversations-client.model/ConversationJoinEvent';
+import ConversationJoinEventAllOf from './sunshine-conversations-client.model/ConversationJoinEventAllOf';
+import ConversationJoinEventAllOfPayload from './sunshine-conversations-client.model/ConversationJoinEventAllOfPayload';
+import ConversationLeaveEvent from './sunshine-conversations-client.model/ConversationLeaveEvent';
+import ConversationLeaveEventAllOf from './sunshine-conversations-client.model/ConversationLeaveEventAllOf';
+import ConversationLeaveEventAllOfPayload from './sunshine-conversations-client.model/ConversationLeaveEventAllOfPayload';
 import ConversationListFilter from './sunshine-conversations-client.model/ConversationListFilter';
 import ConversationListResponse from './sunshine-conversations-client.model/ConversationListResponse';
 import ConversationMessageDeliveryChannelEvent from './sunshine-conversations-client.model/ConversationMessageDeliveryChannelEvent';
@@ -86,6 +92,9 @@ import ConversationPostbackEventAllOfPayload from './sunshine-conversations-clie
 import ConversationReadEvent from './sunshine-conversations-client.model/ConversationReadEvent';
 import ConversationReadEventAllOf from './sunshine-conversations-client.model/ConversationReadEventAllOf';
 import ConversationReadEventAllOfPayload from './sunshine-conversations-client.model/ConversationReadEventAllOfPayload';
+import ConversationRemoveEvent from './sunshine-conversations-client.model/ConversationRemoveEvent';
+import ConversationRemoveEventAllOf from './sunshine-conversations-client.model/ConversationRemoveEventAllOf';
+import ConversationRemoveEventAllOfPayload from './sunshine-conversations-client.model/ConversationRemoveEventAllOfPayload';
 import ConversationResponse from './sunshine-conversations-client.model/ConversationResponse';
 import ConversationTruncated from './sunshine-conversations-client.model/ConversationTruncated';
 import ConversationType from './sunshine-conversations-client.model/ConversationType';
@@ -635,6 +644,42 @@ export {
     ConversationCreateEventAllOfPayload,
 
     /**
+     * The ConversationJoinEvent model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationJoinEvent}
+     */
+    ConversationJoinEvent,
+
+    /**
+     * The ConversationJoinEventAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationJoinEventAllOf}
+     */
+    ConversationJoinEventAllOf,
+
+    /**
+     * The ConversationJoinEventAllOfPayload model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationJoinEventAllOfPayload}
+     */
+    ConversationJoinEventAllOfPayload,
+
+    /**
+     * The ConversationLeaveEvent model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationLeaveEvent}
+     */
+    ConversationLeaveEvent,
+
+    /**
+     * The ConversationLeaveEventAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationLeaveEventAllOf}
+     */
+    ConversationLeaveEventAllOf,
+
+    /**
+     * The ConversationLeaveEventAllOfPayload model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationLeaveEventAllOfPayload}
+     */
+    ConversationLeaveEventAllOfPayload,
+
+    /**
      * The ConversationListFilter model constructor.
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationListFilter}
      */
@@ -753,6 +798,24 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationReadEventAllOfPayload}
      */
     ConversationReadEventAllOfPayload,
+
+    /**
+     * The ConversationRemoveEvent model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationRemoveEvent}
+     */
+    ConversationRemoveEvent,
+
+    /**
+     * The ConversationRemoveEventAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationRemoveEventAllOf}
+     */
+    ConversationRemoveEventAllOf,
+
+    /**
+     * The ConversationRemoveEventAllOfPayload model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationRemoveEventAllOfPayload}
+     */
+    ConversationRemoveEventAllOfPayload,
 
     /**
      * The ConversationResponse model constructor.

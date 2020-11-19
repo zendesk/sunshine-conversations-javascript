@@ -23,7 +23,7 @@ class Webhook {
      * Constructs a new <code>Webhook</code>.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/Webhook
      * @param target {String} URL to be called when the webhook is triggered.
-     * @param triggers {Array.<String>} An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
+     * @param triggers {Array.<String>} An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
      */
     constructor(target, triggers) { 
         
@@ -122,7 +122,7 @@ class Webhook {
         this['target'] = target;
     }
 /**
-     * Returns An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
+     * Returns An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
      * @return {Array.<String>}
      */
     getTriggers() {
@@ -130,8 +130,8 @@ class Webhook {
     }
 
     /**
-     * Sets An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
-     * @param {Array.<String>} triggers An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
+     * Sets An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
+     * @param {Array.<String>} triggers An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
      */
     setTriggers(triggers) {
         this['triggers'] = triggers;
@@ -203,7 +203,7 @@ Webhook.prototype['version'] = undefined;
 Webhook.prototype['target'] = undefined;
 
 /**
- * An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
+ * An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
  * @member {Array.<String>} triggers
  */
 Webhook.prototype['triggers'] = undefined;

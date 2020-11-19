@@ -26,7 +26,7 @@ class WebhookCreateBody {
      * @extends module:sunshine-conversations-client/sunshine-conversations-client.model/WebhookBody
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/WebhookBody
      * @param target {String} URL to be called when the webhook is triggered.
-     * @param triggers {Array.<String>} An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
+     * @param triggers {Array.<String>} An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
      */
     constructor(target, triggers) { 
         WebhookBody.initialize(this);
@@ -69,7 +69,7 @@ class WebhookCreateBody {
  */
 WebhookBody.prototype['target'] = undefined;
 /**
- * An array of triggers the integration is subscribed to. This property is case sensitive. Current supported triggers in v2 are `conversation:create`, `conversation:message:delivery:channel`, `conversation:message:delivery:failure`, `conversation:message:delivery:user`, `conversation:message`, `conversation:read`, `conversation:typing`, `conversation:postback`, and `user:merge`
+ * An array of triggers the integration is subscribed to. This property is case sensitive. [More details](https://docs.smooch.io/rest/#section/Webhook-Triggers).
  * @member {Array.<String>} triggers
  */
 WebhookBody.prototype['triggers'] = undefined;
