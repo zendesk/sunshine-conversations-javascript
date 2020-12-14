@@ -23,7 +23,7 @@ import IntegrationType from './IntegrationType';
 class Destination {
     /**
      * Constructs a new <code>Destination</code>.
-     * The destination of the message, in the case of channel targeting. Only applicable if the author role is &#x60;business&#x60; and the conversation is of type &#x60;personal&#x60;.
+     * The destination of the message, in the case of channel targeting or sending [silent messages](https://docs.smooch.io/guide/sending-messages/#silent-messages). Only applicable if the author role is &#x60;business&#x60; and the conversation is of type &#x60;personal&#x60;.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/Destination
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/IntegrationId
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/IntegrationType
@@ -80,7 +80,7 @@ class Destination {
         this['integrationId'] = integrationId;
     }
 /**
-     * Returns The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+     * Returns The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
      * @return {String}
      */
     getIntegrationType() {
@@ -88,8 +88,8 @@ class Destination {
     }
 
     /**
-     * Sets The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
-     * @param {String} integrationType The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+     * Sets The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
+     * @param {String} integrationType The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
      */
     setIntegrationType(integrationType) {
         this['integrationType'] = integrationType;
@@ -104,7 +104,7 @@ class Destination {
 Destination.prototype['integrationId'] = undefined;
 
 /**
- * The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+ * The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
  * @member {String} integrationType
  */
 Destination.prototype['integrationType'] = undefined;
@@ -118,7 +118,7 @@ Destination.prototype['integrationType'] = undefined;
 IntegrationId.prototype['integrationId'] = undefined;
 // Implement IntegrationType interface:
 /**
- * The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+ * The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
  * @member {String} integrationType
  */
 IntegrationType.prototype['integrationType'] = undefined;

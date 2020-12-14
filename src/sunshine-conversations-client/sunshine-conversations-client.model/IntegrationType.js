@@ -55,7 +55,7 @@ class IntegrationType {
     }
 
 /**
-     * Returns The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+     * Returns The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
      * @return {String}
      */
     getIntegrationType() {
@@ -63,8 +63,8 @@ class IntegrationType {
     }
 
     /**
-     * Sets The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
-     * @param {String} integrationType The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+     * Sets The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
+     * @param {String} integrationType The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
      */
     setIntegrationType(integrationType) {
         this['integrationType'] = integrationType;
@@ -73,7 +73,7 @@ class IntegrationType {
 }
 
 /**
- * The type of the integration to deliver the message to. Will return an error if the user does not have a client of that type attached to the conversation. 
+ * The type of the integration to deliver the message to. Can be set to `none` if sending a [silent message](https://docs.smooch.io/guide/sending-messages/#silent-messages). Will return an error if the user does not have a client of that type attached to the conversation. 
  * @member {String} integrationType
  */
 IntegrationType.prototype['integrationType'] = undefined;
