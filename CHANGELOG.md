@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.4.0] - 2020-12-15
+
+### Added
+
+- Added a new user profile field `locale`.
+
 ## [9.3.0] - 2020-11-18
 
 ### Added
