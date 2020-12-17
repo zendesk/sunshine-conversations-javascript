@@ -17,7 +17,7 @@ import ConversationPostbackEventAllOfPayload from './ConversationPostbackEventAl
 /**
  * The ConversationPostbackEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationPostbackEventAllOf
- * @version 9.4.0
+ * @version 9.4.1
  */
 class ConversationPostbackEventAllOf {
     /**

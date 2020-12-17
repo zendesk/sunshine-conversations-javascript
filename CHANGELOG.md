@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.4.1] - 2020-12-16
+
+### Changed
+
+- Changed the limit of the `select` field options from 20 to 100
+
 ## [9.4.0] - 2020-12-15
 
 ### Added

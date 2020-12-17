@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConversationUpdateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationUpdateBody
- * @version 9.4.0
+ * @version 9.4.1
  */
 class ConversationUpdateBody {
     /**

@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The TwilioUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TwilioUpdate
- * @version 9.4.0
+ * @version 9.4.1
  */
 class TwilioUpdate {
     /**

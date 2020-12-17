@@ -18,7 +18,7 @@ import Device from './Device';
 /**
  * The SourceWebhook model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook
- * @version 9.4.0
+ * @version 9.4.1
  */
 class SourceWebhook {
     /**

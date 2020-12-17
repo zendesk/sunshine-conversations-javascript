@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationMessageDeliveryFailureEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationMessageDeliveryFailureEvent
- * @version 9.4.0
+ * @version 9.4.1
  */
 class ConversationMessageDeliveryFailureEvent {
     /**
