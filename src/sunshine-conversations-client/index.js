@@ -180,6 +180,7 @@ import MessengerUpdate from './sunshine-conversations-client.model/MessengerUpda
 import Meta from './sunshine-conversations-client.model/Meta';
 import OfferControlBody from './sunshine-conversations-client.model/OfferControlBody';
 import Page from './sunshine-conversations-client.model/Page';
+import Page1 from './sunshine-conversations-client.model/Page1';
 import Participant from './sunshine-conversations-client.model/Participant';
 import ParticipantJoinBody from './sunshine-conversations-client.model/ParticipantJoinBody';
 import ParticipantLeaveBody from './sunshine-conversations-client.model/ParticipantLeaveBody';
@@ -1326,6 +1327,12 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Page}
      */
     Page,
+
+    /**
+     * The Page1 model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Page1}
+     */
+    Page1,
 
     /**
      * The Participant model constructor.

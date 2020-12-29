@@ -16,7 +16,7 @@ import ApiClient from "../ApiClient";
 import MessageListResponse from '../sunshine-conversations-client.model/MessageListResponse';
 import MessagePost from '../sunshine-conversations-client.model/MessagePost';
 import MessagePostResponse from '../sunshine-conversations-client.model/MessagePostResponse';
-import Page from '../sunshine-conversations-client.model/Page';
+import Page1 from '../sunshine-conversations-client.model/Page1';
 
 /**
 * Messages service.
@@ -161,7 +161,7 @@ export default class MessagesApi {
      * @param {String} appId Identifies the app.
      * @param {String} conversationId Identifies the conversation.
      * @param {Object} opts Optional parameters
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/Page} opts.page Contains parameters for applying cursor pagination.
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/Page1} opts.page Contains parameters for applying cursor pagination.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:sunshine-conversations-client/sunshine-conversations-client.model/MessageListResponse} and HTTP response
      */
     listMessagesWithHttpInfo(appId, conversationId, opts) {
@@ -205,7 +205,7 @@ export default class MessagesApi {
      * @param {String} appId Identifies the app.
      * @param {String} conversationId Identifies the conversation.
      * @param {Object} opts Optional parameters
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/Page} opts.page Contains parameters for applying cursor pagination.
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/Page1} opts.page Contains parameters for applying cursor pagination.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:sunshine-conversations-client/sunshine-conversations-client.model/MessageListResponse}
      */
     listMessages(appId, conversationId, opts) {

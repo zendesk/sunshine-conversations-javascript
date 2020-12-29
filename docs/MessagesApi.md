@@ -154,7 +154,7 @@ var apiInstance = new SunshineConversationsClient.MessagesApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
 var opts = {
-  'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
+  'page': new SunshineConversationsClient.Page1() // Page1 | Contains parameters for applying cursor pagination.
 };
 apiInstance.listMessages(appId, conversationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Identifies the app. | 
  **conversationId** | **String**| Identifies the conversation. | 
- **page** | [**Page**](.md)| Contains parameters for applying cursor pagination. | [optional] 
+ **page** | [**Page1**](.md)| Contains parameters for applying cursor pagination. | [optional] 
 
 ### Return type
 

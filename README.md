@@ -359,6 +359,7 @@ Class | Method | HTTP request | Description
  - [SunshineConversationsClient.Meta](docs/Meta.md)
  - [SunshineConversationsClient.OfferControlBody](docs/OfferControlBody.md)
  - [SunshineConversationsClient.Page](docs/Page.md)
+ - [SunshineConversationsClient.Page1](docs/Page1.md)
  - [SunshineConversationsClient.Participant](docs/Participant.md)
  - [SunshineConversationsClient.ParticipantJoinBody](docs/ParticipantJoinBody.md)
  - [SunshineConversationsClient.ParticipantLeaveBody](docs/ParticipantLeaveBody.md)
