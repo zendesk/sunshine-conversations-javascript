@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | The type of integration. | [optional] [default to &#39;twitter&#39;]
+**type** | **String** | To set up a Twitter integration, please follow the steps outlined in the [Twitter Setup Guide](https://docs.smooch.io/guide/twitter/#setup).  | [optional] [default to &#39;twitter&#39;]
 **tier** | **String** | Your Twitter app’s tier, sandbox, premium or enterprise. | 
 **envName** | **String** | The Twitter dev environments label (required for sandbox and premium tiers). | [optional] 
 **consumerKey** | **String** | The consumer key for your Twitter app. | 

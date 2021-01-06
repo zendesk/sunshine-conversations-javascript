@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | The type of integration. | [optional] [default to &#39;mailgun&#39;]
+**type** | **String** | To configure a Mailgun integration, visit the API Keys tab in the settings page of the Mailgun dashboard and copy your active API key. Call the Create Integration endpoint with your API Key, a domain you have configured in Mailgun, and the incoming address you would like to use. Must have the same domain as the one specified in the domain parameter.  | [optional] [default to &#39;mailgun&#39;]
 **apiKey** | **String** | The public API key of your Mailgun account. | 
 **domain** | **String** | The domain used to relay email. This domain must be configured and verified in your Mailgun account. | 
 **incomingAddress** | **String** | Sunshine Conversations will receive all emails sent to this address. It will also be used as the Reply-To address. | 

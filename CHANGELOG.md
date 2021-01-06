@@ -1,5 +1,20 @@
 # Changelog
 
+## [9.4.2] - 2021-01-06
+
+### Added
+
+- Added `phoneNumber` to the `integration` whatsapp response.
+- Added a message type `template` in the Post Message API.
+
+### Changed
+
+- Removed `channelId` and `channelSecret` as required fields when creating a LINE integration
+
+### Fixed
+
+- Fixed: property `messageSchema` should be `schema` in v2 Post Message API
+
 ## [9.4.1] - 2020-12-16
 
 ### Changed
