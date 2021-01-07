@@ -54,7 +54,7 @@ class Content {
      * @param template {Object} The whatsapp template message to send. For more information, consult the [guide](https://docs.smooch.io/guide/whatsapp#sending-message-templates). `schema` must be set to `whatsapp`.
      */
     constructor(type, items, mediaUrl, fields, coordinates, template) { 
-        TextMessage.initialize(this, type);CarouselMessage.initialize(this, type, items);FileMessage.initialize(this, type, mediaUrl);FormMessage.initialize(this, type, fields);FormResponseMessage.initialize(this, type, fields);ImageMessage.initialize(this, type, mediaUrl);ListMessage.initialize(this, type, items);LocationMessage.initialize(this, type, coordinates);TemplateMessage.initialize(this, template);
+        TextMessage.initialize(this, type);CarouselMessage.initialize(this, type, items);FileMessage.initialize(this, type, mediaUrl);FormMessage.initialize(this, type, fields);FormResponseMessage.initialize(this, type, fields);ImageMessage.initialize(this, type, mediaUrl);ListMessage.initialize(this, type, items);LocationMessage.initialize(this, type, coordinates);TemplateMessage.initialize(this, type, template);
         Content.initialize(this, type, items, mediaUrl, fields, coordinates, template);
     }
 

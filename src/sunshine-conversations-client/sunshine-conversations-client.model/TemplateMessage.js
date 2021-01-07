@@ -22,11 +22,12 @@ class TemplateMessage {
     /**
      * Constructs a new <code>TemplateMessage</code>.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/TemplateMessage
+     * @param type {String} The type of message.
      * @param template {Object} The whatsapp template message to send. For more information, consult the [guide](https://docs.smooch.io/guide/whatsapp#sending-message-templates). `schema` must be set to `whatsapp`.
      */
-    constructor(template) { 
+    constructor(type, template) { 
         
-        TemplateMessage.initialize(this, template);
+        TemplateMessage.initialize(this, type, template);
     }
 
     /**
@@ -34,7 +35,8 @@ class TemplateMessage {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, template) { 
+    static initialize(obj, type, template) { 
+        obj['type'] = type;
         obj['template'] = template;
     }
 
