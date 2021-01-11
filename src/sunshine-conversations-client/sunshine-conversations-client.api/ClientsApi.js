@@ -40,7 +40,7 @@ export default class ClientsApi {
 
     /**
      * Create Client
-     * Create a client and link it to a channel specified by the matchCriteria.type.
+     * Create a client and link it to a channel specified by the `matchCriteria.type`. Note that the client is initially created with a `pending` status. The status of the linking request can be tracked by listening to the `link:match`, `link:success` and `link:failure` webhooks (only available in v1). For more information, see [link-events](https://docs.smooch.io/rest/v1/#link-events).
      * @param {String} appId Identifies the app.
      * @param {String} userIdOrExternalId The user's id or externalId.
      * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientCreate} clientCreate 
@@ -85,7 +85,7 @@ export default class ClientsApi {
 
     /**
      * Create Client
-     * Create a client and link it to a channel specified by the matchCriteria.type.
+     * Create a client and link it to a channel specified by the `matchCriteria.type`. Note that the client is initially created with a `pending` status. The status of the linking request can be tracked by listening to the `link:match`, `link:success` and `link:failure` webhooks (only available in v1). For more information, see [link-events](https://docs.smooch.io/rest/v1/#link-events).
      * @param {String} appId Identifies the app.
      * @param {String} userIdOrExternalId The user's id or externalId.
      * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientCreate} clientCreate 

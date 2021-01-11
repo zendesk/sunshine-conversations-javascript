@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create Client
 
-Create a client and link it to a channel specified by the matchCriteria.type.
+Create a client and link it to a channel specified by the &#x60;matchCriteria.type&#x60;. Note that the client is initially created with a &#x60;pending&#x60; status. The status of the linking request can be tracked by listening to the &#x60;link:match&#x60;, &#x60;link:success&#x60; and &#x60;link:failure&#x60; webhooks (only available in v1). For more information, see [link-events](https://docs.smooch.io/rest/v1/#link-events).
 
 ### Example
 
