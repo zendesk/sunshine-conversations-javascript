@@ -1,11 +1,18 @@
 # Changelog
 
+## [9.4.3] - 2021-02-16
+
+### Fixed
+
+- Fixed: query `Page1` instead of `Page` being used in the v2 List Messages API
+- Fixed: property `displayName` should not be `nullable` in v2 App Key API
+
 ## [9.4.2] - 2021-01-06
 
 ### Added
 
-- Added `phoneNumber` to the `integration` whatsapp response.
-- Added a message type `template` in the Post Message API.
+- Added `phoneNumber` to the `integration` whatsapp response
+- Added a message type `template` in the Post Message API
 
 ### Changed
 
@@ -25,13 +32,13 @@
 
 ### Added
 
-- Added a new user profile field `locale`.
+- Added a new user profile field `locale`
 
 ## [9.3.0] - 2020-11-18
 
 ### Added
 
-- Added a new optional field `altText` to the [message schema](https://docs.smooch.io/rest/#operation/postMessage) when sending an image or a file.
+- Added a new optional field `altText` to the [message schema](https://docs.smooch.io/rest/#operation/postMessage) when sending an image or a file
 
 ## [9.2.0] - 2020-11-16
 
@@ -59,11 +66,11 @@
 
 ### Added
 
-- Added `messageSchema` property to the `POST /messages` endpoint for [whatsapp template messages](https://docs.smooch.io/guide/whatsapp/#post-message-api).
+- Added `messageSchema` property to the `POST /messages` endpoint for [whatsapp template messages](https://docs.smooch.io/guide/whatsapp/#post-message-api)
 
 ### Changed
 
-- Renamed `canUserCreateConversation` to `canUserCreateMoreConversations` in the Android/Ios integrations.
+- Renamed `canUserCreateConversation` to `canUserCreateMoreConversations` in the Android/Ios integrations
 
 ## [9.0.0] - 2020-10-01
 
