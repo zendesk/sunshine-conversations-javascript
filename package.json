@@ -1,6 +1,6 @@
 {
     "name": "smooch-core",
-    "version": "8.11.1",
+    "version": "8.11.2",
     "description": "Javascript wrapper for Smooch API",
     "homepage": "https://smooch.io",
     "main": "lib/smooch.js",
@@ -17,7 +17,7 @@
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "git@github.com:smooch/smooch-core-js.git"
+        "url": "https://github.com/zendesk/sunshine-conversations-javascript/tree/v1-master"
     },
     "devDependencies": {
         "@smooch/eslint-plugin-smooch": "1.0.3",
