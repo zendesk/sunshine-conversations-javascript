@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.4.4] - 2021-04-08
+
+### Added
+
+- Added `messagingServiceSid` field when creating a Twilio integration that will use Messaging Services.
+
 ## [9.4.3] - 2021-02-16
 
 ### Fixed

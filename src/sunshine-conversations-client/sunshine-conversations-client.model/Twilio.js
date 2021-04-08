@@ -31,11 +31,10 @@ class Twilio {
      * @param type {String} To configure a Twilio integration, acquire the required information from the user and call the Create Integration endpoint. 
      * @param accountSid {String} Twilio Account SID.
      * @param authToken {String} Twilio Auth Token.
-     * @param phoneNumberSid {String} SID for specific phone number.
      */
-    constructor(type, accountSid, authToken, phoneNumberSid) { 
-        Integration.initialize(this, type);TwilioAllOf.initialize(this, accountSid, authToken, phoneNumberSid);
-        Twilio.initialize(this, type, accountSid, authToken, phoneNumberSid);
+    constructor(type, accountSid, authToken) { 
+        Integration.initialize(this, type);TwilioAllOf.initialize(this, accountSid, authToken);
+        Twilio.initialize(this, type, accountSid, authToken);
     }
 
     /**
@@ -43,10 +42,9 @@ class Twilio {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, type, accountSid, authToken, phoneNumberSid) { 
+    static initialize(obj, type, accountSid, authToken) { 
         obj['accountSid'] = accountSid;
         obj['authToken'] = authToken;
-        obj['phoneNumberSid'] = phoneNumberSid;
     }
 
     /**
@@ -74,6 +72,9 @@ class Twilio {
             }
             if (data.hasOwnProperty('phoneNumberSid')) {
                 obj['phoneNumberSid'] = ApiClient.convertToType(data['phoneNumberSid'], 'String');
+            }
+            if (data.hasOwnProperty('messagingServiceSid')) {
+                obj['messagingServiceSid'] = ApiClient.convertToType(data['messagingServiceSid'], 'String');
             }
         }
         return obj;
@@ -125,7 +126,7 @@ class Twilio {
         this['authToken'] = authToken;
     }
 /**
-     * Returns SID for specific phone number.
+     * Returns SID for specific phone number. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
      * @return {String}
      */
     getPhoneNumberSid() {
@@ -133,11 +134,26 @@ class Twilio {
     }
 
     /**
-     * Sets SID for specific phone number.
-     * @param {String} phoneNumberSid SID for specific phone number.
+     * Sets SID for specific phone number. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
+     * @param {String} phoneNumberSid SID for specific phone number. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
      */
     setPhoneNumberSid(phoneNumberSid) {
         this['phoneNumberSid'] = phoneNumberSid;
+    }
+/**
+     * Returns SID for specific messaging service. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
+     * @return {String}
+     */
+    getMessagingServiceSid() {
+        return this.messagingServiceSid;
+    }
+
+    /**
+     * Sets SID for specific messaging service. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
+     * @param {String} messagingServiceSid SID for specific messaging service. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
+     */
+    setMessagingServiceSid(messagingServiceSid) {
+        this['messagingServiceSid'] = messagingServiceSid;
     }
 
 }
@@ -162,10 +178,16 @@ Twilio.prototype['accountSid'] = undefined;
 Twilio.prototype['authToken'] = undefined;
 
 /**
- * SID for specific phone number.
+ * SID for specific phone number. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
  * @member {String} phoneNumberSid
  */
 Twilio.prototype['phoneNumberSid'] = undefined;
+
+/**
+ * SID for specific messaging service. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
+ * @member {String} messagingServiceSid
+ */
+Twilio.prototype['messagingServiceSid'] = undefined;
 
 
 // Implement Integration interface:
@@ -205,10 +227,15 @@ TwilioAllOf.prototype['accountSid'] = undefined;
  */
 TwilioAllOf.prototype['authToken'] = undefined;
 /**
- * SID for specific phone number.
+ * SID for specific phone number. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
  * @member {String} phoneNumberSid
  */
 TwilioAllOf.prototype['phoneNumberSid'] = undefined;
+/**
+ * SID for specific messaging service. One of `messagingServiceSid` or `phoneNumberSid` must be provided when creating a Twilio integration.
+ * @member {String} messagingServiceSid
+ */
+TwilioAllOf.prototype['messagingServiceSid'] = undefined;
 
 
 
