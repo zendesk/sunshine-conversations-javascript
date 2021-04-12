@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Buy model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Buy
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Buy {
     /**

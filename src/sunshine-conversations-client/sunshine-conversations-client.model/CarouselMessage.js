@@ -18,7 +18,7 @@ import Item from './Item';
 /**
  * The CarouselMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/CarouselMessage
- * @version 9.4.3
+ * @version 9.4.4
  */
 class CarouselMessage {
     /**

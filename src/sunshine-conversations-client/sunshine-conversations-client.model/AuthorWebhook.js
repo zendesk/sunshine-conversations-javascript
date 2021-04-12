@@ -17,7 +17,7 @@ import User from './User';
 /**
  * The AuthorWebhook model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AuthorWebhook
- * @version 9.4.3
+ * @version 9.4.4
  */
 class AuthorWebhook {
     /**

@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The TelegramUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TelegramUpdate
- * @version 9.4.3
+ * @version 9.4.4
  */
 class TelegramUpdate {
     /**

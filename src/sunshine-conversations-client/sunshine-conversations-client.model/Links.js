@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Links model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Links
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Links {
     /**

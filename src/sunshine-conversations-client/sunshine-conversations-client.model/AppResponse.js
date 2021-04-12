@@ -17,7 +17,7 @@ import App from './App';
 /**
  * The AppResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppResponse
- * @version 9.4.3
+ * @version 9.4.4
  */
 class AppResponse {
     /**

@@ -18,7 +18,7 @@ import MatchCriteriaTwilioAllOf from './MatchCriteriaTwilioAllOf';
 /**
  * The MatchCriteriaTwilio model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MatchCriteriaTwilio
- * @version 9.4.3
+ * @version 9.4.4
  */
 class MatchCriteriaTwilio {
     /**

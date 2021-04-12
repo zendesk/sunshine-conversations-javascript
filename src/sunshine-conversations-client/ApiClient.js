@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module sunshine-conversations-client/ApiClient
-* @version 9.4.3
+* @version 9.4.4
 */
 
 /**

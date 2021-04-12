@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationJoinEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationJoinEvent
- * @version 9.4.3
+ * @version 9.4.4
  */
 class ConversationJoinEvent {
     /**

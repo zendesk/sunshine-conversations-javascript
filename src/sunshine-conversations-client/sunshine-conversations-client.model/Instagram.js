@@ -19,7 +19,7 @@ import Status from './Status';
 /**
  * The Instagram model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Instagram
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Instagram {
     /**

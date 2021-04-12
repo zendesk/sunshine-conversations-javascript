@@ -20,7 +20,7 @@ import User from './User';
 /**
  * The ConversationPostbackEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationPostbackEventAllOfPayload
- * @version 9.4.3
+ * @version 9.4.4
  */
 class ConversationPostbackEventAllOfPayload {
     /**

@@ -19,7 +19,7 @@ import TelegramAllOf from './TelegramAllOf';
 /**
  * The Telegram model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Telegram
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Telegram {
     /**

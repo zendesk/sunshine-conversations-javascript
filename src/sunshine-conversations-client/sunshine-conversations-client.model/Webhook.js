@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Webhook model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Webhook
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Webhook {
     /**

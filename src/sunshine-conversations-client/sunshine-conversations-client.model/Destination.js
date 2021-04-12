@@ -18,7 +18,7 @@ import IntegrationType from './IntegrationType';
 /**
  * The Destination model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Destination
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Destination {
     /**

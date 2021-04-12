@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IntegrationListFilter model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IntegrationListFilter
- * @version 9.4.3
+ * @version 9.4.4
  */
 class IntegrationListFilter {
     /**

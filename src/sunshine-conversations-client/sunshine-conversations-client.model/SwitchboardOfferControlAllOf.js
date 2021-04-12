@@ -17,7 +17,7 @@ import SwitchboardOfferControlAllOfPayload from './SwitchboardOfferControlAllOfP
 /**
  * The SwitchboardOfferControlAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardOfferControlAllOf
- * @version 9.4.3
+ * @version 9.4.4
  */
 class SwitchboardOfferControlAllOf {
     /**

@@ -20,7 +20,7 @@ import PassControlBody from '../sunshine-conversations-client.model/PassControlB
 /**
 * SwitchboardActions service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/SwitchboardActionsApi
-* @version 9.4.3
+* @version 9.4.4
 */
 export default class SwitchboardActionsApi {
 

@@ -17,7 +17,7 @@ import ConversationTypingEventAllOfPayload from './ConversationTypingEventAllOfP
 /**
  * The ConversationTypingEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationTypingEventAllOf
- * @version 9.4.3
+ * @version 9.4.4
  */
 class ConversationTypingEventAllOf {
     /**

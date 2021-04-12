@@ -17,7 +17,7 @@ import ActionSubset from './ActionSubset';
 /**
  * The Item model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Item
- * @version 9.4.3
+ * @version 9.4.4
  */
 class Item {
     /**
