@@ -1,5 +1,9 @@
 # Changelog
 
+## [9.4.5] - 2021-08-23
+
+- Added page[before|after|size] query parameter constraints.
+
 ## [9.4.4] - 2021-04-12
 
 ### Added
