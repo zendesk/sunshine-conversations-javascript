@@ -12,6 +12,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import UserMergeEventAllOfPayloadMergedClients from './UserMergeEventAllOfPayloadMergedClients';
 import UserMergeEventAllOfPayloadMergedConversations from './UserMergeEventAllOfPayloadMergedConversations';
 import UserMergeEventAllOfPayloadMergedUsers from './UserMergeEventAllOfPayloadMergedUsers';
 
@@ -56,8 +57,14 @@ class UserMergeEventAllOfPayload {
             if (data.hasOwnProperty('mergedConversations')) {
                 obj['mergedConversations'] = UserMergeEventAllOfPayloadMergedConversations.constructFromObject(data['mergedConversations']);
             }
+            if (data.hasOwnProperty('mergedClients')) {
+                obj['mergedClients'] = UserMergeEventAllOfPayloadMergedClients.constructFromObject(data['mergedClients']);
+            }
             if (data.hasOwnProperty('discardedMetadata')) {
                 obj['discardedMetadata'] = ApiClient.convertToType(data['discardedMetadata'], Object);
+            }
+            if (data.hasOwnProperty('reason')) {
+                obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
         }
         return obj;
@@ -90,6 +97,19 @@ class UserMergeEventAllOfPayload {
         this['mergedConversations'] = mergedConversations;
     }
 /**
+     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedClients}
+     */
+    getMergedClients() {
+        return this.mergedClients;
+    }
+
+    /**
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedClients} mergedClients
+     */
+    setMergedClients(mergedClients) {
+        this['mergedClients'] = mergedClients;
+    }
+/**
      * Returns A flat object with the set of metadata properties that were discarded when merging the two users. This should contain values only if the combined metadata fields exceed the 4KB limit.
      * @return {Object}
      */
@@ -103,6 +123,21 @@ class UserMergeEventAllOfPayload {
      */
     setDiscardedMetadata(discardedMetadata) {
         this['discardedMetadata'] = discardedMetadata;
+    }
+/**
+     * Returns The reason for which the users merged. * `api` - The users were merged using the API. * `channelLinking` - The users were merged as a result of initiating a channel link. * `sdkLogin` - The users were merged as a result of logging into an SDK device. 
+     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayload.ReasonEnum}
+     */
+    getReason() {
+        return this.reason;
+    }
+
+    /**
+     * Sets The reason for which the users merged. * `api` - The users were merged using the API. * `channelLinking` - The users were merged as a result of initiating a channel link. * `sdkLogin` - The users were merged as a result of logging into an SDK device. 
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayload.ReasonEnum} reason The reason for which the users merged. * `api` - The users were merged using the API. * `channelLinking` - The users were merged as a result of initiating a channel link. * `sdkLogin` - The users were merged as a result of logging into an SDK device. 
+     */
+    setReason(reason) {
+        this['reason'] = reason;
     }
 
 }
@@ -118,13 +153,51 @@ UserMergeEventAllOfPayload.prototype['mergedUsers'] = undefined;
 UserMergeEventAllOfPayload.prototype['mergedConversations'] = undefined;
 
 /**
+ * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedClients} mergedClients
+ */
+UserMergeEventAllOfPayload.prototype['mergedClients'] = undefined;
+
+/**
  * A flat object with the set of metadata properties that were discarded when merging the two users. This should contain values only if the combined metadata fields exceed the 4KB limit.
  * @member {Object} discardedMetadata
  */
 UserMergeEventAllOfPayload.prototype['discardedMetadata'] = undefined;
 
+/**
+ * The reason for which the users merged. * `api` - The users were merged using the API. * `channelLinking` - The users were merged as a result of initiating a channel link. * `sdkLogin` - The users were merged as a result of logging into an SDK device. 
+ * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayload.ReasonEnum} reason
+ */
+UserMergeEventAllOfPayload.prototype['reason'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>reason</code> property.
+ * @enum {String}
+ * @readonly
+ */
+UserMergeEventAllOfPayload['ReasonEnum'] = {
+
+    /**
+     * value: "api"
+     * @const
+     */
+    "api": "api",
+
+    /**
+     * value: "channelLinking"
+     * @const
+     */
+    "channelLinking": "channelLinking",
+
+    /**
+     * value: "sdkLogin"
+     * @const
+     */
+    "sdkLogin": "sdkLogin"
+};
 
 
 

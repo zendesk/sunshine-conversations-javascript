@@ -89,7 +89,7 @@ class User {
         this['id'] = id;
     }
 /**
-     * Returns An optional ID that if specified can also be used to retrieve the user. 
+     * Returns An optional ID that can also be used to retrieve the user. 
      * @return {String}
      */
     getExternalId() {
@@ -97,8 +97,8 @@ class User {
     }
 
     /**
-     * Sets An optional ID that if specified can also be used to retrieve the user. 
-     * @param {String} externalId An optional ID that if specified can also be used to retrieve the user. 
+     * Sets An optional ID that can also be used to retrieve the user. 
+     * @param {String} externalId An optional ID that can also be used to retrieve the user. 
      */
     setExternalId(externalId) {
         this['externalId'] = externalId;
@@ -152,7 +152,7 @@ class User {
 User.prototype['id'] = undefined;
 
 /**
- * An optional ID that if specified can also be used to retrieve the user. 
+ * An optional ID that can also be used to retrieve the user. 
  * @member {String} externalId
  */
 User.prototype['externalId'] = undefined;
@@ -180,7 +180,7 @@ User.prototype['metadata'] = undefined;
  */
 UserTruncated.prototype['id'] = undefined;
 /**
- * An optional ID that if specified can also be used to retrieve the user. 
+ * An optional ID that can also be used to retrieve the user. 
  * @member {String} externalId
  */
 UserTruncated.prototype['externalId'] = undefined;

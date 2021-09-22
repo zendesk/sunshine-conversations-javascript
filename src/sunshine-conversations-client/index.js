@@ -53,11 +53,20 @@ import Buy from './sunshine-conversations-client.model/Buy';
 import CarouselMessage from './sunshine-conversations-client.model/CarouselMessage';
 import CarouselMessageDisplaySettings from './sunshine-conversations-client.model/CarouselMessageDisplaySettings';
 import Client from './sunshine-conversations-client.model/Client';
+import ClientAddEvent from './sunshine-conversations-client.model/ClientAddEvent';
+import ClientAddEventAllOf from './sunshine-conversations-client.model/ClientAddEventAllOf';
+import ClientAddEventAllOfPayload from './sunshine-conversations-client.model/ClientAddEventAllOfPayload';
 import ClientAssociation from './sunshine-conversations-client.model/ClientAssociation';
 import ClientCreate from './sunshine-conversations-client.model/ClientCreate';
 import ClientListResponse from './sunshine-conversations-client.model/ClientListResponse';
+import ClientRemoveEvent from './sunshine-conversations-client.model/ClientRemoveEvent';
+import ClientRemoveEventAllOf from './sunshine-conversations-client.model/ClientRemoveEventAllOf';
+import ClientRemoveEventAllOfPayload from './sunshine-conversations-client.model/ClientRemoveEventAllOfPayload';
 import ClientResponse from './sunshine-conversations-client.model/ClientResponse';
 import ClientType from './sunshine-conversations-client.model/ClientType';
+import ClientUpdateEvent from './sunshine-conversations-client.model/ClientUpdateEvent';
+import ClientUpdateEventAllOf from './sunshine-conversations-client.model/ClientUpdateEventAllOf';
+import ClientUpdateEventAllOfPayload from './sunshine-conversations-client.model/ClientUpdateEventAllOfPayload';
 import Confirmation from './sunshine-conversations-client.model/Confirmation';
 import Content from './sunshine-conversations-client.model/Content';
 import Conversation from './sunshine-conversations-client.model/Conversation';
@@ -247,6 +256,7 @@ import UserCreateBody from './sunshine-conversations-client.model/UserCreateBody
 import UserMergeEvent from './sunshine-conversations-client.model/UserMergeEvent';
 import UserMergeEventAllOf from './sunshine-conversations-client.model/UserMergeEventAllOf';
 import UserMergeEventAllOfPayload from './sunshine-conversations-client.model/UserMergeEventAllOfPayload';
+import UserMergeEventAllOfPayloadMergedClients from './sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedClients';
 import UserMergeEventAllOfPayloadMergedConversations from './sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedConversations';
 import UserMergeEventAllOfPayloadMergedUsers from './sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedUsers';
 import UserResponse from './sunshine-conversations-client.model/UserResponse';
@@ -567,6 +577,24 @@ export {
     Client,
 
     /**
+     * The ClientAddEvent model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientAddEvent}
+     */
+    ClientAddEvent,
+
+    /**
+     * The ClientAddEventAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientAddEventAllOf}
+     */
+    ClientAddEventAllOf,
+
+    /**
+     * The ClientAddEventAllOfPayload model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientAddEventAllOfPayload}
+     */
+    ClientAddEventAllOfPayload,
+
+    /**
      * The ClientAssociation model constructor.
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientAssociation}
      */
@@ -585,6 +613,24 @@ export {
     ClientListResponse,
 
     /**
+     * The ClientRemoveEvent model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientRemoveEvent}
+     */
+    ClientRemoveEvent,
+
+    /**
+     * The ClientRemoveEventAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientRemoveEventAllOf}
+     */
+    ClientRemoveEventAllOf,
+
+    /**
+     * The ClientRemoveEventAllOfPayload model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientRemoveEventAllOfPayload}
+     */
+    ClientRemoveEventAllOfPayload,
+
+    /**
      * The ClientResponse model constructor.
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientResponse}
      */
@@ -595,6 +641,24 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientType}
      */
     ClientType,
+
+    /**
+     * The ClientUpdateEvent model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientUpdateEvent}
+     */
+    ClientUpdateEvent,
+
+    /**
+     * The ClientUpdateEventAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientUpdateEventAllOf}
+     */
+    ClientUpdateEventAllOf,
+
+    /**
+     * The ClientUpdateEventAllOfPayload model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/ClientUpdateEventAllOfPayload}
+     */
+    ClientUpdateEventAllOfPayload,
 
     /**
      * The Confirmation model constructor.
@@ -1729,6 +1793,12 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayload}
      */
     UserMergeEventAllOfPayload,
+
+    /**
+     * The UserMergeEventAllOfPayloadMergedClients model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedClients}
+     */
+    UserMergeEventAllOfPayloadMergedClients,
 
     /**
      * The UserMergeEventAllOfPayloadMergedConversations model constructor.
