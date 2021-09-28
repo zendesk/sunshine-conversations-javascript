@@ -18,7 +18,7 @@ import InlineObject from '../sunshine-conversations-client.model/InlineObject';
 /**
 * OAuthEndpoints service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/OAuthEndpointsApi
-* @version 9.4.5
+* @version 9.4.6
 */
 export default class OAuthEndpointsApi {
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AppKey model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppKey
- * @version 9.4.5
+ * @version 9.4.6
  */
 class AppKey {
     /**

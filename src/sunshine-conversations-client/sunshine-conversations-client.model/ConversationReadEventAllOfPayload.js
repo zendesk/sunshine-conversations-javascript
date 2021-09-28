@@ -18,7 +18,7 @@ import ConversationTruncated from './ConversationTruncated';
 /**
  * The ConversationReadEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationReadEventAllOfPayload
- * @version 9.4.5
+ * @version 9.4.6
  */
 class ConversationReadEventAllOfPayload {
     /**

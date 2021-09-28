@@ -19,7 +19,7 @@ import UserTruncated from './UserTruncated';
 /**
  * The User model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/User
- * @version 9.4.5
+ * @version 9.4.6
  */
 class User {
     /**

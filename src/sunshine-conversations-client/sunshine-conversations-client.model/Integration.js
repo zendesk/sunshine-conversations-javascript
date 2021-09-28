@@ -17,7 +17,7 @@ import Status from './Status';
 /**
  * The Integration model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Integration
- * @version 9.4.5
+ * @version 9.4.6
  */
 class Integration {
     /**

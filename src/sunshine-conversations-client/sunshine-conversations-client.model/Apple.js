@@ -19,7 +19,7 @@ import Status from './Status';
 /**
  * The Apple model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Apple
- * @version 9.4.5
+ * @version 9.4.6
  */
 class Apple {
     /**

@@ -17,7 +17,7 @@ import ConversationLeaveEventAllOfPayload from './ConversationLeaveEventAllOfPay
 /**
  * The ConversationLeaveEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationLeaveEventAllOf
- * @version 9.4.5
+ * @version 9.4.6
  */
 class ConversationLeaveEventAllOf {
     /**

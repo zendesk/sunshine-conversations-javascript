@@ -17,7 +17,7 @@ import PrechatCapture from './PrechatCapture';
 /**
  * The WebAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WebAllOf
- * @version 9.4.5
+ * @version 9.4.6
  */
 class WebAllOf {
     /**
@@ -93,6 +93,9 @@ class WebAllOf {
             if (data.hasOwnProperty('prechatCapture')) {
                 obj['prechatCapture'] = ApiClient.convertToType(data['prechatCapture'], PrechatCapture);
             }
+            if (data.hasOwnProperty('canUserSeeConversationList')) {
+                obj['canUserSeeConversationList'] = ApiClient.convertToType(data['canUserSeeConversationList'], 'Boolean');
+            }
             if (data.hasOwnProperty('canUserCreateMoreConversations')) {
                 obj['canUserCreateMoreConversations'] = ApiClient.convertToType(data['canUserCreateMoreConversations'], 'Boolean');
             }
@@ -116,7 +119,7 @@ class WebAllOf {
         this['type'] = type;
     }
 /**
-     * Returns This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color.
+     * Returns This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color. 
      * @return {String}
      */
     getBrandColor() {
@@ -124,14 +127,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color.
-     * @param {String} brandColor This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color.
+     * Sets This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color. 
+     * @param {String} brandColor This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color. 
      */
     setBrandColor(brandColor) {
         this['brandColor'] = brandColor;
     }
 /**
-     * Returns When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it.
+     * Returns When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it. 
      * @return {Boolean}
      */
     getFixedIntroPane() {
@@ -139,14 +142,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it.
-     * @param {Boolean} fixedIntroPane When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it.
+     * Sets When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it. 
+     * @param {Boolean} fixedIntroPane When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it. 
      */
     setFixedIntroPane(fixedIntroPane) {
         this['fixedIntroPane'] = fixedIntroPane;
     }
 /**
-     * Returns This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color.
+     * Returns This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color. 
      * @return {String}
      */
     getConversationColor() {
@@ -154,14 +157,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color.
-     * @param {String} conversationColor This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color.
+     * Sets This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color. 
+     * @param {String} conversationColor This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color. 
      */
     setConversationColor(conversationColor) {
         this['conversationColor'] = conversationColor;
     }
 /**
-     * Returns This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color.
+     * Returns This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color. 
      * @return {String}
      */
     getActionColor() {
@@ -169,14 +172,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color.
-     * @param {String} actionColor This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color.
+     * Sets This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color. 
+     * @param {String} actionColor This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color. 
      */
     setActionColor(actionColor) {
         this['actionColor'] = actionColor;
     }
 /**
-     * Returns Choose how the messenger will appear on your website. Must be either button or tab.
+     * Returns Choose how the messenger will appear on your website. Must be either button or tab. 
      * @return {String}
      */
     getDisplayStyle() {
@@ -184,14 +187,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets Choose how the messenger will appear on your website. Must be either button or tab.
-     * @param {String} displayStyle Choose how the messenger will appear on your website. Must be either button or tab.
+     * Sets Choose how the messenger will appear on your website. Must be either button or tab. 
+     * @param {String} displayStyle Choose how the messenger will appear on your website. Must be either button or tab. 
      */
     setDisplayStyle(displayStyle) {
         this['displayStyle'] = displayStyle;
     }
 /**
-     * Returns With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
+     * Returns With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
      * @return {String}
      */
     getButtonIconUrl() {
@@ -199,14 +202,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
-     * @param {String} buttonIconUrl With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
+     * Sets With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
+     * @param {String} buttonIconUrl With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
      */
     setButtonIconUrl(buttonIconUrl) {
         this['buttonIconUrl'] = buttonIconUrl;
     }
 /**
-     * Returns With the button style Web Messenger, you have the option of specifying the button width.
+     * Returns With the button style Web Messenger, you have the option of specifying the button width. 
      * @return {String}
      */
     getButtonWidth() {
@@ -214,14 +217,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets With the button style Web Messenger, you have the option of specifying the button width.
-     * @param {String} buttonWidth With the button style Web Messenger, you have the option of specifying the button width.
+     * Sets With the button style Web Messenger, you have the option of specifying the button width. 
+     * @param {String} buttonWidth With the button style Web Messenger, you have the option of specifying the button width. 
      */
     setButtonWidth(buttonWidth) {
         this['buttonWidth'] = buttonWidth;
     }
 /**
-     * Returns With the button style Web Messenger, you have the option of specifying the button height.
+     * Returns With the button style Web Messenger, you have the option of specifying the button height. 
      * @return {String}
      */
     getButtonHeight() {
@@ -229,14 +232,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets With the button style Web Messenger, you have the option of specifying the button height.
-     * @param {String} buttonHeight With the button style Web Messenger, you have the option of specifying the button height.
+     * Sets With the button style Web Messenger, you have the option of specifying the button height. 
+     * @param {String} buttonHeight With the button style Web Messenger, you have the option of specifying the button height. 
      */
     setButtonHeight(buttonHeight) {
         this['buttonHeight'] = buttonHeight;
     }
 /**
-     * Returns Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed.
+     * Returns Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed. 
      * @return {Array.<String>}
      */
     getIntegrationOrder() {
@@ -244,8 +247,8 @@ class WebAllOf {
     }
 
     /**
-     * Sets Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed.
-     * @param {Array.<String>} integrationOrder Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed.
+     * Sets Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed. 
+     * @param {Array.<String>} integrationOrder Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed. 
      */
     setIntegrationOrder(integrationOrder) {
         this['integrationOrder'] = integrationOrder;
@@ -266,7 +269,7 @@ class WebAllOf {
         this['businessName'] = businessName;
     }
 /**
-     * Returns A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
+     * Returns A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
      * @return {String}
      */
     getBusinessIconUrl() {
@@ -274,14 +277,14 @@ class WebAllOf {
     }
 
     /**
-     * Sets A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
-     * @param {String} businessIconUrl A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
+     * Sets A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
+     * @param {String} businessIconUrl A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
      */
     setBusinessIconUrl(businessIconUrl) {
         this['businessIconUrl'] = businessIconUrl;
     }
 /**
-     * Returns A background image url for the conversation. Image will be tiled to fit the window.
+     * Returns A background image url for the conversation. Image will be tiled to fit the window. 
      * @return {String}
      */
     getBackgroundImageUrl() {
@@ -289,8 +292,8 @@ class WebAllOf {
     }
 
     /**
-     * Sets A background image url for the conversation. Image will be tiled to fit the window.
-     * @param {String} backgroundImageUrl A background image url for the conversation. Image will be tiled to fit the window.
+     * Sets A background image url for the conversation. Image will be tiled to fit the window. 
+     * @param {String} backgroundImageUrl A background image url for the conversation. Image will be tiled to fit the window. 
      */
     setBackgroundImageUrl(backgroundImageUrl) {
         this['backgroundImageUrl'] = backgroundImageUrl;
@@ -311,7 +314,7 @@ class WebAllOf {
         this['originWhitelist'] = originWhitelist;
     }
 /**
-     * Returns Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture.
+     * Returns Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture. 
      * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/PrechatCapture}
      */
     getPrechatCapture() {
@@ -319,14 +322,29 @@ class WebAllOf {
     }
 
     /**
-     * Sets Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture.
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/PrechatCapture} prechatCapture Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture.
+     * Sets Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture. 
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/PrechatCapture} prechatCapture Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture. 
      */
     setPrechatCapture(prechatCapture) {
         this['prechatCapture'] = prechatCapture;
     }
 /**
-     * Returns Allows users to create more than one conversation on the web messenger integration.
+     * Returns Allows users to view their list of conversations. By default, the list of conversations will be visible. *This setting only applies to apps where `settings.multiConvoEnabled` is set to `true`*. 
+     * @return {Boolean}
+     */
+    getCanUserSeeConversationList() {
+        return this.canUserSeeConversationList;
+    }
+
+    /**
+     * Sets Allows users to view their list of conversations. By default, the list of conversations will be visible. *This setting only applies to apps where `settings.multiConvoEnabled` is set to `true`*. 
+     * @param {Boolean} canUserSeeConversationList Allows users to view their list of conversations. By default, the list of conversations will be visible. *This setting only applies to apps where `settings.multiConvoEnabled` is set to `true`*. 
+     */
+    setCanUserSeeConversationList(canUserSeeConversationList) {
+        this['canUserSeeConversationList'] = canUserSeeConversationList;
+    }
+/**
+     * Returns Allows users to create more than one conversation on the web messenger integration. 
      * @return {Boolean}
      */
     getCanUserCreateMoreConversations() {
@@ -334,8 +352,8 @@ class WebAllOf {
     }
 
     /**
-     * Sets Allows users to create more than one conversation on the web messenger integration.
-     * @param {Boolean} canUserCreateMoreConversations Allows users to create more than one conversation on the web messenger integration.
+     * Sets Allows users to create more than one conversation on the web messenger integration. 
+     * @param {Boolean} canUserCreateMoreConversations Allows users to create more than one conversation on the web messenger integration. 
      */
     setCanUserCreateMoreConversations(canUserCreateMoreConversations) {
         this['canUserCreateMoreConversations'] = canUserCreateMoreConversations;
@@ -351,62 +369,62 @@ class WebAllOf {
 WebAllOf.prototype['type'] = 'web';
 
 /**
- * This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color.
+ * This color will be used in the messenger header and the button or tab in idle state. Must be a 3 or 6-character hexadecimal color. 
  * @member {String} brandColor
  * @default '65758e'
  */
 WebAllOf.prototype['brandColor'] = '65758e';
 
 /**
- * When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it.
+ * When true, the introduction pane will be pinned at the top of the conversation instead of scrolling with it. 
  * @member {Boolean} fixedIntroPane
  * @default false
  */
 WebAllOf.prototype['fixedIntroPane'] = false;
 
 /**
- * This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color.
+ * This color will be used for customer messages, quick replies and actions in the footer. Must be a 3 or 6-character hexadecimal color. 
  * @member {String} conversationColor
  * @default '0099ff'
  */
 WebAllOf.prototype['conversationColor'] = '0099ff';
 
 /**
- * This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color.
+ * This color will be used for call-to-actions inside your messages. Must be a 3 or 6-character hexadecimal color. 
  * @member {String} actionColor
  * @default '0099ff'
  */
 WebAllOf.prototype['actionColor'] = '0099ff';
 
 /**
- * Choose how the messenger will appear on your website. Must be either button or tab.
+ * Choose how the messenger will appear on your website. Must be either button or tab. 
  * @member {String} displayStyle
  * @default 'button'
  */
 WebAllOf.prototype['displayStyle'] = 'button';
 
 /**
- * With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
+ * With the button style Web Messenger, you have the option of selecting your own button icon. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
  * @member {String} buttonIconUrl
  */
 WebAllOf.prototype['buttonIconUrl'] = undefined;
 
 /**
- * With the button style Web Messenger, you have the option of specifying the button width.
+ * With the button style Web Messenger, you have the option of specifying the button width. 
  * @member {String} buttonWidth
  * @default '58'
  */
 WebAllOf.prototype['buttonWidth'] = '58';
 
 /**
- * With the button style Web Messenger, you have the option of specifying the button height.
+ * With the button style Web Messenger, you have the option of specifying the button height. 
  * @member {String} buttonHeight
  * @default '58'
  */
 WebAllOf.prototype['buttonHeight'] = '58';
 
 /**
- * Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed.
+ * Array of integration IDs, order will be reflected in the Web Messenger. When set, only integrations from this list will be displayed in the Web Messenger. If unset, all integrations will be displayed. 
  * @member {Array.<String>} integrationOrder
  */
 WebAllOf.prototype['integrationOrder'] = undefined;
@@ -418,13 +436,13 @@ WebAllOf.prototype['integrationOrder'] = undefined;
 WebAllOf.prototype['businessName'] = undefined;
 
 /**
- * A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format.
+ * A custom business icon url for the Web Messenger. The image must be at least 200 x 200 pixels and must be in either JPG, PNG, or GIF format. 
  * @member {String} businessIconUrl
  */
 WebAllOf.prototype['businessIconUrl'] = undefined;
 
 /**
- * A background image url for the conversation. Image will be tiled to fit the window.
+ * A background image url for the conversation. Image will be tiled to fit the window. 
  * @member {String} backgroundImageUrl
  */
 WebAllOf.prototype['backgroundImageUrl'] = undefined;
@@ -436,13 +454,19 @@ WebAllOf.prototype['backgroundImageUrl'] = undefined;
 WebAllOf.prototype['originWhitelist'] = undefined;
 
 /**
- * Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture.
+ * Object whose properties can be set to specify the add-on’s options. See the [guide](https://docs.smooch.io/guide/web-messenger/#prechat-capture) to learn more about Prechat Capture. 
  * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/PrechatCapture} prechatCapture
  */
 WebAllOf.prototype['prechatCapture'] = undefined;
 
 /**
- * Allows users to create more than one conversation on the web messenger integration.
+ * Allows users to view their list of conversations. By default, the list of conversations will be visible. *This setting only applies to apps where `settings.multiConvoEnabled` is set to `true`*. 
+ * @member {Boolean} canUserSeeConversationList
+ */
+WebAllOf.prototype['canUserSeeConversationList'] = undefined;
+
+/**
+ * Allows users to create more than one conversation on the web messenger integration. 
  * @member {Boolean} canUserCreateMoreConversations
  */
 WebAllOf.prototype['canUserCreateMoreConversations'] = undefined;

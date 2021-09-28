@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MailgunUpdateAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MailgunUpdateAllOf
- * @version 9.4.5
+ * @version 9.4.6
  */
 class MailgunUpdateAllOf {
     /**

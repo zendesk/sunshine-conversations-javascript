@@ -17,7 +17,7 @@ import WebhookBody from './WebhookBody';
 /**
  * The WebhookCreateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WebhookCreateBody
- * @version 9.4.5
+ * @version 9.4.6
  */
 class WebhookCreateBody {
     /**

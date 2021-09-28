@@ -19,7 +19,7 @@ import TwitterAllOf from './TwitterAllOf';
 /**
  * The Twitter model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Twitter
- * @version 9.4.5
+ * @version 9.4.6
  */
 class Twitter {
     /**

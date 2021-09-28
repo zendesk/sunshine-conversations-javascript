@@ -17,7 +17,7 @@ import Field from './Field';
 /**
  * The PrechatCapture model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/PrechatCapture
- * @version 9.4.5
+ * @version 9.4.6
  */
 class PrechatCapture {
     /**

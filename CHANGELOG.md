@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.4.6] - 2021-09-23
+
+- Added channel linking events
+- Added `canUserSeeConversationList` in the `web` integration
+- Updated RESTeasy to the latest version
+
 ## [9.4.5] - 2021-08-23
 
 - Added page[before|after|size] query parameter constraints.

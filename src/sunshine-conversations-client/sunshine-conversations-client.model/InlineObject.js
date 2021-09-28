@@ -16,14 +16,14 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineObject model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/InlineObject
- * @version 9.4.5
+ * @version 9.4.6
  */
 class InlineObject {
     /**
      * Constructs a new <code>InlineObject</code>.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/InlineObject
      * @param code {String} The authorization code received via /oauth/authorize
-     * @param grantType {String} Must be set to authorization_code
+     * @param grantType {String} Must be set to the string `authorization_code`
      * @param clientId {String} Your integration’s unique identifier
      * @param clientSecret {String} Your integration’s secret
      */
@@ -87,7 +87,7 @@ class InlineObject {
         this['code'] = code;
     }
 /**
-     * Returns Must be set to authorization_code
+     * Returns Must be set to the string `authorization_code`
      * @return {String}
      */
     getGrantType() {
@@ -95,8 +95,8 @@ class InlineObject {
     }
 
     /**
-     * Sets Must be set to authorization_code
-     * @param {String} grantType Must be set to authorization_code
+     * Sets Must be set to the string `authorization_code`
+     * @param {String} grantType Must be set to the string `authorization_code`
      */
     setGrantType(grantType) {
         this['grant_type'] = grantType;
@@ -141,7 +141,7 @@ class InlineObject {
 InlineObject.prototype['code'] = undefined;
 
 /**
- * Must be set to authorization_code
+ * Must be set to the string `authorization_code`
  * @member {String} grant_type
  */
 InlineObject.prototype['grant_type'] = undefined;

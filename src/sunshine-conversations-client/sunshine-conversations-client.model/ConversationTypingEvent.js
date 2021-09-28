@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationTypingEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationTypingEvent
- * @version 9.4.5
+ * @version 9.4.6
  */
 class ConversationTypingEvent {
     /**
