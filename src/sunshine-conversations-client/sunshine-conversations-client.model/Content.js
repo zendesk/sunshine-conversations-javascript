@@ -275,7 +275,7 @@ class Content {
         this['altText'] = altText;
     }
 /**
-     * Returns true if the message should block the chat input on Web Messenger. form message only.
+     * Returns true if the message should block the chat input on Web Messenger.
      * @return {Boolean}
      */
     getBlockChatInput() {
@@ -283,8 +283,8 @@ class Content {
     }
 
     /**
-     * Sets true if the message should block the chat input on Web Messenger. form message only.
-     * @param {Boolean} blockChatInput true if the message should block the chat input on Web Messenger. form message only.
+     * Sets true if the message should block the chat input on Web Messenger.
+     * @param {Boolean} blockChatInput true if the message should block the chat input on Web Messenger.
      */
     setBlockChatInput(blockChatInput) {
         this['blockChatInput'] = blockChatInput;
@@ -418,7 +418,7 @@ Content.prototype['mediaType'] = undefined;
 Content.prototype['altText'] = undefined;
 
 /**
- * true if the message should block the chat input on Web Messenger. form message only.
+ * true if the message should block the chat input on Web Messenger.
  * @member {Boolean} blockChatInput
  */
 Content.prototype['blockChatInput'] = undefined;
@@ -530,7 +530,7 @@ FileMessage.prototype['text'] = undefined;
  */
 FormMessage.prototype['type'] = 'form';
 /**
- * true if the message should block the chat input on Web Messenger. form message only.
+ * true if the message should block the chat input on Web Messenger.
  * @member {Boolean} blockChatInput
  */
 FormMessage.prototype['blockChatInput'] = undefined;

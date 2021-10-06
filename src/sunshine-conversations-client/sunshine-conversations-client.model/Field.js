@@ -134,7 +134,7 @@ class Field {
         this['label'] = label;
     }
 /**
-     * Returns Placeholder text for the field. form message only.
+     * Returns Placeholder text for the field. Form message only.
      * @return {String}
      */
     getPlaceholder() {
@@ -142,14 +142,14 @@ class Field {
     }
 
     /**
-     * Sets Placeholder text for the field. form message only.
-     * @param {String} placeholder Placeholder text for the field. form message only.
+     * Sets Placeholder text for the field. Form message only.
+     * @param {String} placeholder Placeholder text for the field. Form message only.
      */
     setPlaceholder(placeholder) {
         this['placeholder'] = placeholder;
     }
 /**
-     * Returns The minimum allowed length for the response for a field of type text. form message only.
+     * Returns The minimum allowed length for the response for a field of type text. Form message only.
      * minimum: 1
      * maximum: 128
      * @return {Number}
@@ -159,14 +159,14 @@ class Field {
     }
 
     /**
-     * Sets The minimum allowed length for the response for a field of type text. form message only.
-     * @param {Number} minSize The minimum allowed length for the response for a field of type text. form message only.
+     * Sets The minimum allowed length for the response for a field of type text. Form message only.
+     * @param {Number} minSize The minimum allowed length for the response for a field of type text. Form message only.
      */
     setMinSize(minSize) {
         this['minSize'] = minSize;
     }
 /**
-     * Returns The maximum allowed length for the response for a field of type text. form message only.
+     * Returns The maximum allowed length for the response for a field of type text. Form message only.
      * minimum: 1
      * maximum: 128
      * @return {Number}
@@ -176,8 +176,8 @@ class Field {
     }
 
     /**
-     * Sets The maximum allowed length for the response for a field of type text. form message only.
-     * @param {Number} maxSize The maximum allowed length for the response for a field of type text. form message only.
+     * Sets The maximum allowed length for the response for a field of type text. Form message only.
+     * @param {Number} maxSize The maximum allowed length for the response for a field of type text. Form message only.
      */
     setMaxSize(maxSize) {
         this['maxSize'] = maxSize;
@@ -213,7 +213,7 @@ class Field {
         this['email'] = email;
     }
 /**
-     * Returns Array of objects representing the response for a field of type select. form and formResponse messages only.
+     * Returns Array of objects representing the response for a field of type select. Form and formResponse messages only.
      * @return {Array.<Object>}
      */
     getSelect() {
@@ -221,8 +221,8 @@ class Field {
     }
 
     /**
-     * Sets Array of objects representing the response for a field of type select. form and formResponse messages only.
-     * @param {Array.<Object>} select Array of objects representing the response for a field of type select. form and formResponse messages only.
+     * Sets Array of objects representing the response for a field of type select. Form and formResponse messages only.
+     * @param {Array.<Object>} select Array of objects representing the response for a field of type select. Form and formResponse messages only.
      */
     setSelect(select) {
         this['select'] = select;
@@ -264,20 +264,20 @@ Field.prototype['name'] = undefined;
 Field.prototype['label'] = undefined;
 
 /**
- * Placeholder text for the field. form message only.
+ * Placeholder text for the field. Form message only.
  * @member {String} placeholder
  */
 Field.prototype['placeholder'] = undefined;
 
 /**
- * The minimum allowed length for the response for a field of type text. form message only.
+ * The minimum allowed length for the response for a field of type text. Form message only.
  * @member {Number} minSize
  * @default 1
  */
 Field.prototype['minSize'] = 1;
 
 /**
- * The maximum allowed length for the response for a field of type text. form message only.
+ * The maximum allowed length for the response for a field of type text. Form message only.
  * @member {Number} maxSize
  * @default 128
  */
@@ -296,7 +296,7 @@ Field.prototype['text'] = undefined;
 Field.prototype['email'] = undefined;
 
 /**
- * Array of objects representing the response for a field of type select. form and formResponse messages only.
+ * Array of objects representing the response for a field of type select. Form and formResponse messages only.
  * @member {Array.<Object>} select
  */
 Field.prototype['select'] = undefined;

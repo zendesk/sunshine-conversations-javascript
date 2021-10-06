@@ -22,7 +22,7 @@ import Field from './Field';
 class FormMessage {
     /**
      * Constructs a new <code>FormMessage</code>.
-     * A form type message without text or actions.
+     * A form type message without text or actions. Only supported in the Web SDK.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/FormMessage
      * @param type {String} The type of message.
      * @param fields {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Field>} An array of objects representing fields associated with the message. Only present in form and formResponse messages.
@@ -82,7 +82,7 @@ class FormMessage {
         this['type'] = type;
     }
 /**
-     * Returns true if the message should block the chat input on Web Messenger. form message only.
+     * Returns true if the message should block the chat input on Web Messenger.
      * @return {Boolean}
      */
     getBlockChatInput() {
@@ -90,8 +90,8 @@ class FormMessage {
     }
 
     /**
-     * Sets true if the message should block the chat input on Web Messenger. form message only.
-     * @param {Boolean} blockChatInput true if the message should block the chat input on Web Messenger. form message only.
+     * Sets true if the message should block the chat input on Web Messenger.
+     * @param {Boolean} blockChatInput true if the message should block the chat input on Web Messenger.
      */
     setBlockChatInput(blockChatInput) {
         this['blockChatInput'] = blockChatInput;
@@ -122,7 +122,7 @@ class FormMessage {
 FormMessage.prototype['type'] = 'form';
 
 /**
- * true if the message should block the chat input on Web Messenger. form message only.
+ * true if the message should block the chat input on Web Messenger.
  * @member {Boolean} blockChatInput
  */
 FormMessage.prototype['blockChatInput'] = undefined;
