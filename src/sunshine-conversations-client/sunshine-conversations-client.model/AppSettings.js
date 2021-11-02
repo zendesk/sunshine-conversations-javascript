@@ -77,7 +77,7 @@ class AppSettings {
     }
 
 /**
-     * Returns Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/rest/#conversation-retention-seconds) for more information. 
+     * Returns Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/guide/creating-and-managing-apps/#conversation-retention-seconds) for more information. 
      * minimum: 0
      * @return {Number}
      */
@@ -86,8 +86,8 @@ class AppSettings {
     }
 
     /**
-     * Sets Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/rest/#conversation-retention-seconds) for more information. 
-     * @param {Number} conversationRetentionSeconds Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/rest/#conversation-retention-seconds) for more information. 
+     * Sets Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/guide/creating-and-managing-apps/#conversation-retention-seconds) for more information. 
+     * @param {Number} conversationRetentionSeconds Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/guide/creating-and-managing-apps/#conversation-retention-seconds) for more information. 
      */
     setConversationRetentionSeconds(conversationRetentionSeconds) {
         this['conversationRetentionSeconds'] = conversationRetentionSeconds;
@@ -123,7 +123,7 @@ class AppSettings {
         this['useAnimalNames'] = useAnimalNames;
     }
 /**
-     * Returns A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/rest/#echo-postbacks) for more information. 
+     * Returns A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/guide/creating-and-managing-apps/#echo-postbacks) for more information. 
      * @return {Boolean}
      */
     getEchoPostback() {
@@ -131,8 +131,8 @@ class AppSettings {
     }
 
     /**
-     * Sets A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/rest/#echo-postbacks) for more information. 
-     * @param {Boolean} echoPostback A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/rest/#echo-postbacks) for more information. 
+     * Sets A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/guide/creating-and-managing-apps/#echo-postbacks) for more information. 
+     * @param {Boolean} echoPostback A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/guide/creating-and-managing-apps/#echo-postbacks) for more information. 
      */
     setEchoPostback(echoPostback) {
         this['echoPostback'] = echoPostback;
@@ -201,7 +201,7 @@ class AppSettings {
 }
 
 /**
- * Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/rest/#conversation-retention-seconds) for more information. 
+ * Number of seconds of inactivity before a conversation’s messages  will be automatically deleted. See  [Conversation Retention Seconds](https://docs.smooch.io/guide/creating-and-managing-apps/#conversation-retention-seconds) for more information. 
  * @member {Number} conversationRetentionSeconds
  */
 AppSettings.prototype['conversationRetentionSeconds'] = undefined;
@@ -219,7 +219,7 @@ AppSettings.prototype['maskCreditCardNumbers'] = undefined;
 AppSettings.prototype['useAnimalNames'] = undefined;
 
 /**
- * A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/rest/#echo-postbacks) for more information. 
+ * A boolean specifying whether a message should be added to the conversation  history when a postback button is clicked. See  [Echo Postbacks](https://docs.smooch.io/guide/creating-and-managing-apps/#echo-postbacks) for more information. 
  * @member {Boolean} echoPostback
  */
 AppSettings.prototype['echoPostback'] = undefined;
