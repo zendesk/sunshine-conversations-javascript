@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AppKeyCreateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppKeyCreateBody
- * @version 9.4.6
+ * @version 9.4.7
  */
 class AppKeyCreateBody {
     /**

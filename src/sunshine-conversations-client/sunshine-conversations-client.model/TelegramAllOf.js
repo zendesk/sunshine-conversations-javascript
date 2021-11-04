@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TelegramAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TelegramAllOf
- * @version 9.4.6
+ * @version 9.4.7
  */
 class TelegramAllOf {
     /**

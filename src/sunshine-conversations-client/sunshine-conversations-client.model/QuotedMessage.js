@@ -19,7 +19,7 @@ import QuotedMessageMessage from './QuotedMessageMessage';
 /**
  * The QuotedMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/QuotedMessage
- * @version 9.4.6
+ * @version 9.4.7
  */
 class QuotedMessage {
     /**

@@ -20,7 +20,7 @@ import MatchCriteriaWhatsapp from './MatchCriteriaWhatsapp';
 /**
  * The MatchCriteria model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MatchCriteria
- * @version 9.4.6
+ * @version 9.4.7
  */
 class MatchCriteria {
     /**

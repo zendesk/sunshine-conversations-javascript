@@ -17,7 +17,7 @@ import ConversationMessageEventAllOfPayload from './ConversationMessageEventAllO
 /**
  * The ConversationMessageEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationMessageEventAllOf
- * @version 9.4.6
+ * @version 9.4.7
  */
 class ConversationMessageEventAllOf {
     /**

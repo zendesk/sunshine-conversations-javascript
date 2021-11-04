@@ -21,7 +21,7 @@ import Webview from './Webview';
 /**
  * The ActionSubset model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ActionSubset
- * @version 9.4.6
+ * @version 9.4.7
  */
 class ActionSubset {
     /**
