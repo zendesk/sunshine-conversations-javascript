@@ -17,7 +17,7 @@ import Field from './Field';
 /**
  * The FormMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/FormMessage
- * @version 9.4.7
+ * @version 9.5.7
  */
 class FormMessage {
     /**

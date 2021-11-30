@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ClientUpdateEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientUpdateEvent
- * @version 9.4.7
+ * @version 9.5.7
  */
 class ClientUpdateEvent {
     /**

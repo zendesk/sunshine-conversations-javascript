@@ -20,7 +20,7 @@ import SourceWebhook from './SourceWebhook';
 /**
  * The Activity model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Activity
- * @version 9.4.7
+ * @version 9.5.7
  */
 class Activity {
     /**

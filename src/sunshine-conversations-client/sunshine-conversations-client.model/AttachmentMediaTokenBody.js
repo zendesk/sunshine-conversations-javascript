@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttachmentMediaTokenBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AttachmentMediaTokenBody
- * @version 9.4.7
+ * @version 9.5.7
  */
 class AttachmentMediaTokenBody {
     /**

@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The AppleUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppleUpdate
- * @version 9.4.7
+ * @version 9.5.7
  */
 class AppleUpdate {
     /**

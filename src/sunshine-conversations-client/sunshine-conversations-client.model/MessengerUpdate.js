@@ -18,7 +18,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The MessengerUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessengerUpdate
- * @version 9.4.7
+ * @version 9.5.7
  */
 class MessengerUpdate {
     /**

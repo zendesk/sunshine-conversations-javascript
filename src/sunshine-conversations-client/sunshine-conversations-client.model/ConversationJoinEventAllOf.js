@@ -17,7 +17,7 @@ import ConversationJoinEventAllOfPayload from './ConversationJoinEventAllOfPaylo
 /**
  * The ConversationJoinEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationJoinEventAllOf
- * @version 9.4.7
+ * @version 9.5.7
  */
 class ConversationJoinEventAllOf {
     /**

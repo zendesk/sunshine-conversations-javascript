@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Page model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Page
- * @version 9.4.7
+ * @version 9.5.7
  */
 class Page {
     /**

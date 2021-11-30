@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ClientRemoveEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientRemoveEvent
- * @version 9.4.7
+ * @version 9.5.7
  */
 class ClientRemoveEvent {
     /**
