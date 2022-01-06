@@ -1,5 +1,17 @@
 # Changelog
 
+## [9.5.8] - 2022-01-04
+
+- Added missing pageId and pageName properties on Messenger integration.
+
+## [9.5.7] - 2021-11-30
+
+- Dependencies security update; JS wrapper not affected.
+
+## [9.4.7] - 2021-11-04
+
+- Removed unused NPM dependency due to security warning.
+
 ## [9.4.6] - 2021-09-23
 
 - Added channel linking events

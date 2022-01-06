@@ -8,5 +8,7 @@ Name | Type | Description | Notes
 **pageAccessToken** | **String** | A Facebook Page Access Token. | 
 **appId** | **String** | A Facebook App ID. | 
 **appSecret** | **String** | A Facebook App Secret. | 
+**pageId** | **Number** | A Facebook page ID. | [optional] 
+**pageName** | **String** | A Facebook page name. | [optional] 
 
 
