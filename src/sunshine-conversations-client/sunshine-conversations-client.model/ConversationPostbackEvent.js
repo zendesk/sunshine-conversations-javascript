@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationPostbackEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationPostbackEvent
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ConversationPostbackEvent {
     /**

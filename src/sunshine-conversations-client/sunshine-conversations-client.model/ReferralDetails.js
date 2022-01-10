@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReferralDetails model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ReferralDetails
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ReferralDetails {
     /**

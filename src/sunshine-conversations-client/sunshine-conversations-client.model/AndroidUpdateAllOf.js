@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AndroidUpdateAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AndroidUpdateAllOf
- * @version 9.5.8
+ * @version 9.5.9
  */
 class AndroidUpdateAllOf {
     /**

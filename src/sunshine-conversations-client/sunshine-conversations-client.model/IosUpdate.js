@@ -18,7 +18,7 @@ import IosUpdateAllOf from './IosUpdateAllOf';
 /**
  * The IosUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IosUpdate
- * @version 9.5.8
+ * @version 9.5.9
  */
 class IosUpdate {
     /**

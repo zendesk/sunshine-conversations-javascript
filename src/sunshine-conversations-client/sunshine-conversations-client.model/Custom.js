@@ -20,7 +20,7 @@ import Webhook from './Webhook';
 /**
  * The Custom model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Custom
- * @version 9.5.8
+ * @version 9.5.9
  */
 class Custom {
     /**

@@ -18,7 +18,7 @@ import SwitchboardIntegrationWebhook from './SwitchboardIntegrationWebhook';
 /**
  * The ConversationTruncated model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationTruncated
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ConversationTruncated {
     /**

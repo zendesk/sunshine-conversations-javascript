@@ -17,7 +17,7 @@ import ClientRemoveEventAllOfPayload from './ClientRemoveEventAllOfPayload';
 /**
  * The ClientRemoveEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientRemoveEventAllOf
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ClientRemoveEventAllOf {
     /**

@@ -1,5 +1,9 @@
 # Changelog
 
+## [9.5.9] - 2022-01-07
+
+- Added missing User-Agent header to JS client library.
+
 ## [9.5.8] - 2022-01-04
 
 - Added missing pageId and pageName properties on Messenger integration.

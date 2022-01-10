@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The WebhookSubSchema model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WebhookSubSchema
- * @version 9.5.8
+ * @version 9.5.9
  */
 class WebhookSubSchema {
     /**

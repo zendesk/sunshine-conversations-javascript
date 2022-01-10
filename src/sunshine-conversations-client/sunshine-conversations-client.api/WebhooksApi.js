@@ -21,7 +21,7 @@ import WebhookResponse from '../sunshine-conversations-client.model/WebhookRespo
 /**
 * Webhooks service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/WebhooksApi
-* @version 9.5.8
+* @version 9.5.9
 */
 export default class WebhooksApi {
 

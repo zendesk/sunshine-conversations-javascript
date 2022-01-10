@@ -18,7 +18,7 @@ import MailgunUpdateAllOf from './MailgunUpdateAllOf';
 /**
  * The MailgunUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MailgunUpdate
- * @version 9.5.8
+ * @version 9.5.9
  */
 class MailgunUpdate {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EventSubSchema model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/EventSubSchema
- * @version 9.5.8
+ * @version 9.5.9
  */
 class EventSubSchema {
     /**

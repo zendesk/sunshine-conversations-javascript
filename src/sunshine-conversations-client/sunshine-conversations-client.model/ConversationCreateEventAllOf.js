@@ -17,7 +17,7 @@ import ConversationCreateEventAllOfPayload from './ConversationCreateEventAllOfP
 /**
  * The ConversationCreateEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationCreateEventAllOf
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ConversationCreateEventAllOf {
     /**

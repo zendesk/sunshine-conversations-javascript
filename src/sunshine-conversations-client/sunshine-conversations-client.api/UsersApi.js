@@ -20,7 +20,7 @@ import UserUpdateBody from '../sunshine-conversations-client.model/UserUpdateBod
 /**
 * Users service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/UsersApi
-* @version 9.5.8
+* @version 9.5.9
 */
 export default class UsersApi {
 

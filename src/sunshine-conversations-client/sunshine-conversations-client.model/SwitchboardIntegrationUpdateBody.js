@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SwitchboardIntegrationUpdateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardIntegrationUpdateBody
- * @version 9.5.8
+ * @version 9.5.9
  */
 class SwitchboardIntegrationUpdateBody {
     /**

@@ -17,7 +17,7 @@ import SwitchboardIntegration from './SwitchboardIntegration';
 /**
  * The SwitchboardIntegrationListResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardIntegrationListResponse
- * @version 9.5.8
+ * @version 9.5.9
  */
 class SwitchboardIntegrationListResponse {
     /**

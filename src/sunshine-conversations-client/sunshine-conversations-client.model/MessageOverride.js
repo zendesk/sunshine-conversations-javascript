@@ -21,7 +21,7 @@ import MessageOverrideWhatsapp from './MessageOverrideWhatsapp';
 /**
  * The MessageOverride model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageOverride
- * @version 9.5.8
+ * @version 9.5.9
  */
 class MessageOverride {
     /**

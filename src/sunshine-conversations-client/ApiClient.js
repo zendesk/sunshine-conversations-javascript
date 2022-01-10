@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module sunshine-conversations-client/ApiClient
-* @version 9.5.8
+* @version 9.5.9
 */
 
 /**
@@ -50,7 +50,9 @@ class ApiClient {
          * @type {Array.<String>}
          * @default {}
          */
-        this.defaultHeaders = {};
+        this.defaultHeaders = {
+            'User-Agent': 'OpenAPI-Generator/9.5.9/Javascript(Node.js)'
+        };
 
         /**
          * The default HTTP timeout for all API calls.

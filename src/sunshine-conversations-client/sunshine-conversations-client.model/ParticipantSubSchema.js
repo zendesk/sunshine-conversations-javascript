@@ -18,7 +18,7 @@ import ParticipantWithUserId from './ParticipantWithUserId';
 /**
  * The ParticipantSubSchema model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantSubSchema
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ParticipantSubSchema {
     /**

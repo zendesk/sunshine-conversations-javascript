@@ -23,7 +23,7 @@ import ParticipantSubSchema from '../sunshine-conversations-client.model/Partici
 /**
 * Participants service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/ParticipantsApi
-* @version 9.5.8
+* @version 9.5.9
 */
 export default class ParticipantsApi {
 

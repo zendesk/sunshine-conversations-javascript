@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationLeaveEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationLeaveEvent
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ConversationLeaveEvent {
     /**

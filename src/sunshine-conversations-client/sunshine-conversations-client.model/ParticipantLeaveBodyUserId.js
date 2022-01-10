@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ParticipantLeaveBodyUserId model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantLeaveBodyUserId
- * @version 9.5.8
+ * @version 9.5.9
  */
 class ParticipantLeaveBodyUserId {
     /**

@@ -17,7 +17,7 @@ import ClientAssociation from './ClientAssociation';
 /**
  * The Participant model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Participant
- * @version 9.5.8
+ * @version 9.5.9
  */
 class Participant {
     /**

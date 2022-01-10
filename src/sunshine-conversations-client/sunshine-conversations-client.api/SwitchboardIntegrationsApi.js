@@ -21,7 +21,7 @@ import SwitchboardIntegrationUpdateBody from '../sunshine-conversations-client.m
 /**
 * SwitchboardIntegrations service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/SwitchboardIntegrationsApi
-* @version 9.5.8
+* @version 9.5.9
 */
 export default class SwitchboardIntegrationsApi {
 
