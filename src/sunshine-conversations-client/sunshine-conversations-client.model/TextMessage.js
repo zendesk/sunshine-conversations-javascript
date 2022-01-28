@@ -59,6 +59,9 @@ class TextMessage {
             if (data.hasOwnProperty('actions')) {
                 obj['actions'] = ApiClient.convertToType(data['actions'], [Action]);
             }
+            if (data.hasOwnProperty('payload')) {
+                obj['payload'] = ApiClient.convertToType(data['payload'], 'String');
+            }
         }
         return obj;
     }
@@ -108,6 +111,21 @@ class TextMessage {
     setActions(actions) {
         this['actions'] = actions;
     }
+/**
+     * Returns The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+     * @return {String}
+     */
+    getPayload() {
+        return this.payload;
+    }
+
+    /**
+     * Sets The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+     * @param {String} payload The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+     */
+    setPayload(payload) {
+        this['payload'] = payload;
+    }
 
 }
 
@@ -129,6 +147,12 @@ TextMessage.prototype['text'] = undefined;
  * @member {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Action>} actions
  */
 TextMessage.prototype['actions'] = undefined;
+
+/**
+ * The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+ * @member {String} payload
+ */
+TextMessage.prototype['payload'] = undefined;
 
 
 

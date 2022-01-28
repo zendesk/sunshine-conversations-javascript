@@ -101,6 +101,9 @@ class Content {
             if (data.hasOwnProperty('actions')) {
                 obj['actions'] = ApiClient.convertToType(data['actions'], [ActionSubset]);
             }
+            if (data.hasOwnProperty('payload')) {
+                obj['payload'] = ApiClient.convertToType(data['payload'], 'String');
+            }
             if (data.hasOwnProperty('items')) {
                 obj['items'] = ApiClient.convertToType(data['items'], [Item]);
             }
@@ -185,6 +188,21 @@ class Content {
      */
     setActions(actions) {
         this['actions'] = actions;
+    }
+/**
+     * Returns The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+     * @return {String}
+     */
+    getPayload() {
+        return this.payload;
+    }
+
+    /**
+     * Sets The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+     * @param {String} payload The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+     */
+    setPayload(payload) {
+        this['payload'] = payload;
     }
 /**
      * Returns An array of objects representing the items associated with the message. Only present in carousel and list type messages.
@@ -383,6 +401,12 @@ Content.prototype['text'] = undefined;
 Content.prototype['actions'] = undefined;
 
 /**
+ * The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+ * @member {String} payload
+ */
+Content.prototype['payload'] = undefined;
+
+/**
  * An array of objects representing the items associated with the message. Only present in carousel and list type messages.
  * @member {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Item>} items
  */
@@ -469,6 +493,11 @@ TextMessage.prototype['text'] = undefined;
  * @member {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Action>} actions
  */
 TextMessage.prototype['actions'] = undefined;
+/**
+ * The payload of a [reply button](https://docs.smooch.io/guide/structured-messages/#reply-buttons) response message.
+ * @member {String} payload
+ */
+TextMessage.prototype['payload'] = undefined;
 // Implement CarouselMessage interface:
 /**
  * The type of message.
