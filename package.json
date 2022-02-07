@@ -12,9 +12,9 @@
   "browser": {
     "fs": false
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:zendesk/sunshine-conversations-javascript.git"
+  "repository":{
+    "type":"git",
+    "url":"git@github.com:zendesk/sunshine-conversations-javascript.git"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
