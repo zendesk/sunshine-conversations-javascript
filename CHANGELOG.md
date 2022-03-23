@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.6.0] - 2022-03-23
+
+### Added
+
+- Added `user:update` event. This event currently fires when an anonymous user is converted to an authenticated user.
+- Added missing `reason` in the `user:merge` webhook payload example.
+
 ## [9.5.9] - 2022-01-07
 
 - Added missing User-Agent header to JS client library.
