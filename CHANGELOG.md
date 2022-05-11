@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.7.0] - 2022-05-05
+
+### Added
+
+- Added a `releaseControl` action endpoint to the Switchboard Actions API.
+
 ## [9.6.0] - 2022-03-23
 
 ### Added

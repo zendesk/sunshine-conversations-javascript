@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**acceptControl**](SwitchboardActionsApi.md#acceptControl) | **POST** /v2/apps/{appId}/conversations/{conversationId}/acceptControl | Accept Control
 [**offerControl**](SwitchboardActionsApi.md#offerControl) | **POST** /v2/apps/{appId}/conversations/{conversationId}/offerControl | Offer Control
 [**passControl**](SwitchboardActionsApi.md#passControl) | **POST** /v2/apps/{appId}/conversations/{conversationId}/passControl | Pass Control
+[**releaseControl**](SwitchboardActionsApi.md#releaseControl) | **POST** /v2/apps/{appId}/conversations/{conversationId}/releaseControl | Release Control
 
 
 
@@ -184,5 +185,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## releaseControl
+
+> Object releaseControl(appId, conversationId)
+
+Release Control
+
+The releaseControl action releases the control of the conversation by nullifying its switchboard state. When using integration auth scope, a 403 is returned if the active switchboard integration is not the authenticated integration.
+
+### Example
+
+```javascript
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR_USERNAME';
+basicAuth.password = 'YOUR_PASSWORD';
+
+// Uncomment this section to use JWTs instead
+// var bearerAuth = defaultClient.authentications['bearerAuth'];
+// bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
+
+var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
+var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+apiInstance.releaseControl(appId, conversationId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **String**| Identifies the app. | 
+ **conversationId** | **String**| Identifies the conversation. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
