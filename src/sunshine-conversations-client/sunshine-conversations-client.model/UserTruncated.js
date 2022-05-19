@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UserTruncated model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserTruncated
- * @version 9.7.0
+ * @version 9.7.1
  */
 class UserTruncated {
     /**

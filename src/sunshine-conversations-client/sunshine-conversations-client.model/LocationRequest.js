@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LocationRequest model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/LocationRequest
- * @version 9.7.0
+ * @version 9.7.1
  */
 class LocationRequest {
     /**

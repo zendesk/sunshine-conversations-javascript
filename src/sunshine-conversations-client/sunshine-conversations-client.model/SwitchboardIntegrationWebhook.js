@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SwitchboardIntegrationWebhook model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardIntegrationWebhook
- * @version 9.7.0
+ * @version 9.7.1
  */
 class SwitchboardIntegrationWebhook {
     /**

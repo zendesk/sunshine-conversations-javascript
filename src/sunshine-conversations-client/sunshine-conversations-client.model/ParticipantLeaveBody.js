@@ -19,7 +19,7 @@ import ParticipantLeaveBodyUserId from './ParticipantLeaveBodyUserId';
 /**
  * The ParticipantLeaveBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantLeaveBody
- * @version 9.7.0
+ * @version 9.7.1
  */
 class ParticipantLeaveBody {
     /**

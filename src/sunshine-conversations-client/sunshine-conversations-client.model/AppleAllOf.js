@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AppleAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppleAllOf
- * @version 9.7.0
+ * @version 9.7.1
  */
 class AppleAllOf {
     /**

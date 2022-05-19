@@ -17,7 +17,7 @@ import AppKey from './AppKey';
 /**
  * The AppKeyListResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppKeyListResponse
- * @version 9.7.0
+ * @version 9.7.1
  */
 class AppKeyListResponse {
     /**

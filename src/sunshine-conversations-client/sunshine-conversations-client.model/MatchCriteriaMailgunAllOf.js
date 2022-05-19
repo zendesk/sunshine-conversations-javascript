@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MatchCriteriaMailgunAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MatchCriteriaMailgunAllOf
- * @version 9.7.0
+ * @version 9.7.1
  */
 class MatchCriteriaMailgunAllOf {
     /**

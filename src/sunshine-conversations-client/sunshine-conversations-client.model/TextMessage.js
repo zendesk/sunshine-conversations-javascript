@@ -17,7 +17,7 @@ import Action from './Action';
 /**
  * The TextMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TextMessage
- * @version 9.7.0
+ * @version 9.7.1
  */
 class TextMessage {
     /**

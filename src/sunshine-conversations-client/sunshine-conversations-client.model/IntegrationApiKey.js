@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IntegrationApiKey model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IntegrationApiKey
- * @version 9.7.0
+ * @version 9.7.1
  */
 class IntegrationApiKey {
     /**

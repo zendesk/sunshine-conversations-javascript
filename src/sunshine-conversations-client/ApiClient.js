@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module sunshine-conversations-client/ApiClient
-* @version 9.7.0
+* @version 9.7.1
 */
 
 /**
@@ -51,7 +51,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/9.7.0/Javascript(Node.js)'
+            'User-Agent': 'OpenAPI-Generator/9.7.1/Javascript(Node.js)'
         };
 
         /**
@@ -247,7 +247,7 @@ class ApiClient {
                 var value = params[key];
                 if (this.isFileParam(value) || Array.isArray(value)) {
                     newParams[key] = value;
-                } else if(key === 'filter'){
+                } else if(key === 'filter' || key === 'page'){
                     const newKey = key + '[' + Object.keys(value)[0] + ']';
                     const newValue = Object.values(value)[0];
                     newParams[newKey] = newValue;

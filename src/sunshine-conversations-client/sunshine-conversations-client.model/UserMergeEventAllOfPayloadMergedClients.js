@@ -17,7 +17,7 @@ import Client from './Client';
 /**
  * The UserMergeEventAllOfPayloadMergedClients model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedClients
- * @version 9.7.0
+ * @version 9.7.1
  */
 class UserMergeEventAllOfPayloadMergedClients {
     /**
