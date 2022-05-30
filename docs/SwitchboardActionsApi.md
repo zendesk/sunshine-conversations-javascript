@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 Pass Control
 
-Mark the named switchboard integration as active and transition all the other switchboard integrations to standby status.
+The passControl action marks the named switchboard integration as active and transition all the other switchboard integrations to standby status.
 
 ### Example
 

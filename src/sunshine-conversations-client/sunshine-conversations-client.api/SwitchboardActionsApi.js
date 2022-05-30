@@ -161,7 +161,7 @@ export default class SwitchboardActionsApi {
 
     /**
      * Pass Control
-     * Mark the named switchboard integration as active and transition all the other switchboard integrations to standby status.
+     * The passControl action marks the named switchboard integration as active and transition all the other switchboard integrations to standby status.
      * @param {String} appId Identifies the app.
      * @param {String} conversationId Identifies the conversation.
      * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/PassControlBody} passControlBody 
@@ -206,7 +206,7 @@ export default class SwitchboardActionsApi {
 
     /**
      * Pass Control
-     * Mark the named switchboard integration as active and transition all the other switchboard integrations to standby status.
+     * The passControl action marks the named switchboard integration as active and transition all the other switchboard integrations to standby status.
      * @param {String} appId Identifies the app.
      * @param {String} conversationId Identifies the conversation.
      * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/PassControlBody} passControlBody 
