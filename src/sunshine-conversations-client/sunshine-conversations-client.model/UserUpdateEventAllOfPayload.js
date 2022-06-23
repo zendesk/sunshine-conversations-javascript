@@ -79,7 +79,7 @@ class UserUpdateEventAllOfPayload {
         this['user'] = user;
     }
 /**
-     * Returns The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. 
+     * Returns The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. * `localeDetection` - A user's was updated as a result of automated locale detection on messages sent. 
      * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/UserUpdateEventAllOfPayload.ReasonEnum}
      */
     getReason() {
@@ -87,8 +87,8 @@ class UserUpdateEventAllOfPayload {
     }
 
     /**
-     * Sets The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. 
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/UserUpdateEventAllOfPayload.ReasonEnum} reason The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. 
+     * Sets The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. * `localeDetection` - A user's was updated as a result of automated locale detection on messages sent. 
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/UserUpdateEventAllOfPayload.ReasonEnum} reason The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. * `localeDetection` - A user's was updated as a result of automated locale detection on messages sent. 
      */
     setReason(reason) {
         this['reason'] = reason;
@@ -118,7 +118,7 @@ class UserUpdateEventAllOfPayload {
 UserUpdateEventAllOfPayload.prototype['user'] = undefined;
 
 /**
- * The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. 
+ * The reason why the user was updated, if applicable. * `authentication` - An anonymous user became an [identified](https://docs.smooch.io/guide/intro-to-users/) user. * `localeDetection` - A user's was updated as a result of automated locale detection on messages sent. 
  * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/UserUpdateEventAllOfPayload.ReasonEnum} reason
  */
 UserUpdateEventAllOfPayload.prototype['reason'] = undefined;
@@ -144,7 +144,13 @@ UserUpdateEventAllOfPayload['ReasonEnum'] = {
      * value: "authentication"
      * @const
      */
-    "authentication": "authentication"
+    "authentication": "authentication",
+
+    /**
+     * value: "localeDetection"
+     * @const
+     */
+    "localeDetection": "localeDetection"
 };
 
 
