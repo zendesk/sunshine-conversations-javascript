@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.8.0] - 2022-06-29
+
+### Added
+
+- `metadata` property now appear in the `conversation` object in webhook events
+
 ## [9.7.1] - 2022-05-17
 
 ### Fixed
@@ -11,7 +17,6 @@
 ### Added
 
 - Added a `releaseControl` action endpoint to the Switchboard Actions API.
-
 
 ## [9.6.0] - 2022-03-23
 
