@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.9.0] - 2022-07-12
+
+### Added
+
+- Added new `appLocalizationEnabled` parameter to app settings.
+
 ## [9.8.0] - 2022-06-29
 
 ### Added

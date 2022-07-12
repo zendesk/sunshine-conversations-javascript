@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **multiConvoEnabled** | **Boolean** | A boolean specifying whether users are allowed to be part of several conversations. Enabling &#x60;multiConvo&#x60; is **irreversible**.  | [optional] 
 **attachmentsAccess** | **String** | A string specifying whether attachments should be stored in a publicly or privately accessible cloud storage. attachmentsAccess is set to public by default but can be modified to private. See &lt;a href&#x3D;\&quot;https://docs.smooch.io/guide/private-attachments/\&quot;&gt;Private Attachments&lt;/a&gt; for more information.  | [optional] 
 **attachmentsTokenExpirationSeconds** | **Number** | Number of seconds representing the expiration time of the generated media tokens for private attachments. The JWT will be valid for 2 hours by default. See See &lt;a href&#x3D;\&quot;https://docs.smooch.io/guide/private-attachments/\&quot;&gt;Private Attachments&lt;/a&gt; for more information.  | [optional] 
+**appLocalizationEnabled** | **Boolean** | A boolean specifying whether the messages authored by the Sunshine Conversations platform should be localized.  | [optional] 
 
 
