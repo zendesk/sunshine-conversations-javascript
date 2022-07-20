@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.10.0] - 2022-07-19
+
+### Added
+
+- Added a new `unblocked` reason for the `client:update` webhook event.
+
 ## [9.9.0] - 2022-07-12
 
 ### Added
