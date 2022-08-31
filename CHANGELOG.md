@@ -1,5 +1,10 @@
 # Changelog
 
+## [9.12.0] - 2022-08-30
+
+-   The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://docs.smooch.io/guide/oauth/#redirect-and-acquiring-an-oauth-token) or [Custom Integration API Key](https://docs.smooch.io/rest/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.
+-   For more information, see [Switchboard passControl](https://docs.smooch.io/guide/switchboard/#pass-control).
+
 ## [9.11.0] - 2022-07-28
 
 ### Added
