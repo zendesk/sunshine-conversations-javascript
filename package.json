@@ -17,7 +17,7 @@
     "url":"git@github.com:zendesk/sunshine-conversations-javascript.git"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0",
+    "@babel/cli": "^7.18.10",
     "superagent": "^5.3.0"
   },
   "devDependencies": {
@@ -25,7 +25,7 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.18.10",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
     "@babel/plugin-proposal-function-bind": "^7.0.0",
     "@babel/plugin-proposal-function-sent": "^7.0.0",
@@ -38,7 +38,7 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-env": "^7.18.10",
     "@babel/register": "^7.0.0"
   },
   "files": [
