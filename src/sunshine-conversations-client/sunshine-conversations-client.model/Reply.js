@@ -23,7 +23,7 @@ class Reply {
      * Constructs a new <code>Reply</code>.
      * @alias module:sunshine-conversations-client/sunshine-conversations-client.model/Reply
      * @param type {String} The type of action.
-     * @param text {String} The button text. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
+     * @param text {String} The button text. We recommend a non-empty value because some channels may not support empty ones. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
      * @param payload {String} A string payload to help you identify the action context. Used when posting the reply. You can also use metadata for more complex needs.
      */
     constructor(type, text, payload) { 
@@ -88,7 +88,7 @@ class Reply {
         this['type'] = type;
     }
 /**
-     * Returns The button text. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
+     * Returns The button text. We recommend a non-empty value because some channels may not support empty ones. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
      * @return {String}
      */
     getText() {
@@ -96,8 +96,8 @@ class Reply {
     }
 
     /**
-     * Sets The button text. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
-     * @param {String} text The button text. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
+     * Sets The button text. We recommend a non-empty value because some channels may not support empty ones. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
+     * @param {String} text The button text. We recommend a non-empty value because some channels may not support empty ones. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
      */
     setText(text) {
         this['text'] = text;
@@ -157,7 +157,7 @@ class Reply {
 Reply.prototype['type'] = undefined;
 
 /**
- * The button text. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
+ * The button text. We recommend a non-empty value because some channels may not support empty ones. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
  * @member {String} text
  */
 Reply.prototype['text'] = undefined;

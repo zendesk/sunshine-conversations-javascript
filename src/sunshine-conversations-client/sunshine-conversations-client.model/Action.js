@@ -499,7 +499,7 @@ Postback.prototype['metadata'] = undefined;
  */
 Reply.prototype['type'] = undefined;
 /**
- * The button text. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
+ * The button text. We recommend a non-empty value because some channels may not support empty ones. Text longer than 20 characters will be truncated on Facebook Messenger, and longer than 40 characters will be truncated on Web Messenger, iOS, and Android.
  * @member {String} text
  */
 Reply.prototype['text'] = undefined;
