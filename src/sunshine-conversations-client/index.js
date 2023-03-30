@@ -50,6 +50,7 @@ import AttachmentUploadBody from './sunshine-conversations-client.model/Attachme
 import Author from './sunshine-conversations-client.model/Author';
 import AuthorWebhook from './sunshine-conversations-client.model/AuthorWebhook';
 import Buy from './sunshine-conversations-client.model/Buy';
+import Campaign from './sunshine-conversations-client.model/Campaign';
 import CarouselMessage from './sunshine-conversations-client.model/CarouselMessage';
 import CarouselMessageDisplaySettings from './sunshine-conversations-client.model/CarouselMessageDisplaySettings';
 import Client from './sunshine-conversations-client.model/Client';
@@ -216,6 +217,8 @@ import ReferralDetails from './sunshine-conversations-client.model/ReferralDetai
 import Reply from './sunshine-conversations-client.model/Reply';
 import Source from './sunshine-conversations-client.model/Source';
 import SourceWebhook from './sunshine-conversations-client.model/SourceWebhook';
+import SourceWithCampaignWebhook from './sunshine-conversations-client.model/SourceWithCampaignWebhook';
+import SourceWithCampaignWebhookAllOf from './sunshine-conversations-client.model/SourceWithCampaignWebhookAllOf';
 import Status from './sunshine-conversations-client.model/Status';
 import Switchboard from './sunshine-conversations-client.model/Switchboard';
 import SwitchboardAcceptControl from './sunshine-conversations-client.model/SwitchboardAcceptControl';
@@ -333,7 +336,7 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * </pre>
 * </p>
 * @module sunshine-conversations-client/index
-* @version 9.12.0
+* @version 9.13.0
 */
 export {
     /**
@@ -563,6 +566,12 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Buy}
      */
     Buy,
+
+    /**
+     * The Campaign model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Campaign}
+     */
+    Campaign,
 
     /**
      * The CarouselMessage model constructor.
@@ -1559,6 +1568,18 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook}
      */
     SourceWebhook,
+
+    /**
+     * The SourceWithCampaignWebhook model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook}
+     */
+    SourceWithCampaignWebhook,
+
+    /**
+     * The SourceWithCampaignWebhookAllOf model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhookAllOf}
+     */
+    SourceWithCampaignWebhookAllOf,
 
     /**
      * The Status model constructor.

@@ -1,5 +1,16 @@
 # Changelog
 
+## [9.13.0] - 2023-03-30
+
+### Added
+
+-   Added a new `proactiveMessaging` creation reason for the `conversation:create` webhook event.
+-   Added a `campaign` object to the `source` object of the following webhook events:
+    -   `conversation:create`
+    -   `conversation:message`
+    -   `conversation:postback`
+    -   `conversation:referral`
+
 ## [9.12.0] - 2022-08-30
 
 -   The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://docs.smooch.io/guide/oauth/#redirect-and-acquiring-an-oauth-token) or [Custom Integration API Key](https://docs.smooch.io/rest/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.

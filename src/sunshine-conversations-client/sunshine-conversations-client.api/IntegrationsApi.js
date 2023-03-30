@@ -23,7 +23,7 @@ import Page from '../sunshine-conversations-client.model/Page';
 /**
 * Integrations service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/IntegrationsApi
-* @version 9.12.0
+* @version 9.13.0
 */
 export default class IntegrationsApi {
 

@@ -17,7 +17,7 @@ import PrechatCapture from './PrechatCapture';
 /**
  * The WebUpdateAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WebUpdateAllOf
- * @version 9.12.0
+ * @version 9.13.0
  */
 class WebUpdateAllOf {
     /**

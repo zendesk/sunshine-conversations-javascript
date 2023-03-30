@@ -19,7 +19,7 @@ import Target from './Target';
 /**
  * The ClientCreate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientCreate
- * @version 9.12.0
+ * @version 9.13.0
  */
 class ClientCreate {
     /**

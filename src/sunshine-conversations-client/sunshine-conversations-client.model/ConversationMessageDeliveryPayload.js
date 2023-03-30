@@ -21,7 +21,7 @@ import User from './User';
 /**
  * The ConversationMessageDeliveryPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationMessageDeliveryPayload
- * @version 9.12.0
+ * @version 9.13.0
  */
 class ConversationMessageDeliveryPayload {
     /**

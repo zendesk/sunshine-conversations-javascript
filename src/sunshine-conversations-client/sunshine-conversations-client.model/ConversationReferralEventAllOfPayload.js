@@ -14,13 +14,13 @@
 import ApiClient from '../ApiClient';
 import ConversationTruncated from './ConversationTruncated';
 import Referral from './Referral';
-import SourceWebhook from './SourceWebhook';
+import SourceWithCampaignWebhook from './SourceWithCampaignWebhook';
 import User from './User';
 
 /**
  * The ConversationReferralEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationReferralEventAllOfPayload
- * @version 9.12.0
+ * @version 9.13.0
  */
 class ConversationReferralEventAllOfPayload {
     /**
@@ -59,7 +59,7 @@ class ConversationReferralEventAllOfPayload {
                 obj['user'] = ApiClient.convertToType(data['user'], User);
             }
             if (data.hasOwnProperty('source')) {
-                obj['source'] = ApiClient.convertToType(data['source'], SourceWebhook);
+                obj['source'] = ApiClient.convertToType(data['source'], SourceWithCampaignWebhook);
             }
             if (data.hasOwnProperty('referral')) {
                 obj['referral'] = ApiClient.convertToType(data['referral'], Referral);
@@ -100,7 +100,7 @@ class ConversationReferralEventAllOfPayload {
     }
 /**
      * Returns The source of the referral.
-     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook}
+     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook}
      */
     getSource() {
         return this.source;
@@ -108,7 +108,7 @@ class ConversationReferralEventAllOfPayload {
 
     /**
      * Sets The source of the referral.
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook} source The source of the referral.
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook} source The source of the referral.
      */
     setSource(source) {
         this['source'] = source;
@@ -143,7 +143,7 @@ ConversationReferralEventAllOfPayload.prototype['user'] = undefined;
 
 /**
  * The source of the referral.
- * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook} source
+ * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook} source
  */
 ConversationReferralEventAllOfPayload.prototype['source'] = undefined;
 

@@ -14,13 +14,13 @@
 import ApiClient from '../ApiClient';
 import ConversationTruncated from './ConversationTruncated';
 import PostbackWebhook from './PostbackWebhook';
-import SourceWebhook from './SourceWebhook';
+import SourceWithCampaignWebhook from './SourceWithCampaignWebhook';
 import User from './User';
 
 /**
  * The ConversationPostbackEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationPostbackEventAllOfPayload
- * @version 9.12.0
+ * @version 9.13.0
  */
 class ConversationPostbackEventAllOfPayload {
     /**
@@ -62,7 +62,7 @@ class ConversationPostbackEventAllOfPayload {
                 obj['user'] = ApiClient.convertToType(data['user'], User);
             }
             if (data.hasOwnProperty('source')) {
-                obj['source'] = ApiClient.convertToType(data['source'], SourceWebhook);
+                obj['source'] = ApiClient.convertToType(data['source'], SourceWithCampaignWebhook);
             }
         }
         return obj;
@@ -115,7 +115,7 @@ class ConversationPostbackEventAllOfPayload {
     }
 /**
      * Returns The source of the postback.
-     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook}
+     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook}
      */
     getSource() {
         return this.source;
@@ -123,7 +123,7 @@ class ConversationPostbackEventAllOfPayload {
 
     /**
      * Sets The source of the postback.
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook} source The source of the postback.
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook} source The source of the postback.
      */
     setSource(source) {
         this['source'] = source;
@@ -151,7 +151,7 @@ ConversationPostbackEventAllOfPayload.prototype['user'] = undefined;
 
 /**
  * The source of the postback.
- * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook} source
+ * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook} source
  */
 ConversationPostbackEventAllOfPayload.prototype['source'] = undefined;
 

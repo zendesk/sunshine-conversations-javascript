@@ -20,7 +20,7 @@ import Source from './Source';
 /**
  * The MessageWebhook model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageWebhook
- * @version 9.12.0
+ * @version 9.13.0
  */
 class MessageWebhook {
     /**
@@ -64,7 +64,7 @@ class MessageWebhook {
                 obj['content'] = ApiClient.convertToType(data['content'], Content);
             }
             if (data.hasOwnProperty('source')) {
-                obj['source'] = Source.constructFromObject(data['source']);
+                obj['source'] = ApiClient.convertToType(data['source'], Source);
             }
             if (data.hasOwnProperty('quotedMessage')) {
                 obj['quotedMessage'] = ApiClient.convertToType(data['quotedMessage'], QuotedMessage);

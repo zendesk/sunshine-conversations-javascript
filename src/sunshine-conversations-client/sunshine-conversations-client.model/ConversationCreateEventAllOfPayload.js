@@ -14,13 +14,13 @@
 import ApiClient from '../ApiClient';
 import ConversationTruncated from './ConversationTruncated';
 import Referral from './Referral';
-import SourceWebhook from './SourceWebhook';
+import SourceWithCampaignWebhook from './SourceWithCampaignWebhook';
 import User from './User';
 
 /**
  * The ConversationCreateEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationCreateEventAllOfPayload
- * @version 9.12.0
+ * @version 9.13.0
  */
 class ConversationCreateEventAllOfPayload {
     /**
@@ -59,7 +59,7 @@ class ConversationCreateEventAllOfPayload {
                 obj['creationReason'] = ApiClient.convertToType(data['creationReason'], 'String');
             }
             if (data.hasOwnProperty('source')) {
-                obj['source'] = ApiClient.convertToType(data['source'], SourceWebhook);
+                obj['source'] = ApiClient.convertToType(data['source'], SourceWithCampaignWebhook);
             }
             if (data.hasOwnProperty('user')) {
                 obj['user'] = ApiClient.convertToType(data['user'], User);
@@ -87,7 +87,7 @@ class ConversationCreateEventAllOfPayload {
         this['conversation'] = conversation;
     }
 /**
-     * Returns The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. 
+     * Returns The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. * `proactiveMessaging` - The conversation was created because the user interacted with a campaign. 
      * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationCreateEventAllOfPayload.CreationReasonEnum}
      */
     getCreationReason() {
@@ -95,15 +95,15 @@ class ConversationCreateEventAllOfPayload {
     }
 
     /**
-     * Sets The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. 
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationCreateEventAllOfPayload.CreationReasonEnum} creationReason The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. 
+     * Sets The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. * `proactiveMessaging` - The conversation was created because the user interacted with a campaign. 
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationCreateEventAllOfPayload.CreationReasonEnum} creationReason The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. * `proactiveMessaging` - The conversation was created because the user interacted with a campaign. 
      */
     setCreationReason(creationReason) {
         this['creationReason'] = creationReason;
     }
 /**
      * Returns The source of the creation.
-     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook}
+     * @return {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook}
      */
     getSource() {
         return this.source;
@@ -111,7 +111,7 @@ class ConversationCreateEventAllOfPayload {
 
     /**
      * Sets The source of the creation.
-     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook} source The source of the creation.
+     * @param {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook} source The source of the creation.
      */
     setSource(source) {
         this['source'] = source;
@@ -156,14 +156,14 @@ class ConversationCreateEventAllOfPayload {
 ConversationCreateEventAllOfPayload.prototype['conversation'] = undefined;
 
 /**
- * The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. 
+ * The reason why the conversation was created, if applicable. * `linkRequest` - The conversation was created in order to generate a link request to transfer the user to a different channel. * `message` - The conversation was created because a message was sent. * `none` - The conversation was not created for a specific purpose. Used primarily when a conversation is created via the Create Conversation API. * `notification` - The conversation was created by a call to the Notification API. * `prechatCapture` - The conversation was created because the user completed a prechat capture form in the Web Messenger. * `startConversation` - The conversation was created because of a call to the startConversation API on one of the SDK integrations, or a start conversation event was triggered from a messaging channel. * `proactiveMessaging` - The conversation was created because the user interacted with a campaign. 
  * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/ConversationCreateEventAllOfPayload.CreationReasonEnum} creationReason
  */
 ConversationCreateEventAllOfPayload.prototype['creationReason'] = undefined;
 
 /**
  * The source of the creation.
- * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWebhook} source
+ * @member {module:sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhook} source
  */
 ConversationCreateEventAllOfPayload.prototype['source'] = undefined;
 
@@ -224,7 +224,13 @@ ConversationCreateEventAllOfPayload['CreationReasonEnum'] = {
      * value: "startConversation"
      * @const
      */
-    "startConversation": "startConversation"
+    "startConversation": "startConversation",
+
+    /**
+     * value: "proactiveMessaging"
+     * @const
+     */
+    "proactiveMessaging": "proactiveMessaging"
 };
 
 

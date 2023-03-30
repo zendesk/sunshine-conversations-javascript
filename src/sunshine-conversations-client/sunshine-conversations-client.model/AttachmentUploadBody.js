@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttachmentUploadBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AttachmentUploadBody
- * @version 9.12.0
+ * @version 9.13.0
  */
 class AttachmentUploadBody {
     /**
