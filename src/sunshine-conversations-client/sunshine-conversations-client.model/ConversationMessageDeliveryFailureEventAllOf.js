@@ -17,7 +17,7 @@ import ConversationMessageDeliveryPayload from './ConversationMessageDeliveryPay
 /**
  * The ConversationMessageDeliveryFailureEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationMessageDeliveryFailureEventAllOf
- * @version 9.13.0
+ * @version 9.14.0
  */
 class ConversationMessageDeliveryFailureEventAllOf {
     /**

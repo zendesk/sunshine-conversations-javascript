@@ -18,7 +18,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The InstagramUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/InstagramUpdate
- * @version 9.13.0
+ * @version 9.14.0
  */
 class InstagramUpdate {
     /**

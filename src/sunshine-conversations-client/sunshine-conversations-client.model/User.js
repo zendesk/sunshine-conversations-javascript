@@ -12,6 +12,7 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Identity from './Identity';
 import Profile from './Profile';
 import UserAllOf from './UserAllOf';
 import UserTruncated from './UserTruncated';
@@ -19,7 +20,7 @@ import UserTruncated from './UserTruncated';
 /**
  * The User model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/User
- * @version 9.13.0
+ * @version 9.14.0
  */
 class User {
     /**
@@ -68,6 +69,9 @@ class User {
             }
             if (data.hasOwnProperty('metadata')) {
                 obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
+            }
+            if (data.hasOwnProperty('identities')) {
+                obj['identities'] = ApiClient.convertToType(data['identities'], [Identity]);
             }
         }
         return obj;
@@ -142,6 +146,21 @@ class User {
     setMetadata(metadata) {
         this['metadata'] = metadata;
     }
+/**
+     * Returns The user's connected identities.
+     * @return {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>}
+     */
+    getIdentities() {
+        return this.identities;
+    }
+
+    /**
+     * Sets The user's connected identities.
+     * @param {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>} identities The user's connected identities.
+     */
+    setIdentities(identities) {
+        this['identities'] = identities;
+    }
 
 }
 
@@ -172,6 +191,12 @@ User.prototype['profile'] = undefined;
  */
 User.prototype['metadata'] = undefined;
 
+/**
+ * The user's connected identities.
+ * @member {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>} identities
+ */
+User.prototype['identities'] = undefined;
+
 
 // Implement UserTruncated interface:
 /**
@@ -197,6 +222,11 @@ UserAllOf.prototype['profile'] = undefined;
  * @member {Object} metadata
  */
 UserAllOf.prototype['metadata'] = undefined;
+/**
+ * The user's connected identities.
+ * @member {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>} identities
+ */
+UserAllOf.prototype['identities'] = undefined;
 
 
 

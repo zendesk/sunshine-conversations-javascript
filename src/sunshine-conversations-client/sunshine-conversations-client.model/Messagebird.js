@@ -19,7 +19,7 @@ import Status from './Status';
 /**
  * The Messagebird model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Messagebird
- * @version 9.13.0
+ * @version 9.14.0
  */
 class Messagebird {
     /**

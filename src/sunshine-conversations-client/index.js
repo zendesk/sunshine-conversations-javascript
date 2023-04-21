@@ -127,6 +127,7 @@ import Field from './sunshine-conversations-client.model/Field';
 import FileMessage from './sunshine-conversations-client.model/FileMessage';
 import FormMessage from './sunshine-conversations-client.model/FormMessage';
 import FormResponseMessage from './sunshine-conversations-client.model/FormResponseMessage';
+import Identity from './sunshine-conversations-client.model/Identity';
 import ImageMessage from './sunshine-conversations-client.model/ImageMessage';
 import InlineObject from './sunshine-conversations-client.model/InlineObject';
 import Instagram from './sunshine-conversations-client.model/Instagram';
@@ -336,7 +337,7 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * </pre>
 * </p>
 * @module sunshine-conversations-client/index
-* @version 9.13.0
+* @version 9.14.0
 */
 export {
     /**
@@ -1028,6 +1029,12 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/FormResponseMessage}
      */
     FormResponseMessage,
+
+    /**
+     * The Identity model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Identity}
+     */
+    Identity,
 
     /**
      * The ImageMessage model constructor.

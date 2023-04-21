@@ -12,12 +12,13 @@
  *
  */
 import ApiClient from '../ApiClient';
+import Identity from './Identity';
 import Profile from './Profile';
 
 /**
  * The UserAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserAllOf
- * @version 9.13.0
+ * @version 9.14.0
  */
 class UserAllOf {
     /**
@@ -56,6 +57,9 @@ class UserAllOf {
             }
             if (data.hasOwnProperty('metadata')) {
                 obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
+            }
+            if (data.hasOwnProperty('identities')) {
+                obj['identities'] = ApiClient.convertToType(data['identities'], [Identity]);
             }
         }
         return obj;
@@ -100,6 +104,21 @@ class UserAllOf {
     setMetadata(metadata) {
         this['metadata'] = metadata;
     }
+/**
+     * Returns The user's connected identities.
+     * @return {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>}
+     */
+    getIdentities() {
+        return this.identities;
+    }
+
+    /**
+     * Sets The user's connected identities.
+     * @param {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>} identities The user's connected identities.
+     */
+    setIdentities(identities) {
+        this['identities'] = identities;
+    }
 
 }
 
@@ -117,6 +136,12 @@ UserAllOf.prototype['profile'] = undefined;
  * @member {Object} metadata
  */
 UserAllOf.prototype['metadata'] = undefined;
+
+/**
+ * The user's connected identities.
+ * @member {Array.<module:sunshine-conversations-client/sunshine-conversations-client.model/Identity>} identities
+ */
+UserAllOf.prototype['identities'] = undefined;
 
 
 

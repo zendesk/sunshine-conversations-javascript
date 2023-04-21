@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.14.0] - 2023-04-10
+
+### Added
+
+-   Added a new `identities` read only property on the user object.
+
 ## [9.13.0] - 2023-03-30
 
 ### Added

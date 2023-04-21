@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module sunshine-conversations-client/ApiClient
-* @version 9.13.0
+* @version 9.14.0
 */
 
 /**
@@ -51,7 +51,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/9.13.0/Javascript(Node.js)'
+            'User-Agent': 'OpenAPI-Generator/9.14.0/Javascript(Node.js)'
         };
 
         /**
