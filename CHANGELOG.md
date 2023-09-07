@@ -1,5 +1,11 @@
 # Changelog
 
+## [9.15.0] - 2023-09-06
+
+### Fixed
+
+-   Fixed: Added missing client types to the schema: `apple`, `gbm`, `googlercs`, `instagram`, `kakao`, `slackconnect`
+
 ## [9.14.0] - 2023-04-10
 
 ### Added
