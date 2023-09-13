@@ -1,5 +1,11 @@
 # Changelog
 
+## [10.0.0] - 2023-09-07
+
+### Fixed
+
+-   Fixed: Removed deprecated enums from Twitter Integration definition
+
 ## [9.15.0] - 2023-09-06
 
 ### Fixed
