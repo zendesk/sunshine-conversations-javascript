@@ -1,5 +1,11 @@
 # Changelog
 
+## [10.0.1] - 2023-09-13
+
+### Fixed
+
+- Fixed: Added missing `mediaType` and `mediaSize` properties to imageMessage schema.
+
 ## [10.0.0] - 2023-09-07
 
 ### Fixed
