@@ -14,8 +14,9 @@ Name | Type | Description | Notes
 **mediaSize** | **Number** | The size of the media in bytes. | [optional] [readonly] 
 **mediaType** | **String** | The type of media. | [optional] [readonly] 
 **altText** | **String** | An optional description of the image for accessibility purposes. The field will be saved by default with the file name as the value. | [optional] 
+**submitted** | **Boolean** | Flag which states whether the form is submitted. | [optional] [readonly] 
 **blockChatInput** | **Boolean** | true if the message should block the chat input on Web Messenger. | [optional] 
-**fields** | [**[Field]**](Field.md) | Array of field objects that contain the submitted fields. | 
+**fields** | [**[FormResponseMessageField]**](FormResponseMessageField.md) | Array of field objects that contain the submitted fields. | 
 **textFallback** | **String** | A string containing the &#x60;label: value&#x60; of all fields, each separated by a newline character. | [optional] [readonly] 
 **coordinates** | [**LocationMessageCoordinates**](LocationMessageCoordinates.md) |  | 
 **location** | [**LocationMessageLocation**](LocationMessageLocation.md) |  | [optional] 
