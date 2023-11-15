@@ -1,5 +1,12 @@
 # Changelog
 
+## [12.0.0] - 2023-11-03
+
+### Changed
+
+- [Java] Changed: javax namespace to jakarta
+- [Java] Changed: Upgraded resteasy dependency to use jakarta namespace
+
 ## [11.0.0] - 2023-11-01
 
 ### Updated
