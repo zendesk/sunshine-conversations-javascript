@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.1.0] - 2023-12-13
+
+### Added
+
+- Added new `unity`` integration type.
+
 ## [12.0.0] - 2023-11-03
 
 ### Changed
