@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **production** | **Boolean** | The APN environment to connect to (Production, if true, or Sandbox). Defaults to value inferred from certificate if not specified. | [optional] 
 **autoUpdateBadge** | **Boolean** | Use the unread count of the conversation as the application badge. | [optional] 
 **canUserCreateMoreConversations** | **Boolean** | Allows users to create more than one conversation on the iOS integration. | [optional] 
+**attachmentsEnabled** | **Boolean** | Allows users to send attachments. By default, the setting is set to true. This setting can only be configured in Zendesk Admin Center.  | [optional] [readonly] 
 
 

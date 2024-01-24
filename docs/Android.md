@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **serverKey** | **String** | Your server key from the fcm console. | [optional] 
 **senderId** | **String** | Your sender id from the fcm console. | [optional] 
 **canUserCreateMoreConversations** | **Boolean** | Allows users to create more than one conversation on the android integration. | [optional] 
+**attachmentsEnabled** | **Boolean** | Allows users to send attachments. By default, the setting is set to true. This setting can only be configured in Zendesk Admin Center.  | [optional] [readonly] 
 
 

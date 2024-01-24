@@ -1,10 +1,16 @@
 # Changelog
 
+## [12.2.0] - 2024-01-23
+
+### Added
+
+- Added new `attachmentsEnabled` optional response field for SDK integrations.
+
 ## [12.1.0] - 2023-12-13
 
 ### Added
 
-- Added new `unity`` integration type.
+- Added new `unity` integration type.
 
 ## [12.0.0] - 2023-11-03
 
