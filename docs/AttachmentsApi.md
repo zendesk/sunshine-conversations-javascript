@@ -200,7 +200,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 
 var apiInstance = new SunshineConversationsClient.AttachmentsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var access = "public"; // String | The access level for the attachment. Currently the available access levels are public and private.
+var access = "public"; // String | The access level for the attachment. Currently the available access levels are public and private. If you are a licensed Zendesk customer, you must use public. Private is not supported.
 var source = "/path/to/file"; // File | 
 var opts = {
   '_for': message, // String | Specifies the intended container for the attachment, to enable automatic attachment deletion (on deletion of associated message, conversation or user). For now, only message is supported. See [Attachments for Messages](#section/Attachments-for-Messages) for details.
@@ -221,7 +221,7 @@ apiInstance.uploadAttachment(appId, access, source, opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Identifies the app. | 
- **access** | **String**| The access level for the attachment. Currently the available access levels are public and private. | [default to &#39;public&#39;]
+ **access** | **String**| The access level for the attachment. Currently the available access levels are public and private. If you are a licensed Zendesk customer, you must use public. Private is not supported. | [default to &#39;public&#39;]
  **source** | **File**|  | 
  **_for** | **String**| Specifies the intended container for the attachment, to enable automatic attachment deletion (on deletion of associated message, conversation or user). For now, only message is supported. See [Attachments for Messages](#section/Attachments-for-Messages) for details. | [optional] 
  **conversationId** | **String**| Links the attachment getting uploaded to the conversation ID. | [optional] 

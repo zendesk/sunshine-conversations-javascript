@@ -198,7 +198,7 @@ export default class AttachmentsApi {
      * Upload Attachment
      * Upload an attachment to Sunshine Conversations to use in future messages. Files are uploaded using the multipart/form-data content type. Use the returned mediaUrl to send a file, image or carousel message. <aside class=\"notice\">Note that Sunshine Conversations limits the size and type of file you can upload to the platform. See the <a href=\"https://docs.smooch.io/guide/validating-files\">file validation</a> guide for more details.</aside> 
      * @param {String} appId Identifies the app.
-     * @param {String} access The access level for the attachment. Currently the available access levels are public and private.
+     * @param {String} access The access level for the attachment. Currently the available access levels are public and private. If you are a licensed Zendesk customer, you must use public. Private is not supported.
      * @param {File} source 
      * @param {Object} opts Optional parameters
      * @param {String} opts._for Specifies the intended container for the attachment, to enable automatic attachment deletion (on deletion of associated message, conversation or user). For now, only message is supported. See [Attachments for Messages](#section/Attachments-for-Messages) for details.
@@ -250,7 +250,7 @@ export default class AttachmentsApi {
      * Upload Attachment
      * Upload an attachment to Sunshine Conversations to use in future messages. Files are uploaded using the multipart/form-data content type. Use the returned mediaUrl to send a file, image or carousel message. <aside class=\"notice\">Note that Sunshine Conversations limits the size and type of file you can upload to the platform. See the <a href=\"https://docs.smooch.io/guide/validating-files\">file validation</a> guide for more details.</aside> 
      * @param {String} appId Identifies the app.
-     * @param {String} access The access level for the attachment. Currently the available access levels are public and private.
+     * @param {String} access The access level for the attachment. Currently the available access levels are public and private. If you are a licensed Zendesk customer, you must use public. Private is not supported.
      * @param {File} source 
      * @param {Object} opts Optional parameters
      * @param {String} opts._for Specifies the intended container for the attachment, to enable automatic attachment deletion (on deletion of associated message, conversation or user). For now, only message is supported. See [Attachments for Messages](#section/Attachments-for-Messages) for details.
