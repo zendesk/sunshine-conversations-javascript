@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.2.1] - 2024-01-29
+
+### Fixed
+
+- Fixed python wrapper publish.
+
 ## [12.2.0] - 2024-01-23
 
 ### Added
