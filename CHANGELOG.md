@@ -1,5 +1,12 @@
 # Changelog
 
+## [12.2.2] - 2024-01-31
+
+### Fixed
+
+- Fixed private Attachments not compatible with Zendesk customers
+- Fixed python wrapper publish with API Token
+
 ## [12.2.1] - 2024-01-29
 
 ### Fixed
