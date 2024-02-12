@@ -28,8 +28,8 @@ class Apple {
      * @extends module:sunshine-conversations-client/sunshine-conversations-client.model/Integration
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/Integration
      * @implements module:sunshine-conversations-client/sunshine-conversations-client.model/AppleAllOf
-     * @param type {String} To configure an Apple Business Chat integration, acquire the required information and call the Create Integration endpoint. 
-     * @param businessId {String} Apple Business Chat ID.
+     * @param type {String} To configure an Apple Messages for Business integration, acquire the required information and call the Create Integration endpoint. 
+     * @param businessId {String} Apple Messages for Business ID.
      * @param apiSecret {String} Your Apple API secret which is tied to your Messaging Service Provider.
      * @param mspId {String} Your Messaging Service Provider ID.
      */
@@ -80,7 +80,7 @@ class Apple {
     }
 
 /**
-     * Returns To configure an Apple Business Chat integration, acquire the required information and call the Create Integration endpoint. 
+     * Returns To configure an Apple Messages for Business integration, acquire the required information and call the Create Integration endpoint. 
      * @return {String}
      */
     getType() {
@@ -88,14 +88,14 @@ class Apple {
     }
 
     /**
-     * Sets To configure an Apple Business Chat integration, acquire the required information and call the Create Integration endpoint. 
-     * @param {String} type To configure an Apple Business Chat integration, acquire the required information and call the Create Integration endpoint. 
+     * Sets To configure an Apple Messages for Business integration, acquire the required information and call the Create Integration endpoint. 
+     * @param {String} type To configure an Apple Messages for Business integration, acquire the required information and call the Create Integration endpoint. 
      */
     setType(type) {
         this['type'] = type;
     }
 /**
-     * Returns Apple Business Chat ID.
+     * Returns Apple Messages for Business ID.
      * @return {String}
      */
     getBusinessId() {
@@ -103,8 +103,8 @@ class Apple {
     }
 
     /**
-     * Sets Apple Business Chat ID.
-     * @param {String} businessId Apple Business Chat ID.
+     * Sets Apple Messages for Business ID.
+     * @param {String} businessId Apple Messages for Business ID.
      */
     setBusinessId(businessId) {
         this['businessId'] = businessId;
@@ -143,14 +143,14 @@ class Apple {
 }
 
 /**
- * To configure an Apple Business Chat integration, acquire the required information and call the Create Integration endpoint. 
+ * To configure an Apple Messages for Business integration, acquire the required information and call the Create Integration endpoint. 
  * @member {String} type
  * @default 'apple'
  */
 Apple.prototype['type'] = 'apple';
 
 /**
- * Apple Business Chat ID.
+ * Apple Messages for Business ID.
  * @member {String} businessId
  */
 Apple.prototype['businessId'] = undefined;
@@ -189,13 +189,13 @@ Integration.prototype['status'] = undefined;
 Integration.prototype['displayName'] = undefined;
 // Implement AppleAllOf interface:
 /**
- * To configure an Apple Business Chat integration, acquire the required information and call the Create Integration endpoint. 
+ * To configure an Apple Messages for Business integration, acquire the required information and call the Create Integration endpoint. 
  * @member {String} type
  * @default 'apple'
  */
 AppleAllOf.prototype['type'] = 'apple';
 /**
- * Apple Business Chat ID.
+ * Apple Messages for Business ID.
  * @member {String} businessId
  */
 AppleAllOf.prototype['businessId'] = undefined;
