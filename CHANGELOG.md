@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.3.0] - 2024-03-06
+
+### Added
+
+- Added new `subtypes` property on the `business` author object.
+
 ## [12.2.2] - 2024-01-31
 
 ### Fixed

@@ -4,11 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The unique ID of the user. | [optional] 
-**externalId** | **String** | An optional ID that can also be used to retrieve the user.  | [optional] 
-**signedUpAt** | **String** |  | [optional] 
-**profile** | [**Profile**](Profile.md) |  | [optional] 
-**metadata** | **Object** |  | [optional] 
-**identities** | [**[Identity]**](Identity.md) | The user&#39;s connected identities. | [optional] [readonly] 
+**type** | **String** | The type of the author. | 
+**userId** | **String** | The id of the user. Only supported when &#x60;type&#x60; is user. | [optional] 
+**userExternalId** | **String** | The externalId of the user. Only supported when &#x60;type&#x60; is user. | [optional] 
+**displayName** | **String** | The display name of the message author. | [optional] 
+**avatarUrl** | **String** | A custom message icon URL. The image must be JPG, PNG, or GIF format. | [optional] 
+
+
+
+## Enum: TypeEnum
+
+
+* `user` (value: `"user"`)
+
+
 
 

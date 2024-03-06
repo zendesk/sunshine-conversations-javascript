@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**User**](User.md) | The user. | [optional] 
+**user** | [**User2**](User2.md) | The user. | [optional] 
 
 
