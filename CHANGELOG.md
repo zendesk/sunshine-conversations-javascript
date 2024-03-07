@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.3.1] - 2024-03-07
+
+### Fixed
+
+- Fixed an issue with the `author` schema that was causing Java build failures
+
 ## [12.3.0] - 2024-03-06
 
 ### Added
