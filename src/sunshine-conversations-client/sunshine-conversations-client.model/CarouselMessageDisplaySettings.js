@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CarouselMessageDisplaySettings model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/CarouselMessageDisplaySettings
- * @version 12.3.1
+ * @version 12.4.0
  */
 class CarouselMessageDisplaySettings {
     /**

@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.4.0] - 2024-04-24
+
+### Changed
+
+- Changed Android integration creation and update: added properties for new Firebase credentials and deprecated legacy properties
+
 ## [12.3.1] - 2024-03-07
 
 ### Fixed

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConversationListFilter model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationListFilter
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ConversationListFilter {
     /**

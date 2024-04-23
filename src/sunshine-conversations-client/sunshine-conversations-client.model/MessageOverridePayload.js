@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MessageOverridePayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageOverridePayload
- * @version 12.3.1
+ * @version 12.4.0
  */
 class MessageOverridePayload {
     /**

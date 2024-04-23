@@ -19,7 +19,7 @@ import WebUpdateAllOf from './WebUpdateAllOf';
 /**
  * The WebUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WebUpdate
- * @version 12.3.1
+ * @version 12.4.0
  */
 class WebUpdate {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LineAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/LineAllOf
- * @version 12.3.1
+ * @version 12.4.0
  */
 class LineAllOf {
     /**

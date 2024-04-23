@@ -17,7 +17,7 @@ import ExtraChannelOptionsMessenger from './ExtraChannelOptionsMessenger';
 /**
  * The ExtraChannelOptions model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ExtraChannelOptions
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ExtraChannelOptions {
     /**

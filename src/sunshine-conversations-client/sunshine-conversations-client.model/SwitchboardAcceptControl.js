@@ -19,7 +19,7 @@ import SwitchboardAcceptControlAllOfPayload from './SwitchboardAcceptControlAllO
 /**
  * The SwitchboardAcceptControl model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardAcceptControl
- * @version 12.3.1
+ * @version 12.4.0
  */
 class SwitchboardAcceptControl {
     /**

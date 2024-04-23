@@ -17,7 +17,7 @@ import Webhook from './Webhook';
 /**
  * The WebhookResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WebhookResponse
- * @version 12.3.1
+ * @version 12.4.0
  */
 class WebhookResponse {
     /**

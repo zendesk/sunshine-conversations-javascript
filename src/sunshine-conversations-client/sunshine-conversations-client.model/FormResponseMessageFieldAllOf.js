@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FormResponseMessageFieldAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/FormResponseMessageFieldAllOf
- * @version 12.3.1
+ * @version 12.4.0
  */
 class FormResponseMessageFieldAllOf {
     /**

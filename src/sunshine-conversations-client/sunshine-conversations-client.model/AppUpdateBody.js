@@ -17,7 +17,7 @@ import AppSettings from './AppSettings';
 /**
  * The AppUpdateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppUpdateBody
- * @version 12.3.1
+ * @version 12.4.0
  */
 class AppUpdateBody {
     /**

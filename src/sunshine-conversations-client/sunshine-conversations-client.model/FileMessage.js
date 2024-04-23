@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FileMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/FileMessage
- * @version 12.3.1
+ * @version 12.4.0
  */
 class FileMessage {
     /**

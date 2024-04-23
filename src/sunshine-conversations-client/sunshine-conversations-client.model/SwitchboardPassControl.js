@@ -19,7 +19,7 @@ import SwitchboardPassControlAllOfPayload from './SwitchboardPassControlAllOfPay
 /**
  * The SwitchboardPassControl model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardPassControl
- * @version 12.3.1
+ * @version 12.4.0
  */
 class SwitchboardPassControl {
     /**

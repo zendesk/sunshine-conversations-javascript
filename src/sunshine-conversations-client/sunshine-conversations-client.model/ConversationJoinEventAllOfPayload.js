@@ -18,7 +18,7 @@ import UserTruncated from './UserTruncated';
 /**
  * The ConversationJoinEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationJoinEventAllOfPayload
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ConversationJoinEventAllOfPayload {
     /**

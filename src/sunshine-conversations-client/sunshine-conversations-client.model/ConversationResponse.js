@@ -17,7 +17,7 @@ import Conversation from './Conversation';
 /**
  * The ConversationResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationResponse
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ConversationResponse {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AndroidAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AndroidAllOf
- * @version 12.3.1
+ * @version 12.4.0
  */
 class AndroidAllOf {
     /**
@@ -50,6 +50,15 @@ class AndroidAllOf {
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            if (data.hasOwnProperty('projectId')) {
+                obj['projectId'] = ApiClient.convertToType(data['projectId'], 'String');
+            }
+            if (data.hasOwnProperty('clientEmail')) {
+                obj['clientEmail'] = ApiClient.convertToType(data['clientEmail'], 'String');
+            }
+            if (data.hasOwnProperty('privateKey')) {
+                obj['privateKey'] = ApiClient.convertToType(data['privateKey'], 'String');
+            }
             if (data.hasOwnProperty('serverKey')) {
                 obj['serverKey'] = ApiClient.convertToType(data['serverKey'], 'String');
             }
@@ -67,7 +76,7 @@ class AndroidAllOf {
     }
 
 /**
-     * Returns To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/). Copy the `serverKey` and `senderId` from the Cloud Messaging tab in the settings of your project and call the create integrations endpoint with this data. If you would like to continue using your legacy GCM `serverKey` you can also obtain it from the [Google Developer Console](https://console.developers.google.com/). 
+     * Returns <aside class=\"notice\">Firebase Cloud Messaging has deprecated its legacy APIs for HTTP and XMPP. Legacy credentials <code>serverKey</code> and <code>senderId</code> will stop working as of June 2024 and must be replaced with OAuth 2.0 access token based credentials.</aside>  To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/).  Generate a private key from the Service accounts tab in the settings.  Copy the `project_id`, `client_email` and `private_key` from the generated JSON file and call the create integrations endpoint with this data. 
      * @return {String}
      */
     getType() {
@@ -75,11 +84,56 @@ class AndroidAllOf {
     }
 
     /**
-     * Sets To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/). Copy the `serverKey` and `senderId` from the Cloud Messaging tab in the settings of your project and call the create integrations endpoint with this data. If you would like to continue using your legacy GCM `serverKey` you can also obtain it from the [Google Developer Console](https://console.developers.google.com/). 
-     * @param {String} type To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/). Copy the `serverKey` and `senderId` from the Cloud Messaging tab in the settings of your project and call the create integrations endpoint with this data. If you would like to continue using your legacy GCM `serverKey` you can also obtain it from the [Google Developer Console](https://console.developers.google.com/). 
+     * Sets <aside class=\"notice\">Firebase Cloud Messaging has deprecated its legacy APIs for HTTP and XMPP. Legacy credentials <code>serverKey</code> and <code>senderId</code> will stop working as of June 2024 and must be replaced with OAuth 2.0 access token based credentials.</aside>  To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/).  Generate a private key from the Service accounts tab in the settings.  Copy the `project_id`, `client_email` and `private_key` from the generated JSON file and call the create integrations endpoint with this data. 
+     * @param {String} type <aside class=\"notice\">Firebase Cloud Messaging has deprecated its legacy APIs for HTTP and XMPP. Legacy credentials <code>serverKey</code> and <code>senderId</code> will stop working as of June 2024 and must be replaced with OAuth 2.0 access token based credentials.</aside>  To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/).  Generate a private key from the Service accounts tab in the settings.  Copy the `project_id`, `client_email` and `private_key` from the generated JSON file and call the create integrations endpoint with this data. 
      */
     setType(type) {
         this['type'] = type;
+    }
+/**
+     * Returns Your project ID from your generated private key file.
+     * @return {String}
+     */
+    getProjectId() {
+        return this.projectId;
+    }
+
+    /**
+     * Sets Your project ID from your generated private key file.
+     * @param {String} projectId Your project ID from your generated private key file.
+     */
+    setProjectId(projectId) {
+        this['projectId'] = projectId;
+    }
+/**
+     * Returns Your client email from your generated private key file.
+     * @return {String}
+     */
+    getClientEmail() {
+        return this.clientEmail;
+    }
+
+    /**
+     * Sets Your client email from your generated private key file.
+     * @param {String} clientEmail Your client email from your generated private key file.
+     */
+    setClientEmail(clientEmail) {
+        this['clientEmail'] = clientEmail;
+    }
+/**
+     * Returns Your private key from your generated private key file.
+     * @return {String}
+     */
+    getPrivateKey() {
+        return this.privateKey;
+    }
+
+    /**
+     * Sets Your private key from your generated private key file.
+     * @param {String} privateKey Your private key from your generated private key file.
+     */
+    setPrivateKey(privateKey) {
+        this['privateKey'] = privateKey;
     }
 /**
      * Returns Your server key from the fcm console.
@@ -145,11 +199,29 @@ class AndroidAllOf {
 }
 
 /**
- * To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/). Copy the `serverKey` and `senderId` from the Cloud Messaging tab in the settings of your project and call the create integrations endpoint with this data. If you would like to continue using your legacy GCM `serverKey` you can also obtain it from the [Google Developer Console](https://console.developers.google.com/). 
+ * <aside class=\"notice\">Firebase Cloud Messaging has deprecated its legacy APIs for HTTP and XMPP. Legacy credentials <code>serverKey</code> and <code>senderId</code> will stop working as of June 2024 and must be replaced with OAuth 2.0 access token based credentials.</aside>  To configure an android integration, first visit the [Firebase Console](https://console.firebase.google.com/).  Generate a private key from the Service accounts tab in the settings.  Copy the `project_id`, `client_email` and `private_key` from the generated JSON file and call the create integrations endpoint with this data. 
  * @member {String} type
  * @default 'android'
  */
 AndroidAllOf.prototype['type'] = 'android';
+
+/**
+ * Your project ID from your generated private key file.
+ * @member {String} projectId
+ */
+AndroidAllOf.prototype['projectId'] = undefined;
+
+/**
+ * Your client email from your generated private key file.
+ * @member {String} clientEmail
+ */
+AndroidAllOf.prototype['clientEmail'] = undefined;
+
+/**
+ * Your private key from your generated private key file.
+ * @member {String} privateKey
+ */
+AndroidAllOf.prototype['privateKey'] = undefined;
 
 /**
  * Your server key from the fcm console.

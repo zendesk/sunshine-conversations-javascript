@@ -19,7 +19,7 @@ import Meta from './Meta';
 /**
  * The ClientListResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientListResponse
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ClientListResponse {
     /**

@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The ViberUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ViberUpdate
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ViberUpdate {
     /**

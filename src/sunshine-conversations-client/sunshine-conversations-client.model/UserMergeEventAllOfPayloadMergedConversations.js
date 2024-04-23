@@ -17,7 +17,7 @@ import ConversationTruncated from './ConversationTruncated';
 /**
  * The UserMergeEventAllOfPayloadMergedConversations model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayloadMergedConversations
- * @version 12.3.1
+ * @version 12.4.0
  */
 class UserMergeEventAllOfPayloadMergedConversations {
     /**

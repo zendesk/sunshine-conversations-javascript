@@ -17,7 +17,7 @@ import ConversationReadEventAllOfPayload from './ConversationReadEventAllOfPaylo
 /**
  * The ConversationReadEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationReadEventAllOf
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ConversationReadEventAllOf {
     /**

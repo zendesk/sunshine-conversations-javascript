@@ -19,7 +19,7 @@ import ViberAllOf from './ViberAllOf';
 /**
  * The Viber model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Viber
- * @version 12.3.1
+ * @version 12.4.0
  */
 class Viber {
     /**

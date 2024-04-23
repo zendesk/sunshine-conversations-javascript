@@ -17,7 +17,7 @@ import MessageOverridePayload from './MessageOverridePayload';
 /**
  * The MessageOverrideWhatsapp model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageOverrideWhatsapp
- * @version 12.3.1
+ * @version 12.4.0
  */
 class MessageOverrideWhatsapp {
     /**

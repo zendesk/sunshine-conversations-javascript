@@ -18,7 +18,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The AndroidUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AndroidUpdate
- * @version 12.3.1
+ * @version 12.4.0
  */
 class AndroidUpdate {
     /**
@@ -56,6 +56,15 @@ class AndroidUpdate {
             if (data.hasOwnProperty('displayName')) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
+            if (data.hasOwnProperty('projectId')) {
+                obj['projectId'] = ApiClient.convertToType(data['projectId'], 'String');
+            }
+            if (data.hasOwnProperty('clientEmail')) {
+                obj['clientEmail'] = ApiClient.convertToType(data['clientEmail'], 'String');
+            }
+            if (data.hasOwnProperty('privateKey')) {
+                obj['privateKey'] = ApiClient.convertToType(data['privateKey'], 'String');
+            }
             if (data.hasOwnProperty('serverKey')) {
                 obj['serverKey'] = ApiClient.convertToType(data['serverKey'], 'String');
             }
@@ -83,6 +92,51 @@ class AndroidUpdate {
      */
     setDisplayName(displayName) {
         this['displayName'] = displayName;
+    }
+/**
+     * Returns Your project ID from your generated private key file.
+     * @return {String}
+     */
+    getProjectId() {
+        return this.projectId;
+    }
+
+    /**
+     * Sets Your project ID from your generated private key file.
+     * @param {String} projectId Your project ID from your generated private key file.
+     */
+    setProjectId(projectId) {
+        this['projectId'] = projectId;
+    }
+/**
+     * Returns Your client email from your generated private key file.
+     * @return {String}
+     */
+    getClientEmail() {
+        return this.clientEmail;
+    }
+
+    /**
+     * Sets Your client email from your generated private key file.
+     * @param {String} clientEmail Your client email from your generated private key file.
+     */
+    setClientEmail(clientEmail) {
+        this['clientEmail'] = clientEmail;
+    }
+/**
+     * Returns Your private key from your generated private key file.
+     * @return {String}
+     */
+    getPrivateKey() {
+        return this.privateKey;
+    }
+
+    /**
+     * Sets Your private key from your generated private key file.
+     * @param {String} privateKey Your private key from your generated private key file.
+     */
+    setPrivateKey(privateKey) {
+        this['privateKey'] = privateKey;
     }
 /**
      * Returns Your server key from the fcm console.
@@ -139,6 +193,24 @@ class AndroidUpdate {
 AndroidUpdate.prototype['displayName'] = undefined;
 
 /**
+ * Your project ID from your generated private key file.
+ * @member {String} projectId
+ */
+AndroidUpdate.prototype['projectId'] = undefined;
+
+/**
+ * Your client email from your generated private key file.
+ * @member {String} clientEmail
+ */
+AndroidUpdate.prototype['clientEmail'] = undefined;
+
+/**
+ * Your private key from your generated private key file.
+ * @member {String} privateKey
+ */
+AndroidUpdate.prototype['privateKey'] = undefined;
+
+/**
  * Your server key from the fcm console.
  * @member {String} serverKey
  */
@@ -164,6 +236,21 @@ AndroidUpdate.prototype['canUserCreateMoreConversations'] = undefined;
  */
 IntegrationUpdateBase.prototype['displayName'] = undefined;
 // Implement AndroidUpdateAllOf interface:
+/**
+ * Your project ID from your generated private key file.
+ * @member {String} projectId
+ */
+AndroidUpdateAllOf.prototype['projectId'] = undefined;
+/**
+ * Your client email from your generated private key file.
+ * @member {String} clientEmail
+ */
+AndroidUpdateAllOf.prototype['clientEmail'] = undefined;
+/**
+ * Your private key from your generated private key file.
+ * @member {String} privateKey
+ */
+AndroidUpdateAllOf.prototype['privateKey'] = undefined;
 /**
  * Your server key from the fcm console.
  * @member {String} serverKey

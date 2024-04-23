@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExtraChannelOptionsMessenger model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ExtraChannelOptionsMessenger
- * @version 12.3.1
+ * @version 12.4.0
  */
 class ExtraChannelOptionsMessenger {
     /**
