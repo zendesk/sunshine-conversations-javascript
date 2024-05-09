@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.5.0] - 2024-05-01
+
+### Added
+
+- Added `Devices` endpoint to the Users API.
+
 ## [12.4.0] - 2024-04-24
 
 ### Changed
