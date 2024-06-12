@@ -1,5 +1,13 @@
 # Changelog
 
+# Changelog
+
+## [12.5.1] - 2024-06-11
+
+### Changed
+
+- Updated dropdown limit and removed private attachments.
+
 ## [12.5.0] - 2024-05-01
 
 ### Added
