@@ -8,5 +8,7 @@ Name | Type | Description | Notes
 **token** | **String** | Viber Public Account token. | 
 **uri** | **String** | Unique URI of the Viber account. | [optional] [readonly] 
 **accountId** | **String** | Unique ID of the Viber account. | [optional] [readonly] 
+**defaultResponderId** | **String** | The default responder ID for the integration. This is the ID of the responder that will be used to send messages to the user. For more information, refer to &lt;a href&#x3D;\&quot;https://docs.smooch.io/guide/switchboard/#per-channel-default-responder\&quot;&gt;Per-channel default responder&lt;/a&gt; guide.  | [optional] 
+**defaultResponder** | [**DefaultResponderDefaultResponder**](DefaultResponderDefaultResponder.md) |  | [optional] 
 
 
