@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **altText** | **String** | An optional description of the image for accessibility purposes. The field will be saved by default with the file name as the value. | [optional] 
 **text** | **String** | The text content of the message. Optional only if actions are provided. | [optional] 
 **actions** | [**[Action]**](Action.md) | Array of message actions. | [optional] 
+**attachmentId** | **String** | An identifier used by Sunshine Conversations for internal purposes. | [optional] 
 
 

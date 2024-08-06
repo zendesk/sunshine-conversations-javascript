@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.7.0] - 2024-07-24
+
+### Added
+
+- Added new `attachmentId` property on the `file` and `image` message content of the Messages  API endpoints.
+
 ## [12.6.0] - 2024-06-12
 
 ### Added

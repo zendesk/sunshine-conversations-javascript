@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **mediaType** | **String** | The media type of the file. | [optional] [readonly] 
 **altText** | **String** | An optional description of the file for accessibility purposes. The field will be saved by default with the file name as the value. | [optional] 
 **text** | **String** | The text content of the message. | [optional] 
+**attachmentId** | **String** | An identifier used by Sunshine Conversations for internal purposes. | [optional] 
 
 

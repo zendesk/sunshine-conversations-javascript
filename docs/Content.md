@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **mediaSize** | **Number** | The size of the media in bytes. | [optional] [readonly] 
 **mediaType** | **String** | The type of media. | [optional] [readonly] 
 **altText** | **String** | An optional description of the image for accessibility purposes. The field will be saved by default with the file name as the value. | [optional] 
+**attachmentId** | **String** | An identifier used by Sunshine Conversations for internal purposes. | [optional] 
 **submitted** | **Boolean** | Flag which states whether the form is submitted. | [optional] [readonly] 
 **blockChatInput** | **Boolean** | true if the message should block the chat input on Web Messenger. | [optional] 
 **fields** | [**[FormResponseMessageField]**](FormResponseMessageField.md) | Array of field objects that contain the submitted fields. | 
