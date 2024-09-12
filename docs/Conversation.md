@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **iconUrl** | **String** | A custom conversation icon url. The image must be in either JPG, PNG, or GIF format | [optional] 
 **businessLastRead** | **String** | A datetime string with the format YYYY-MM-DDThh:mm:ss.SSSZ representing the moment the conversation was last marked as read with role business.  | [optional] 
 **lastUpdatedAt** | **String** | A datetime string with the format YYYY-MM-DDThh:mm:ss.SSSZ representing the moment the last message was received in the conversation, or the creation time if no messages have been received yet.  | [optional] 
+**createdAt** | **String** | A datetime string with the format YYYY-MM-DDThh:mm:ss.SSSZ representing the creation time of the conversation.  | [optional] 
 
 

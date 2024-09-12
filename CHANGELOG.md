@@ -1,5 +1,11 @@
 # Changelog
 
+## [12.8.0] - 2024-09-12
+
+### Added
+
+- Added new `createdAt` property on the `conversation` content of the Conversations API endpoints.
+
 ## [12.7.0] - 2024-07-24
 
 ### Added
