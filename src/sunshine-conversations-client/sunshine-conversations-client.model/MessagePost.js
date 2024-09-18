@@ -20,7 +20,7 @@ import MessageOverride from './MessageOverride';
 /**
  * The MessagePost model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessagePost
- * @version 12.8.0
+ * @version 13.0.0
  */
 class MessagePost {
     /**

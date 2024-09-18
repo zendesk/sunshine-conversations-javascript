@@ -1,5 +1,11 @@
 # Changelog
 
+## [13.0.0] - 2024-09-17
+
+### Added
+
+- List devices response changed from clients to devices
+
 ## [12.8.0] - 2024-09-12
 
 ### Added
@@ -10,7 +16,7 @@
 
 ### Added
 
-- Added new `attachmentId` property on the `file` and `image` message content of the Messages  API endpoints.
+- Added new `attachmentId` property on the `file` and `image` message content of the Messages API endpoints.
 
 ## [12.6.0] - 2024-06-12
 

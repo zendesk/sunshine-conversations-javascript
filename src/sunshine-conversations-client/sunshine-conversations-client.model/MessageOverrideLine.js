@@ -17,7 +17,7 @@ import MessageOverridePayload from './MessageOverridePayload';
 /**
  * The MessageOverrideLine model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageOverrideLine
- * @version 12.8.0
+ * @version 13.0.0
  */
 class MessageOverrideLine {
     /**

@@ -17,7 +17,7 @@ import ClientType from './ClientType';
 /**
  * The ClientAssociation model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientAssociation
- * @version 12.8.0
+ * @version 13.0.0
  */
 class ClientAssociation {
     /**

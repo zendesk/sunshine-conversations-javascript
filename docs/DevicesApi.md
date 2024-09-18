@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ## listDevices
 
-> ClientListResponse listDevices(appId, userIdOrExternalId)
+> DeviceListResponse listDevices(appId, userIdOrExternalId)
 
 List Devices
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClientListResponse**](ClientListResponse.md)
+[**DeviceListResponse**](DeviceListResponse.md)
 
 ### Authorization
 

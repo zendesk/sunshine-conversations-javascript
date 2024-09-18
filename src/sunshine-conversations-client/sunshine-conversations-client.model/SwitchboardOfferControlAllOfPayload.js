@@ -17,7 +17,7 @@ import ConversationTruncated from './ConversationTruncated';
 /**
  * The SwitchboardOfferControlAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardOfferControlAllOfPayload
- * @version 12.8.0
+ * @version 13.0.0
  */
 class SwitchboardOfferControlAllOfPayload {
     /**

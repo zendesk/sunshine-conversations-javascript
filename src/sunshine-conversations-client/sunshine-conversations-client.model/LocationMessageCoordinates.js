@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LocationMessageCoordinates model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/LocationMessageCoordinates
- * @version 12.8.0
+ * @version 13.0.0
  */
 class LocationMessageCoordinates {
     /**

@@ -22,7 +22,7 @@ import Status from './Status';
 /**
  * The Mailgun model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Mailgun
- * @version 12.8.0
+ * @version 13.0.0
  */
 class Mailgun {
     /**

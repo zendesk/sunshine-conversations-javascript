@@ -17,7 +17,7 @@ import CustomUpdateAllOf from './CustomUpdateAllOf';
 /**
  * The CustomUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/CustomUpdate
- * @version 12.8.0
+ * @version 13.0.0
  */
 class CustomUpdate {
     /**

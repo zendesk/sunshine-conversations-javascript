@@ -13,13 +13,13 @@
  */
 
 import ApiClient from "../ApiClient";
-import ClientListResponse from '../sunshine-conversations-client.model/ClientListResponse';
+import DeviceListResponse from '../sunshine-conversations-client.model/DeviceListResponse';
 import DeviceResponse from '../sunshine-conversations-client.model/DeviceResponse';
 
 /**
 * Devices service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/DevicesApi
-* @version 12.8.0
+* @version 13.0.0
 */
 export default class DevicesApi {
 
@@ -103,7 +103,7 @@ export default class DevicesApi {
      * Get all the devices for a particular user. The Devices are sorted based on last seen time.  ```shell /v2/apps/:appId/users/:userId/devices ``` 
      * @param {String} appId Identifies the app.
      * @param {String} userIdOrExternalId The user's id or externalId.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:sunshine-conversations-client/sunshine-conversations-client.model/ClientListResponse} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:sunshine-conversations-client/sunshine-conversations-client.model/DeviceListResponse} and HTTP response
      */
     listDevicesWithHttpInfo(appId, userIdOrExternalId) {
       let postBody = null;
@@ -130,7 +130,7 @@ export default class DevicesApi {
       let authNames = ['basicAuth', 'bearerAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ClientListResponse;
+      let returnType = DeviceListResponse;
       return this.apiClient.callApi(
         '/v2/apps/{appId}/users/{userIdOrExternalId}/devices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -143,7 +143,7 @@ export default class DevicesApi {
      * Get all the devices for a particular user. The Devices are sorted based on last seen time.  ```shell /v2/apps/:appId/users/:userId/devices ``` 
      * @param {String} appId Identifies the app.
      * @param {String} userIdOrExternalId The user's id or externalId.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:sunshine-conversations-client/sunshine-conversations-client.model/ClientListResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:sunshine-conversations-client/sunshine-conversations-client.model/DeviceListResponse}
      */
     listDevices(appId, userIdOrExternalId) {
       return this.listDevicesWithHttpInfo(appId, userIdOrExternalId)

@@ -17,7 +17,7 @@ import Profile from './Profile';
 /**
  * The UserCreateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserCreateBody
- * @version 12.8.0
+ * @version 13.0.0
  */
 class UserCreateBody {
     /**

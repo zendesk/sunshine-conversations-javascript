@@ -18,7 +18,7 @@ import MatchCriteriaMailgunAllOf from './MatchCriteriaMailgunAllOf';
 /**
  * The MatchCriteriaMailgun model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MatchCriteriaMailgun
- * @version 12.8.0
+ * @version 13.0.0
  */
 class MatchCriteriaMailgun {
     /**

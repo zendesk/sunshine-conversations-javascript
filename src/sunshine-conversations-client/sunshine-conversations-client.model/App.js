@@ -17,7 +17,7 @@ import AppSettings from './AppSettings';
 /**
  * The App model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/App
- * @version 12.8.0
+ * @version 13.0.0
  */
 class App {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttachmentDeleteBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AttachmentDeleteBody
- * @version 12.8.0
+ * @version 13.0.0
  */
 class AttachmentDeleteBody {
     /**

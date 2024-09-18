@@ -17,7 +17,7 @@ import Profile from './Profile';
 /**
  * The UserUpdateBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserUpdateBody
- * @version 12.8.0
+ * @version 13.0.0
  */
 class UserUpdateBody {
     /**

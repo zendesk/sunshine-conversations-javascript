@@ -23,7 +23,7 @@ import Webview from './Webview';
 /**
  * The Action model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Action
- * @version 12.8.0
+ * @version 13.0.0
  */
 class Action {
     /**

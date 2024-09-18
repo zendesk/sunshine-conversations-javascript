@@ -17,7 +17,7 @@ import ParticipantSubSchema from './ParticipantSubSchema';
 /**
  * The ParticipantJoinBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantJoinBody
- * @version 12.8.0
+ * @version 13.0.0
  */
 class ParticipantJoinBody {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Field model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Field
- * @version 12.8.0
+ * @version 13.0.0
  */
 class Field {
     /**

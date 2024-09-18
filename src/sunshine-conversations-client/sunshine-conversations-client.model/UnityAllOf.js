@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UnityAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UnityAllOf
- * @version 12.8.0
+ * @version 13.0.0
  */
 class UnityAllOf {
     /**

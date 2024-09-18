@@ -18,7 +18,7 @@ import MessageWebhook from './MessageWebhook';
 /**
  * The ConversationMessageEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationMessageEventAllOfPayload
- * @version 12.8.0
+ * @version 13.0.0
  */
 class ConversationMessageEventAllOfPayload {
     /**

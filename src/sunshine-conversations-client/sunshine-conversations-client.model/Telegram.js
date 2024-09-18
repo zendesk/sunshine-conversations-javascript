@@ -22,7 +22,7 @@ import TelegramAllOf from './TelegramAllOf';
 /**
  * The Telegram model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Telegram
- * @version 12.8.0
+ * @version 13.0.0
  */
 class Telegram {
     /**

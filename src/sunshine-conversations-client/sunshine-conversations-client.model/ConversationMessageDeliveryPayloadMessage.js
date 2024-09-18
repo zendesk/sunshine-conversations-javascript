@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConversationMessageDeliveryPayloadMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationMessageDeliveryPayloadMessage
- * @version 12.8.0
+ * @version 13.0.0
  */
 class ConversationMessageDeliveryPayloadMessage {
     /**

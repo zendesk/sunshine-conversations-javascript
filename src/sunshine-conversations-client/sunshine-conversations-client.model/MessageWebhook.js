@@ -20,7 +20,7 @@ import Source from './Source';
 /**
  * The MessageWebhook model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageWebhook
- * @version 12.8.0
+ * @version 13.0.0
  */
 class MessageWebhook {
     /**

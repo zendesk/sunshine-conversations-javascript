@@ -17,7 +17,7 @@ import ExtraChannelOptions from './ExtraChannelOptions';
 /**
  * The Link model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Link
- * @version 12.8.0
+ * @version 13.0.0
  */
 class Link {
     /**

@@ -124,6 +124,7 @@ import DefaultResponderDefaultResponder from './sunshine-conversations-client.mo
 import DefaultResponderId from './sunshine-conversations-client.model/DefaultResponderId';
 import Destination from './sunshine-conversations-client.model/Destination';
 import Device from './sunshine-conversations-client.model/Device';
+import DeviceListResponse from './sunshine-conversations-client.model/DeviceListResponse';
 import DeviceResponse from './sunshine-conversations-client.model/DeviceResponse';
 import EventSubSchema from './sunshine-conversations-client.model/EventSubSchema';
 import ExtraChannelOptions from './sunshine-conversations-client.model/ExtraChannelOptions';
@@ -351,7 +352,7 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * </pre>
 * </p>
 * @module sunshine-conversations-client/index
-* @version 12.8.0
+* @version 13.0.0
 */
 export {
     /**
@@ -1025,6 +1026,12 @@ export {
      * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/Device}
      */
     Device,
+
+    /**
+     * The DeviceListResponse model constructor.
+     * @property {module:sunshine-conversations-client/sunshine-conversations-client.model/DeviceListResponse}
+     */
+    DeviceListResponse,
 
     /**
      * The DeviceResponse model constructor.

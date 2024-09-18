@@ -17,7 +17,7 @@ import Campaign from './Campaign';
 /**
  * The SourceWithCampaignWebhookAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SourceWithCampaignWebhookAllOf
- * @version 12.8.0
+ * @version 13.0.0
  */
 class SourceWithCampaignWebhookAllOf {
     /**

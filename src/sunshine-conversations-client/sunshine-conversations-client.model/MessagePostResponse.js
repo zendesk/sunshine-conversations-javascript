@@ -17,7 +17,7 @@ import Message from './Message';
 /**
  * The MessagePostResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessagePostResponse
- * @version 12.8.0
+ * @version 13.0.0
  */
 class MessagePostResponse {
     /**

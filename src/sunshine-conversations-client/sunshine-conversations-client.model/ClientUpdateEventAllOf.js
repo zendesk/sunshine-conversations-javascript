@@ -17,7 +17,7 @@ import ClientUpdateEventAllOfPayload from './ClientUpdateEventAllOfPayload';
 /**
  * The ClientUpdateEventAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientUpdateEventAllOf
- * @version 12.8.0
+ * @version 13.0.0
  */
 class ClientUpdateEventAllOf {
     /**

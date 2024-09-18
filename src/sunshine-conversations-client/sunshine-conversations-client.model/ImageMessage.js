@@ -17,7 +17,7 @@ import Action from './Action';
 /**
  * The ImageMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ImageMessage
- * @version 12.8.0
+ * @version 13.0.0
  */
 class ImageMessage {
     /**
