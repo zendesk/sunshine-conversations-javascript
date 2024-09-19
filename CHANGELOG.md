@@ -1,5 +1,11 @@
 # Changelog
 
+## [13.1.0] - 2024-09-18
+
+### Changed
+
+- Removed private attachments support.
+
 ## [13.0.0] - 2024-09-17
 
 ### Added

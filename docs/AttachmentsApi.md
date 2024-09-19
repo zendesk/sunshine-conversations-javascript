@@ -5,8 +5,6 @@ All URIs are relative to *https://api.smooch.io*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteAttachment**](AttachmentsApi.md#deleteAttachment) | **POST** /v2/apps/{appId}/attachments/remove | Delete Attachment
-[**generateMediaJsonWebToken**](AttachmentsApi.md#generateMediaJsonWebToken) | **POST** /v2/apps/{appId}/attachments/token | Generate Media Token
-[**setCookie**](AttachmentsApi.md#setCookie) | **GET** /v2/apps/{appId}/attachments/cookie | Set Cookie
 [**uploadAttachment**](AttachmentsApi.md#uploadAttachment) | **POST** /v2/apps/{appId}/attachments | Upload Attachment
 
 
@@ -68,113 +66,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## generateMediaJsonWebToken
-
-> AttachmentMediaTokenResponse generateMediaJsonWebToken(appId, attachmentMediaTokenBody)
-
-Generate Media Token
-
-Generates a media JWT for a list of attachment paths. 
-
-### Example
-
-```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
-
-// Configure HTTP basic authorization: basicAuth
-var basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'YOUR_USERNAME';
-basicAuth.password = 'YOUR_PASSWORD';
-
-// Uncomment this section to use JWTs instead
-// var bearerAuth = defaultClient.authentications['bearerAuth'];
-// bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
-
-var apiInstance = new SunshineConversationsClient.AttachmentsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var attachmentMediaTokenBody = new SunshineConversationsClient.AttachmentMediaTokenBody(); // AttachmentMediaTokenBody | 
-apiInstance.generateMediaJsonWebToken(appId, attachmentMediaTokenBody).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appId** | **String**| Identifies the app. | 
- **attachmentMediaTokenBody** | [**AttachmentMediaTokenBody**](AttachmentMediaTokenBody.md)|  | 
-
-### Return type
-
-[**AttachmentMediaTokenResponse**](AttachmentMediaTokenResponse.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## setCookie
-
-> Object setCookie(appId)
-
-Set Cookie
-
-With the media JWT retrieved, pass it in the header of the below request as it’s authorization in order to set a cookie in the user’s browser corresponding to the path within the media JWT. The expiration date of this cookie will match the expiration date of the media JWT.  
-
-### Example
-
-```javascript
-var SunshineConversationsClient = require('sunshine-conversations-client');
-var defaultClient = SunshineConversationsClient.ApiClient.instance;
-
-// Uncomment this section to use JWTs instead
-// var bearerAuth = defaultClient.authentications['bearerAuth'];
-// bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
-
-var apiInstance = new SunshineConversationsClient.AttachmentsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-apiInstance.setCookie(appId).then(function(data) {
-  console.log('API called successfully. Returned data: ' + data);
-}, function(error) {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appId** | **String**| Identifies the app. | 
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## uploadAttachment
 
 > AttachmentResponse uploadAttachment(appId, access, source, opts)
@@ -200,7 +91,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 
 var apiInstance = new SunshineConversationsClient.AttachmentsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var access = "public"; // String | The access level for the attachment. Currently the available access levels are public and private. If you are a licensed Zendesk customer, you must use public. Private is not supported.
+var access = "public"; // String | The access level for the attachment. Currently the only available access level is public. Private is not supported.
 var source = "/path/to/file"; // File | 
 var opts = {
   '_for': message, // String | Specifies the intended container for the attachment, to enable automatic attachment deletion (on deletion of associated message, conversation or user). For now, only message is supported. See [Attachments for Messages](#section/Attachments-for-Messages) for details.
@@ -221,7 +112,7 @@ apiInstance.uploadAttachment(appId, access, source, opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Identifies the app. | 
- **access** | **String**| The access level for the attachment. Currently the available access levels are public and private. If you are a licensed Zendesk customer, you must use public. Private is not supported. | [default to &#39;public&#39;]
+ **access** | **String**| The access level for the attachment. Currently the only available access level is public. Private is not supported. | [default to &#39;public&#39;]
  **source** | **File**|  | 
  **_for** | **String**| Specifies the intended container for the attachment, to enable automatic attachment deletion (on deletion of associated message, conversation or user). For now, only message is supported. See [Attachments for Messages](#section/Attachments-for-Messages) for details. | [optional] 
  **conversationId** | **String**| Links the attachment getting uploaded to the conversation ID. | [optional] 
