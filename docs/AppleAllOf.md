@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **businessId** | **String** | Apple Messages for Business ID. | 
 **apiSecret** | **String** | Your Apple API secret which is tied to your Messaging Service Provider. | 
 **mspId** | **String** | Your Messaging Service Provider ID. | 
+**authenticationMessageSecret** | **String** | A secret used to create the state value when sending Apple authentication 2.0 messages | [optional] 
 
 

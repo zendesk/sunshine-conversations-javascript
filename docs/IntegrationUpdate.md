@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **serverKey** | **String** | Your server key from the fcm console. | [optional] 
 **senderId** | **String** | Your sender id from the fcm console. | [optional] 
 **canUserCreateMoreConversations** | **Boolean** | Allows users to create more than one conversation on the web messenger integration. | [optional] 
+**authenticationMessageSecret** | **String** | A secret used to create the state value when sending Apple authentication 2.0 messages | [optional] 
 **pageAccessToken** | **String** | A Facebook Page Access Token. | [optional] 
 **certificate** | **String** | The binary of your APN certificate base64 encoded. | [optional] 
 **password** | **String** | The password for your APN certificate. | [optional] 

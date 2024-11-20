@@ -1,5 +1,12 @@
 # Changelog
 
+## [13.2.0] - 2024-11-13
+
+### Added
+
+- Added new `withCapabilities` property to the Passthrought API endpoints, to Apple override MessagesPayload.
+- Added authenticationMessageSecret to the Integrations create and update endpoints
+
 ## [13.1.0] - 2024-09-18
 
 ### Changed
