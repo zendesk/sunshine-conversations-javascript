@@ -1,5 +1,12 @@
 # Changelog
 
+## [14.0.0] - 2024-11-21
+
+### Fixed
+
+- Fixed: Removed erroneous "uri" format from uri property in the "webview" action type.
+- Removed allOf from customUpdate.
+
 ## [13.2.0] - 2024-11-13
 
 ### Added
