@@ -1,5 +1,11 @@
 # Changelog
 
+## [14.1.0] - 2024-11-22
+
+### Added
+
+- Added new `downloadMessageRef` Conversation API endpoint.
+
 ## [14.0.0] - 2024-11-21
 
 ### Fixed
