@@ -1,5 +1,12 @@
 # Changelog
 
+## [14.2.0] - 2024-12-11
+
+### Added
+
+- Added new `toBeRetained` property to [User](https://docs.smooch.io/rest/#tag/Users) and all relevant APIs. See [creating deletion schedules for bot-only conversations](https://support.zendesk.com/hc/en-us/articles/8499219792154) for more information.
+- Added `user:remove` [webhook event](https://docs.smooch.io/rest/#operation/eventWebhooks). This event fires when a user deleted.
+
 ## [14.1.0] - 2024-11-22
 
 ### Added
