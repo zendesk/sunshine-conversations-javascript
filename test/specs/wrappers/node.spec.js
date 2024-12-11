@@ -76,7 +76,7 @@ describe('Smooch', () => {
         try {
             new Smooch({
                 jwt: sign({}, 'secret', {
-                    headers: {
+                    header: {
                         kid: 'keyid'
                     }
                 })

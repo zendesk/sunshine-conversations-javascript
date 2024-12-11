@@ -4,7 +4,7 @@ export function testJwt(scope = 'appUser') {
     return sign({
         scope
     }, 'secret', {
-        headers: {
+        header: {
             kid: 'keyid'
         }
     });
