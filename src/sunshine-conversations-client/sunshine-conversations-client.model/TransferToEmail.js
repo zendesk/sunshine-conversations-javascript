@@ -53,7 +53,7 @@ class TransferToEmail {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], Object);
+                obj['data'] = ApiClient.convertToType(data['data'], {'String': Object});
             }
         }
         return obj;
@@ -76,7 +76,7 @@ class TransferToEmail {
     }
 /**
      * Returns No additional data is supplied with the \"transferToEmail\" activity type at this time.
-     * @return {Object}
+     * @return {Object.<String, Object>}
      */
     getData() {
         return this.data;
@@ -84,7 +84,7 @@ class TransferToEmail {
 
     /**
      * Sets No additional data is supplied with the \"transferToEmail\" activity type at this time.
-     * @param {Object} data No additional data is supplied with the \"transferToEmail\" activity type at this time.
+     * @param {Object.<String, Object>} data No additional data is supplied with the \"transferToEmail\" activity type at this time.
      */
     setData(data) {
         this['data'] = data;
@@ -101,7 +101,7 @@ TransferToEmail.prototype['type'] = 'transferToEmail';
 
 /**
  * No additional data is supplied with the \"transferToEmail\" activity type at this time.
- * @member {Object} data
+ * @member {Object.<String, Object>} data
  */
 TransferToEmail.prototype['data'] = undefined;
 
