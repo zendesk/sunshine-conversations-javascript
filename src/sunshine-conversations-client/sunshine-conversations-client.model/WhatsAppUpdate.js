@@ -18,7 +18,7 @@ import WhatsAppUpdateAllOf from './WhatsAppUpdateAllOf';
 /**
  * The WhatsAppUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/WhatsAppUpdate
- * @version 14.3.1
+ * @version 14.3.2
  */
 class WhatsAppUpdate {
     /**

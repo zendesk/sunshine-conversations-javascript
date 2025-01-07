@@ -22,7 +22,7 @@ import Status from './Status';
 /**
  * The Ios model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Ios
- * @version 14.3.1
+ * @version 14.3.2
  */
 class Ios {
     /**

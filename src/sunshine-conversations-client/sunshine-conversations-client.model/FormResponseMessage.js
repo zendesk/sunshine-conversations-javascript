@@ -17,7 +17,7 @@ import FormResponseMessageField from './FormResponseMessageField';
 /**
  * The FormResponseMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/FormResponseMessage
- * @version 14.3.1
+ * @version 14.3.2
  */
 class FormResponseMessage {
     /**

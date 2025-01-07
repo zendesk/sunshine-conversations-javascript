@@ -18,7 +18,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The AndroidUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AndroidUpdate
- * @version 14.3.1
+ * @version 14.3.2
  */
 class AndroidUpdate {
     /**

@@ -19,7 +19,7 @@ import UserTruncated from './UserTruncated';
 /**
  * The ClientUpdateEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ClientUpdateEventAllOfPayload
- * @version 14.3.1
+ * @version 14.3.2
  */
 class ClientUpdateEventAllOfPayload {
     /**

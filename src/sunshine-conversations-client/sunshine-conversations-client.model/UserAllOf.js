@@ -18,7 +18,7 @@ import Profile from './Profile';
 /**
  * The UserAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserAllOf
- * @version 14.3.1
+ * @version 14.3.2
  */
 class UserAllOf {
     /**

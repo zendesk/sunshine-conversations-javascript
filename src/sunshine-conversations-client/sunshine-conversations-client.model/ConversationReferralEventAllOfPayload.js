@@ -20,7 +20,7 @@ import User from './User';
 /**
  * The ConversationReferralEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationReferralEventAllOfPayload
- * @version 14.3.1
+ * @version 14.3.2
  */
 class ConversationReferralEventAllOfPayload {
     /**

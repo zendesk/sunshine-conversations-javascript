@@ -18,7 +18,7 @@ import SourceWebhook from './SourceWebhook';
 /**
  * The ActivityAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ActivityAllOf
- * @version 14.3.1
+ * @version 14.3.2
  */
 class ActivityAllOf {
     /**

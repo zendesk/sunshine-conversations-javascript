@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TransferToEmail model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TransferToEmail
- * @version 14.3.1
+ * @version 14.3.2
  */
 class TransferToEmail {
     /**
@@ -75,7 +75,7 @@ class TransferToEmail {
         this['type'] = type;
     }
 /**
-     * Returns No additional data is supplied with the \"transferToEmail\" activity type at this time.
+     * Returns No additional data is supplied with the \"ticket:transfer:email\" activity type at this time.
      * @return {Object.<String, Object>}
      */
     getData() {
@@ -83,8 +83,8 @@ class TransferToEmail {
     }
 
     /**
-     * Sets No additional data is supplied with the \"transferToEmail\" activity type at this time.
-     * @param {Object.<String, Object>} data No additional data is supplied with the \"transferToEmail\" activity type at this time.
+     * Sets No additional data is supplied with the \"ticket:transfer:email\" activity type at this time.
+     * @param {Object.<String, Object>} data No additional data is supplied with the \"ticket:transfer:email\" activity type at this time.
      */
     setData(data) {
         this['data'] = data;
@@ -95,12 +95,12 @@ class TransferToEmail {
 /**
  * The type of system activity that generated the message. The value of this field determines the dynamic content that is rendered to the end-user / agent when viewing this message. Each `type` value will have a set of pre-defined, localized strings that describe the activity.
  * @member {String} type
- * @default 'transferToEmail'
+ * @default 'ticket:transfer:email'
  */
-TransferToEmail.prototype['type'] = 'transferToEmail';
+TransferToEmail.prototype['type'] = 'ticket:transfer:email';
 
 /**
- * No additional data is supplied with the \"transferToEmail\" activity type at this time.
+ * No additional data is supplied with the \"ticket:transfer:email\" activity type at this time.
  * @member {Object.<String, Object>} data
  */
 TransferToEmail.prototype['data'] = undefined;

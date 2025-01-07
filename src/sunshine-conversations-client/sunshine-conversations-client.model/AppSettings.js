@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AppSettings model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AppSettings
- * @version 14.3.1
+ * @version 14.3.2
  */
 class AppSettings {
     /**

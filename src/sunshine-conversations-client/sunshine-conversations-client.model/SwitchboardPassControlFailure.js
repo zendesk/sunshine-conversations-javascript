@@ -19,7 +19,7 @@ import SwitchboardAcceptControlFailureAllOfPayload from './SwitchboardAcceptCont
 /**
  * The SwitchboardPassControlFailure model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/SwitchboardPassControlFailure
- * @version 14.3.1
+ * @version 14.3.2
  */
 class SwitchboardPassControlFailure {
     /**

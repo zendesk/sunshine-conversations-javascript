@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstagramUpdateAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/InstagramUpdateAllOf
- * @version 14.3.1
+ * @version 14.3.2
  */
 class InstagramUpdateAllOf {
     /**

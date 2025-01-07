@@ -17,7 +17,7 @@ import Author from './Author';
 /**
  * The ActivityPostAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ActivityPostAllOf
- * @version 14.3.1
+ * @version 14.3.2
  */
 class ActivityPostAllOf {
     /**

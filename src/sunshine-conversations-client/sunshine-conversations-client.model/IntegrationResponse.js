@@ -17,7 +17,7 @@ import Integration from './Integration';
 /**
  * The IntegrationResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IntegrationResponse
- * @version 14.3.1
+ * @version 14.3.2
  */
 class IntegrationResponse {
     /**

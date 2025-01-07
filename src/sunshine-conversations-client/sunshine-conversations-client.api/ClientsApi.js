@@ -21,7 +21,7 @@ import Page from '../sunshine-conversations-client.model/Page';
 /**
 * Clients service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/ClientsApi
-* @version 14.3.1
+* @version 14.3.2
 */
 export default class ClientsApi {
 

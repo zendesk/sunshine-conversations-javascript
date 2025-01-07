@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The TwitterUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TwitterUpdate
- * @version 14.3.1
+ * @version 14.3.2
  */
 class TwitterUpdate {
     /**

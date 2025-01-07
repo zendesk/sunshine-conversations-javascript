@@ -18,7 +18,7 @@ import ActivityPost from '../sunshine-conversations-client.model/ActivityPost';
 /**
 * Activities service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/ActivitiesApi
-* @version 14.3.1
+* @version 14.3.2
 */
 export default class ActivitiesApi {
 

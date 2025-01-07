@@ -31,7 +31,7 @@ import TextMessage from './TextMessage';
 /**
  * The Content model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Content
- * @version 14.3.1
+ * @version 14.3.2
  */
 class Content {
     /**

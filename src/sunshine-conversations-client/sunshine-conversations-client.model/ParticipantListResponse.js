@@ -19,7 +19,7 @@ import Participant from './Participant';
 /**
  * The ParticipantListResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ParticipantListResponse
- * @version 14.3.1
+ * @version 14.3.2
  */
 class ParticipantListResponse {
     /**

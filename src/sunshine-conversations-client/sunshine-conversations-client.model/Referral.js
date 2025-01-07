@@ -17,7 +17,7 @@ import ReferralDetails from './ReferralDetails';
 /**
  * The Referral model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Referral
- * @version 14.3.1
+ * @version 14.3.2
  */
 class Referral {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Reply model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Reply
- * @version 14.3.1
+ * @version 14.3.2
  */
 class Reply {
     /**

@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationReadEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationReadEvent
- * @version 14.3.1
+ * @version 14.3.2
  */
 class ConversationReadEvent {
     /**

@@ -18,7 +18,7 @@ import DownloadMessageRefBodyAllOfApple from './DownloadMessageRefBodyAllOfApple
 /**
  * The DownloadMessageRefBody model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/DownloadMessageRefBody
- * @version 14.3.1
+ * @version 14.3.2
  */
 class DownloadMessageRefBody {
     /**

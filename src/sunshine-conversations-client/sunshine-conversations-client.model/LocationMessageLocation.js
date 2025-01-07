@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LocationMessageLocation model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/LocationMessageLocation
- * @version 14.3.1
+ * @version 14.3.2
  */
 class LocationMessageLocation {
     /**

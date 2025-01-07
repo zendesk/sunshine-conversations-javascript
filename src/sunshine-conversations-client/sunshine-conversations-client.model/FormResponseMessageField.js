@@ -18,7 +18,7 @@ import FormResponseMessageFieldAllOf from './FormResponseMessageFieldAllOf';
 /**
  * The FormResponseMessageField model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/FormResponseMessageField
- * @version 14.3.1
+ * @version 14.3.2
  */
 class FormResponseMessageField {
     /**

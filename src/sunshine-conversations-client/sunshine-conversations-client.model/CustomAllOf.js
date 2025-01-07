@@ -17,7 +17,7 @@ import Webhook from './Webhook';
 /**
  * The CustomAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/CustomAllOf
- * @version 14.3.1
+ * @version 14.3.2
  */
 class CustomAllOf {
     /**

@@ -361,7 +361,7 @@ import WebhooksApi from './sunshine-conversations-client.api/WebhooksApi';
 * </pre>
 * </p>
 * @module sunshine-conversations-client/index
-* @version 14.3.1
+* @version 14.3.2
 */
 export {
     /**

@@ -33,7 +33,7 @@ import WhatsAppUpdate from './WhatsAppUpdate';
 /**
  * The IntegrationUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IntegrationUpdate
- * @version 14.3.1
+ * @version 14.3.2
  */
 class IntegrationUpdate {
     /**

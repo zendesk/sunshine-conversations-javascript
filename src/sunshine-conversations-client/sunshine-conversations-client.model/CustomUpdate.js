@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/CustomUpdate
- * @version 14.3.1
+ * @version 14.3.2
  */
 class CustomUpdate {
     /**
