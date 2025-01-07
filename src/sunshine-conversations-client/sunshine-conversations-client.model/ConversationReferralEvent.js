@@ -19,7 +19,7 @@ import EventSubSchema from './EventSubSchema';
 /**
  * The ConversationReferralEvent model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationReferralEvent
- * @version 14.3.0
+ * @version 14.3.1
  */
 class ConversationReferralEvent {
     /**

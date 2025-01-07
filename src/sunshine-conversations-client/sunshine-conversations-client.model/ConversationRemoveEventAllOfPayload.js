@@ -17,7 +17,7 @@ import ConversationTruncated from './ConversationTruncated';
 /**
  * The ConversationRemoveEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationRemoveEventAllOfPayload
- * @version 14.3.0
+ * @version 14.3.1
  */
 class ConversationRemoveEventAllOfPayload {
     /**

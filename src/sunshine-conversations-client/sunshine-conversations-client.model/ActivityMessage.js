@@ -18,7 +18,7 @@ import TransferToEmail from './TransferToEmail';
 /**
  * The ActivityMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ActivityMessage
- * @version 14.3.0
+ * @version 14.3.1
  */
 class ActivityMessage {
     /**

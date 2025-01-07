@@ -17,7 +17,7 @@ import MessagePost from './MessagePost';
 /**
  * The Confirmation model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Confirmation
- * @version 14.3.0
+ * @version 14.3.1
  */
 class Confirmation {
     /**

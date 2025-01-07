@@ -19,7 +19,7 @@ import UserMergeEventAllOfPayloadMergedUsers from './UserMergeEventAllOfPayloadM
 /**
  * The UserMergeEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserMergeEventAllOfPayload
- * @version 14.3.0
+ * @version 14.3.1
  */
 class UserMergeEventAllOfPayload {
     /**

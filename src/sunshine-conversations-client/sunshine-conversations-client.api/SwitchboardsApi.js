@@ -20,7 +20,7 @@ import SwitchboardUpdateBody from '../sunshine-conversations-client.model/Switch
 /**
 * Switchboards service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/SwitchboardsApi
-* @version 14.3.0
+* @version 14.3.1
 */
 export default class SwitchboardsApi {
 

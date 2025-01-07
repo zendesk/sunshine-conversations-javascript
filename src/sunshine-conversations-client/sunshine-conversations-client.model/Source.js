@@ -18,7 +18,7 @@ import Device from './Device';
 /**
  * The Source model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Source
- * @version 14.3.0
+ * @version 14.3.1
  */
 class Source {
     /**

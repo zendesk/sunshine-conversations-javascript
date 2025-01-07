@@ -18,7 +18,7 @@ import UserTruncated from './UserTruncated';
 /**
  * The ConversationLeaveEventAllOfPayload model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ConversationLeaveEventAllOfPayload
- * @version 14.3.0
+ * @version 14.3.1
  */
 class ConversationLeaveEventAllOfPayload {
     /**

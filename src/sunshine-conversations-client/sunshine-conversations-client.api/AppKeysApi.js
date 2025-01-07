@@ -20,7 +20,7 @@ import AppKeyResponse from '../sunshine-conversations-client.model/AppKeyRespons
 /**
 * AppKeys service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/AppKeysApi
-* @version 14.3.0
+* @version 14.3.1
 */
 export default class AppKeysApi {
 

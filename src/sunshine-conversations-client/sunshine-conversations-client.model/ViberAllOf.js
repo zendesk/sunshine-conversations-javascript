@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViberAllOf model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ViberAllOf
- * @version 14.3.0
+ * @version 14.3.1
  */
 class ViberAllOf {
     /**

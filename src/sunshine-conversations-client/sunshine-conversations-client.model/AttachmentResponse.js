@@ -17,7 +17,7 @@ import AttachmentSchema from './AttachmentSchema';
 /**
  * The AttachmentResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/AttachmentResponse
- * @version 14.3.0
+ * @version 14.3.1
  */
 class AttachmentResponse {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MatchCriteriaBase model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MatchCriteriaBase
- * @version 14.3.0
+ * @version 14.3.1
  */
 class MatchCriteriaBase {
     /**

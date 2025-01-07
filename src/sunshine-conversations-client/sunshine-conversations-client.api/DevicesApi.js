@@ -19,7 +19,7 @@ import DeviceResponse from '../sunshine-conversations-client.model/DeviceRespons
 /**
 * Devices service.
 * @module sunshine-conversations-client/sunshine-conversations-client.api/DevicesApi
-* @version 14.3.0
+* @version 14.3.1
 */
 export default class DevicesApi {
 

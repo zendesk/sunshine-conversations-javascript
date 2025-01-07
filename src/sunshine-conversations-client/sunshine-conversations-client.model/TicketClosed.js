@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TicketClosed model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/TicketClosed
- * @version 14.3.0
+ * @version 14.3.1
  */
 class TicketClosed {
     /**

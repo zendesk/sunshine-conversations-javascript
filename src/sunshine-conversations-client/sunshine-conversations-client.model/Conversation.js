@@ -20,7 +20,7 @@ import SwitchboardIntegrationWebhook from './SwitchboardIntegrationWebhook';
 /**
  * The Conversation model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Conversation
- * @version 14.3.0
+ * @version 14.3.1
  */
 class Conversation {
     /**

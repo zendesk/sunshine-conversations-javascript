@@ -1,5 +1,9 @@
 # Changelog
 
+## [14.3.1] - 2025-1-7
+
+- Fixed errors that prevented publishing language wrappers for the new version.
+
 ## [14.3.0] - 2024-12-30
 
 ### Added

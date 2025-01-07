@@ -17,7 +17,7 @@ import User from './User';
 /**
  * The UserResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/UserResponse
- * @version 14.3.0
+ * @version 14.3.1
  */
 class UserResponse {
     /**

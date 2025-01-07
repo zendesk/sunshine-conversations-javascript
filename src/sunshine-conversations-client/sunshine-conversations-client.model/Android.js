@@ -22,7 +22,7 @@ import Status from './Status';
 /**
  * The Android model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Android
- * @version 14.3.0
+ * @version 14.3.1
  */
 class Android {
     /**

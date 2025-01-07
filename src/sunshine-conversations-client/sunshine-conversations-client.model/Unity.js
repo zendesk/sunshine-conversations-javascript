@@ -22,7 +22,7 @@ import UnityAllOf from './UnityAllOf';
 /**
  * The Unity model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/Unity
- * @version 14.3.0
+ * @version 14.3.1
  */
 class Unity {
     /**

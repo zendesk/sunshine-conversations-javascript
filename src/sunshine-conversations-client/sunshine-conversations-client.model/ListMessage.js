@@ -18,7 +18,7 @@ import Item from './Item';
 /**
  * The ListMessage model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/ListMessage
- * @version 14.3.0
+ * @version 14.3.1
  */
 class ListMessage {
     /**

@@ -17,7 +17,7 @@ import IntegrationUpdateBase from './IntegrationUpdateBase';
 /**
  * The MessageBirdUpdate model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/MessageBirdUpdate
- * @version 14.3.0
+ * @version 14.3.1
  */
 class MessageBirdUpdate {
     /**

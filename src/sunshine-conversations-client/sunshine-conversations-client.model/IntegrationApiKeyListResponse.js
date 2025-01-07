@@ -17,7 +17,7 @@ import ApiKey from './ApiKey';
 /**
  * The IntegrationApiKeyListResponse model module.
  * @module sunshine-conversations-client/sunshine-conversations-client.model/IntegrationApiKeyListResponse
- * @version 14.3.0
+ * @version 14.3.1
  */
 class IntegrationApiKeyListResponse {
     /**
