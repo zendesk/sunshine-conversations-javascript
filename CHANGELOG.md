@@ -1,6 +1,6 @@
 # Changelog
 
-## [14.3.1, 14.3.2] - 2025-1-7
+## [14.3.1 - 14.3.3] - 2025-1-7
 
 - Fixed errors that prevented publishing language wrappers for the new version.
 
