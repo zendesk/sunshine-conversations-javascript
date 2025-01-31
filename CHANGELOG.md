@@ -1,5 +1,11 @@
 # Changelog
 
+## [14.3.5] - 2025-2-1
+
+### Added
+
+- Update author.subtype enum to include 'activity'.
+
 ## [14.3.4] - 2025-1-14
 
 ### Added 
