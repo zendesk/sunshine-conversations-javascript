@@ -1,18 +1,27 @@
 # Changelog
 
-## [14.3.5] - 2025-2-1
+## [14.4.0] - 2025-03-03
+
+### Added
+
+- Add `canUserSeeConversationList` to all SDK integrations and their update schemas
+- Added new fields `htmlText`, `markdownText` to [Text](https://github.com/zendesk/sunshine-conversations-javascript/blob/master/docs/TextMessage.md), [Image](https://github.com/zendesk/sunshine-conversations-javascript/blob/master/docs/ImageMessage.md) and [File](https://github.com/zendesk/sunshine-conversations-javascript/blob/master/docs/FileMessage.md) messages.
+- See our [rich text](https://docs.smooch.io/guide/structured-messages/#rich-text) guide for more information.
+- Add definitions for ErrorResponse and Error
+
+## [14.3.5] - 2025-02-01
 
 ### Added
 
 - Update author.subtype enum to include 'activity'.
 
-## [14.3.4] - 2025-1-14
+## [14.3.4] - 2025-01-14
 
-### Added 
+### Added
 
 - Add a side note in the api documentation about providing authentication header when accessing mediaUrl with private attachments
 
-## [14.3.1 - 14.3.3] - 2025-1-7
+## [14.3.1 - 14.3.3] - 2025-01-07
 
 - Fixed errors that prevented publishing language wrappers for the new version.
 

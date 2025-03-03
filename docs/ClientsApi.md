@@ -36,7 +36,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 var apiInstance = new SunshineConversationsClient.ClientsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
-var clientCreate = {"matchCriteria":{"type":"mailgun","integrationId":"582dedf230e788746891281a","primary":true,"address":"steveb@channel5.com","subject":"New message from {appName}"},"confirmation":{"type":"immediate","message":{"author":{"type":"business","displayName":"Steve","avatarUrl":"https://www.gravatar.com/image.jpg"},"content":{"type":"text","text":"Hello!"},"metadata":{"lang":"en-ca"}}},"target":{"conversationId":"029c31f25a21b47effd7be90"}}; // ClientCreate | 
+var clientCreate = new SunshineConversationsClient.ClientCreate(); // ClientCreate | 
 apiInstance.createClient(appId, userIdOrExternalId, clientCreate).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

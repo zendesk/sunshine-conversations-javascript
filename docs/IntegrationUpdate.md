@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **privateKey** | **String** | Your private key from your generated private key file. | [optional] 
 **serverKey** | **String** | Your server key from the fcm console. | [optional] 
 **senderId** | **String** | Your sender id from the fcm console. | [optional] 
+**canUserSeeConversationList** | **Boolean** | Allows users to view their list of conversations. By default, the list of conversations will be visible. *This setting only applies to apps where &#x60;settings.multiConvoEnabled&#x60; is set to &#x60;true&#x60;*.  | [optional] 
 **canUserCreateMoreConversations** | **Boolean** | Allows users to create more than one conversation on the web messenger integration. | [optional] 
 **authenticationMessageSecret** | **String** | A secret used to create the state value when sending Apple authentication 2.0 messages | [optional] 
 **pageAccessToken** | **String** | A Facebook Page Access Token. | [optional] 

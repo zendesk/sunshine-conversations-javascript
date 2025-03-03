@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Get Device
 
-Fetches a specific Device.  &#x60;&#x60;&#x60;shell /v2/apps/:appId/users/:userId &#x60;&#x60;&#x60; 
+Fetches a specific Device. 
 
 ### Example
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 List Devices
 
-Get all the devices for a particular user. The Devices are sorted based on last seen time.  &#x60;&#x60;&#x60;shell /v2/apps/:appId/users/:userId/devices &#x60;&#x60;&#x60; 
+Get all the devices for a particular user. The Devices are sorted based on last seen time. 
 
 ### Example
 

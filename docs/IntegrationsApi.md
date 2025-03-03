@@ -270,7 +270,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 var apiInstance = new SunshineConversationsClient.IntegrationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var integrationUpdate = new SunshineConversationsClient.IntegrationUpdate(); // IntegrationUpdate | 
+var integrationUpdate = {"displayName":"My Test Integration"}; // IntegrationUpdate | 
 apiInstance.updateIntegration(appId, integrationId, integrationUpdate).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

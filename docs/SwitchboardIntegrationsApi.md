@@ -213,7 +213,7 @@ var apiInstance = new SunshineConversationsClient.SwitchboardIntegrationsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var switchboardId = "5d8cff3cd55b040010928b5b"; // String | Identifies the switchboard.
 var switchboardIntegrationId = "5d8cff3cd55b040010928b5b"; // String | Identifies the switchboard integration.
-var switchboardIntegrationUpdateBody = {"name":"bot","integrationType":"zd:agentWorkspace","deliverStandbyEvents":true,"nextSwitchboardIntegrationId":"5ef21b86e933b7355c11c606","messageHistoryCount":5}; // SwitchboardIntegrationUpdateBody | 
+var switchboardIntegrationUpdateBody = {"deliverStandbyEvents":true,"nextSwitchboardIntegrationId":"5ef21b86e933b7355c11c606","messageHistoryCount":5}; // SwitchboardIntegrationUpdateBody | 
 apiInstance.updateSwitchboardIntegration(appId, switchboardId, switchboardIntegrationId, switchboardIntegrationUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
