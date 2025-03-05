@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **uri** | **String** | The webview URI. This is the URI that will open in the webview when clicking the button. | 
 **text** | **String** | The button text. | 
 **_default** | **Boolean** | Boolean value indicating whether the action is the default action for a message item in Facebook Messenger. | [optional] 
-**metadata** | [**Object**](.md) | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
+**metadata** | **{String: Object}** | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
 **extraChannelOptions** | [**ExtraChannelOptions**](ExtraChannelOptions.md) |  | [optional] 
 **size** | **String** | The size to display a webview. Used for actions of type webview. | [optional] 
 **fallback** | **String** | The fallback uri for channels that don’t support webviews. Used for actions of type webview. | 

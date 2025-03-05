@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **integrationId** | **String** | The id of the integration to link to the switchboard integration. Must be used when linking a custom integration. One of &#x60;integrationId&#x60; or &#x60;integrationType&#x60; must be provided. | [optional] 
 **integrationType** | **String** | The type of the integration to link to the switchboard integration. Must be used when linking an OAuth integration. One of &#x60;integrationId&#x60; or &#x60;integrationType&#x60; must be provided. | [optional] 
 **deliverStandbyEvents** | **Boolean** |  | [optional] 
-**nextSwitchboardIntegrationId** | **String** |  | [optional] 
+**nextSwitchboardIntegrationId** | **String** | The switchboard integration id to which control of a conversation is passed / offered by default. | [optional] 
 **messageHistoryCount** | **Number** | Number of messages to include in the message history context. | [optional] 
 
 

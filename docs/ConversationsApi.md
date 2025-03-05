@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ## downloadMessageRef
 
-> Object downloadMessageRef(appId, conversationId, downloadMessageRefBody)
+> {String: Object} downloadMessageRef(appId, conversationId, downloadMessageRefBody)
 
 Download Message Ref
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**{String: Object}**
 
 ### Authorization
 

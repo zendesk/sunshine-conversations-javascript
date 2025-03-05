@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **altText** | **String** | An optional description of the media for accessibility purposes. The field will be saved by default with the file name as the value. | [optional] 
 **size** | **String** | The size of the image. | [optional] 
 **actions** | [**[ActionSubset]**](ActionSubset.md) | An array of objects representing the actions associated with the item. | 
-**metadata** | [**Object**](.md) | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
+**metadata** | **{String: Object}** | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
 
 
 

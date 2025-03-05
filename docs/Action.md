@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **text** | **String** | The button text. | 
 **amount** | **Number** | The amount being charged. It needs to be specified in cents and is an integer (9.99$ -&gt; 999). | 
 **currency** | **String** | An ISO 4217 standard currency code in lowercase. Used for actions of type buy. | [optional] 
-**metadata** | [**Object**](.md) | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
+**metadata** | **{String: Object}** | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
 **uri** | **String** | The webview URI. This is the URI that will open in the webview when clicking the button. | 
 **_default** | **Boolean** | Boolean value indicating whether the action is the default action for a message item in Facebook Messenger. | [optional] 
 **extraChannelOptions** | [**ExtraChannelOptions**](ExtraChannelOptions.md) |  | [optional] 
