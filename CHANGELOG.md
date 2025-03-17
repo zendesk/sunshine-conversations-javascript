@@ -1,5 +1,9 @@
 # Changelog
 
+## [15.1.0] - 2025-03-13
+
+- Added new `zendeskId` property to [User](https://docs.smooch.io/rest/#tag/Users) and all relevant APIs.
+
 ## [15.0.1] - 2025-03-05
 
 ### Fixed
