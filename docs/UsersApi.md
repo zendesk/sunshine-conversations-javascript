@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /v2/apps/{appId}/users/{userIdOrExternalId} | Delete User
 [**deleteUserPersonalInformation**](UsersApi.md#deleteUserPersonalInformation) | **DELETE** /v2/apps/{appId}/users/{userIdOrExternalId}/personalinformation | Delete User Personal Information
 [**getUser**](UsersApi.md#getUser) | **GET** /v2/apps/{appId}/users/{userIdOrExternalId} | Get User
+[**syncUser**](UsersApi.md#syncUser) | **POST** /v2/apps/{appId}/users/{zendeskId}/sync | Synchronize User
 [**updateUser**](UsersApi.md#updateUser) | **PATCH** /v2/apps/{appId}/users/{userIdOrExternalId} | Update User
 
 
@@ -225,6 +226,63 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Identifies the app. | 
  **userIdOrExternalId** | **String**| The user&#39;s id or externalId. | 
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## syncUser
+
+> UserResponse syncUser(appId, zendeskId)
+
+Synchronize User
+
+Synchronize a messaging user with its core Zendesk user counterpart. Messaging users are separate objects linked to a core Zendesk user record by &#x60;zendeskId&#x60;. It is possible for changes to be made to the core Zendesk user record in a way that causes the messaging user to fall out of sync. The core Zendesk user might change their primary email, for example. This endpoint can be used to update the messaging user with the &#x60;profile.givenName&#x60;, &#x60;profile.surname&#x60;, &#x60;externalId&#x60;, and primary email identity of its core Zendesk user counterpart. Note that only the primary email identity of the core Zendesk user will be synchronized, and it will be set on the &#x60;identities&#x60; array, not in the &#x60;profile&#x60;. Note also that in some circumstances, a single call to this API might produce changes on more than one messaging user. If the &#x60;externalId&#x60; or email being synchronized already exists on a different messaging user within the account, the conflict will be resolved by merging those messaging users together, if possible. If a conflicting messaging user is already linked to a core Zendesk user by &#x60;zendeskId&#x60; it cannot be merged. In this case, the conflicting &#x60;externalId&#x60; or email will instead be removed and reassigned to the messaging user that is being synchronized
+
+### Example
+
+```javascript
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR_USERNAME';
+basicAuth.password = 'YOUR_PASSWORD';
+
+// Uncomment this section to use JWTs instead
+// var bearerAuth = defaultClient.authentications['bearerAuth'];
+// bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
+
+var apiInstance = new SunshineConversationsClient.UsersApi();
+var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var zendeskId = "35436"; // String | The ID that links a messaging user to its core Zendesk user counterpart. This ID can be used to fetch the core user record via the Zendesk Support API. 
+apiInstance.syncUser(appId, zendeskId).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **String**| Identifies the app. | 
+ **zendeskId** | **String**| The ID that links a messaging user to its core Zendesk user counterpart. This ID can be used to fetch the core user record via the Zendesk Support API.  | 
 
 ### Return type
 

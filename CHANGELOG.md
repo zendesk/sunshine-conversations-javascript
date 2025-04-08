@@ -1,5 +1,9 @@
 # Changelog
 
+## [15.3.0] - 2025-04-07
+
+- Added new sync endpoint for synchronizing a messaging user with its core Zendesk user counterpart.
+
 ## [15.2.0] - 2025-04-01
 
 - Added new `authenticated` property to [User](https://docs.smooch.io/rest/#tag/Users) and all relevant APIs.
