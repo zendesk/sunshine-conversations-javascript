@@ -1,5 +1,9 @@
 # Changelog
 
+## [15.3.1] - 2025-04-08
+
+- Updated tooling to resolve package publishing issue.
+
 ## [15.3.0] - 2025-04-07
 
 - Added new sync endpoint for synchronizing a messaging user with its core Zendesk user counterpart.
