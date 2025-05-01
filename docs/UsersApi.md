@@ -243,11 +243,11 @@ Name | Type | Description  | Notes
 
 ## syncUser
 
-> UserResponse syncUser(appId, zendeskId)
+> UserResponse syncUser(appId, zendeskId, opts)
 
 Synchronize User
 
-Synchronize a messaging user with its core Zendesk user counterpart. Messaging users are separate objects linked to a core Zendesk user record by &#x60;zendeskId&#x60;. It is possible for changes to be made to the core Zendesk user record in a way that causes the messaging user to fall out of sync. The core Zendesk user might change their primary email, for example. This endpoint can be used to update the messaging user with the &#x60;profile.givenName&#x60;, &#x60;profile.surname&#x60;, &#x60;externalId&#x60;, and primary email identity of its core Zendesk user counterpart. Note that only the primary email identity of the core Zendesk user will be synchronized, and it will be set on the &#x60;identities&#x60; array, not in the &#x60;profile&#x60;. Note also that in some circumstances, a single call to this API might produce changes on more than one messaging user. If the &#x60;externalId&#x60; or email being synchronized already exists on a different messaging user within the account, the conflict will be resolved by merging those messaging users together, if possible. If a conflicting messaging user is already linked to a core Zendesk user by &#x60;zendeskId&#x60; it cannot be merged. In this case, the conflicting &#x60;externalId&#x60; or email will instead be removed and reassigned to the messaging user that is being synchronized
+Synchronize a messaging user with its core Zendesk user counterpart. Messaging users are separate objects linked to a core Zendesk user record by &#x60;zendeskId&#x60;. It is possible for changes to be made to the core Zendesk user record in a way that causes the messaging user to fall out of sync. The core Zendesk user might have their primary email changed, for example. This endpoint can be used to update the messaging user with the &#x60;profile.givenName&#x60;, &#x60;profile.surname&#x60;, &#x60;externalId&#x60;, and primary email identity of its core Zendesk user counterpart.&lt;br/&gt;&lt;br/&gt;It is also possible for two Zendesk users to be merged. In such a case, this API can be used to apply that merger on the messaging side. The surviving Zendesk user id can be specified via the &#x60;survivingZendeskId&#x60; parameter of the request body, and the outgoing &#x60;zendeskId&#x60; is specified in the request path. &lt;aside class&#x3D;\&quot;notice\&quot;&gt;Only the primary email identity of the core Zendesk user will be synchronized, and it will be set on the identities array, not in the profile.&lt;/aside&gt; &lt;br/&gt; &lt;aside class&#x3D;\&quot;notice\&quot;&gt;In some circumstances, a single call to this API might produce changes on more than one messaging user. If the externalId or email being synchronized already exists on a different messaging user within the account, the conflict will be resolved by merging those messaging users together, if possible. If a conflicting messaging user is already linked to a core Zendesk user by zendeskId it cannot be merged. In this case, the conflicting externalId or email will instead be removed and reassigned to the messaging user that is being synchronized.&lt;/aside&gt;
 
 ### Example
 
@@ -267,7 +267,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 var apiInstance = new SunshineConversationsClient.UsersApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var zendeskId = "35436"; // String | The ID that links a messaging user to its core Zendesk user counterpart. This ID can be used to fetch the core user record via the Zendesk Support API. 
-apiInstance.syncUser(appId, zendeskId).then(function(data) {
+var opts = {
+  'syncUserBody': new SunshineConversationsClient.SyncUserBody() // SyncUserBody | 
+};
+apiInstance.syncUser(appId, zendeskId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -283,6 +286,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Identifies the app. | 
  **zendeskId** | **String**| The ID that links a messaging user to its core Zendesk user counterpart. This ID can be used to fetch the core user record via the Zendesk Support API.  | 
+ **syncUserBody** | [**SyncUserBody**](SyncUserBody.md)|  | [optional] 
 
 ### Return type
 
@@ -294,7 +298,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

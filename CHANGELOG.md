@@ -1,5 +1,10 @@
 # Changelog
 
+## [15.4.0] - 2025-04-30
+
+- Moved `authenticated` [User](https://docs.smooch.io/rest/#tag/Users) property into the userTruncated base schema.
+- Added `survivingZendeskId` body parameter to the [Synchronize User](https://docs.smooch.io/rest/#operation/SyncUser) API.
+
 ## [15.3.2] - 2025-04-21
 
 - Added new optional field `blockChatInput` to all message types
