@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authorize**](OAuthEndpointsApi.md#authorize) | **GET** /oauth/authorize | Authorize
 [**getToken**](OAuthEndpointsApi.md#getToken) | **POST** /oauth/token | Get Token
+[**getTokenInfo**](OAuthEndpointsApi.md#getTokenInfo) | **GET** /v2/tokenInfo | Get Token Info
 [**revokeAccess**](OAuthEndpointsApi.md#revokeAccess) | **DELETE** /oauth/authorization | Revoke Access
 
 
@@ -105,6 +106,46 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getTokenInfo
+
+> AppResponse getTokenInfo()
+
+Get Token Info
+
+This endpoint can be used to retrieve the app linked to the OAuth token.
+
+### Example
+
+```javascript
+var SunshineConversationsClient = require('sunshine-conversations-client');
+
+var apiInstance = new SunshineConversationsClient.OAuthEndpointsApi();
+apiInstance.getTokenInfo().then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AppResponse**](AppResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

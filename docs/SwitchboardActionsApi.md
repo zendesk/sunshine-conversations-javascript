@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ## releaseControl
 
-> Object releaseControl(appId, conversationId)
+> Object releaseControl(appId, conversationId, opts)
 
 Release Control
 
@@ -214,7 +214,10 @@ basicAuth.password = 'YOUR_PASSWORD';
 var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
 var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
 var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-apiInstance.releaseControl(appId, conversationId).then(function(data) {
+var opts = {
+  'releaseControlBody': new SunshineConversationsClient.ReleaseControlBody() // ReleaseControlBody | 
+};
+apiInstance.releaseControl(appId, conversationId, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -230,6 +233,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **appId** | **String**| Identifies the app. | 
  **conversationId** | **String**| Identifies the conversation. | 
+ **releaseControlBody** | [**ReleaseControlBody**](ReleaseControlBody.md)|  | [optional] 
 
 ### Return type
 
@@ -241,6 +245,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

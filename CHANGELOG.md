@@ -1,5 +1,11 @@
 # Changelog
 
+## [15.5.0] - 2025-05-06
+
+- Added new optional field `metadata` to release control.
+- Documented optional field `reason` on release control and pass control.
+- Added documentation for the `/tokenInfo` endpoint.
+
 ## [15.4.0] - 2025-04-30
 
 - Moved `authenticated` [User](https://docs.smooch.io/rest/#tag/Users) property into the userTruncated base schema.
