@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Authorize
 
-This endpoint begins the OAuth flow. It relies on a browser session for authentication. If the user is not logged in to Sunshine Conversations they will be redirected to the login page. If the user has many apps, they will first be prompted to select the one they wish to integrate with. They will then be presented with an Allow/Deny dialog, describing details of the access your integration is requesting.
+This endpoint begins the OAuth flow. It relies on a browser session for authentication. If the user is not logged in to Zendesk they will be redirected to the login page.  If the user has many Zendesk accounts, they will first be prompted to select the one  they wish to integrate with. They will then be presented with an Allow/Deny dialog,  describing details of the access your integration is requesting.  Use &#x60;oauth-bridge.zendesk.com/sc&#x60; as the base URL when redirecting the user to this endpoint.  &#x60;&#x60;&#x60; https://oauth-bridge.zendesk.com/sc/oauth/authorize?response_type&#x3D;code&amp;client_id&#x3D;{client_id} &#x60;&#x60;&#x60; 
 
 ### Example
 
@@ -70,7 +70,7 @@ No authorization required
 
 Get Token
 
-This endpoint is used to exchange an authorization code for an access token. It should only be used in server-to-server calls.
+This endpoint is used to exchange an authorization code for an access token.  It should only be used in server-to-server calls.  Use &#x60;oauth-bridge.zendesk.com/sc&#x60; as the base URL when invoking this endpoint.  &#x60;&#x60;&#x60; POST https://oauth-bridge.zendesk.com/sc/oauth/token &#x60;&#x60;&#x60; 
 
 ### Example
 
@@ -115,7 +115,7 @@ No authorization required
 
 Get Token Info
 
-This endpoint can be used to retrieve the app linked to the OAuth token.
+This endpoint can be used to retrieve the app linked to the OAuth token. Typically used after receiving an access token via OAuth, in order to retrieve the app&#39;s &#x60;id&#x60; and &#x60;subdomain&#x60; to be used in future calls. May also be used to confirm that the credentials are still valid.  Use &#x60;oauth-bridge.zendesk.com/sc&#x60; as the base URL when invoking this endpoint.  &#x60;&#x60;&#x60; GET https://oauth-bridge.zendesk.com/sc/v2/tokenInfo &#x60;&#x60;&#x60; 
 
 ### Example
 
@@ -155,7 +155,7 @@ No authorization required
 
 Revoke Access
 
-This endpoint is used to revoke your integration’s access to the user’s Sunshine Conversations app. Revoking access means your integration will no longer be able to interact with the app, and any webhooks the integration had previously configured will be removed.  Calling this endpoint is equivalent to the user removing your integration manually in the Sunshine Conversations web app. Your integration’s &#x60;removeUrl&#x60; (if configured) will also be called when an integration is removed in this way. 
+This endpoint is used to revoke your integration&#39;s access to the user&#39;s app. Revoking access means your integration will no longer be able to interact with the app, and any webhooks the integration had previously configured will be removed.  Calling this endpoint is equivalent to the user removing your integration manually. Your integration&#39;s &#x60;removeUrl&#x60; (if configured) will also be called when an integration is removed in this way. 
 
 ### Example
 

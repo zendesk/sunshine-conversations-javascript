@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **apiSecret** | **String** | Your Apple API secret which is tied to your Messaging Service Provider. | 
 **mspId** | **String** | Your Messaging Service Provider ID. | 
 **authenticationMessageSecret** | **String** | A secret used to create the state value when sending Apple authentication 2.0 messages | [optional] 
-**defaultResponderId** | **String** | The default responder ID for the integration. This is the ID of the responder that will be used to send messages to the user. For more information, refer to &lt;a href&#x3D;\&quot;https://docs.smooch.io/guide/switchboard/#per-channel-default-responder\&quot;&gt;Per-channel default responder&lt;/a&gt; guide.  | [optional] 
+**defaultResponderId** | **String** | The default responder ID for the integration. This is the ID of the responder that will be used to send messages to the user. For more information, refer to the &lt;a href&#x3D;\&quot;https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/switchboard/#default-integration-assignment\&quot;&gt;Switchboard guide&lt;/a&gt;.  | [optional] 
 **defaultResponder** | [**DefaultResponderDefaultResponder**](DefaultResponderDefaultResponder.md) |  | [optional] 
 
 

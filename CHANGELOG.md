@@ -1,5 +1,9 @@
 # Changelog
 
+## [15.5.1] - 2025-06-02
+
+- Fix various docs links
+
 ## [15.5.0] - 2025-05-06
 
 - Added new optional field `metadata` to release control.
@@ -55,7 +59,7 @@
 
 - Add `canUserSeeConversationList` to all SDK integrations and their update schemas
 - Added new fields `htmlText`, `markdownText` to [Text](https://github.com/zendesk/sunshine-conversations-javascript/blob/master/docs/TextMessage.md), [Image](https://github.com/zendesk/sunshine-conversations-javascript/blob/master/docs/ImageMessage.md) and [File](https://github.com/zendesk/sunshine-conversations-javascript/blob/master/docs/FileMessage.md) messages.
-- See our [rich text](https://docs.smooch.io/guide/structured-messages/#rich-text) guide for more information.
+- See our [rich text](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/structured-messages/#rich-text) guide for more information.
 - Add definitions for ErrorResponse and Error
 
 ## [14.3.5] - 2025-02-01
@@ -249,7 +253,7 @@
 ## [9.12.0] - 2022-08-30
 
 - The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://docs.smooch.io/guide/oauth/#redirect-and-acquiring-an-oauth-token) or [Custom Integration API Key](https://docs.smooch.io/rest/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.
-- For more information, see [Switchboard passControl](https://docs.smooch.io/guide/switchboard/#pass-control).
+- For more information, see [Switchboard passControl](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/switchboard/#pass-control).
 
 ## [9.11.0] - 2022-07-28
 
