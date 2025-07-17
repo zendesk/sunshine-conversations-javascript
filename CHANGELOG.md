@@ -1,5 +1,9 @@
 # Changelog
 
+## [15.5.2] - 2025-07-08
+
+- Added release control in the webhook and webhook event documentation.
+
 ## [15.5.1] - 2025-06-02
 
 - Fix various docs links
