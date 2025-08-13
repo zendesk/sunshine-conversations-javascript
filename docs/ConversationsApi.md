@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**downloadMessageRef**](ConversationsApi.md#downloadMessageRef) | **POST** /v2/apps/{appId}/conversations/{conversationId}/download | Download Message Ref
 [**getConversation**](ConversationsApi.md#getConversation) | **GET** /v2/apps/{appId}/conversations/{conversationId} | Get Conversation
 [**listConversations**](ConversationsApi.md#listConversations) | **GET** /v2/apps/{appId}/conversations | List Conversations
+[**postConversionEvents**](ConversationsApi.md#postConversionEvents) | **POST** /v2/apps/{appId}/conversations/{conversationId}/conversionEvents | Post Conversion Events
 [**updateConversation**](ConversationsApi.md#updateConversation) | **PATCH** /v2/apps/{appId}/conversations/{conversationId} | Update Conversation
 
 
@@ -301,6 +302,65 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postConversionEvents
+
+> {String: Object} postConversionEvents(appId, conversationId, conversionEventsBody)
+
+Post Conversion Events
+
+This API can be used to track your end user&#39;s interactions with third party channels.
+
+### Example
+
+```javascript
+var SunshineConversationsClient = require('sunshine-conversations-client');
+var defaultClient = SunshineConversationsClient.ApiClient.instance;
+
+// Configure HTTP basic authorization: basicAuth
+var basicAuth = defaultClient.authentications['basicAuth'];
+basicAuth.username = 'YOUR_USERNAME';
+basicAuth.password = 'YOUR_PASSWORD';
+
+// Uncomment this section to use JWTs instead
+// var bearerAuth = defaultClient.authentications['bearerAuth'];
+// bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
+
+var apiInstance = new SunshineConversationsClient.ConversationsApi();
+var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var conversionEventsBody = {"instagram":{"payload":{"data":[{"action_source":"business_messaging","event_name":"TestEvent","event_time":1752161233,"messaging_channel":"instagram"}]}}}; // ConversionEventsBody | 
+apiInstance.postConversionEvents(appId, conversationId, conversionEventsBody).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **String**| Identifies the app. | 
+ **conversationId** | **String**| Identifies the conversation. | 
+ **conversionEventsBody** | [**ConversionEventsBody**](ConversionEventsBody.md)|  | 
+
+### Return type
+
+**{String: Object}**
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

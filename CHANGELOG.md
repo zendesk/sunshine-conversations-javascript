@@ -1,5 +1,11 @@
 # Changelog
 
+## [15.6.0] - 2025-07-24
+
+- Added [conversion events](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/conversation-referrals/#conversion-events) API.
+- Added `reason` field to `switchboard:passControl` and `switchboard:releaseControl` webhook events.
+- Updated various links in documentation.
+
 ## [15.5.2] - 2025-07-08
 
 - Added release control in the webhook and webhook event documentation.
@@ -256,7 +262,7 @@
 
 ## [9.12.0] - 2022-08-30
 
-- The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://docs.smooch.io/guide/oauth/#redirect-and-acquiring-an-oauth-token) or [Custom Integration API Key](https://docs.smooch.io/rest/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.
+- The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://developer.zendesk.com/documentation/conversations/how-to-guides/building-a-marketplace-bot/) or [Custom Integration API Key](https://docs.smooch.io/rest/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.
 - For more information, see [Switchboard passControl](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/switchboard/#pass-control).
 
 ## [9.11.0] - 2022-07-28
@@ -401,7 +407,7 @@
 
 ### Added
 
-- Added `messageSchema` property to the `POST /messages` endpoint for [whatsapp template messages](https://docs.smooch.io/guide/whatsapp/#post-message-api)
+- Added `messageSchema` property to the `POST /messages` endpoint for [whatsapp template messages](hhttps://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/message-overrides/#template-messages)
 
 ### Changed
 
