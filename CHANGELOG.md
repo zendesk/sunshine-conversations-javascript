@@ -1,6 +1,10 @@
 # Changelog
 
-## [15.6.0] - 2025-07-24
+## [16.0.1] - 2025-08-20
+
+- Documentation updates
+
+## [16.0.0] - 2025-08-13
 
 - Added [conversion events](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/conversation-referrals/#conversion-events) API.
 - Added `reason` field to `switchboard:passControl` and `switchboard:releaseControl` webhook events.
@@ -22,8 +26,8 @@
 
 ## [15.4.0] - 2025-04-30
 
-- Moved `authenticated` [User](https://docs.smooch.io/rest/#tag/Users) property into the userTruncated base schema.
-- Added `survivingZendeskId` body parameter to the [Synchronize User](https://docs.smooch.io/rest/#operation/SyncUser) API.
+- Moved `authenticated` [User](https://developer.zendesk.com/api-reference/conversations/#tag/Users) property into the userTruncated base schema.
+- Added `survivingZendeskId` body parameter to the [Synchronize User](https://developer.zendesk.com/api-reference/conversations/#operation/SyncUser) API.
 
 ## [15.3.2] - 2025-04-21
 
@@ -39,11 +43,11 @@
 
 ## [15.2.0] - 2025-04-01
 
-- Added new `authenticated` property to [User](https://docs.smooch.io/rest/#tag/Users) and all relevant APIs.
+- Added new `authenticated` property to [User](https://developer.zendesk.com/api-reference/conversations/#tag/Users) and all relevant APIs.
 
 ## [15.1.0] - 2025-03-13
 
-- Added new `zendeskId` property to [User](https://docs.smooch.io/rest/#tag/Users) and all relevant APIs.
+- Added new `zendeskId` property to [User](https://developer.zendesk.com/api-reference/conversations/#tag/Users) and all relevant APIs.
 
 ## [15.0.1] - 2025-03-05
 
@@ -92,14 +96,14 @@
 
 ### Added
 
-- Added new read-only `activity` property to [Messages](http://127.0.0.1:8081/#tag/Messages/operation/listMessages) to denote system activities.
+- Added new read-only `activity` property to [Messages](https://developer.zendesk.com/api-reference/conversations/#operation/ListMessages) to denote system activities.
 
 ## [14.2.0] - 2024-12-11
 
 ### Added
 
-- Added new `toBeRetained` property to [User](https://docs.smooch.io/rest/#tag/Users) and all relevant APIs. See [creating deletion schedules for bot-only conversations](https://support.zendesk.com/hc/en-us/articles/8499219792154) for more information.
-- Added `user:remove` [webhook event](https://docs.smooch.io/rest/#operation/eventWebhooks). This event fires when a user deleted.
+- Added new `toBeRetained` property to [User](https://developer.zendesk.com/api-reference/conversations/#tag/Users) and all relevant APIs. See [creating deletion schedules for bot-only conversations](https://support.zendesk.com/hc/en-us/articles/8499219792154) for more information.
+- Added `user:remove` [webhook event](https://developer.zendesk.com/api-reference/conversations/#operation/EventWebhooks). This event fires when a user deleted.
 
 ## [14.1.0] - 2024-11-22
 
@@ -262,7 +266,7 @@
 
 ## [9.12.0] - 2022-08-30
 
-- The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://developer.zendesk.com/documentation/conversations/how-to-guides/building-a-marketplace-bot/) or [Custom Integration API Key](https://docs.smooch.io/rest/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.
+- The Switchboard `passControl` action is now idempotent if either the target `switchboardIntegration` is specified explicitly by its `id` or `name`, or the `next` keyword is used for the `switchboardIntegration` field, and the invoking integration can be identified by its [OAuth token](https://developer.zendesk.com/documentation/conversations/how-to-guides/building-a-marketplace-bot/) or [Custom Integration API Key](https://developer.zendesk.com/api-reference/conversations/#tag/CustomIntegrationApiKeys) credentials. Duplicate passControl actions using the `next` keyword and their metadata are disregarded.
 - For more information, see [Switchboard passControl](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/switchboard/#pass-control).
 
 ## [9.11.0] - 2022-07-28
@@ -379,7 +383,7 @@
 
 ### Added
 
-- Added a new optional field `altText` to the [message schema](https://docs.smooch.io/rest/#operation/postMessage) when sending an image or a file
+- Added a new optional field `altText` to the [message schema](https://developer.zendesk.com/api-reference/conversations/#operation/PostMessage) when sending an image or a file
 
 ## [9.2.0] - 2020-11-16
 

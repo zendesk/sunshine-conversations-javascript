@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create Client
 
-Create a client and link it to a channel specified by the &#x60;matchCriteria.type&#x60;. Note that the client is initially created with a &#x60;pending&#x60; status. The status of the linking request can be tracked by listening to the &#x60;link:match&#x60;, &#x60;link:success&#x60; and &#x60;link:failure&#x60; webhooks (only available in v1). For more information, see [link-events](https://docs.smooch.io/rest/v1/#link-events).
+Create a client and link it to a channel specified by the &#x60;matchCriteria.type&#x60;. Note that the client is initially created with a &#x60;pending&#x60; status. The status of the linking request can be tracked by listening to the &#x60;client:add&#x60;, &#x60;client:update&#x60; and &#x60;client:removed&#x60; webhooks. For more information, see [channel transfer](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/channel-transfer/).
 
 ### Example
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 List Clients
 
-Get all the clients for a particular user, including both linked clients and pending clients. This API is paginated through [cursor pagination](#section/Introduction/API-pagination-and-records-limits).  &#x60;&#x60;&#x60;shell /v2/apps/:appId/users/:userId/clients?page[after]&#x3D;5ebee0975ac5304b664a12fa &#x60;&#x60;&#x60; 
+Get all the clients for a particular user, including both linked clients and pending clients. This API is paginated through [cursor pagination](#section/Introduction/API-Pagination-and-Records-Limits).  &#x60;&#x60;&#x60;shell /v2/apps/:appId/users/:userId/clients?page[after]&#x3D;5ebee0975ac5304b664a12fa &#x60;&#x60;&#x60; 
 
 ### Example
 
