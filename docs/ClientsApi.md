@@ -34,8 +34,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ClientsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var userIdOrExternalId = ""42589ad070d43be9b00ff7e5""; // String | The user's id or externalId.
 var clientCreate = new SunshineConversationsClient.ClientCreate(); // ClientCreate | 
 apiInstance.createClient(appId, userIdOrExternalId, clientCreate).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -93,8 +93,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ClientsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var userIdOrExternalId = ""42589ad070d43be9b00ff7e5""; // String | The user's id or externalId.
 var opts = {
   'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };
@@ -154,9 +154,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ClientsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
-var clientId = "5d8cff3cd55b040010928b5b"; // String | The client's id.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var userIdOrExternalId = ""42589ad070d43be9b00ff7e5""; // String | The user's id or externalId.
+var clientId = ""5d8cff3cd55b040010928b5b""; // String | The client's id.
 apiInstance.removeClient(appId, userIdOrExternalId, clientId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

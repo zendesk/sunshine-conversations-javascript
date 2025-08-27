@@ -34,8 +34,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ParticipantsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var participantJoinBody = {"userId":"67a11490f0305f4a391e9f8a","subscribeSDKClient":true}; // ParticipantJoinBody | 
 apiInstance.joinConversation(appId, conversationId, participantJoinBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -93,8 +93,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ParticipantsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var participantLeaveBody = {"userId":"67a11490f0305f4a391e9f8a"}; // ParticipantLeaveBody | 
 apiInstance.leaveConversation(appId, conversationId, participantLeaveBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -152,8 +152,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ParticipantsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var opts = {
   'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };

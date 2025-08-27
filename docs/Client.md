@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **linkedAt** | **String** | A timestamp signifying when the client was added to the user. Formatted as &#x60;YYYY-MM-DDThh:mm:ss.SSSZ&#x60;. | [optional] 
 **displayName** | **String** | The user&#39;s display name on the channel. | [optional] 
 **avatarUrl** | **String** | The URL for the user&#39;s avatar on the channel. | [optional] 
-**info** | [**Object**](.md) | A flat curated object with properties that vary for each client platform. All keys are optional and not guaranteed to be available. | [optional] 
-**raw** | [**Object**](.md) | An object with raw properties that vary for each client platform. All keys are optional and not guaranteed to be available. | [optional] 
+**info** | **Object** | A flat curated object with properties that vary for each client platform. All keys are optional and not guaranteed to be available. | [optional] 
+**raw** | **Object** | An object with raw properties that vary for each client platform. All keys are optional and not guaranteed to be available. | [optional] 
 
 
 

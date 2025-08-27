@@ -25,11 +25,11 @@ This endpoint begins the OAuth flow. It relies on a browser session for authenti
 var SunshineConversationsClient = require('sunshine-conversations-client');
 
 var apiInstance = new SunshineConversationsClient.OAuthEndpointsApi();
-var clientId = "5e4af71a81966cfff3ef6550"; // String | Your integration’s unique identifier
-var responseType = "code"; // String | For now the only acceptable value is code.
+var clientId = ""5e4af71a81966cfff3ef6550""; // String | Your integration’s unique identifier
+var responseType = ""code""; // String | For now the only acceptable value is code.
 var opts = {
-  'state': Pending, // String | You may pass in any arbitrary string value here which will be returned to you along with the code via browser redirect.
-  'redirectUri': https://example.org // String | You may pass in a redirect_uri to determine which URI the response is redirected to. This URI must be contained in the list configured by your integration. If this option is not passed, the first URI present in the list will be used.
+  'state': "Pending", // String | You may pass in any arbitrary string value here which will be returned to you along with the code via browser redirect.
+  'redirectUri': "https://example.org" // String | You may pass in a redirect_uri to determine which URI the response is redirected to. This URI must be contained in the list configured by your integration. If this option is not passed, the first URI present in the list will be used.
 };
 apiInstance.authorize(clientId, responseType, opts).then(function() {
   console.log('API called successfully.');
@@ -66,7 +66,7 @@ No authorization required
 
 ## getToken
 
-> Object getToken(inlineObject)
+> GetToken200Response getToken(getTokenRequest)
 
 Get Token
 
@@ -78,8 +78,8 @@ This endpoint is used to exchange an authorization code for an access token.  It
 var SunshineConversationsClient = require('sunshine-conversations-client');
 
 var apiInstance = new SunshineConversationsClient.OAuthEndpointsApi();
-var inlineObject = new SunshineConversationsClient.InlineObject(); // InlineObject | 
-apiInstance.getToken(inlineObject).then(function(data) {
+var getTokenRequest = new SunshineConversationsClient.GetTokenRequest(); // GetTokenRequest | 
+apiInstance.getToken(getTokenRequest).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -93,11 +93,11 @@ apiInstance.getToken(inlineObject).then(function(data) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
+ **getTokenRequest** | [**GetTokenRequest**](GetTokenRequest.md)|  | 
 
 ### Return type
 
-**Object**
+[**GetToken200Response**](GetToken200Response.md)
 
 ### Authorization
 

@@ -36,8 +36,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.WebhooksApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
 var webhookCreateBody = new SunshineConversationsClient.WebhookCreateBody(); // WebhookCreateBody | 
 apiInstance.createWebhook(appId, integrationId, webhookCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -95,9 +95,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.WebhooksApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var webhookId = "029c31f25a21b47effd7be90"; // String | The id of the webhook.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
+var webhookId = ""029c31f25a21b47effd7be90""; // String | The id of the webhook.
 apiInstance.deleteWebhook(appId, integrationId, webhookId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -154,9 +154,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.WebhooksApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var webhookId = "029c31f25a21b47effd7be90"; // String | The id of the webhook.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
+var webhookId = ""029c31f25a21b47effd7be90""; // String | The id of the webhook.
 apiInstance.getWebhook(appId, integrationId, webhookId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -213,8 +213,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.WebhooksApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
 apiInstance.listWebhooks(appId, integrationId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -270,9 +270,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.WebhooksApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var webhookId = "029c31f25a21b47effd7be90"; // String | The id of the webhook.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
+var webhookId = ""029c31f25a21b47effd7be90""; // String | The id of the webhook.
 var webhookBody = new SunshineConversationsClient.WebhookBody(); // WebhookBody | 
 apiInstance.updateWebhook(appId, integrationId, webhookId, webhookBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

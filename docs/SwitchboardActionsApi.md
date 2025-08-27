@@ -35,8 +35,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var acceptControlBody = new SunshineConversationsClient.AcceptControlBody(); // AcceptControlBody | 
 apiInstance.acceptControl(appId, conversationId, acceptControlBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -94,8 +94,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var offerControlBody = new SunshineConversationsClient.OfferControlBody(); // OfferControlBody | 
 apiInstance.offerControl(appId, conversationId, offerControlBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -153,8 +153,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var passControlBody = new SunshineConversationsClient.PassControlBody(); // PassControlBody | 
 apiInstance.passControl(appId, conversationId, passControlBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -212,8 +212,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardActionsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var opts = {
   'releaseControlBody': new SunshineConversationsClient.ReleaseControlBody() // ReleaseControlBody | 
 };

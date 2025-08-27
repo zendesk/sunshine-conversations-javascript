@@ -35,8 +35,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
 var integrationApiKey = new SunshineConversationsClient.IntegrationApiKey(); // IntegrationApiKey | 
 apiInstance.createCustomIntegrationKey(appId, integrationId, integrationApiKey).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -94,9 +94,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var keyId = "int_5d8cff3cd55b040010928b5b"; // String | The id of the key.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
+var keyId = ""int_5d8cff3cd55b040010928b5b""; // String | The id of the key.
 apiInstance.deleteCustomIntegrationKey(appId, integrationId, keyId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -153,9 +153,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
-var keyId = "int_5d8cff3cd55b040010928b5b"; // String | The id of the key.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
+var keyId = ""int_5d8cff3cd55b040010928b5b""; // String | The id of the key.
 apiInstance.getCustomIntegrationKey(appId, integrationId, keyId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -212,8 +212,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.CustomIntegrationApiKeysApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var integrationId = "029c31f25a21b47effd7be90"; // String | The id of the integration.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var integrationId = ""029c31f25a21b47effd7be90""; // String | The id of the integration.
 apiInstance.listCustomIntegrationKeys(appId, integrationId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

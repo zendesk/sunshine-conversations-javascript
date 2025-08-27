@@ -23,6 +23,6 @@ Name | Type | Description | Notes
 **textFallback** | **String** | A string containing the &#x60;label: value&#x60; of all fields, each separated by a newline character. | [optional] [readonly] 
 **coordinates** | [**LocationMessageCoordinates**](LocationMessageCoordinates.md) |  | 
 **location** | [**LocationMessageLocation**](LocationMessageLocation.md) |  | [optional] 
-**template** | [**Object**](.md) | The whatsapp template message to send. For more information, consult the [guide](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/message-overrides/#template-messages). &#x60;schema&#x60; must be set to &#x60;whatsapp&#x60;. | 
+**template** | **Object** | The whatsapp template message to send. For more information, consult the [guide](https://developer.zendesk.com/documentation/conversations/messaging-platform/programmable-conversations/message-overrides/#template-messages). &#x60;schema&#x60; must be set to &#x60;whatsapp&#x60;. | 
 
 

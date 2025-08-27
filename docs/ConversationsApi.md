@@ -38,7 +38,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 var conversationCreateBody = new SunshineConversationsClient.ConversationCreateBody(); // ConversationCreateBody | 
 apiInstance.createConversation(appId, conversationCreateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -95,8 +95,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 apiInstance.deleteConversation(appId, conversationId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -152,8 +152,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var downloadMessageRefBody = {"userId":"6e416caac6a5e9544e3fb6d7","apple":{"interactiveDataRef":{"url":"https://p61-content.icloud.com/M58C0A1A2EB62B6E899B4F28996E8DA229E1914295299C39944B2F2CA7482AE50.C01USN00","bid":"com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension","key":"00c0d1827fdc858fe7b42421de1fb289c2ee0a9463d787ce4f118506f970bd6e38","signature":"81a619c81da5a01c6139219a5d20e17430c631e1eb","owner":"M58C0A2A1EB62B4E859B4F28996E8DA229E1914295299C39944B2F2CA7482AE50.C01USN00"}}}; // DownloadMessageRefBody | 
 apiInstance.downloadMessageRef(appId, conversationId, downloadMessageRefBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -211,8 +211,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 apiInstance.getConversation(appId, conversationId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -268,7 +268,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 var filter = new SunshineConversationsClient.ConversationListFilter(); // ConversationListFilter | Contains parameters for filtering the results.
 var opts = {
   'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
@@ -329,8 +329,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var conversionEventsBody = {"instagram":{"payload":{"data":[{"action_source":"business_messaging","event_name":"TestEvent","event_time":1752161233,"messaging_channel":"instagram"}]}}}; // ConversionEventsBody | 
 apiInstance.postConversionEvents(appId, conversationId, conversionEventsBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -388,8 +388,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ConversationsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var conversationUpdateBody = new SunshineConversationsClient.ConversationUpdateBody(); // ConversationUpdateBody | 
 apiInstance.updateConversation(appId, conversationId, conversationUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

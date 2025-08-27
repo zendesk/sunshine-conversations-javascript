@@ -1,5 +1,11 @@
 # Changelog
 
+## [17.0.0] - 2025-08-25
+
+- Final release.
+- Going forward, the Javascript Language wrapper for the Sunshine Conversations API will no longer be generated in accordance with specification updates. Existing versions will continue to work, however new additions to the API specification will not be captured. Customers are encouraged to use existing open-source tooling such as https://github.com/OpenAPITools/openapi-generator to generate their own wrappers based on the API specification.
+- Refer to the public https://github.com/zendesk/sunshine-conversations-api-spec repository for the official Sunshine Conversations API specification.
+
 ## [16.0.1] - 2025-08-20
 
 - Documentation updates

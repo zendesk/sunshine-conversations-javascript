@@ -35,7 +35,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 apiInstance.createSwitchboard(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -90,8 +90,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var switchboardId = "5d8cff3cd55b040010928b5b"; // String | Identifies the switchboard.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var switchboardId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the switchboard.
 apiInstance.deleteSwitchboard(appId, switchboardId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -147,7 +147,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 apiInstance.listSwitchboards(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -202,8 +202,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.SwitchboardsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var switchboardId = "5d8cff3cd55b040010928b5b"; // String | Identifies the switchboard.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var switchboardId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the switchboard.
 var switchboardUpdateBody = new SunshineConversationsClient.SwitchboardUpdateBody(); // SwitchboardUpdateBody | 
 apiInstance.updateSwitchboard(appId, switchboardId, switchboardUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

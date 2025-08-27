@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **content** | [**Content**](Content.md) | The content of the message. | [optional] 
 **source** | [**Source**](Source.md) |  | [optional] 
 **quotedMessage** | [**QuotedMessage**](QuotedMessage.md) | The quoted message is currently only available for WhatsApp and Web Messenger &#x60;formResponse&#x60; messages. | [optional] 
-**metadata** | **Object** |  | [optional] 
+**metadata** | **{String: Object}** | Flat object containing custom properties. Strings, numbers and booleans  are the only supported format that can be passed to metadata. The metadata is limited to 4KB in size.  | [optional] 
 **deleted** | **Boolean** | true if the message serves as a placeholder for one that has been deleted. | [optional] 
 
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payload** | [**Object**](.md) |  | [optional] 
+**payload** | **Object** |  | [optional] 
 **withCapabilities** | **[String]** | List of capabilities needed for the override message to be received by the end user.   &#x60;LIST&#x60; : for list picker; &#x60;TIME&#x60; : for time picker; &#x60;FORM&#x60; : for form; &#x60;QUICK&#x60; : for quick reply; &#x60;AUTH2&#x60; : for authentication  | [optional] 
 
 

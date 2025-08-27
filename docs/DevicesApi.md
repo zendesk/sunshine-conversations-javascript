@@ -33,9 +33,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.DevicesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
-var deviceId = "5d8cff3cd55b040010928b5b"; // String | The device's id.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var userIdOrExternalId = ""42589ad070d43be9b00ff7e5""; // String | The user's id or externalId.
+var deviceId = ""5d8cff3cd55b040010928b5b""; // String | The device's id.
 apiInstance.getDevice(appId, userIdOrExternalId, deviceId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -92,8 +92,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.DevicesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var userIdOrExternalId = "42589ad070d43be9b00ff7e5"; // String | The user's id or externalId.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var userIdOrExternalId = ""42589ad070d43be9b00ff7e5""; // String | The user's id or externalId.
 apiInstance.listDevices(appId, userIdOrExternalId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {

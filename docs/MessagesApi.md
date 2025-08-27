@@ -35,8 +35,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.MessagesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 apiInstance.deleteAllMessages(appId, conversationId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -92,9 +92,9 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.MessagesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
-var messageId = "029c31f25a21b47effd7be90"; // String | The id of the message.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
+var messageId = ""029c31f25a21b47effd7be90""; // String | The id of the message.
 apiInstance.deleteMessage(appId, conversationId, messageId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -151,8 +151,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.MessagesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var opts = {
   'page': new SunshineConversationsClient.Page() // Page | Contains parameters for applying cursor pagination.
 };
@@ -212,8 +212,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.MessagesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var messagePost = new SunshineConversationsClient.MessagePost(); // MessagePost | 
 apiInstance.postMessage(appId, conversationId, messagePost).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

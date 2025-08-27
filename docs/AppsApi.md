@@ -91,7 +91,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.AppsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 apiInstance.deleteApp(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -146,7 +146,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.AppsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 apiInstance.getApp(appId).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
@@ -260,7 +260,7 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.AppsApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
 var appUpdateBody = new SunshineConversationsClient.AppUpdateBody(); // AppUpdateBody | 
 apiInstance.updateApp(appId, appUpdateBody).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);

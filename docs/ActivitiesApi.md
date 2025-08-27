@@ -32,8 +32,8 @@ basicAuth.password = 'YOUR_PASSWORD';
 // bearerAuth.accessToken = 'YOUR_ACCESS_TOKEN';
 
 var apiInstance = new SunshineConversationsClient.ActivitiesApi();
-var appId = "5d8cff3cd55b040010928b5b"; // String | Identifies the app.
-var conversationId = "029c31f25a21b47effd7be90"; // String | Identifies the conversation.
+var appId = ""5d8cff3cd55b040010928b5b""; // String | Identifies the app.
+var conversationId = ""029c31f25a21b47effd7be90""; // String | Identifies the conversation.
 var activityPost = {"author":{"type":"user","userId":"5963c0d619a30a2e00de36b8"},"type":"conversation:read"}; // ActivityPost | 
 apiInstance.postActivity(appId, conversationId, activityPost).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
