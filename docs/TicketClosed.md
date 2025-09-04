@@ -8,3 +8,12 @@ Name | Type | Description | Notes
 **data** | **{String: Object}** | No additional data is supplied with the \&quot;ticket:closed\&quot; activity type at this time. | [optional] 
 
 
+
+## Enum: TypeEnum
+
+
+* `ticket:closed` (value: `"ticket:closed"`)
+
+
+
+
